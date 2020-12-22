@@ -1,0 +1,73 @@
+Queries SPARQL con MINUS e UNION
+
+#Tutte le coppie di musei e opere che appartengono solo all'epoca classica 
+
+#(tutte le coppie meno quelle in cui l'opera appartiene a altre epoche
+
+#escluse le opere che non hanno epoca)
+
+
+SELECT ?m ?o
+
+WHERE { ?m arte:espone ?o .
+
+        MINUS {
+
+	       { ?m arte:espone ?o . 
+
+                 ?o arte:appartieneEpoca arte:Rinascimento . }	
+
+	       UNION	
+
+	       { ?m arte:espone ?o . 
+
+            	              ?o arte:appartieneEpoca arte:1920 .}
+
+              }
+
+	FILTER EXISTS { ?o arte:appartieneEpoca ?e}
+
+		
+
+}
+
+
+#Tutte le coppie di musei e opere, tenendo solo quelle di epoca classica
+
+
+SELECT ?m ?o
+
+WHERE { ?m arte:espone ?o . 
+
+	FILTER  EXISTS { ?o arte:appartieneEpoca arte:EpocaClassica }	
+
+}
+
+
+#Solo musei che hanno opere classiche (e non altre )
+
+SELECT ?m 
+
+WHERE {?m arte:espone ?o .
+
+	MINUS 
+
+	{
+
+	SELECT ?m 
+
+	WHERE {{?m arte:espone ?o. ?o arte:appartieneEpoca arte:Rinascimento} 
+
+ 		UNION 
+
+ 		{?m arte:espone ?o. ?o arte:appartieneEpoca arte:1920}
+
+	        }
+
+	}	
+
+}
+
+
+
+Ultime modifiche: giovedì, 10 dicembre 2020, 19:16

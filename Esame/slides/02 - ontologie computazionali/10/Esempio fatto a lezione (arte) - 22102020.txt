@@ -1,0 +1,278 @@
+@prefix : <http://www.modsem.org/examples/arte2020#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix arte: <http://www.modsem.org/examples/arte2020#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.modsem.org/examples/arte2020> .
+
+<http://www.modsem.org/examples/arte2020> rdf:type owl:Ontology ;
+                                           rdfs:comment "" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.modsem.org/examples/arte2020#contenutaIn
+arte:contenutaIn rdf:type owl:ObjectProperty ;
+                 owl:inverseOf arte:contiene ;
+                 rdfs:domain arte:Opera ;
+                 rdfs:range arte:Collezione .
+
+
+###  http://www.modsem.org/examples/arte2020#contiene
+arte:contiene rdf:type owl:ObjectProperty ;
+              rdfs:domain arte:Collezione ;
+              rdfs:range arte:Opera .
+
+
+###  http://www.modsem.org/examples/arte2020#crea
+arte:crea rdf:type owl:ObjectProperty ;
+          owl:inverseOf arte:creataDa ;
+          rdfs:domain arte:Artista ;
+          rdfs:range arte:Opera .
+
+
+###  http://www.modsem.org/examples/arte2020#creaDipinto
+arte:creaDipinto rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf arte:crea ;
+                 rdfs:range arte:Dipinto .
+
+
+###  http://www.modsem.org/examples/arte2020#creataDa
+arte:creataDa rdf:type owl:ObjectProperty ;
+              rdfs:domain arte:Opera ;
+              rdfs:range arte:Artista .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.modsem.org/examples/arte2020#annoDiMorte
+arte:annoDiMorte rdf:type owl:DatatypeProperty ;
+                 rdfs:domain arte:Artista ;
+                 rdfs:range xsd:dateTime .
+
+
+###  http://www.modsem.org/examples/arte2020#annoDiNascita
+arte:annoDiNascita rdf:type owl:DatatypeProperty ;
+                   rdfs:domain arte:Artista .
+
+
+###  http://www.modsem.org/examples/arte2020#codiceIconclass
+arte:codiceIconclass rdf:type owl:DatatypeProperty ;
+                     rdfs:domain arte:Opera .
+
+
+###  http://www.modsem.org/examples/arte2020#dataCreazione
+arte:dataCreazione rdf:type owl:DatatypeProperty ;
+                   rdfs:domain arte:Opera .
+
+
+###  http://www.modsem.org/examples/arte2020#nome
+arte:nome rdf:type owl:DatatypeProperty ;
+          rdfs:domain arte:Artista ;
+          rdfs:range xsd:string .
+
+
+###  http://www.modsem.org/examples/arte2020#titolo
+arte:titolo rdf:type owl:DatatypeProperty ;
+            rdfs:domain arte:Opera .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.modsem.org/examples/arte2020#Artista
+arte:Artista rdf:type owl:Class ;
+             owl:disjointWith arte:Collezione ,
+                              arte:Opera .
+
+
+###  http://www.modsem.org/examples/arte2020#ArtistaMultimediale
+arte:ArtistaMultimediale rdf:type owl:Class ;
+                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                               owl:onProperty arte:crea ;
+                                               owl:someValuesFrom arte:OperaMultimediale
+                                             ] ;
+                         rdfs:subClassOf arte:Artista .
+
+
+###  http://www.modsem.org/examples/arte2020#Collezione
+arte:Collezione rdf:type owl:Class ;
+                owl:disjointWith arte:Opera .
+
+
+###  http://www.modsem.org/examples/arte2020#CollezioneGrande
+arte:CollezioneGrande rdf:type owl:Class ;
+                      owl:equivalentClass [ rdf:type owl:Restriction ;
+                                            owl:onProperty arte:contiene ;
+                                            owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                                            owl:onClass arte:Opera
+                                          ] ;
+                      rdfs:subClassOf arte:Collezione .
+
+
+###  http://www.modsem.org/examples/arte2020#CollezioneMinima
+arte:CollezioneMinima rdf:type owl:Class ;
+                      owl:equivalentClass [ owl:intersectionOf ( arte:Collezione
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty arte:contiene ;
+                                                                   owl:maxQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                                   owl:onClass arte:Opera
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ] ;
+                      rdfs:subClassOf arte:Collezione .
+
+
+###  http://www.modsem.org/examples/arte2020#CollezionePittorica
+arte:CollezionePittorica rdf:type owl:Class ;
+                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                               owl:onProperty arte:contiene ;
+                                               owl:someValuesFrom [ owl:intersectionOf ( arte:Opera
+                                                                                         [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty arte:creataDa ;
+                                                                                           owl:someValuesFrom arte:Pittore
+                                                                                         ]
+                                                                                       ) ;
+                                                                    rdf:type owl:Class
+                                                                  ]
+                                             ] ;
+                         rdfs:subClassOf arte:Collezione .
+
+
+###  http://www.modsem.org/examples/arte2020#Dipinto
+arte:Dipinto rdf:type owl:Class ;
+             rdfs:subClassOf arte:Opera .
+
+
+###  http://www.modsem.org/examples/arte2020#LuogoGeografico
+arte:LuogoGeografico rdf:type owl:Class .
+
+
+###  http://www.modsem.org/examples/arte2020#Musicista
+arte:Musicista rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty arte:crea ;
+                                     owl:someValuesFrom arte:OperaMusicale
+                                   ] ;
+               rdfs:subClassOf arte:Artista .
+
+
+###  http://www.modsem.org/examples/arte2020#Opera
+arte:Opera rdf:type owl:Class .
+
+
+###  http://www.modsem.org/examples/arte2020#OperaLetteraria
+arte:OperaLetteraria rdf:type owl:Class ;
+                     rdfs:subClassOf arte:Opera .
+
+
+###  http://www.modsem.org/examples/arte2020#OperaMultimediale
+arte:OperaMultimediale rdf:type owl:Class ;
+                       rdfs:subClassOf arte:Opera .
+
+
+###  http://www.modsem.org/examples/arte2020#OperaMusicale
+arte:OperaMusicale rdf:type owl:Class ;
+                   rdfs:subClassOf arte:Opera .
+
+
+###  http://www.modsem.org/examples/arte2020#Pittore
+arte:Pittore rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                   owl:onProperty arte:crea ;
+                                   owl:someValuesFrom arte:Dipinto
+                                 ] ;
+             rdfs:subClassOf arte:Artista .
+
+
+###  http://www.modsem.org/examples/arte2020#Scrittore
+arte:Scrittore rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty arte:crea ;
+                                     owl:someValuesFrom arte:OperaMusicale
+                                   ] ;
+               rdfs:subClassOf arte:Artista .
+
+
+###  http://www.modsem.org/examples/arte2020#Scultore
+arte:Scultore rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                    owl:onProperty arte:crea ;
+                                    owl:someValuesFrom arte:Scultura
+                                  ] ;
+              rdfs:subClassOf arte:Artista .
+
+
+###  http://www.modsem.org/examples/arte2020#Scultura
+arte:Scultura rdf:type owl:Class ;
+              rdfs:subClassOf arte:Opera .
+
+
+###  http://www.modsem.org/examples/arte2020#SoloPittore
+arte:SoloPittore rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                              owl:onProperty arte:crea ;
+                                                              owl:someValuesFrom arte:Dipinto
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty arte:crea ;
+                                                              owl:allValuesFrom arte:Dipinto
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
+                 rdfs:subClassOf arte:Artista .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.modsem.org/examples/arte2020#GalleriaDegliUffizi
+arte:GalleriaDegliUffizi rdf:type owl:NamedIndividual .
+
+
+###  http://www.modsem.org/examples/arte2020#LaPersistenzaDellaMemoria
+arte:LaPersistenzaDellaMemoria rdf:type owl:NamedIndividual ,
+                                        arte:Dipinto ;
+                               arte:titolo "La persistenza della memoria" .
+
+
+###  http://www.modsem.org/examples/arte2020#LeonardoDaVinci
+arte:LeonardoDaVinci rdf:type owl:NamedIndividual ,
+                              arte:Artista ;
+                     arte:crea arte:MonnaLisa ;
+                     arte:annoDiNascita "1492-04-15T01:00:00"^^xsd:dateTime .
+
+
+###  http://www.modsem.org/examples/arte2020#MonnaLisa
+arte:MonnaLisa rdf:type owl:NamedIndividual ,
+                        arte:Dipinto ;
+               arte:dataCreazione 1503 ;
+               arte:titolo "Mona Lisa" .
+
+
+###  http://www.modsem.org/examples/arte2020#MuseeDuLouvre
+arte:MuseeDuLouvre rdf:type owl:NamedIndividual ,
+                            arte:Collezione ;
+                   arte:contiene arte:MonnaLisa .
+
+
+###  http://www.modsem.org/examples/arte2020#PieroDellaFrancesca
+arte:PieroDellaFrancesca rdf:type owl:NamedIndividual ,
+                                  arte:Artista .
+
+
+###  http://www.modsem.org/examples/arte2020#SalvadorDali
+arte:SalvadorDali rdf:type owl:NamedIndividual ,
+                           arte:Artista .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

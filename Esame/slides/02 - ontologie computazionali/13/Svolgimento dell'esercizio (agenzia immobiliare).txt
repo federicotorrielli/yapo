@@ -1,0 +1,454 @@
+@prefix : <http://www.modsem.org/agenzia#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix agenzia: <http://www.modsem.org/agenzia#> .
+@base <http://www.modsem.org/agenzia> .
+
+<http://www.modsem.org/agenzia> rdf:type owl:Ontology ;
+                                 dc:description "nnnn" ;
+                                 rdfs:comment "Esempio di svolgimento dell'esercizio di modellazione sul dominio immobiliare" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/agent
+foaf:agent rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.modsem.org/agenzia#ParoleCheInizianoPerA
+agenzia:ParoleCheInizianoPerA rdf:type rdfs:Datatype ;
+                              owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                                    owl:onDatatype xsd:string ;
+                                                    owl:withRestrictions ( [ xsd:pattern "[A][a-z]*"
+                                                                           ]
+                                                                         )
+                                                  ] .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.modsem.org/agenzia#CasaContieneArredo
+agenzia:CasaContieneArredo rdf:type owl:ObjectProperty ;
+                           owl:propertyChainAxiom ( agenzia:compostoDa
+                                                    agenzia:contiene
+                                                  ) .
+
+
+###  http://www.modsem.org/agenzia#compostoDa
+agenzia:compostoDa rdf:type owl:ObjectProperty ;
+                   owl:inverseOf agenzia:faParteDi ;
+                   rdfs:domain agenzia:Appartamento ;
+                   rdfs:range agenzia:Ambiente .
+
+
+###  http://www.modsem.org/agenzia#contiene
+agenzia:contiene rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 owl:inverseOf agenzia:èContenutoIn ;
+                 rdfs:domain agenzia:Ambiente ;
+                 rdfs:range agenzia:Arredo .
+
+
+###  http://www.modsem.org/agenzia#faParteDi
+agenzia:faParteDi rdf:type owl:ObjectProperty .
+
+
+###  http://www.modsem.org/agenzia#èContenutoIn
+agenzia:èContenutoIn rdf:type owl:ObjectProperty .
+
+
+###  http://www.modsem.org/agenzia#èSituatoIn
+agenzia:èSituatoIn rdf:type owl:ObjectProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain agenzia:Appartamento ;
+                   rdfs:range agenzia:Comune .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.modsem.org/agenzia#haIndirizzo
+agenzia:haIndirizzo rdf:type owl:DatatypeProperty ;
+                    rdfs:domain agenzia:Appartamento .
+
+
+###  http://www.modsem.org/agenzia#nomeComune
+agenzia:nomeComune rdf:type owl:DatatypeProperty ;
+                   rdfs:domain agenzia:Comune ;
+                   rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.modsem.org/agenzia#Ambiente
+agenzia:Ambiente rdf:type owl:Class .
+
+
+###  http://www.modsem.org/agenzia#Appartamento
+agenzia:Appartamento rdf:type owl:Class .
+
+
+###  http://www.modsem.org/agenzia#AppartamentoComuniConA
+agenzia:AppartamentoComuniConA rdf:type owl:Class ;
+                               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                     owl:onProperty agenzia:èSituatoIn ;
+                                                     owl:someValuesFrom [ owl:intersectionOf ( agenzia:Comune
+                                                                                               [ rdf:type owl:Restriction ;
+                                                                                                 owl:onProperty agenzia:nomeComune ;
+                                                                                                 owl:someValuesFrom agenzia:ParoleCheInizianoPerA
+                                                                                               ]
+                                                                                             ) ;
+                                                                          rdf:type owl:Class
+                                                                        ]
+                                                   ] ;
+                               rdfs:subClassOf agenzia:Appartamento .
+
+
+###  http://www.modsem.org/agenzia#AppartamentoComuniConL
+agenzia:AppartamentoComuniConL rdf:type owl:Class ;
+                               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                     owl:onProperty agenzia:èSituatoIn ;
+                                                     owl:someValuesFrom [ owl:intersectionOf ( agenzia:Comune
+                                                                                               [ rdf:type owl:Restriction ;
+                                                                                                 owl:onProperty agenzia:nomeComune ;
+                                                                                                 owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                                      owl:onDatatype xsd:string ;
+                                                                                                                      owl:withRestrictions ( [ xsd:pattern "[L][a-z]*"
+                                                                                                                                             ]
+                                                                                                                                           )
+                                                                                                                    ]
+                                                                                               ]
+                                                                                             ) ;
+                                                                          rdf:type owl:Class
+                                                                        ]
+                                                   ] ;
+                               rdfs:subClassOf agenzia:Appartamento .
+
+
+###  http://www.modsem.org/agenzia#Arredo
+agenzia:Arredo rdf:type owl:Class .
+
+
+###  http://www.modsem.org/agenzia#Bagno
+agenzia:Bagno rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                    owl:onProperty agenzia:contiene ;
+                                    owl:someValuesFrom agenzia:Lavandino
+                                  ] ;
+              rdfs:subClassOf agenzia:Ambiente .
+
+
+###  http://www.modsem.org/agenzia#Comune
+agenzia:Comune rdf:type owl:Class .
+
+
+###  http://www.modsem.org/agenzia#ComuneConA
+agenzia:ComuneConA rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty agenzia:nomeComune ;
+                                         owl:someValuesFrom agenzia:ParoleCheInizianoPerA
+                                       ] ;
+                   rdfs:subClassOf agenzia:Comune .
+
+
+###  http://www.modsem.org/agenzia#Cucina
+agenzia:Cucina rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty agenzia:contiene ;
+                                     owl:someValuesFrom agenzia:Tavolo
+                                   ] ;
+               rdfs:subClassOf agenzia:Ambiente .
+
+
+###  http://www.modsem.org/agenzia#Divano
+agenzia:Divano rdf:type owl:Class ;
+               rdfs:subClassOf agenzia:Arredo .
+
+
+###  http://www.modsem.org/agenzia#DivanoLetto
+agenzia:DivanoLetto rdf:type owl:Class ;
+                    rdfs:subClassOf agenzia:Divano ,
+                                    agenzia:Letto .
+
+
+###  http://www.modsem.org/agenzia#Lavandino
+agenzia:Lavandino rdf:type owl:Class ;
+                  rdfs:subClassOf agenzia:Arredo .
+
+
+###  http://www.modsem.org/agenzia#Letto
+agenzia:Letto rdf:type owl:Class ;
+              rdfs:subClassOf agenzia:Arredo .
+
+
+###  http://www.modsem.org/agenzia#Salotto
+agenzia:Salotto rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty agenzia:contiene ;
+                                      owl:someValuesFrom agenzia:Divano
+                                    ] ;
+                rdfs:subClassOf agenzia:Ambiente .
+
+
+###  http://www.modsem.org/agenzia#Tavolo
+agenzia:Tavolo rdf:type owl:Class ;
+               rdfs:subClassOf agenzia:Arredo .
+
+
+###  http://www.modsem.org/agenzia#appartamentoGrande
+agenzia:appartamentoGrande rdf:type owl:Class ;
+                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                 owl:onProperty agenzia:compostoDa ;
+                                                 owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass [ owl:intersectionOf ( agenzia:Ambiente
+                                                                                    [ rdf:type owl:Restriction ;
+                                                                                      owl:onProperty agenzia:contiene ;
+                                                                                      owl:someValuesFrom agenzia:Letto
+                                                                                    ]
+                                                                                  ) ;
+                                                               rdf:type owl:Class
+                                                             ]
+                                               ] ;
+                           rdfs:subClassOf agenzia:Appartamento .
+
+
+###  http://www.modsem.org/agenzia#appartamentoPerVacanze
+agenzia:appartamentoPerVacanze rdf:type owl:Class ;
+                               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                     owl:onProperty agenzia:èSituatoIn ;
+                                                     owl:someValuesFrom agenzia:comuneTuristico
+                                                   ] ;
+                               rdfs:subClassOf agenzia:Appartamento .
+
+
+###  http://www.modsem.org/agenzia#appartamentoPerVacanzePerFamiglie
+agenzia:appartamentoPerVacanzePerFamiglie rdf:type owl:Class ;
+                                          owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty agenzia:èSituatoIn ;
+                                                                                       owl:someValuesFrom agenzia:comuneTuristico
+                                                                                     ]
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty agenzia:compostoDa ;
+                                                                                       owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                                                       owl:onClass agenzia:stanzaDaLetto
+                                                                                     ]
+                                                                                   ) ;
+                                                                rdf:type owl:Class
+                                                              ] ;
+                                          rdfs:subClassOf agenzia:Appartamento .
+
+
+###  http://www.modsem.org/agenzia#comuneTuristico
+agenzia:comuneTuristico rdf:type owl:Class ;
+                        owl:equivalentClass [ rdf:type owl:Class ;
+                                              owl:oneOf ( agenzia:Courmayeur
+                                                          agenzia:Loano
+                                                        )
+                                            ] ;
+                        rdfs:subClassOf agenzia:Comune .
+
+
+###  http://www.modsem.org/agenzia#dueVani
+agenzia:dueVani rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty agenzia:compostoDa ;
+                                      owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                      owl:onClass agenzia:Ambiente
+                                    ] ;
+                rdfs:subClassOf agenzia:Appartamento .
+
+
+###  http://www.modsem.org/agenzia#stanzaDaLetto
+agenzia:stanzaDaLetto rdf:type owl:Class ;
+                      owl:equivalentClass [ rdf:type owl:Restriction ;
+                                            owl:onProperty agenzia:contiene ;
+                                            owl:someValuesFrom agenzia:Letto
+                                          ] ;
+                      rdfs:subClassOf agenzia:Ambiente .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.modsem.org/agenzia#Amburgo
+agenzia:Amburgo rdf:type owl:NamedIndividual ,
+                         agenzia:Comune ;
+                agenzia:nomeComune "Amburgo" .
+
+
+###  http://www.modsem.org/agenzia#Courmayeur
+agenzia:Courmayeur rdf:type owl:NamedIndividual ,
+                            agenzia:comuneTuristico ;
+                   agenzia:nomeComune "Courmayeur"^^xsd:string .
+
+
+###  http://www.modsem.org/agenzia#Loano
+agenzia:Loano rdf:type owl:NamedIndividual ,
+                       agenzia:comuneTuristico ;
+              agenzia:nomeComune "Loano"^^xsd:string .
+
+
+###  http://www.modsem.org/agenzia#Rapallo
+agenzia:Rapallo rdf:type owl:NamedIndividual ,
+                         agenzia:comuneTuristico .
+
+
+###  http://www.modsem.org/agenzia#bagnoGiovanni
+agenzia:bagnoGiovanni rdf:type owl:NamedIndividual ,
+                               agenzia:Ambiente .
+
+
+###  http://www.modsem.org/agenzia#casaCarletto
+agenzia:casaCarletto rdf:type owl:NamedIndividual ,
+                              agenzia:Appartamento ;
+                     agenzia:èSituatoIn agenzia:Amburgo .
+
+
+###  http://www.modsem.org/agenzia#casaGiovanni
+agenzia:casaGiovanni rdf:type owl:NamedIndividual ,
+                              agenzia:Appartamento ;
+                     agenzia:compostoDa agenzia:sgabuzzinoDiGiovanni ,
+                                        agenzia:stanza1Giovanni ,
+                                        agenzia:stanza2Giovanni ,
+                                        agenzia:stanza3Giovanni ;
+                     agenzia:èSituatoIn agenzia:Loano .
+
+
+###  http://www.modsem.org/agenzia#casaGiulia
+agenzia:casaGiulia rdf:type owl:NamedIndividual ,
+                            agenzia:Appartamento ;
+                   agenzia:compostoDa agenzia:stanzaLetto1Giulia ,
+                                      agenzia:stanzaLetto2Giulia ;
+                   agenzia:èSituatoIn agenzia:Courmayeur ;
+                   agenzia:haIndirizzo "via dei Matti n. 0" .
+
+
+###  http://www.modsem.org/agenzia#cucinaDiEsempio
+agenzia:cucinaDiEsempio rdf:type owl:NamedIndividual ,
+                                 agenzia:Ambiente ;
+                        agenzia:contiene agenzia:tavoloProva .
+
+
+###  http://www.modsem.org/agenzia#divanoLettoGiovanni
+agenzia:divanoLettoGiovanni rdf:type owl:NamedIndividual ,
+                                     agenzia:Divano .
+
+
+###  http://www.modsem.org/agenzia#lavandinoGiovanni
+agenzia:lavandinoGiovanni rdf:type owl:NamedIndividual ,
+                                   agenzia:Lavandino .
+
+
+###  http://www.modsem.org/agenzia#letto1Giulia
+agenzia:letto1Giulia rdf:type owl:NamedIndividual ,
+                              agenzia:Letto .
+
+
+###  http://www.modsem.org/agenzia#letto2Giulia
+agenzia:letto2Giulia rdf:type owl:NamedIndividual ,
+                              agenzia:Letto .
+
+
+###  http://www.modsem.org/agenzia#lettoGiovanni
+agenzia:lettoGiovanni rdf:type owl:NamedIndividual ,
+                               agenzia:Letto .
+
+
+###  http://www.modsem.org/agenzia#sgabuzzinoDiGiovanni
+agenzia:sgabuzzinoDiGiovanni rdf:type owl:NamedIndividual .
+
+
+###  http://www.modsem.org/agenzia#stanza1Giovanni
+agenzia:stanza1Giovanni rdf:type owl:NamedIndividual ,
+                                 agenzia:Ambiente ;
+                        agenzia:contiene agenzia:lavandinoGiovanni .
+
+
+###  http://www.modsem.org/agenzia#stanza2Giovanni
+agenzia:stanza2Giovanni rdf:type owl:NamedIndividual ,
+                                 agenzia:Ambiente ;
+                        agenzia:contiene agenzia:lettoGiovanni .
+
+
+###  http://www.modsem.org/agenzia#stanza3Giovanni
+agenzia:stanza3Giovanni rdf:type owl:NamedIndividual ,
+                                 agenzia:Ambiente ;
+                        agenzia:contiene agenzia:divanoLettoGiovanni .
+
+
+###  http://www.modsem.org/agenzia#stanzaLetto1Giulia
+agenzia:stanzaLetto1Giulia rdf:type owl:NamedIndividual ,
+                                    agenzia:Ambiente ;
+                           agenzia:contiene agenzia:letto1Giulia .
+
+
+###  http://www.modsem.org/agenzia#stanzaLetto2Giulia
+agenzia:stanzaLetto2Giulia rdf:type owl:NamedIndividual ,
+                                    agenzia:Ambiente ;
+                           agenzia:contiene agenzia:letto2Giulia .
+
+
+###  http://www.modsem.org/agenzia#tavoloProva
+agenzia:tavoloProva rdf:type owl:NamedIndividual ,
+                             agenzia:Tavolo .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( agenzia:Ambiente
+                agenzia:Appartamento
+                agenzia:Arredo
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( agenzia:Bagno
+                agenzia:Salotto
+                agenzia:stanzaDaLetto
+              )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( agenzia:stanza1Giovanni
+                        agenzia:stanza2Giovanni
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( agenzia:stanzaLetto1Giulia
+                        agenzia:stanzaLetto2Giulia
+                      )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
