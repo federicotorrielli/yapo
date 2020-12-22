@@ -1,0 +1,690 @@
+<rdf:RDF xml:base="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema">
+<owl:Ontology rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema"/>
+<!--
+ 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     
+-->
+<!--
+ http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled 
+-->
+<owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+<!--
+ 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     
+-->
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#haArgomento 
+-->
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#haArgomento">
+<rdfs:domain>
+<owl:Class>
+<owl:unionOf rdf:parseType="Collection">
+<rdf:Description rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+<rdf:Description rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Libro"/>
+</owl:unionOf>
+</owl:Class>
+</rdfs:domain>
+<rdfs:range rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Argomento"/>
+</owl:ObjectProperty>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#haPersonaggio 
+-->
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#haPersonaggio">
+<owl:inverseOf rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#personaggioDi"/>
+<rdfs:domain rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+<rdfs:range rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Personaggio"/>
+</owl:ObjectProperty>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#haRuolo 
+-->
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#haRuolo">
+<rdfs:domain rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Persona"/>
+<rdfs:range rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Ruolo"/>
+</owl:ObjectProperty>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#personaggioDi 
+-->
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#personaggioDi">
+<rdfs:domain rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Personaggio"/>
+<rdfs:range rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+</owl:ObjectProperty>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#recitaIn 
+-->
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#recitaIn">
+<rdfs:domain rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Persona"/>
+<rdfs:range rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+<owl:propertyChainAxiom rdf:parseType="Collection">
+<rdf:Description rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#haRuolo"/>
+<rdf:Description rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#ruoloAttoriale"/>
+<rdf:Description rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#personaggioDi"/>
+</owl:propertyChainAxiom>
+</owl:ObjectProperty>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#ruoloAttoriale 
+-->
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#ruoloAttoriale">
+<rdfs:domain rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Ruolo"/>
+<rdfs:range rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Personaggio"/>
+</owl:ObjectProperty>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#ruoloInFilm 
+-->
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#ruoloInFilm">
+<rdfs:domain rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Ruolo"/>
+<rdfs:range rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+</owl:ObjectProperty>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#trattoDa 
+-->
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#trattoDa">
+<rdfs:domain rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+<rdfs:range rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Libro"/>
+</owl:ObjectProperty>
+<!--
+ 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     
+-->
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#compenso 
+-->
+<owl:DatatypeProperty rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#compenso">
+<rdfs:domain rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Ruolo"/>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+<!--
+ 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     
+-->
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Argomento 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Argomento"/>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Attore 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Attore">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Ruolo"/>
+</owl:Class>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#AttoreMoltoPagato 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#AttoreMoltoPagato">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Persona"/>
+</owl:Class>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Avventura 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Avventura">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+</owl:Class>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Commedia 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Commedia">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+</owl:Class>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Dramma 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Dramma">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+</owl:Class>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Horror 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Horror">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+</owl:Class>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Libro 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Libro"/>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Persona 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Persona"/>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Personaggio 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Personaggio"/>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#PersonaggioComico 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#PersonaggioComico">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Personaggio"/>
+</owl:Class>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Produttore 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Produttore">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Ruolo"/>
+</owl:Class>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Regista 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Regista">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Ruolo"/>
+</owl:Class>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#RegistaFilm 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#RegistaFilm">
+<owl:equivalentClass>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#haRuolo"/>
+<owl:someValuesFrom rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Regista"/>
+</owl:Restriction>
+</owl:equivalentClass>
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Persona"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#haRuolo"/>
+<owl:someValuesFrom rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Regista"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Ruolo 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Ruolo"/>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Sceneggiatore 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Sceneggiatore">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Ruolo"/>
+</owl:Class>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#SciFi 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#SciFi">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+</owl:Class>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Thriller 
+-->
+<owl:Class rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Thriller">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+</owl:Class>
+<!--
+ 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     
+-->
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#E.T. 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#E.T.">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#SciFi"/>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#FraDiavolo 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#FraDiavolo">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Commedia"/>
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+<haPersonaggio rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Stanlio"/>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#HanSolo 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#HanSolo">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Personaggio"/>
+<personaggioDi rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#StarWars7"/>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#HarrisonFord 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#HarrisonFord">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Persona"/>
+<haRuolo rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#attoreIndianaJones"/>
+<haRuolo rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#attoreStarWars"/>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#HarryPotter1 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#HarryPotter1">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+<trattoDa rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#HarryPotterELaPietraFilosofale"/>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#HarryPotterELaPietraFilosofale 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#HarryPotterELaPietraFilosofale">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Libro"/>
+<haArgomento rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#magia"/>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#IPredatoriDellArcaPerduta 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#IPredatoriDellArcaPerduta">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Avventura"/>
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+<haPersonaggio rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#IndianaJones"/>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#IndianaJones 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#IndianaJones">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Personaggio"/>
+<personaggioDi rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#IPredatoriDellArcaPerduta"/>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#JJAbrams 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#JJAbrams">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Persona"/>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#PrincipessaLeyla 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#PrincipessaLeyla">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Personaggio"/>
+<personaggioDi rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#StarWars7"/>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#StanLaurel 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#StanLaurel">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Persona"/>
+<haRuolo rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#attoreFraDiavolo"/>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Stanlio 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Stanlio">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Personaggio"/>
+<personaggioDi rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#FraDiavolo"/>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#StarWars7 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#StarWars7">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#SciFi"/>
+<haPersonaggio rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#HanSolo"/>
+<haPersonaggio rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#PrincipessaLeyla"/>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#StevenSpielberg 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#StevenSpielberg">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Persona"/>
+<rdf:type>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#haRuolo"/>
+<owl:someValuesFrom rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Regista"/>
+</owl:Restriction>
+</rdf:type>
+<haRuolo rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#regiaIndianaJones"/>
+<haRuolo rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#regiaStarWars"/>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#attoreFraDiavolo 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#attoreFraDiavolo">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Attore"/>
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Ruolo"/>
+<compenso rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10000</compenso>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#attoreIndianaJones 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#attoreIndianaJones">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Attore"/>
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Ruolo"/>
+<ruoloAttoriale rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#IndianaJones"/>
+<ruoloInFilm rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#IPredatoriDellArcaPerduta"/>
+<compenso rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200000</compenso>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#attoreStarWars 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#attoreStarWars">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Attore"/>
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Ruolo"/>
+<ruoloInFilm rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#StarWars7"/>
+<compenso rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800000</compenso>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#magia 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#magia">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Argomento"/>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#regiaIndianaJones 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#regiaIndianaJones">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Regista"/>
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Ruolo"/>
+<ruoloInFilm rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#IPredatoriDellArcaPerduta"/>
+</owl:NamedIndividual>
+<!--
+ http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#regiaStarWars 
+-->
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#regiaStarWars">
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Regista"/>
+<rdf:type rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Ruolo"/>
+<ruoloInFilm rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#StarWars7"/>
+<compenso rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100000</compenso>
+</owl:NamedIndividual>
+<!--
+ 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     
+-->
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#haRuolo"/>
+<owl:someValuesFrom rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Regista"/>
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Persona"/>
+</owl:Restriction>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#haRuolo"/>
+<owl:someValuesFrom rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Regista"/>
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#RegistaFilm"/>
+</owl:Restriction>
+<!--
+ 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     
+-->
+<rdf:Description rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#l">
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#a">
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#f">
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#x">
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#y">
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#p">
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#r">
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#c">
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+</rdf:Description>
+<rdf:Description>
+<swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"/>
+<rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S2</rdfs:label>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+<swrl:body>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+<rdf:first>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+<swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#haArgomento"/>
+<swrl:argument1 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#l"/>
+<swrl:argument2 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#a"/>
+</rdf:Description>
+</rdf:first>
+<rdf:rest>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+<rdf:first>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+<swrl:classPredicate rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Libro"/>
+<swrl:argument1 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#l"/>
+</rdf:Description>
+</rdf:first>
+<rdf:rest>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+<rdf:first>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+<swrl:classPredicate rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Film"/>
+<swrl:argument1 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#f"/>
+</rdf:Description>
+</rdf:first>
+<rdf:rest>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+<rdf:first>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+<swrl:classPredicate rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Argomento"/>
+<swrl:argument1 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#a"/>
+</rdf:Description>
+</rdf:first>
+<rdf:rest>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+<rdf:first>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+<swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#trattoDa"/>
+<swrl:argument1 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#f"/>
+<swrl:argument2 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#l"/>
+</rdf:Description>
+</rdf:first>
+<rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+</rdf:Description>
+</rdf:rest>
+</rdf:Description>
+</rdf:rest>
+</rdf:Description>
+</rdf:rest>
+</rdf:Description>
+</rdf:rest>
+</rdf:Description>
+</swrl:body>
+<swrl:head>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+<rdf:first>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+<swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#haArgomento"/>
+<swrl:argument1 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#f"/>
+<swrl:argument2 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#a"/>
+</rdf:Description>
+</rdf:first>
+<rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+</rdf:Description>
+</swrl:head>
+</rdf:Description>
+<rdf:Description>
+<swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"/>
+<rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S1</rdfs:label>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+<swrl:body>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+<rdf:first>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+<swrl:classPredicate rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Personaggio"/>
+<swrl:argument1 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#x"/>
+</rdf:Description>
+</rdf:first>
+<rdf:rest>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+<rdf:first>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+<swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#personaggioDi"/>
+<swrl:argument1 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#x"/>
+<swrl:argument2 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#y"/>
+</rdf:Description>
+</rdf:first>
+<rdf:rest>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+<rdf:first>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+<swrl:classPredicate rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Commedia"/>
+<swrl:argument1 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#y"/>
+</rdf:Description>
+</rdf:first>
+<rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+</rdf:Description>
+</rdf:rest>
+</rdf:Description>
+</rdf:rest>
+</rdf:Description>
+</swrl:body>
+<swrl:head>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+<rdf:first>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+<swrl:classPredicate rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#PersonaggioComico"/>
+<swrl:argument1 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#x"/>
+</rdf:Description>
+</rdf:first>
+<rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+</rdf:Description>
+</swrl:head>
+</rdf:Description>
+<rdf:Description>
+<swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"/>
+<rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S3</rdfs:label>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+<swrl:body>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+<rdf:first>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+<swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#haRuolo"/>
+<swrl:argument1 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#p"/>
+<swrl:argument2 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#r"/>
+</rdf:Description>
+</rdf:first>
+<rdf:rest>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+<rdf:first>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+<swrl:classPredicate rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Persona"/>
+<swrl:argument1 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#p"/>
+</rdf:Description>
+</rdf:first>
+<rdf:rest>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+<rdf:first>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+<swrl:classPredicate rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#Ruolo"/>
+<swrl:argument1 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#r"/>
+</rdf:Description>
+</rdf:first>
+<rdf:rest>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+<rdf:first>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+<swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#compenso"/>
+<swrl:argument1 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#r"/>
+<swrl:argument2 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#c"/>
+</rdf:Description>
+</rdf:first>
+<rdf:rest>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+<rdf:first>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+<swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+<swrl:arguments>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+<rdf:first rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#c"/>
+<rdf:rest>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+<rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">300000</rdf:first>
+<rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+</rdf:Description>
+</rdf:rest>
+</rdf:Description>
+</swrl:arguments>
+</rdf:Description>
+</rdf:first>
+<rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+</rdf:Description>
+</rdf:rest>
+</rdf:Description>
+</rdf:rest>
+</rdf:Description>
+</rdf:rest>
+</rdf:Description>
+</rdf:rest>
+</rdf:Description>
+</swrl:body>
+<swrl:head>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+<rdf:first>
+<rdf:Description>
+<rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+<swrl:classPredicate rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#AttoreMoltoPagato"/>
+<swrl:argument1 rdf:resource="http://www.semanticweb.org/rossana/ontologies/2017/10/cinema#p"/>
+</rdf:Description>
+</rdf:first>
+<rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+</rdf:Description>
+</swrl:head>
+</rdf:Description>
+</rdf:RDF>
+<!--
+ Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi 
+-->

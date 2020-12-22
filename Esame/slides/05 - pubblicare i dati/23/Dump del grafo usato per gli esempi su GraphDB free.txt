@@ -1,0 +1,386 @@
+[ {
+  "@graph" : [ {
+    "@id" : "_:node10",
+    "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ],
+    "http://www.w3.org/2002/07/owl#onDatatype" : [ {
+      "@id" : "http://www.w3.org/2001/XMLSchema#integer"
+    } ],
+    "http://www.w3.org/2002/07/owl#withRestrictions" : [ {
+      "@list" : [ {
+        "@id" : "_:node12"
+      } ]
+    } ]
+  }, {
+    "@id" : "_:node12",
+    "http://www.w3.org/2001/XMLSchema#minExclusive" : [ {
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer",
+      "@value" : "100"
+    } ]
+  }, {
+    "@id" : "_:node13",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+    "http://www.w3.org/2002/07/owl#onProperty" : [ {
+      "@id" : "http://www.modsem.org/cinema2#haRuolo"
+    } ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+      "@id" : "_:node14"
+    } ]
+  }, {
+    "@id" : "_:node14",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+      "@list" : [ {
+        "@id" : "http://www.modsem.org/cinema2#Regista"
+      }, {
+        "@id" : "_:node17"
+      } ]
+    } ]
+  }, {
+    "@id" : "_:node17",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+    "http://www.w3.org/2002/07/owl#onProperty" : [ {
+      "@id" : "http://www.modsem.org/cinema2#ruoloInFilm"
+    } ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Film"
+    } ]
+  }, {
+    "@id" : "_:node4",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+    "http://www.w3.org/2002/07/owl#onProperty" : [ {
+      "@id" : "http://www.modsem.org/cinema2#haRuolo"
+    } ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Attore"
+    } ]
+  }, {
+    "@id" : "_:node5",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+    "http://www.w3.org/2002/07/owl#onProperty" : [ {
+      "@id" : "http://www.modsem.org/cinema2#haRuolo"
+    } ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+      "@id" : "_:node6"
+    } ]
+  }, {
+    "@id" : "_:node6",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+      "@list" : [ {
+        "@id" : "http://www.modsem.org/cinema2#Attore"
+      }, {
+        "@id" : "_:node9"
+      } ]
+    } ]
+  }, {
+    "@id" : "_:node9",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+    "http://www.w3.org/2002/07/owl#onProperty" : [ {
+      "@id" : "http://www.modsem.org/cinema2#compenso"
+    } ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+      "@id" : "_:node10"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#Attore",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Ruolo"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#AttoreFilm",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Persona"
+    } ],
+    "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+      "@id" : "_:node4"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#AttoreMoltoPagato",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.modsem.org/cinema2#AttoreFilm"
+    } ],
+    "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+      "@id" : "_:node5"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#Avventura",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Film"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#Commedia",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Film"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#Dramma",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Film"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#E.T.",
+    "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://www.modsem.org/cinema2#SciFi" ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#Film",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#HanSolo",
+    "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://www.modsem.org/cinema2#Personaggio" ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#HarrisonFord",
+    "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://www.modsem.org/cinema2#Persona" ],
+    "http://www.modsem.org/cinema2#haRuolo" : [ {
+      "@id" : "http://www.modsem.org/cinema2#attoreStarWars"
+    } ],
+    "http://www.w3.org/2002/07/owl#sameAs" : [ {
+      "@id" : "http://www.wikidata.org/entity/Q81328"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#Horror",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Film"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#IPredatoriDellArcaPerduta",
+    "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://www.modsem.org/cinema2#Avventura" ],
+    "http://www.modsem.org/cinema2#ambientatoIn" : [ {
+      "@id" : "http://www.modsem.org/citta2#Londra"
+    } ],
+    "http://www.modsem.org/cinema2#haPersonaggio" : [ {
+      "@id" : "http://www.modsem.org/cinema2#IndianaJones"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#IndianaJones",
+    "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://www.modsem.org/cinema2#Personaggio" ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#JJAbrams",
+    "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://www.modsem.org/cinema2#Persona" ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#Location",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+      "@id" : "http://www.modsem.org/citta2#Citta"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#Persona",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+      "@id" : "http://xmlns.com/foaf/0.1/Person"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#Personaggio",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#PrincipessaLeyla",
+    "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://www.modsem.org/cinema2#Personaggio" ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#Produttore",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Ruolo"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#Regista",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Ruolo"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#RegistaFilm",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Persona"
+    } ],
+    "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+      "@id" : "_:node13"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#Ruolo",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#Sceneggiatore",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Ruolo"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#SciFi",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Film"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#StarWars7",
+    "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://www.modsem.org/cinema2#SciFi" ],
+    "http://www.modsem.org/cinema2#haPersonaggio" : [ {
+      "@id" : "http://www.modsem.org/cinema2#HanSolo"
+    }, {
+      "@id" : "http://www.modsem.org/cinema2#PrincipessaLeyla"
+    }, {
+      "@id" : "http://www.modsem.org/cinema2#LukeSkywalker"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#StevenSpielberg",
+    "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://www.modsem.org/cinema2#Persona" ],
+    "http://www.modsem.org/cinema2#haRuolo" : [ {
+      "@id" : "http://www.modsem.org/cinema2#regiaIndianaJones"
+    }, {
+      "@id" : "http://www.modsem.org/cinema2#regiaStarWars"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#Thriller",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Film"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#ambientatoIn",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Film"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Location"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#attoreIndianaJones",
+    "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://www.modsem.org/cinema2#Attore" ],
+    "http://www.modsem.org/cinema2#compenso" : [ {
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer",
+      "@value" : "200000"
+    } ],
+    "http://www.modsem.org/cinema2#ruoloAttoriale" : [ {
+      "@id" : "http://www.modsem.org/cinema2#IndianaJones"
+    } ],
+    "http://www.modsem.org/cinema2#ruoloInFilm" : [ {
+      "@id" : "http://www.modsem.org/cinema2#IPredatoriDellArcaPerduta"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#attoreStarWars",
+    "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://www.modsem.org/cinema2#Attore" ],
+    "http://www.modsem.org/cinema2#compenso" : [ {
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer",
+      "@value" : "800000"
+    } ],
+    "http://www.modsem.org/cinema2#ruoloInFilm" : [ {
+      "@id" : "http://www.modsem.org/cinema2#StarWars7"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#compenso",
+    "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Ruolo"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://www.w3.org/2001/XMLSchema#integer"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#haPersonaggio",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Film"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Personaggio"
+    } ],
+    "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+      "@id" : "http://www.modsem.org/cinema2#personaggioDi"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#haRuolo",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Persona"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Ruolo"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#personaggioDi",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Personaggio"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Film"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#recitaIn",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Persona"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Film"
+    } ],
+    "http://www.w3.org/2002/07/owl#propertyChainAxiom" : [ {
+      "@list" : [ {
+        "@id" : "http://www.modsem.org/cinema2#haRuolo"
+      }, {
+        "@id" : "http://www.modsem.org/cinema2#ruoloAttoriale"
+      }, {
+        "@id" : "http://www.modsem.org/cinema2#personaggioDi"
+      } ]
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#regiaIndianaJones",
+    "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://www.modsem.org/cinema2#Regista" ],
+    "http://www.modsem.org/cinema2#ruoloInFilm" : [ {
+      "@id" : "http://www.modsem.org/cinema2#IPredatoriDellArcaPerduta"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#regiaStarWars",
+    "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://www.modsem.org/cinema2#Regista" ],
+    "http://www.modsem.org/cinema2#compenso" : [ {
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer",
+      "@value" : "100000"
+    } ],
+    "http://www.modsem.org/cinema2#ruoloInFilm" : [ {
+      "@id" : "http://www.modsem.org/cinema2#StarWars7"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#ruoloAttoriale",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Attore"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Personaggio"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/cinema2#ruoloInFilm",
+    "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+    "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Ruolo"
+    } ],
+    "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+      "@id" : "http://www.modsem.org/cinema2#Film"
+    } ]
+  }, {
+    "@id" : "http://www.modsem.org/citta2#Citta",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+  }, {
+    "@id" : "http://www.modsem.org/citta2#Londra",
+    "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "http://www.modsem.org/cinema2#Location", "http://www.modsem.org/citta2#Citta" ]
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q81328",
+    "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+    "http://www.modsem.org/cinema2#haRuolo" : [ {
+      "@id" : "http://www.modsem.org/cinema2#attoreIndianaJones"
+    } ]
+  }, {
+    "@id" : "http://xmlns.com/foaf/0.1/Person",
+    "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+  } ],
+  "@id" : "http://modsem.org/esempi/cinemaWD"
+} ]

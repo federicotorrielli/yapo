@@ -29,3 +29,11 @@ a disposizione dell'utente: un tool per confrontare dispositivi simili. Per esse
 > questo tipo di confronto, nonostante la loro accurata catalogazione che provvedono a dare sul sito.
 Se il nostro povero utente avesse avuto la possibilità di confrontare i prodotti per prezzo, si sarebbe accorto che 
 l'azienda vende il modello XR ad una cifra minore con (più o meno) la stessa qualità di prodotto.
+
+## Motivazione 2: aggiornamento del catalogo
+L'azienda ha deciso di riproporre i propri dispositivi anche gli anni successivi mutando la fascia
+di clientela a cui erano precedentemente venduti. Alcuni dispositivi top di gamma dell'anno N risultano appartenenti 
+alla fascia media dell'anno N+1 permettendo il riutilizzo dei *vecchi device* allungando la vita degli articoli e
+riducendo le scorte avanzate in magazzino allo stesso tempo. L'organizzazione del catalogo attraverso una 
+rappresentazione della conoscenza, aggiornabile nel tempo, permette la riorganizzazione delle proposte degli anni 
+successivi in base alle scelte di *marketing* stabilite dal *team* addetto all'interno dell'azienda.

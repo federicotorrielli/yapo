@@ -1,0 +1,66 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns0: <http://www.funny_animals.org#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.funny_animals.org#Animale> a rdfs:Class .
+<http://www.funny_animals.org#Luogo> a rdfs:Class .
+<http://www.funny_animals.org#Bistecca> a rdfs:Class .
+<http://www.funny_animals.org#Film> a rdfs:Class .
+<http://www.funny_animals.org#Leone>
+  a rdfs:Class ;
+  rdfs:subClassOf <http://www.funny_animals.org#Animale> .
+
+<http://www.funny_animals.org#Zebra>
+  a rdfs:Class ;
+  rdfs:subClassOf <http://www.funny_animals.org#Animale> .
+
+<http://www.funny_animals.org#Giraffa>
+  a rdfs:Class ;
+  rdfs:subClassOf <http://www.funny_animals.org#Animale> .
+
+<http://www.funny_animals.org#Ippopotamo>
+  a rdfs:Class ;
+  rdfs:subClassOf <http://www.funny_animals.org#Animale> .
+
+<http://www.funny_animals.org#abita>
+  a rdf:Property ;
+  rdfs:range <http://www.funny_animals.org#Luogo> .
+
+<http://www.funny_animals.org#haPersonaggio>
+  a rdf:Property ;
+  rdfs:domain <http://www.funny_animals.org#Film> ;
+  rdfs:range <http://www.funny_animals.org#Animale> .
+
+<http://www.moviedata.com/places#ZooDiNewYork> a <http://www.funny_animals.org#Luogo> .
+
+<http://www.moviedata.com/characters#Marty>
+  a <http://www.funny_animals.org#Zebra> ;
+  foaf:name "Marty" ;
+  foaf:knows <http://www.moviedata.com/characters#Alex> .
+
+<http://www.moviedata.com/characters#Melman>
+  a <http://www.funny_animals.org#Giraffa> ;
+  foaf:name "Melman" ;
+  foaf:knows <http://www.moviedata.com/characters#Gloria> .
+
+<http://www.moviedata.com/characters#Gloria>
+  a <http://www.funny_animals.org#Ippopotamo> ;
+  foaf:name "Gloria" ;
+  foaf:knows <http://www.moviedata.com/characters#Melman> .
+
+<http://www.moviedata.com/characters#Alex>
+  a <http://www.funny_animals.org#Leone> ;
+  foaf:knows <http://www.moviedata.com/characters#Marty> ;
+  foaf:name "Alex" ;
+  ns0:abita <http://www.moviedata.com/places#ZooDiNewYork> .
+
+<http://www.moviedata.com/movies#Madagascar>
+  a ns0:Film ;
+  dc:title "Madagascar" ;
+  dc:creator "Eric Darnell", "Tom McGrath" ;
+  dc:publisher "Miramax" ;
+  dc:date "2005-09-02"^^xsd:date ;
+  ns0:haPersonaggio <http://www.moviedata.com/characters#Gloria>, <http://www.moviedata.com/characters#Alex>, <http://www.moviedata.com/characters#Melman>, <http://www.moviedata.com/characters#Marty> .
