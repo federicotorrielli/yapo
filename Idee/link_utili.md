@@ -1,4 +1,5 @@
 # Lista dei link utili
+> Lista dei link interessanti al fine di consultazione
 
 ## Paper di ricerca sugli e-catalog
 
