@@ -3,6 +3,10 @@
 
 ## Argomento scelto
 
+Catalogo di prodotti e servizi di una generica azienda nell'ambito vendita e noleggio prodotti tecnologici.
+Nel seguente documento analizziamo il caso di una multinazionale e la gestione del suo catalogo.
+Di seguito, mostriamo una breve descrizione e la principale motivazione di sviluppo:
+
 Catalogo dei prodotti venduti dall'azienda Apple, collocata nell'ambiente tecnologico.
 Sono trattati solamente i prodotti portatili progettati e venduti in Italia a partire dall'anno 2016.
 Alcuni esempi di prodotti venduti sono:
