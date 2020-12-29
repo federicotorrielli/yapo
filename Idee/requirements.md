@@ -12,6 +12,10 @@ solo si può usufruire più facilmente del catalogo (da cliente) ma diventa altr
 
 ## Task e contesto
     > I task specifici a cui è orientata e il contesto in cui si collocano
+Il catalogo permette l'organizzazione dei prodotti venduti dall'azienda, tiene in considerazione le fasce di clientela
+a cui gli articoli sono indirizzati e le possibili variazioni nel tempo seguendo le scelte commerciali e rispettando
+le relazioni fra items. È possibile la consultazione della raccolta da parte dei clienti usufruendo di filtri in grado di semplificare la
+ricerca, la lettura e il confronto con i competitor.
 
 ## Utenti target
     > Il tipo di utenti a cui si rivolge
