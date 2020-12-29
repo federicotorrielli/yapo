@@ -3,8 +3,8 @@
 
 ## Dominio
     > Descrizione del dominio
-Il dominio, collocato nell'ambiente commerciale, tende a rappresentare i prodotti delle aziende mettendoli in relazione 
-tra loro in base a prestazioni, qualità e *targets*. Contiene le descrizioni degli articoli e le specifiche tecniche, 
+Il dominio, collocato nell'ambiente commerciale, ha come fine la rappresentazione dei prodotti delle aziende mettendoli in relazione 
+tra loro in base a prestazioni, qualità e *target*. Contiene le descrizioni degli articoli e le specifiche tecniche, 
 permette il confronto dei prodotti e la loro organizzazione utile alle aziende e ai clienti. Infine, mantiene traccia 
 delle proposte annuali disponibili sul mercato.
 
