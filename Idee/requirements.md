@@ -16,6 +16,7 @@ Il catalogo permette l'organizzazione dei prodotti venduti dall'azienda, tiene i
 a cui gli articoli sono indirizzati e le possibili variazioni nel tempo seguendo le scelte commerciali e rispettando
 le relazioni fra items. È possibile la consultazione della raccolta da parte dei clienti usufruendo di filtri in grado di semplificare la
 ricerca, la lettura e il confronto con i competitor.
+Il contesto è la vendita e la consultazione dei prodotti delle aziende.
 
 ## Utenti target
     > Il tipo di utenti a cui si rivolge
