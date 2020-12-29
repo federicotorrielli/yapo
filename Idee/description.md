@@ -15,3 +15,5 @@ delle proposte annuali disponibili sul mercato.
 
 ### Sitografia
 Apple (Italy). Available at: *https://www.apple.com/it/*
+
+Samsung (Italy). Available at: *https://www.samsung.com/it/*
