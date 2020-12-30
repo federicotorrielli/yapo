@@ -1,0 +1,358 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.modsem.com/productCatalog#"
+     xml:base="http://www.modsem.com/productCatalog"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.modsem.com/productCatalog"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#compatibleWith -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#compatibleWith">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#contains -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#contains">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#designedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#designedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#fitFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#fitFor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#inBoxOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#inBoxOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#needsConnectionWith -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#needsConnectionWith">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#producedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#producedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#suitableFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#suitableFor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#ProductCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#ProductCode">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#ProductName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#ProductName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#RollOutDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#RollOutDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Accessory -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#Accessory">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#CasualUser -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#CasualUser">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#User"/>
+        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#PowerUser"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Computer -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#Computer">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#NotPortableDevice"/>
+        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Stereo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Cover -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#Cover">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
+        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Device -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#Device">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#EarPlugs -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#EarPlugs">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Engineering -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#Engineering">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Manufacturer"/>
+        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Factory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Factory -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#Factory">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Manufacturer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#HardCover -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#HardCover">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Cover"/>
+        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#SoftCover"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Laptop -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#Laptop">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Manufacturer -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#Manufacturer"/>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#NotPortableDevice -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#NotPortableDevice">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Device"/>
+        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#PortableDevice -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#PortableDevice">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#PowerUser -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#PowerUser">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#User"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Product -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#Product">
+        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#ProductCatalog"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#ProductCatalog -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#ProductCatalog"/>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#SellingCatalog -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#SellingCatalog">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#ProductCatalog"/>
+        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#StockCatalog"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Smartphone -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#Smartphone">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Smartwatch -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#Smartwatch">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#SoftCover -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#SoftCover">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Cover"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Stereo -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#Stereo">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#NotPortableDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#StockCatalog -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#StockCatalog">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#ProductCatalog"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Tablet -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#Tablet">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#User -->
+
+    <owl:Class rdf:about="http://www.modsem.com/productCatalog#User"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Laptop"/>
+            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Smartphone"/>
+            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Tablet"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Manufacturer"/>
+            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Product"/>
+            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#ProductCatalog"/>
+            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#User"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
