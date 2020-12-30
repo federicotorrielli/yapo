@@ -96,6 +96,62 @@
     
 
 
+    <!-- http://www.modsem.com/productCatalog#CameraMP -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#CameraMP">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Color -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#Color">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#CpuType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#CpuType">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Height -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#Height">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#KeyboardType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#KeyboardType">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#MemorySize -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#MemorySize">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#PortType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#PortType">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.modsem.com/productCatalog#ProductCode -->
 
     <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#ProductCode">
@@ -112,9 +168,49 @@
     
 
 
+    <!-- http://www.modsem.com/productCatalog#RamSize -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#RamSize">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#RamType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#RamType">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.modsem.com/productCatalog#RollOutDate -->
 
     <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#RollOutDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#ScreenSize -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#ScreenSize">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Weight -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#Weight">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#isTouchScreen -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#isTouchScreen">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
     </owl:DatatypeProperty>
     
