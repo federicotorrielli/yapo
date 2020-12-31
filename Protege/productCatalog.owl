@@ -496,7 +496,8 @@
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.modsem.com/productCatalog#designs"/>
-                <owl:allValuesFrom rdf:resource="http://www.modsem.com/productCatalog#Device"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.modsem.com/productCatalog#Device"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Engineering"/>
