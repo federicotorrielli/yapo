@@ -76,6 +76,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#contains">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#ProductCatalog"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Product"/>
     </owl:ObjectProperty>
@@ -111,10 +112,21 @@
     
 
 
+    <!-- http://www.modsem.com/productCatalog#hasProducer -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#hasProducer">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Engineering"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Factory"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.modsem.com/productCatalog#inBoxOf -->
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#inBoxOf">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Tablet"/>
@@ -360,6 +372,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#isTouchScreen">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     </owl:DatatypeProperty>
