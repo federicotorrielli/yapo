@@ -1012,8 +1012,19 @@
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, Green, Yellow, Purple, Red, White</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple A13 Bionic</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.3</Depth>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150.9</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</MemorySize>
         <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iOS13</OperativeSystem>
+        <PortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</PortType>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">719.0</Price>
+        <ProductCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A2221</ProductCode>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Iphone 11</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</RamSize>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-09-20T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">194.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">75.7</Width>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
     </owl:NamedIndividual>
     
 
