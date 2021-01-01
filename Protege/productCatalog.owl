@@ -1012,7 +1012,7 @@
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, Green, Yellow, Purple, Red, White</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple A13 Bionic</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.3</Depth>
-        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iOS 13</OperativeSystem>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iOS13</OperativeSystem>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">75.7</Width>
     </owl:NamedIndividual>
     
