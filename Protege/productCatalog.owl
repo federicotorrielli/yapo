@@ -323,7 +323,14 @@
 
     <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#CameraMP">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Computer"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#PortableDevice"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range>
             <rdfs:Datatype>
                 <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
@@ -336,6 +343,25 @@
         </rdfs:range>
         <rdfs:comment xml:lang="en">Number of megapixels in a camera&apos;s device</rdfs:comment>
         <rdfs:label xml:lang="en">CameraMegaPixels</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#ChargingPortType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#ChargingPortType">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#EarPlugs"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#PortableDevice"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#chargingport"/>
+        <rdfs:comment xml:lang="en">Charging port type</rdfs:comment>
+        <rdfs:label xml:lang="en">ChargingPortType</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -356,7 +382,14 @@
 
     <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#CpuType">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Device"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Device"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#EarPlugs"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="en">Cpu name</rdfs:comment>
         <rdfs:label xml:lang="en">CpuType</rdfs:label>
@@ -440,25 +473,6 @@
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="en">Operating System installed in a product</rdfs:comment>
         <rdfs:label xml:lang="en">OperatingSystem</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.modsem.com/productCatalog#PortType -->
-
-    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#PortType">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#EarPlugs"/>
-                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#PortableDevice"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#chargingport"/>
-        <rdfs:comment xml:lang="en">Charging port type</rdfs:comment>
-        <rdfs:label xml:lang="en">PortType</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -633,7 +647,14 @@
     <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#isTouchScreen">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Computer"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#PortableDevice"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
         <rdfs:comment xml:lang="en">Checking if a device is touch screen</rdfs:comment>
         <rdfs:label xml:lang="en">isTouchScreen</rdfs:label>
@@ -1004,19 +1025,39 @@
     
 
 
+    <!-- http://www.modsem.com/productCatalog#AirPods_wirelessCharge -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AirPods_wirelessCharge">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">White</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chip H1</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21.3</Depth>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">53.5</Height>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">229.0</Price>
+        <ProductCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A1938</ProductCode>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AirPods Wireless Charge Case</ProductName>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-03-20T00:00:00</RollOutDate>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40.0</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">44.3</Width>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular -->
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartwatch"/>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silver, Graphite (DLC), Gold (PVD)</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dual-core</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.4</Depth>
         <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40.0</Height>
         <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">32</MemorySize>
         <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">watchOS 7.0</OperativeSystem>
-        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#string">539</Price>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">539.0</Price>
         <ProductCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A2293</ProductCode>
         <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple Watch 6 40mm GPS+Cellular</ProductName>
-        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</RamSize>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</RamSize>
         <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-19T00:00:00</RollOutDate>
         <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.57</ScreenSize>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">39.7</Weight>
@@ -1031,13 +1072,13 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Iphone11_64">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, Green, Yellow, Purple, Red, White</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple A13 Bionic</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.3</Depth>
         <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150.9</Height>
         <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</MemorySize>
         <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iOS 13</OperativeSystem>
-        <PortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</PortType>
         <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">719.0</Price>
         <ProductCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A2221</ProductCode>
         <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Iphone 11 64GB</ProductName>
@@ -1054,13 +1095,13 @@
     <!-- http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256 -->
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Computer"/>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silver</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Intel Core i5 6‑core 10gen 3.1GHz (Turbo Boost 4.5GHz)</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">203.0</Depth>
         <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">516.0</Height>
-        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</MemorySize>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">256</MemorySize>
         <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">macOS Big Sur</OperativeSystem>
-        <PortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AC Power Cord</PortType>
         <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1349.0</Price>
         <ProductCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MXWT2LL/A</ProductCode>
         <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iMac 27 5K 256GB</ProductName>
@@ -1080,13 +1121,13 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iPhone12_64">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
+        <ChargingPortType>Lightning</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, White, Red, Green, Blue</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A14 Bionic</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.4</Depth>
         <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">146.7</Height>
         <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</MemorySize>
         <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iOS 14</OperativeSystem>
-        <PortType>Lightning</PortType>
         <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">939.0</Price>
         <ProductCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A2172</ProductCode>
         <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Iphone12 64 GB</ProductName>
