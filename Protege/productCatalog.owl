@@ -1133,6 +1133,8 @@
         <designs rdf:resource="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular"/>
         <designs rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
         <designs rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
+        <designs rdf:resource="http://www.modsem.com/productCatalog#MacBookAir_M1"/>
+        <designs rdf:resource="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256"/>
         <designs rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <rdfs:comment xml:lang="en">ITengineering company that designs CPUs for Apple</rdfs:comment>
         <rdfs:label xml:lang="en">Foxconn</rdfs:label>
@@ -1220,7 +1222,12 @@
     <!-- http://www.modsem.com/productCatalog#Qualcomm -->
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Qualcomm">
+        <produces rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
+        <produces rdf:resource="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular"/>
+        <produces rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
         <produces rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
+        <produces rdf:resource="http://www.modsem.com/productCatalog#MacBookAir_M1"/>
+        <produces rdf:resource="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256"/>
         <produces rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <rdfs:comment xml:lang="en">Factory company that produces CPUs for Apple</rdfs:comment>
         <rdfs:label xml:lang="en">Qualcomm</rdfs:label>
