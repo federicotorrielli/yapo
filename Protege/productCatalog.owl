@@ -25,6 +25,8 @@
     <!-- http://www.modsem.com/productCatalog#chargingport -->
 
     <rdfs:Datatype rdf:about="http://www.modsem.com/productCatalog#chargingport">
+        <rdfs:comment xml:lang="en">Type of charging port, ENUM</rdfs:comment>
+        <rdfs:label xml:lang="en">chargingport</rdfs:label>
         <owl:equivalentClass>
             <rdfs:Datatype>
                 <owl:oneOf>
