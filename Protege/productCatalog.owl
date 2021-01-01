@@ -215,6 +215,15 @@
     
 
 
+    <!-- http://www.modsem.com/productCatalog#predecessorOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#predecessorOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.modsem.com/productCatalog#successorOf"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.modsem.com/productCatalog#producedBy -->
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#producedBy">
@@ -230,6 +239,17 @@
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#produces">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#successorOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#successorOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Product"/>
     </owl:ObjectProperty>
     
 
@@ -294,6 +314,25 @@
     
 
 
+    <!-- http://www.modsem.com/productCatalog#Depth -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#Depth">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.modsem.com/productCatalog#Height -->
 
     <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#Height">
@@ -317,8 +356,14 @@
 
     <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#MemorySize">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Computer"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Computer"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#PortableDevice"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
     </owl:DatatypeProperty>
     
@@ -328,9 +373,34 @@
 
     <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#PortType">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#EarPlugs"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#PortableDevice"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#chargingport"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Price -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#Price">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
     </owl:DatatypeProperty>
     
 
@@ -359,8 +429,14 @@
 
     <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#RamSize">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Computer"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Computer"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#PortableDevice"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
     </owl:DatatypeProperty>
     
@@ -370,8 +446,14 @@
 
     <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#RamType">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Computer"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Laptop"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Computer"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Laptop"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -391,8 +473,14 @@
 
     <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#ScreenSize">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Computer"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Computer"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#PortableDevice"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range>
             <rdfs:Datatype>
                 <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
@@ -410,6 +498,25 @@
     <!-- http://www.modsem.com/productCatalog#Weight -->
 
     <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#Weight">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Width -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#Width">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
         <rdfs:range>
@@ -741,6 +848,43 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Iphone11_64 -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Iphone11_64">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
+        <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, Green, Yellow, Purple, Red, White</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple A13 Bionic</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.3</Depth>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">75.7</Width>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#iPhone12_64 -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iPhone12_64">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
+        <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, White, Red, Green, Blue</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A14 Bionic</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.4</Depth>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">146.7</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</MemorySize>
+        <PortType>Lightning</PortType>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">939.0</Price>
+        <ProductCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A2172</ProductCode>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Iphone12</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</RamSize>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-10-23T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">162.0</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">71.5</Width>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
+    </owl:NamedIndividual>
     
 
 
