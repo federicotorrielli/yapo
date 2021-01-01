@@ -288,7 +288,7 @@
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#producedBy">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="http://www.modsem.com/productCatalog#produces"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Device"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Factory"/>
         <rdfs:comment xml:lang="en">Checking what factory produced the X device</rdfs:comment>
         <rdfs:label xml:lang="en">producedBy</rdfs:label>
