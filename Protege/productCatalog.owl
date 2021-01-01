@@ -328,7 +328,7 @@
                 </owl:withRestrictions>
             </rdfs:Datatype>
         </rdfs:range>
-        <rdfs:comment xml:lang="en">Number of megapixels in a camera&apos;s phone</rdfs:comment>
+        <rdfs:comment xml:lang="en">Number of megapixels in a camera&apos;s device</rdfs:comment>
         <rdfs:label xml:lang="en">CameraMegaPixels</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -413,6 +413,24 @@
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
         <rdfs:comment xml:lang="en">Total &quot;Hard Disk&quot; size</rdfs:comment>
         <rdfs:label xml:lang="en">MemorySize</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#OperativeSystem -->
+
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#OperativeSystem">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Computer"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#PortableDevice"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:comment xml:lang="en">Operating System installed in a product</rdfs:comment>
+        <rdfs:label xml:lang="en">OperatingSystem</rdfs:label>
     </owl:DatatypeProperty>
     
 
