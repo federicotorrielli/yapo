@@ -453,6 +453,8 @@
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Accessory">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Product"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Device"/>
+        <rdfs:comment xml:lang="en">A product used with or within the device use</rdfs:comment>
+        <rdfs:label xml:lang="en">Accessory</rdfs:label>
     </owl:Class>
     
 
@@ -468,6 +470,8 @@
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Engineering"/>
+        <rdfs:comment xml:lang="en">A part of the engineering process that is eventually bigger than the normal one</rdfs:comment>
+        <rdfs:label xml:lang="en">BigEngineering</rdfs:label>
     </owl:Class>
     
 
@@ -477,6 +481,8 @@
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#CasualUser">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#User"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#PowerUser"/>
+        <rdfs:comment xml:lang="en">An individual using a product which is not used to technology</rdfs:comment>
+        <rdfs:label xml:lang="en">CasualUser</rdfs:label>
     </owl:Class>
     
 
@@ -485,6 +491,8 @@
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Company">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">The company that has the project, the engineering process and the manifacturing to produce the product</rdfs:comment>
+        <rdfs:label xml:lang="en">Company</rdfs:label>
     </owl:Class>
     
 
@@ -494,6 +502,8 @@
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Computer">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#NotPortableDevice"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Stereo"/>
+        <rdfs:comment xml:lang="en">Just a computer</rdfs:comment>
+        <rdfs:label xml:lang="en">Computer</rdfs:label>
     </owl:Class>
     
 
@@ -503,6 +513,8 @@
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Cover">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
+        <rdfs:comment xml:lang="en">A product made for protecting a device from accidental falls</rdfs:comment>
+        <rdfs:label xml:lang="en">Cover</rdfs:label>
     </owl:Class>
     
 
@@ -511,6 +523,8 @@
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Device">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:comment xml:lang="en">An electronic product</rdfs:comment>
+        <rdfs:label xml:lang="en">Device</rdfs:label>
     </owl:Class>
     
 
@@ -528,6 +542,8 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
+        <rdfs:comment xml:lang="en">A small accessory device made for listening to music</rdfs:comment>
+        <rdfs:label xml:lang="en">EarPlugs</rdfs:label>
     </owl:Class>
     
 
@@ -543,6 +559,8 @@
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Manufacturer"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Factory"/>
+        <rdfs:comment xml:lang="en">The part of the Manufacturer process that creates the design of the product</rdfs:comment>
+        <rdfs:label xml:lang="en">Engineering</rdfs:label>
     </owl:Class>
     
 
@@ -557,6 +575,8 @@
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Manufacturer"/>
+        <rdfs:comment xml:lang="en">The part of the Manufactorer process that phisically produces the product</rdfs:comment>
+        <rdfs:label xml:lang="en">Factory</rdfs:label>
     </owl:Class>
     
 
@@ -566,6 +586,8 @@
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#HardCover">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Cover"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#SoftCover"/>
+        <rdfs:comment xml:lang="en">An hard cover</rdfs:comment>
+        <rdfs:label xml:lang="en">HardCover</rdfs:label>
     </owl:Class>
     
 
@@ -581,6 +603,8 @@
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Engineering"/>
+        <rdfs:comment xml:lang="en">An Engineering part of the Manufacturer process that specifically contributes to making machines and IT devices</rdfs:comment>
+        <rdfs:label xml:lang="en">ITEngineering</rdfs:label>
     </owl:Class>
     
 
@@ -589,6 +613,8 @@
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Laptop">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <rdfs:comment xml:lang="en">A small portable personal computer</rdfs:comment>
+        <rdfs:label xml:lang="en">Laptop</rdfs:label>
     </owl:Class>
     
 
@@ -597,6 +623,8 @@
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Manufacturer">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Company"/>
+        <rdfs:comment xml:lang="en">The part of the company specifically addressed to engineer and produce the X product</rdfs:comment>
+        <rdfs:label xml:lang="en">Manufacturer</rdfs:label>
     </owl:Class>
     
 
@@ -606,6 +634,8 @@
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#NotPortableDevice">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Device"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <rdfs:comment xml:lang="en">A device that is not made to be moved from the initial position</rdfs:comment>
+        <rdfs:label xml:lang="en">NotPortableDevice</rdfs:label>
     </owl:Class>
     
 
@@ -614,6 +644,8 @@
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#PortableDevice">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Device"/>
+        <rdfs:comment xml:lang="en">A device made for everyday life</rdfs:comment>
+        <rdfs:label xml:lang="en">PortableDevice</rdfs:label>
     </owl:Class>
     
 
@@ -622,6 +654,8 @@
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#PowerUser">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#User"/>
+        <rdfs:comment xml:lang="en">An expert individual using a product</rdfs:comment>
+        <rdfs:label xml:lang="en">PowerUser</rdfs:label>
     </owl:Class>
     
 
@@ -636,6 +670,8 @@
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">Something that is produced and used</rdfs:comment>
+        <rdfs:label xml:lang="en">Product</rdfs:label>
     </owl:Class>
     
 
@@ -650,6 +686,8 @@
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">A catalog of products</rdfs:comment>
+        <rdfs:label xml:lang="en">ProductCatalog</rdfs:label>
     </owl:Class>
     
 
@@ -659,6 +697,8 @@
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#SellingCatalog">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#ProductCatalog"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#StockCatalog"/>
+        <rdfs:comment xml:lang="en">A catalog of products made to be sold</rdfs:comment>
+        <rdfs:label xml:lang="en">SellingCatalog</rdfs:label>
     </owl:Class>
     
 
@@ -667,6 +707,8 @@
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Smartphone">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <rdfs:comment xml:lang="en">Mobile device that combines cellular and mobile computing functions into one unit</rdfs:comment>
+        <rdfs:label xml:lang="en">Smartphone</rdfs:label>
     </owl:Class>
     
 
@@ -675,6 +717,8 @@
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Smartwatch">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <rdfs:comment xml:lang="en">Wearable computer in the form of a watch</rdfs:comment>
+        <rdfs:label xml:lang="en">Smartwatch</rdfs:label>
     </owl:Class>
     
 
@@ -683,6 +727,8 @@
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#SoftCover">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Cover"/>
+        <rdfs:comment xml:lang="en">A soft cover</rdfs:comment>
+        <rdfs:label xml:lang="en">SoftCover</rdfs:label>
     </owl:Class>
     
 
@@ -691,6 +737,8 @@
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Stereo">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#NotPortableDevice"/>
+        <rdfs:comment xml:lang="en">A big device made for listening to music</rdfs:comment>
+        <rdfs:label xml:lang="en">Stereo</rdfs:label>
     </owl:Class>
     
 
@@ -699,6 +747,8 @@
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#StockCatalog">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#ProductCatalog"/>
+        <rdfs:comment xml:lang="en">A catalog of products made to keep track of stock coverage</rdfs:comment>
+        <rdfs:label xml:lang="en">StockCatalog</rdfs:label>
     </owl:Class>
     
 
@@ -707,6 +757,8 @@
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Tablet">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <rdfs:comment xml:lang="en">Mobile device, typically with a mobile operating system and touchscreen display processing circuitry, and a rechargeable battery in a single, thin and flat package</rdfs:comment>
+        <rdfs:label xml:lang="en">Tablet Computer</rdfs:label>
     </owl:Class>
     
 
@@ -715,6 +767,8 @@
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#User">
         <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:comment xml:lang="en">An individual using a product</rdfs:comment>
+        <rdfs:label xml:lang="en">User</rdfs:label>
     </owl:Class>
     
 
@@ -723,6 +777,8 @@
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#2in1">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <rdfs:comment xml:lang="en">A portable computer that has features of both tablets and laptops</rdfs:comment>
+        <rdfs:label xml:lang="en">2in1</rdfs:label>
     </owl:Class>
     
 
