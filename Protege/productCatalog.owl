@@ -1094,8 +1094,12 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Apple">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Company"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular"/>
         <sell rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
         <sell rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#MacBookAir_M1"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256"/>
         <sell rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <rdfs:comment xml:lang="en">Famous company that design and sell electronic devices</rdfs:comment>
         <rdfs:label xml:lang="en">Apple</rdfs:label>
