@@ -252,6 +252,10 @@
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#predecessorOf">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="http://www.modsem.com/productCatalog#successorOf"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:comment xml:lang="en">Previous device version</rdfs:comment>
+        <rdfs:label xml:lang="en">predecessorOf</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -286,6 +290,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:comment xml:lang="en">Next device version</rdfs:comment>
+        <rdfs:label xml:lang="en">successorOf</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -373,6 +379,8 @@
                 </owl:withRestrictions>
             </rdfs:Datatype>
         </rdfs:range>
+        <rdfs:comment xml:lang="en">Depth in mm of a product</rdfs:comment>
+        <rdfs:label xml:lang="en">Depth</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -470,6 +478,8 @@
                 </owl:withRestrictions>
             </rdfs:Datatype>
         </rdfs:range>
+        <rdfs:comment xml:lang="en">Price in euros of a product</rdfs:comment>
+        <rdfs:label xml:lang="en">Price</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -612,6 +622,8 @@
                 </owl:withRestrictions>
             </rdfs:Datatype>
         </rdfs:range>
+        <rdfs:comment xml:lang="en">Witdh in mm of a product</rdfs:comment>
+        <rdfs:label xml:lang="en">Width</rdfs:label>
     </owl:DatatypeProperty>
     
 
