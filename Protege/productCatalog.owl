@@ -41,7 +41,13 @@
                                     <rdf:Description>
                                         <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
                                         <rdf:first>Proprietary</rdf:first>
-                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>USB-C</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
                                     </rdf:Description>
                                 </rdf:rest>
                             </rdf:Description>
@@ -279,6 +285,29 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:comment xml:lang="en">Checking what factory produced the X device</rdfs:comment>
         <rdfs:label xml:lang="en">produces</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#sell -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#sell">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.modsem.com/productCatalog#soldBy"/>
+        <rdfs:comment xml:lang="en">Product is sold by X company</rdfs:comment>
+        <rdfs:label xml:lang="en">sell</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#soldBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#soldBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Company"/>
+        <rdfs:comment xml:lang="en">Product is sold by X company</rdfs:comment>
+        <rdfs:label xml:lang="en">soldBy</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -983,7 +1012,7 @@
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Tablet">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
         <rdfs:comment xml:lang="en">Mobile device, typically with a mobile operating system and touchscreen display processing circuitry, and a rechargeable battery in a single, thin and flat package</rdfs:comment>
-        <rdfs:label xml:lang="en">Tablet Computer</rdfs:label>
+        <rdfs:label xml:lang="en">Tablet</rdfs:label>
     </owl:Class>
     
 
@@ -1023,7 +1052,53 @@
      -->
 
     
+    <!-- http://www.modsem.com/productCatalog#Apple -->
 
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Apple">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Company"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
+        <rdfs:comment xml:lang="en">Famous company that design and sell electronic devices</rdfs:comment>
+        <rdfs:label xml:lang="en">Apple</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Foxconn -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Foxconn">
+        <designs rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
+        <designs rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
+        <designs rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
+        <rdfs:comment xml:lang="en">ITengineering company that designs CPUs for Apple</rdfs:comment>
+        <rdfs:label xml:lang="en">Foxconn</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#IpadAir_2020 -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#IpadAir_2020">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Tablet"/>
+        <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Space Gray, Silver, Rose Gold, Green, Sky Blue</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple A14 Bionic (5 nm)</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</Depth>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">247.6</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">64</MemorySize>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iPadOS 14.1</OperativeSystem>
+        <PortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</PortType>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">640.0</Price>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple iPad Air (2020)</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</RamSize>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-15T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.9</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">458.0</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">178.5</Width>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
+        <rdfs:label xml:lang="en">iPadAir_2020</rdfs:label>
+    </owl:NamedIndividual>
 
     <!-- http://www.modsem.com/productCatalog#AirPods_wirelessCharge -->
 
@@ -1071,6 +1146,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Iphone11_64">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
+        <predecessorOf rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, Green, Yellow, Purple, Red, White</Color>
@@ -1087,10 +1163,45 @@
         <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</ScreenSize>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">194.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">75.7</Width>
+        <rdfs:label xml:lang="en">iPhone11_64</rdfs:label>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
     </owl:NamedIndividual>
     
 
+
+    <!-- http://www.modsem.com/productCatalog#MacBookAir_M1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#MacBookAir_M1">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Laptop"/>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gold, Silver, Space Gray</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple M1 chip</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">212.4</Depth>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.1</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">256</MemorySize>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">macOS Big Sur</OperativeSystem>
+        <PortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</PortType>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1159.0</Price>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MacBook Air (M1, 2020)</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</RamSize>
+        <RamType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DDR4</RamType>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-11-17T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.3</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.29</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">304.1</Width>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isTouchScreen>
+        <rdfs:label xml:lang="en">MacBookAir_M1</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Qualcomm -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Qualcomm">
+        <produces rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
+        <produces rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
+        <rdfs:comment xml:lang="en">Factory company that produces CPUs for Apple</rdfs:comment>
+        <rdfs:label xml:lang="en">Qualcomm</rdfs:label>
+    </owl:NamedIndividual>
 
     <!-- http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256 -->
 
@@ -1137,6 +1248,7 @@
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">162.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">71.5</Width>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
+        <rdfs:label xml:lang="en">iPhone12_64</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1145,6 +1257,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#inEar">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:label xml:lang="en">inEar</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1153,6 +1266,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#onEar">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:label xml:lang="en">onEar</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1161,6 +1275,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#overEar">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:label xml:lang="en">overEar</rdfs:label>
     </owl:NamedIndividual>
     
 
