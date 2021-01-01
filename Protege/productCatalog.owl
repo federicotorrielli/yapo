@@ -69,6 +69,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Device"/>
+        <rdfs:comment xml:lang="en">Checking the compatibility between accessories and devices</rdfs:comment>
+        <rdfs:label xml:lang="en">compatibleWith</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -81,6 +83,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#ProductCatalog"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:comment xml:lang="en">Availability of a product in a product catalog</rdfs:comment>
+        <rdfs:label xml:lang="en">contains</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -92,6 +96,8 @@
         <owl:inverseOf rdf:resource="http://www.modsem.com/productCatalog#designs"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Engineering"/>
+        <rdfs:comment xml:lang="en">Who made the design of a product</rdfs:comment>
+        <rdfs:label xml:lang="en">designedBy</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -100,6 +106,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#designs">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:comment xml:lang="en">Who made the design of a product</rdfs:comment>
+        <rdfs:label xml:lang="en">designs</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -110,6 +118,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Cover"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <rdfs:comment xml:lang="en">Checking the compatibility between a cover and its device</rdfs:comment>
+        <rdfs:label xml:lang="en">fitFor</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -120,6 +130,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <rdfs:comment xml:lang="en">Checking if a device has a keyboard</rdfs:comment>
+        <rdfs:label xml:lang="en">hasKeyboard</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -131,6 +143,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Engineering"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Factory"/>
+        <rdfs:comment xml:lang="en">Checking what engineering produced the design to be produced in a factory</rdfs:comment>
+        <rdfs:label xml:lang="en">hasProducer</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -143,6 +157,8 @@
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Tablet"/>
+        <rdfs:comment xml:lang="en">What products has a device&apos;s box in</rdfs:comment>
+        <rdfs:label xml:lang="en">inBoxOf</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -156,6 +172,8 @@
             <rdf:Description rdf:about="http://www.modsem.com/productCatalog#isTablet"/>
             <rdf:Description rdf:about="http://www.modsem.com/productCatalog#hasKeyboard"/>
         </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Checking if a device is a 2-in-1</rdfs:comment>
+        <rdfs:label xml:lang="en">is2in1</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -164,6 +182,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#isContainedIn">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:comment xml:lang="en">Availability of a product in a product catalog</rdfs:comment>
+        <rdfs:label xml:lang="en">isContainedIn</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -173,6 +193,8 @@
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#isHighValue">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:comment xml:lang="en">Expensive Product</rdfs:comment>
+        <rdfs:label xml:lang="en">isHighValue</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -182,6 +204,8 @@
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#isLowValue">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:comment xml:lang="en">Cheap Product</rdfs:comment>
+        <rdfs:label xml:lang="en">isLowValue</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -191,6 +215,8 @@
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#isMediumValue">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:comment xml:lang="en">Not cheap, not expensive</rdfs:comment>
+        <rdfs:label xml:lang="en">isMediumValue</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -201,6 +227,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <rdfs:comment xml:lang="en">Checking if a device is a tablet</rdfs:comment>
+        <rdfs:label xml:lang="en">isTablet</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -211,6 +239,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Smartwatch"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
+        <rdfs:comment xml:lang="en">Checking the wireless compatibility between a smarwatch and a smartphone</rdfs:comment>
+        <rdfs:label xml:lang="en">needsConnectionWith</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -222,6 +252,8 @@
         <owl:inverseOf rdf:resource="http://www.modsem.com/productCatalog#produces"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Device"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Factory"/>
+        <rdfs:comment xml:lang="en">Checking what factory produced the X device</rdfs:comment>
+        <rdfs:label xml:lang="en">producedBy</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -230,6 +262,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#produces">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:comment xml:lang="en">Checking what factory produced the X device</rdfs:comment>
+        <rdfs:label xml:lang="en">produces</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -240,6 +274,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#User"/>
+        <rdfs:comment xml:lang="en">Checking if a certain device is suitable for a user</rdfs:comment>
+        <rdfs:label xml:lang="en">suitableFor</rdfs:label>
     </owl:ObjectProperty>
     
 
