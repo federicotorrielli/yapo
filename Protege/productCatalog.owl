@@ -14,6 +14,23 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#PortType -->
+
+    <owl:AnnotationProperty rdf:about="http://www.modsem.com/productCatalog#PortType"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Datatypes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -1052,53 +1069,7 @@
      -->
 
     
-    <!-- http://www.modsem.com/productCatalog#Apple -->
 
-    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Apple">
-        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Company"/>
-        <sell rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
-        <sell rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
-        <sell rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
-        <rdfs:comment xml:lang="en">Famous company that design and sell electronic devices</rdfs:comment>
-        <rdfs:label xml:lang="en">Apple</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.modsem.com/productCatalog#Foxconn -->
-
-    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Foxconn">
-        <designs rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
-        <designs rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
-        <designs rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
-        <rdfs:comment xml:lang="en">ITengineering company that designs CPUs for Apple</rdfs:comment>
-        <rdfs:label xml:lang="en">Foxconn</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.modsem.com/productCatalog#IpadAir_2020 -->
-
-    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#IpadAir_2020">
-        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Tablet"/>
-        <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
-        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Space Gray, Silver, Rose Gold, Green, Sky Blue</Color>
-        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple A14 Bionic (5 nm)</CpuType>
-        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</Depth>
-        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">247.6</Height>
-        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">64</MemorySize>
-        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iPadOS 14.1</OperativeSystem>
-        <PortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</PortType>
-        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">640.0</Price>
-        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple iPad Air (2020)</ProductName>
-        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</RamSize>
-        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-15T00:00:00</RollOutDate>
-        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.9</ScreenSize>
-        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">458.0</Weight>
-        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">178.5</Width>
-        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
-        <rdfs:label xml:lang="en">iPadAir_2020</rdfs:label>
-    </owl:NamedIndividual>
 
     <!-- http://www.modsem.com/productCatalog#AirPods_wirelessCharge -->
 
@@ -1115,6 +1086,19 @@
         <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-03-20T00:00:00</RollOutDate>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">44.3</Width>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Apple -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Apple">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Company"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
+        <rdfs:comment xml:lang="en">Famous company that design and sell electronic devices</rdfs:comment>
+        <rdfs:label xml:lang="en">Apple</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1142,6 +1126,45 @@
     
 
 
+    <!-- http://www.modsem.com/productCatalog#Foxconn -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Foxconn">
+        <designs rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
+        <designs rdf:resource="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular"/>
+        <designs rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
+        <designs rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
+        <designs rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
+        <rdfs:comment xml:lang="en">ITengineering company that designs CPUs for Apple</rdfs:comment>
+        <rdfs:label xml:lang="en">Foxconn</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#IpadAir_2020 -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#IpadAir_2020">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Tablet"/>
+        <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Space Gray, Silver, Rose Gold, Green, Sky Blue</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple A14 Bionic (5 nm)</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</Depth>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">247.6</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">64</MemorySize>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iPadOS 14.1</OperativeSystem>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">640.0</Price>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple iPad Air (2020)</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</RamSize>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-15T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.9</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">458.0</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">178.5</Width>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
+        <PortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</PortType>
+        <rdfs:label xml:lang="en">iPadAir_2020</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.modsem.com/productCatalog#Iphone11_64 -->
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Iphone11_64">
@@ -1163,8 +1186,8 @@
         <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</ScreenSize>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">194.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">75.7</Width>
-        <rdfs:label xml:lang="en">iPhone11_64</rdfs:label>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
+        <rdfs:label xml:lang="en">iPhone11_64</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1179,7 +1202,6 @@
         <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.1</Height>
         <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">256</MemorySize>
         <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">macOS Big Sur</OperativeSystem>
-        <PortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</PortType>
         <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1159.0</Price>
         <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MacBook Air (M1, 2020)</ProductName>
         <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</RamSize>
@@ -1189,6 +1211,7 @@
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.29</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">304.1</Width>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isTouchScreen>
+        <PortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</PortType>
         <rdfs:label xml:lang="en">MacBookAir_M1</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1202,6 +1225,8 @@
         <rdfs:comment xml:lang="en">Factory company that produces CPUs for Apple</rdfs:comment>
         <rdfs:label xml:lang="en">Qualcomm</rdfs:label>
     </owl:NamedIndividual>
+    
+
 
     <!-- http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256 -->
 
