@@ -1077,6 +1077,7 @@
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">178.5</Width>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
         <rdfs:label xml:lang="en">iPadAir_2020</rdfs:label>
+    </owl:NamedIndividual>
 
     <!-- http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular -->
 
@@ -1159,6 +1160,7 @@
         <produces rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <rdfs:comment xml:lang="en">Factory company that produces CPUs for Apple</rdfs:comment>
         <rdfs:label xml:lang="en">Qualcomm</rdfs:label>
+    </owl:NamedIndividual>
 
     <!-- http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256 -->
 
