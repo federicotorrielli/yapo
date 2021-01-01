@@ -1004,6 +1004,28 @@
     
 
 
+    <!-- http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular">
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silver, Graphite (DLC), Gold (PVD)</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dual-core</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.4</Depth>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40.0</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">32</MemorySize>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">watchOS 7.0</OperativeSystem>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#string">539</Price>
+        <ProductCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A2293</ProductCode>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple Watch 6 40mm GPS+Cellular</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</RamSize>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-19T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.57</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">39.7</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34.0</Width>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.modsem.com/productCatalog#Iphone11_64 -->
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Iphone11_64">
@@ -1014,17 +1036,41 @@
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.3</Depth>
         <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150.9</Height>
         <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</MemorySize>
-        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iOS13</OperativeSystem>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iOS 13</OperativeSystem>
         <PortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</PortType>
         <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">719.0</Price>
         <ProductCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A2221</ProductCode>
-        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Iphone 11</ProductName>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Iphone 11 64GB</ProductName>
         <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</RamSize>
         <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-09-20T00:00:00</RollOutDate>
         <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</ScreenSize>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">194.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">75.7</Width>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256 -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256">
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silver</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Intel Core i5 6‑core 10gen 3.1GHz (Turbo Boost 4.5GHz)</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">203.0</Depth>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">516.0</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</MemorySize>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">macOS Big Sur</OperativeSystem>
+        <PortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AC Power Cord</PortType>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1349.0</Price>
+        <ProductCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MXWT2LL/A</ProductCode>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iMac 27 5K 256GB</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</RamSize>
+        <RamType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DDR4</RamType>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-08-04T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">27.0</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8920.0</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">650.0</Width>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isTouchScreen>
     </owl:NamedIndividual>
     
 
@@ -1039,11 +1085,11 @@
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.4</Depth>
         <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">146.7</Height>
         <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</MemorySize>
-        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iOS14</OperativeSystem>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iOS 14</OperativeSystem>
         <PortType>Lightning</PortType>
         <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">939.0</Price>
         <ProductCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A2172</ProductCode>
-        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Iphone12</ProductName>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Iphone12 64 GB</ProductName>
         <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</RamSize>
         <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-10-23T00:00:00</RollOutDate>
         <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</ScreenSize>
