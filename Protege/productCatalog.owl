@@ -113,7 +113,14 @@
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#compatibleWith">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Accessory"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Device"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Device"/>
         <rdfs:comment xml:lang="en">Checking the compatibility between accessories and devices</rdfs:comment>
         <rdfs:label xml:lang="en">compatibleWith</rdfs:label>
@@ -287,6 +294,19 @@
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
         <rdfs:comment xml:lang="en">Checking if a device is a tablet</rdfs:comment>
         <rdfs:label xml:lang="en">isTablet</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#latestVersions -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#latestVersions">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#predecessorOf"/>
+            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#predecessorOf"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -1153,6 +1173,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AirPods_wirelessCharge">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
+        <owl:sameAs rdf:resource="http://www.modsem.com/productCatalog#onEar"/>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">White</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chip H1</CpuType>
@@ -1189,10 +1210,27 @@
     
 
 
+    <!-- http://www.modsem.com/productCatalog#AppleSite -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AppleSite">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#SellingCatalog"/>
+        <contains rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
+        <contains rdf:resource="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular"/>
+        <contains rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
+        <contains rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
+        <contains rdf:resource="http://www.modsem.com/productCatalog#MacBookAir_M1"/>
+        <contains rdf:resource="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256"/>
+        <contains rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular -->
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartwatch"/>
+        <compatibleWith rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
+        <compatibleWith rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silver, Graphite (DLC), Gold (PVD)</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dual-core</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.4</Depth>
@@ -1223,6 +1261,15 @@
         <sell rdf:resource="http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371"/>
         <rdfs:comment xml:lang="en">AsusTek is a Taiwanese multinational computer and phone hardware and electronics company headquartered in Beitou District, Taipei, Taiwan.</rdfs:comment>
         <rdfs:label xml:lang="en">Asus</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#AsusSite -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AsusSite">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#SellingCatalog"/>
+        <contains rdf:resource="http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371"/>
     </owl:NamedIndividual>
     
 
@@ -1415,6 +1462,16 @@
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
         <rdfs:comment xml:lang="en">Smarphone made by Samsung</rdfs:comment>
         <rdfs:label xml:lang="en">SamsungGalaxyS20_5G_global</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#SamsungSite -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#SamsungSite">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#SellingCatalog"/>
+        <contains rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
+        <contains rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global"/>
     </owl:NamedIndividual>
     
 
