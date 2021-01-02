@@ -954,6 +954,8 @@
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Laptop">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
+        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Smartwatch"/>
         <rdfs:comment xml:lang="en">A small portable personal computer</rdfs:comment>
         <rdfs:label xml:lang="en">Laptop</rdfs:label>
     </owl:Class>
@@ -1048,6 +1050,9 @@
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Smartphone">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Smartwatch"/>
+        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Tablet"/>
+        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#2in1"/>
         <rdfs:comment xml:lang="en">Mobile device that combines cellular and mobile computing functions into one unit</rdfs:comment>
         <rdfs:label xml:lang="en">Smartphone</rdfs:label>
     </owl:Class>
@@ -1058,6 +1063,8 @@
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Smartwatch">
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Tablet"/>
+        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#2in1"/>
         <rdfs:comment xml:lang="en">Wearable computer in the form of a watch</rdfs:comment>
         <rdfs:label xml:lang="en">Smartwatch</rdfs:label>
     </owl:Class>
@@ -1371,6 +1378,35 @@
     
 
 
+    <!-- http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371 -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Laptop"/>
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Tablet"/>
+        <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.2</CameraMP>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nero jada</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Intel Core i7-1165G7</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.19</Depth>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21.1</Height>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30.5</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1000</MemorySize>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Windows 10 Home</OperativeSystem>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1599.0</Price>
+        <ProductCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UX371EA</ProductCode>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ZenBook Flip S UX371</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">16</RamSize>
+        <RamType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LPDDR4X on-board</RamType>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2020-08-21</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.3</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1200.0</Weight>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
+        <rdfs:comment xml:lang="en">2-in-1 made by Asus</rdfs:comment>
+        <rdfs:label xml:lang="en">ZenBookFlip_S_UX371</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256 -->
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256">
@@ -1448,33 +1484,6 @@
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <rdfs:label xml:lang="en">overEar</rdfs:label>
     </owl:NamedIndividual>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // General axioms
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Laptop"/>
-            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Smartphone"/>
-            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Tablet"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Smartphone"/>
-            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Smartwatch"/>
-            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#2in1"/>
-        </owl:members>
-    </rdf:Description>
 </rdf:RDF>
 
 
