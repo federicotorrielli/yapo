@@ -373,10 +373,8 @@
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#sell">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="http://www.modsem.com/productCatalog#soldBy"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#manufacturesTo"/>
-            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#designs"/>
-        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Product is sold by X company</rdfs:comment>
+        <rdfs:label xml:lang="en">sell</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1199,6 +1197,13 @@
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Company"/>
         <manufacturesTo rdf:resource="http://www.modsem.com/productCatalog#Foxconn"/>
         <manufacturesTo rdf:resource="http://www.modsem.com/productCatalog#Qualcomm"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#MacBookAir_M1"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <rdfs:comment xml:lang="en">Famous company that design and sell electronic devices</rdfs:comment>
         <rdfs:label xml:lang="en">Apple</rdfs:label>
     </owl:NamedIndividual>
@@ -1398,6 +1403,8 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Samsung">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Company"/>
         <manufacturesTo rdf:resource="http://www.modsem.com/productCatalog#Huáshuò"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global"/>
         <rdfs:comment xml:lang="en">Samsung is a South Korean multinational electronics company headquartered in the Yeongtong District of Suwon</rdfs:comment>
         <rdfs:label xml:lang="en">Samsung</rdfs:label>
     </owl:NamedIndividual>
