@@ -1232,6 +1232,8 @@
         <contains rdf:resource="http://www.modsem.com/productCatalog#MacBookAir_M1"/>
         <contains rdf:resource="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256"/>
         <contains rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
+        <rdfs:comment xml:lang="en">Apple web site catalog</rdfs:comment>
+        <rdfs:label xml:lang="en">AppleSite</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1287,6 +1289,8 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AsusSite">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#SellingCatalog"/>
         <contains rdf:resource="http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371"/>
+        <rdfs:comment xml:lang="en">Asus web site catalog</rdfs:comment>
+        <rdfs:label xml:lang="en">AsusSite</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1384,6 +1388,7 @@
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
+        <rdfs:label xml:lang="en">Lightning_cable</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1508,6 +1513,8 @@
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#SellingCatalog"/>
         <contains rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
         <contains rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global"/>
+        <rdfs:comment xml:lang="en">Samsung web site catalog</rdfs:comment>
+        <rdfs:label xml:lang="en">SamsungSite</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1531,6 +1538,7 @@
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global"/>
         <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C Cable</ProductName>
+        <rdfs:label xml:lang="en">USBC_cable</rdfs:label>
     </owl:NamedIndividual>
     
 
