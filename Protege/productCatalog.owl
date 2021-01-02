@@ -222,20 +222,6 @@
     
 
 
-    <!-- http://www.modsem.com/productCatalog#insertInBoxes -->
-
-    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#insertInBoxes">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Company"/>
-        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#sell"/>
-            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#containsInBox"/>
-        </owl:propertyChainAxiom>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.modsem.com/productCatalog#is2in1 -->
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#is2in1">
@@ -335,6 +321,20 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:comment xml:lang="en">Checking what factory produced the X device</rdfs:comment>
         <rdfs:label xml:lang="en">produces</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#putInBoxes -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#putInBoxes">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Company"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#sell"/>
+            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#containsInBox"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
