@@ -1340,7 +1340,7 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.0</CameraMP>
-        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
+        <ChargingPortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prism White, Prism Black, Prism Green, Prism Blue, Canary Yellow, Flamingo Pink, Cardinal Red, Smoke Blue</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exynos 9820 (8 nm)</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.8</Depth>
@@ -1368,7 +1368,7 @@
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <successorOf rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">64.0</CameraMP>
-        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
+        <ChargingPortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cosmic Grey, Cloud Blue, Cloud Pink, Cloud White, Aura Red</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exynos 990 (7 nm+)</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.9</Depth>
