@@ -1269,6 +1269,8 @@
         <produces rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
         <produces rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global"/>
         <produces rdf:resource="http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371"/>
+        <rdfs:comment xml:lang="en">Huáshuò is a company under the favor of Samsung that produces many products</rdfs:comment>
+        <rdfs:label xml:lang="en">Huáshuò</rdfs:label>
     </owl:NamedIndividual>
     
 
