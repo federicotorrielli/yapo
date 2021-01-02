@@ -13,7 +13,9 @@
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Federico Torrielli</dc:creator>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ivan Spada</dc:creator>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</dc:date>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The &quot;Simple Apple Product Catalog&quot; is a product management/catalog ontology to demonstrate a fairly simple product catalog and how a reasoner shoud work with Company nodes and devices. It could also be applied as a model for other companies product catalogs</dc:description>
         <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Simple Apple Product Catalog</dc:title>
+        <vann:preferredNamespacePrefix>sapg</vann:preferredNamespacePrefix>
         <rdfs:label>AppleCatalog</rdfs:label>
     </owl:Ontology>
     
