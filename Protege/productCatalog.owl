@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://www.modsem.com/productCatalog#"
      xml:base="http://www.modsem.com/productCatalog"
-     xmlns:dc="http://purl.org/dc/elements/1.1"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:vann="http://purl.org/vocab/vann/">
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:elements="http://purl.org/dc/elements/1.1">
     <owl:Ontology rdf:about="http://www.modsem.com/productCatalog">
-        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Federico Torrielli</dc:creator>
-        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ivan Spada</dc:creator>
-        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</dc:date>
-        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The &quot;Simple Apple Product Catalog&quot; is a product management/catalog ontology to demonstrate a fairly simple product catalog and how a reasoner shoud work with Company nodes and devices. It could also be applied as a model for other companies product catalogs</dc:description>
-        <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Simple Apple Product Catalog</dc:title>
+        <elements:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Federico Torrielli</elements:creator>
+        <elements:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ivan Spada</elements:creator>
+        <elements:date rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</elements:date>
+        <elements:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The &quot;Simple Apple Product Catalog&quot; is a product management/catalog ontology to demonstrate a fairly simple product catalog and how a reasoner shoud work with Company nodes and devices. It could also be applied as a model for other companies product catalogs</elements:description>
         <vann:preferredNamespacePrefix>sapg</vann:preferredNamespacePrefix>
         <rdfs:label>AppleCatalog</rdfs:label>
     </owl:Ontology>
@@ -29,6 +29,24 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1description"/>
     
 
 
@@ -1287,6 +1305,57 @@
         <produces rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <rdfs:comment xml:lang="en">Factory company that produces CPUs for Apple</rdfs:comment>
         <rdfs:label xml:lang="en">Qualcomm</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#SamsungGalaxyS10_global -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
+        <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.0</CameraMP>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prism White, Prism Black, Prism Green, Prism Blue, Canary Yellow, Flamingo Pink, Cardinal Red, Smoke Blue</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exynos 9820 (8 nm)</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.8</Depth>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">149.9</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">128</MemorySize>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Android9</OperativeSystem>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">549.0</Price>
+        <ProductCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SM-G973F/DS</ProductCode>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Samsung Galaxy S10 128</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</RamSize>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-03-09T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">157.0</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">70.4</Width>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
+        <successorOf rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
+        <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">64.0</CameraMP>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cosmic Grey, Cloud Blue, Cloud Pink, Cloud White, Aura Red</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exynos 990 (7 nm+)</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.9</Depth>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.7</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">128</MemorySize>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Android10</OperativeSystem>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1029.0</Price>
+        <ProductCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SM-G981F</ProductCode>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Samsung Galaxy S20 5G 128</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</RamSize>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-03-06T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.2</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">163.0</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">69.1</Width>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
     </owl:NamedIndividual>
     
 
