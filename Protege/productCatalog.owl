@@ -1393,8 +1393,7 @@
     <!-- http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371 -->
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371">
-        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Laptop"/>
-        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Tablet"/>
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#2in1"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.2</CameraMP>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nero jada</Color>
