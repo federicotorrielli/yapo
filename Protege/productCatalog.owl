@@ -1316,6 +1316,18 @@
     
 
 
+    <!-- http://www.modsem.com/productCatalog#Samsung -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Samsung">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Company"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
+        <sell rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global"/>
+        <rdfs:comment>Samsung is a South Korean multinational electronics company headquartered in the Yeongtong District of Suwon</rdfs:comment>
+        <rdfs:label>Samsung</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.modsem.com/productCatalog#SamsungGalaxyS10_global -->
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global">
