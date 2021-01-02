@@ -226,6 +226,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#insertInBoxes">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Company"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.modsem.com/productCatalog#sell"/>
             <rdf:Description rdf:about="http://www.modsem.com/productCatalog#containsInBox"/>
