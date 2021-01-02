@@ -142,6 +142,15 @@
     
 
 
+    <!-- http://www.modsem.com/productCatalog#containsInBox -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#containsInBox">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.modsem.com/productCatalog#inBoxOf"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.modsem.com/productCatalog#designedBy -->
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#designedBy">
@@ -195,9 +204,8 @@
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#inBoxOf">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
-        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
-        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Tablet"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Product"/>
         <rdfs:comment xml:lang="en">What products has a device&apos;s box in</rdfs:comment>
         <rdfs:label xml:lang="en">inBoxOf</rdfs:label>
     </owl:ObjectProperty>
@@ -233,29 +241,6 @@
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Company"/>
         <rdfs:comment xml:lang="en">Keeps track of who is manifacturing this company for</rdfs:comment>
         <rdfs:label xml:lang="en">isManufacturerOf</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.modsem.com/productCatalog#isMediumValue -->
-
-    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#isMediumValue">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
-        <rdfs:comment xml:lang="en">Not cheap, not expensive</rdfs:comment>
-        <rdfs:label xml:lang="en">isMediumValue</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.modsem.com/productCatalog#isTablet -->
-
-    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#isTablet">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
-        <rdfs:comment xml:lang="en">Checking if a device is a tablet</rdfs:comment>
-        <rdfs:label xml:lang="en">isTablet</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -366,15 +351,11 @@
     
 
 
-    <!-- http://www.modsem.com/productCatalog#suitableFor -->
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
 
-    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#suitableFor">
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
-        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#User"/>
-        <rdfs:comment xml:lang="en">Checking if a certain device is suitable for a user</rdfs:comment>
-        <rdfs:label xml:lang="en">suitableFor</rdfs:label>
-    </owl:ObjectProperty>
+    </rdf:Description>
     
 
 
@@ -741,12 +722,34 @@
     
 
 
-    <!-- http://www.modsem.com/productCatalog#isHighValue -->
+    <!-- http://www.modsem.com/productCatalog#isInRange -->
 
-    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#isHighValue">
+    <owl:DatatypeProperty rdf:about="http://www.modsem.com/productCatalog#isInRange">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>High</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Low</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>Medium</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
     </owl:DatatypeProperty>
     
 
@@ -1213,6 +1216,10 @@
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartwatch"/>
         <compatibleWith rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
         <compatibleWith rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
+        <compatibleWith rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
+        <needsConnectionWith rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
+        <needsConnectionWith rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
+        <needsConnectionWith rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silver, Graphite (DLC), Gold (PVD)</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dual-core</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.4</Depth>
@@ -1227,7 +1234,7 @@
         <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.57</ScreenSize>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">39.7</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34.0</Width>
-        <isHighValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isHighValue>
+        <isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</isInRange>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
         <rdfs:comment xml:lang="en">Top 2020 smartwatch made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">AppleWatchSeries6_40mm_GPS_Cellular</rdfs:label>
@@ -1304,6 +1311,7 @@
         <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.9</ScreenSize>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">458.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">178.5</Width>
+        <isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Medium</isInRange>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
         <rdfs:comment xml:lang="en">Tablet made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">iPadAir_2020</rdfs:label>
@@ -1333,9 +1341,22 @@
         <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</ScreenSize>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">194.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">75.7</Width>
+        <isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Medium</isInRange>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
         <rdfs:comment xml:lang="en">Top 2019 smartphone made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">iPhone11_64</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Lightning_cable -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Lightning_cable">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#cable"/>
+        <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
+        <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
+        <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
+        <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
     </owl:NamedIndividual>
     
 
@@ -1359,6 +1380,7 @@
         <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.3</ScreenSize>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.29</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">304.1</Width>
+        <isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Medium</isInRange>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isTouchScreen>
         <rdfs:comment xml:lang="en">Laptop with M1 Chip made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">MacBookAir_M1</rdfs:label>
@@ -1415,7 +1437,6 @@
         <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</ScreenSize>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">157.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">70.4</Width>
-        <isHighValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isHighValue>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
         <rdfs:label xml:lang="en">SamsungGalaxyS10_global</rdfs:label>
         <rdfs:label xml:lang="en">Smarphone made by Samsung</rdfs:label>
@@ -1444,7 +1465,7 @@
         <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.2</ScreenSize>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">163.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">69.1</Width>
-        <isHighValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isHighValue>
+        <isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</isInRange>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
         <rdfs:comment xml:lang="en">Smarphone made by Samsung</rdfs:comment>
         <rdfs:label xml:lang="en">SamsungGalaxyS20_5G_global</rdfs:label>
@@ -1532,7 +1553,7 @@
         <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">27.0</ScreenSize>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8920.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">650.0</Width>
-        <isHighValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isHighValue>
+        <isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</isInRange>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isTouchScreen>
         <rdfs:comment xml:lang="en">All-in-one computer made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">iMac_27_RetinaDisplay_5k_256</rdfs:label>
@@ -1560,7 +1581,7 @@
         <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</ScreenSize>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">162.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">71.5</Width>
-        <isHighValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isHighValue>
+        <isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</isInRange>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
         <rdfs:comment xml:lang="en">Top 2020 smarphone made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">iPhone12_64</rdfs:label>
@@ -1573,7 +1594,6 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iPhoneX_64">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <ProductName>iPhone X 64GB</ProductName>
-        <isHighValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isHighValue>
     </owl:NamedIndividual>
     
 
