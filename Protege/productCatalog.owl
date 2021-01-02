@@ -101,55 +101,6 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
-    // Datatypes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.modsem.com/productCatalog#chargingport -->
-
-    <rdfs:Datatype rdf:about="http://www.modsem.com/productCatalog#chargingport">
-        <rdfs:comment xml:lang="en">Type of charging port, ENUM</rdfs:comment>
-        <rdfs:label xml:lang="en">chargingport</rdfs:label>
-        <owl:equivalentClass>
-            <rdfs:Datatype>
-                <owl:oneOf>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                        <rdf:first>Lightning</rdf:first>
-                        <rdf:rest>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                <rdf:first>MicroUSB</rdf:first>
-                                <rdf:rest>
-                                    <rdf:Description>
-                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                        <rdf:first>Proprietary</rdf:first>
-                                        <rdf:rest>
-                                            <rdf:Description>
-                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                                <rdf:first>USB-C</rdf:first>
-                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                                            </rdf:Description>
-                                        </rdf:rest>
-                                    </rdf:Description>
-                                </rdf:rest>
-                            </rdf:Description>
-                        </rdf:rest>
-                    </rdf:Description>
-                </owl:oneOf>
-            </rdfs:Datatype>
-        </owl:equivalentClass>
-    </rdfs:Datatype>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
     // Object Properties
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -496,6 +447,35 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>Lightning</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>MicroUSB</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>Proprietary</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>USB-C</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
         <rdfs:comment xml:lang="en">Charging port type</rdfs:comment>
         <rdfs:label xml:lang="en">ChargingPortType</rdfs:label>
     </owl:DatatypeProperty>
@@ -1173,7 +1153,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AirPods_wirelessCharge">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
-        <ChargingPortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">Lightning</ChargingPortType>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">White</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chip H1</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21.3</Depth>
@@ -1280,7 +1260,7 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#IpadAir_2020">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Tablet"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
-        <ChargingPortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</ChargingPortType>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Space Gray, Silver, Rose Gold, Green, Sky Blue</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple A14 Bionic (5 nm)</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</Depth>
@@ -1307,7 +1287,7 @@
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <predecessorOf rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
-        <ChargingPortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">Lightning</ChargingPortType>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, Green, Yellow, Purple, Red, White</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple A13 Bionic</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.3</Depth>
@@ -1333,7 +1313,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#MacBookAir_M1">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Laptop"/>
-        <ChargingPortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</ChargingPortType>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gold, Silver, Space Gray</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple M1 chip</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">212.4</Depth>
@@ -1389,7 +1369,7 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.0</CameraMP>
-        <ChargingPortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</ChargingPortType>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prism White, Prism Black, Prism Green, Prism Blue, Canary Yellow, Flamingo Pink, Cardinal Red, Smoke Blue</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exynos 9820 (8 nm)</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.8</Depth>
@@ -1417,7 +1397,7 @@
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <successorOf rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">64.0</CameraMP>
-        <ChargingPortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</ChargingPortType>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cosmic Grey, Cloud Blue, Cloud Pink, Cloud White, Aura Red</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exynos 990 (7 nm+)</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.9</Depth>
@@ -1455,7 +1435,7 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#2in1"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.2</CameraMP>
-        <ChargingPortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</ChargingPortType>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nero jada</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Intel Core i7-1165G7</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.19</Depth>
@@ -1509,7 +1489,7 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iPhone12_64">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
-        <ChargingPortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">Lightning</ChargingPortType>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, White, Red, Green, Blue</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A14 Bionic</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.4</Depth>
