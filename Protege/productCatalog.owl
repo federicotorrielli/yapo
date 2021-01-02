@@ -1225,6 +1225,7 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#IpadAir_2020">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Tablet"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
+        <ChargingPortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Space Gray, Silver, Rose Gold, Green, Sky Blue</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple A14 Bionic (5 nm)</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</Depth>
@@ -1239,7 +1240,6 @@
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">458.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">178.5</Width>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
-        <PortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</PortType>
         <rdfs:comment xml:lang="en">Tablet made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">iPadAir_2020</rdfs:label>
     </owl:NamedIndividual>
@@ -1278,6 +1278,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#MacBookAir_M1">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Laptop"/>
+        <ChargingPortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gold, Silver, Space Gray</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple M1 chip</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">212.4</Depth>
@@ -1293,7 +1294,6 @@
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.29</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">304.1</Width>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isTouchScreen>
-        <PortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</PortType>
         <rdfs:comment xml:lang="en">Laptop with M1 Chip made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">MacBookAir_M1</rdfs:label>
     </owl:NamedIndividual>
