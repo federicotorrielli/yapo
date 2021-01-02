@@ -496,7 +496,6 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#chargingport"/>
         <rdfs:comment xml:lang="en">Charging port type</rdfs:comment>
         <rdfs:label xml:lang="en">ChargingPortType</rdfs:label>
     </owl:DatatypeProperty>
