@@ -1409,7 +1409,7 @@
         <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ZenBook Flip S UX371</ProductName>
         <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">16</RamSize>
         <RamType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LPDDR4X on-board</RamType>
-        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2020-08-21</RollOutDate>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-08-21T00:00:00</RollOutDate>
         <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.3</ScreenSize>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1200.0</Weight>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
