@@ -687,6 +687,7 @@
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Computer"/>
                     <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Laptop"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#2in1"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
