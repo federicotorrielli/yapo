@@ -1174,7 +1174,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AirPods_wirelessCharge">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
-        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
+        <ChargingPortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">Lightning</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">White</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chip H1</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21.3</Depth>
@@ -1308,7 +1308,7 @@
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <predecessorOf rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
-        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
+        <ChargingPortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">Lightning</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, Green, Yellow, Purple, Red, White</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple A13 Bionic</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.3</Depth>
@@ -1510,7 +1510,7 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iPhone12_64">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
-        <ChargingPortType>Lightning</ChargingPortType>
+        <ChargingPortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">Lightning</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, White, Red, Green, Blue</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A14 Bionic</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.4</Depth>
