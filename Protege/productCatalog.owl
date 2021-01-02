@@ -1156,6 +1156,8 @@
         <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-03-20T00:00:00</RollOutDate>
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">44.3</Width>
+        <rdfs:comment xml:lang="en">EarPlugs with wireless charge case made by Apple</rdfs:comment>
+        <rdfs:label xml:lang="en">AirPods_wirelessCharge</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1196,6 +1198,8 @@
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">39.7</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34.0</Width>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
+        <rdfs:comment xml:lang="en">Top 2020 smartwatch made by Apple</rdfs:comment>
+        <rdfs:label xml:lang="en">AppleWatchSeries6_40mm_GPS_Cellular</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1236,6 +1240,7 @@
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">178.5</Width>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
         <PortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</PortType>
+        <rdfs:comment xml:lang="en">Tablet made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">iPadAir_2020</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1263,6 +1268,7 @@
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">194.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">75.7</Width>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
+        <rdfs:comment xml:lang="en">Top 2019 smartphone made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">iPhone11_64</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1288,6 +1294,7 @@
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">304.1</Width>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isTouchScreen>
         <PortType rdf:datatype="http://www.modsem.com/productCatalog#chargingport">USB-C</PortType>
+        <rdfs:comment xml:lang="en">Laptop with M1 Chip made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">MacBookAir_M1</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1330,6 +1337,8 @@
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">157.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">70.4</Width>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
+        <rdfs:label xml:lang="en">SamsungGalaxyS10_global</rdfs:label>
+        <rdfs:label xml:lang="en">Smarphone made by Samsung</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1356,6 +1365,8 @@
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">163.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">69.1</Width>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
+        <rdfs:comment xml:lang="en">Smarphone made by Samsung</rdfs:comment>
+        <rdfs:label xml:lang="en">SamsungGalaxyS20_5G_global</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1380,6 +1391,8 @@
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8920.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">650.0</Width>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isTouchScreen>
+        <rdfs:comment xml:lang="en">All-in-one computer made by Apple</rdfs:comment>
+        <rdfs:label xml:lang="en">iMac_27_RetinaDisplay_5k_256</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1405,6 +1418,7 @@
         <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">162.0</Weight>
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">71.5</Width>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
+        <rdfs:comment xml:lang="en">Top 2020 smarphone made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">iPhone12_64</rdfs:label>
     </owl:NamedIndividual>
     
