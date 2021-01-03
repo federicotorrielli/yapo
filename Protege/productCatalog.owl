@@ -1154,7 +1154,7 @@
     <!-- http://www.modsem.com/productCatalog#User -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#User">
-        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <rdfs:comment xml:lang="en">An individual using a product</rdfs:comment>
         <rdfs:label xml:lang="en">User</rdfs:label>
     </owl:Class>
