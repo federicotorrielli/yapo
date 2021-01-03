@@ -3,6 +3,7 @@
      xml:base="http://www.modsem.com/productCatalog"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:pto="http://www.productontology.org/#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
@@ -800,6 +801,12 @@
     
 
 
+    <!-- http://purl.org/dc/dcmitype/PhysicalObject -->
+
+    <owl:Class rdf:about="http://purl.org/dc/dcmitype/PhysicalObject"/>
+    
+
+
     <!-- http://www.modsem.com/productCatalog#Accessory -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Accessory">
@@ -1033,7 +1040,7 @@
                 <owl:someValuesFrom rdf:resource="http://www.modsem.com/productCatalog#ProductCatalog"/>
             </owl:Restriction>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/dc/dcmitype/PhysicalObject"/>
         <rdfs:comment xml:lang="en">Something that is produced and used</rdfs:comment>
         <rdfs:label xml:lang="en">Product</rdfs:label>
     </owl:Class>
