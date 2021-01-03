@@ -8,13 +8,12 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:vann="http://purl.org/vocab/vann/"
-     xmlns:elements="http://purl.org/dc/elements/1.1">
+     xmlns:vann="http://purl.org/vocab/vann/">
     <owl:Ontology rdf:about="http://www.modsem.com/productCatalog">
-        <elements:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Federico Torrielli</elements:creator>
-        <elements:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ivan Spada</elements:creator>
-        <elements:date rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</elements:date>
-        <elements:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The &quot;Simple Apple Product Catalog&quot; is a product management/catalog ontology to demonstrate a fairly simple product catalog and how a reasoner shoud work with Company nodes and devices. It could also be applied as a model for other companies product catalogs</elements:description>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Federico Torrielli</dc:creator>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ivan Spada</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</dc:date>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The &quot;Simple Apple Product Catalog&quot; is a product management/catalog ontology to demonstrate a fairly simple product catalog and how a reasoner shoud work with Company nodes and devices. It could also be applied as a model for other companies product catalogs</dc:description>
         <vann:preferredNamespacePrefix>sapg</vann:preferredNamespacePrefix>
         <rdfs:label>AppleCatalog</rdfs:label>
     </owl:Ontology>
@@ -29,24 +28,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://purl.org/dc/elements/1.1creator -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1creator"/>
-    
-
-
-    <!-- http://purl.org/dc/elements/1.1date -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1date"/>
-    
-
-
-    <!-- http://purl.org/dc/elements/1.1description -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1description"/>
     
 
 
