@@ -871,7 +871,7 @@
     <!-- http://www.modsem.com/productCatalog#Company -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Company">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
         <rdfs:comment xml:lang="en">The company that has the project, the engineering process and the manifacturing to produce the product</rdfs:comment>
         <rdfs:label xml:lang="en">Company</rdfs:label>
     </owl:Class>
