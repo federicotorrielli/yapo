@@ -109,6 +109,16 @@
     
 
 
+    <!-- http://www.modsem.com/productCatalog#buysFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#buysFrom">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#User"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#SellingCatalog"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.modsem.com/productCatalog#collabsWith -->
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#collabsWith">
@@ -1312,6 +1322,15 @@
     
 
 
+    <!-- http://www.modsem.com/productCatalog#Giovanni_PowerUser -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Giovanni_PowerUser">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#PowerUser"/>
+        <buysFrom rdf:resource="http://www.modsem.com/productCatalog#AppleSite"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.modsem.com/productCatalog#Huáshuò -->
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Huáshuò">
@@ -1417,6 +1436,15 @@
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isTouchScreen>
         <rdfs:comment xml:lang="en">Laptop with M1 Chip made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">MacBookAir_M1</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Michela_CasualUser -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Michela_CasualUser">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#CasualUser"/>
+        <buysFrom rdf:resource="http://www.modsem.com/productCatalog#AsusSite"/>
     </owl:NamedIndividual>
     
 
