@@ -17,10 +17,10 @@
         <vann:preferredNamespacePrefix>sapg</vann:preferredNamespacePrefix>
         <rdfs:label>AppleCatalog</rdfs:label>
     </owl:Ontology>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Annotation properties
