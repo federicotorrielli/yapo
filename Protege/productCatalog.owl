@@ -3,13 +3,13 @@
      xml:base="http://www.modsem.com/productCatalog"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:pto="http://www.productontology.org/#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:vann="http://purl.org/vocab/vann/">
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:elements="http://purl.org/dc/elements/1.1">
     <owl:Ontology rdf:about="http://www.modsem.com/productCatalog">
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Federico Torrielli</dc:creator>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ivan Spada</dc:creator>
@@ -18,10 +18,10 @@
         <vann:preferredNamespacePrefix>sapg</vann:preferredNamespacePrefix>
         <rdfs:label>AppleCatalog</rdfs:label>
     </owl:Ontology>
+    
 
 
-
-    <!--
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Annotation properties
@@ -1050,6 +1050,7 @@
     <!-- http://www.modsem.com/productCatalog#ProductCatalog -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#ProductCatalog">
+        <owl:equivalentClass rdf:resource="https://www.w3.org/ns/dcat#Catalog"/>
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.modsem.com/productCatalog#contains"/>
@@ -1156,6 +1157,12 @@
         <rdfs:comment xml:lang="en">A portable computer that has features of both tablets and laptops</rdfs:comment>
         <rdfs:label xml:lang="en">2in1</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Organization -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
     
 
 
