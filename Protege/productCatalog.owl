@@ -1171,9 +1171,9 @@
     
 
 
-    <!-- http://xmlns.com/foaf/0.1/Agent -->
+    <!-- http://xmlns.com/foaf/0.1/Person -->
 
-    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
     
 
 
@@ -1677,7 +1677,6 @@
     <!-- http://www.modsem.com/productCatalog#inEar -->
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#inEar">
-        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <rdfs:label xml:lang="en">inEar</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1686,7 +1685,6 @@
     <!-- http://www.modsem.com/productCatalog#onEar -->
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#onEar">
-        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <rdfs:label xml:lang="en">onEar</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1695,7 +1693,6 @@
     <!-- http://www.modsem.com/productCatalog#overEar -->
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#overEar">
-        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <rdfs:label xml:lang="en">overEar</rdfs:label>
     </owl:NamedIndividual>
 </rdf:RDF>
