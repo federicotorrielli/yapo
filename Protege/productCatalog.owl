@@ -1051,7 +1051,7 @@
     <!-- http://www.modsem.com/productCatalog#ProductCatalog -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#ProductCatalog">
-        <owl:equivalentClass rdf:resource="https://www.w3.org/ns/dcat#Catalog"/>
+        <owl:equivalentClass rdf:resource="https://www.w3.org/ns/dcat#Collection"/>
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.modsem.com/productCatalog#contains"/>
