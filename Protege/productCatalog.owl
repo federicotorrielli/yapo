@@ -945,6 +945,7 @@
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Manufacturer"/>
+        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Factory"/>
         <rdfs:comment xml:lang="en">The part of the Manufacturer process that creates the design of the product</rdfs:comment>
         <rdfs:label xml:lang="en">Engineering</rdfs:label>
     </owl:Class>
@@ -1343,7 +1344,6 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#BeatsAudio">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Company"/>
         <designs rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
-        <produces rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
         <sell rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
         <rdfs:comment xml:lang="en">Company that sells audio products</rdfs:comment>
         <rdfs:label xml:lang="en">BeatsAudio</rdfs:label>
@@ -1620,6 +1620,14 @@
         <designs rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global"/>
         <rdfs:comment xml:lang="en">A company that does not exist</rdfs:comment>
         <rdfs:label xml:lang="en">ShortEngineer</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#ShortFactory -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#ShortFactory">
+        <produces rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
     </owl:NamedIndividual>
     
 
