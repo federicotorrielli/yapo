@@ -18,7 +18,7 @@
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ivan Spada</dc:creator>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</dc:date>
         <dc:description xml:lang="en">The &quot;Simple IT Product Catalog&quot; is a product management/catalog ontology to demonstrate a fairly simple product catalog and how a reasoner shoud work with Company nodes and devices. It could also be applied as a model for other companies product catalogs</dc:description>
-        <vann:preferredNamespacePrefix>sapg</vann:preferredNamespacePrefix>
+        <vann:preferredNamespacePrefix>sipg</vann:preferredNamespacePrefix>
         <rdfs:label>ITCatalog</rdfs:label>
     </owl:Ontology>
     
@@ -1224,7 +1224,6 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AirPods_wirelessCharge">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
-        <owl:sameAs rdf:resource="http://www.modsem.com/productCatalog#onEar"/>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">White</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chip H1</CpuType>
@@ -1346,6 +1345,8 @@
         <designs rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
         <produces rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
         <sell rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
+        <rdfs:comment xml:lang="en">Company that sells audio products</rdfs:comment>
+        <rdfs:label xml:lang="en">BeatsAudio</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1354,7 +1355,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Beats_cuffie">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
-        <owl:sameAs rdf:resource="http://www.modsem.com/productCatalog#overEar"/>
+        <rdfs:comment xml:lang="en">Over ear made by BeatsAudio</rdfs:comment>
+        <rdfs:label xml:lang="en">Beats_cuffie</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1723,33 +1725,6 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iPhoneX_64">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <ProductName>iPhone X 64GB</ProductName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.modsem.com/productCatalog#inEar -->
-
-    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#inEar">
-        <rdfs:comment xml:lang="en">Term to describe a type of ear placement of the product</rdfs:comment>
-        <rdfs:label xml:lang="en">inEar</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.modsem.com/productCatalog#onEar -->
-
-    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#onEar">
-        <rdfs:comment xml:lang="en">Term to describe a type of ear placement of the product</rdfs:comment>
-        <rdfs:label xml:lang="en">onEar</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.modsem.com/productCatalog#overEar -->
-
-    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#overEar">
-        <rdfs:comment xml:lang="en">Term to describe a type of ear placement of the product</rdfs:comment>
-        <rdfs:label xml:lang="en">overEar</rdfs:label>
     </owl:NamedIndividual>
 </rdf:RDF>
 
