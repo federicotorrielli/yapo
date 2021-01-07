@@ -8,4 +8,5 @@
 - Potremmo utilizzare partecipantRoleODP (Ruoli azienda e flusso produttivo)?
 - Pattern List e Bag basta allinearlo? La lista deve essere per forza ordinata?
 - Differenza tra selling e stock Catalog? Troppo variabile o si può rappresentare sull'ontologia?
+  
 - Ci sono altre lezioni?

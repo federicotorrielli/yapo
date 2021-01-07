@@ -928,15 +928,6 @@
     <!-- http://www.modsem.com/productCatalog#EarPlugs -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#EarPlugs">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:oneOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#inEar"/>
-                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#onEar"/>
-                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#overEar"/>
-                </owl:oneOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
         <rdfs:comment xml:lang="en">A small accessory device made for listening to music</rdfs:comment>
         <rdfs:label xml:lang="en">EarPlugs</rdfs:label>
@@ -954,7 +945,6 @@
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Manufacturer"/>
-        <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Factory"/>
         <rdfs:comment xml:lang="en">The part of the Manufacturer process that creates the design of the product</rdfs:comment>
         <rdfs:label xml:lang="en">Engineering</rdfs:label>
     </owl:Class>
@@ -1020,6 +1010,20 @@
     <!-- http://www.modsem.com/productCatalog#Manufacturer -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Manufacturer">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Apple"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Asus"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#BeatsAudio"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Foxconn"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Huáshuò"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Qualcomm"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Samsung"/>
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#ShortEngineer"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Company"/>
         <rdfs:comment xml:lang="en">The part of the company specifically addressed to engineer and produce the X product</rdfs:comment>
         <rdfs:label xml:lang="en">Manufacturer</rdfs:label>
@@ -1340,6 +1344,7 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#BeatsAudio">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Company"/>
         <designs rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
+        <produces rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
         <sell rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
     </owl:NamedIndividual>
     
