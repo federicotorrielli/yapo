@@ -169,7 +169,7 @@
         <rdfs:comment xml:lang="en">Availability of a product in a product catalog</rdfs:comment>
         <rdfs:label xml:lang="en">contains</rdfs:label>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://www.modsem.com/productCatalog#containsBrand -->
@@ -185,7 +185,7 @@
         <rdfs:comment xml:lang="en">Company that sells products in SellingCatalog</rdfs:comment>
         <rdfs:label xml:lang="en">containsBrand</rdfs:label>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://www.modsem.com/productCatalog#containsInBox -->
@@ -892,6 +892,7 @@
     <!-- http://www.modsem.com/productCatalog#Cable -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Cable">
+        <owl:equivalentClass rdf:resource="http://www.productontology.org/id/Power_cable"/>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Cover"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
@@ -923,6 +924,7 @@
     <!-- http://www.modsem.com/productCatalog#Computer -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Computer">
+        <owl:equivalentClass rdf:resource="http://www.productontology.org/id/Personal_computer"/>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#NotPortableDevice"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Stereo"/>
         <rdfs:comment xml:lang="en">Just a computer</rdfs:comment>
@@ -934,6 +936,7 @@
     <!-- http://www.modsem.com/productCatalog#Cover -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Cover">
+        <owl:equivalentClass rdf:resource="http://www.productontology.org/id/Housing_(engineering)"/>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
         <rdfs:comment xml:lang="en">A product made for protecting a device from accidental falls</rdfs:comment>
@@ -955,6 +958,7 @@
     <!-- http://www.modsem.com/productCatalog#EarPlugs -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#EarPlugs">
+        <owl:equivalentClass rdf:resource="http://www.productontology.org/id/Headphones"/>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
         <rdfs:comment xml:lang="en">A small accessory device made for listening to music</rdfs:comment>
         <rdfs:label xml:lang="en">EarPlugs</rdfs:label>
@@ -1026,6 +1030,7 @@
     <!-- http://www.modsem.com/productCatalog#Laptop -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Laptop">
+        <owl:equivalentClass rdf:resource="http://www.productontology.org/id/Laptop"/>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Smartwatch"/>
@@ -1099,6 +1104,7 @@
     <!-- http://www.modsem.com/productCatalog#Product -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Product">
+        <owl:equivalentClass rdf:resource="http://www.productontology.org/id/Product_(business)"/>
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.modsem.com/productCatalog#isContainedIn"/>
@@ -1198,6 +1204,7 @@
     <!-- http://www.modsem.com/productCatalog#Smartphone -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Smartphone">
+        <owl:equivalentClass rdf:resource="http://www.productontology.org/id/Smartphone"/>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Smartwatch"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Tablet"/>
@@ -1211,6 +1218,7 @@
     <!-- http://www.modsem.com/productCatalog#Smartwatch -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Smartwatch">
+        <owl:equivalentClass rdf:resource="http://www.productontology.org/id/Smartwatch"/>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#Tablet"/>
         <owl:disjointWith rdf:resource="http://www.modsem.com/productCatalog#2in1"/>
@@ -1233,6 +1241,7 @@
     <!-- http://www.modsem.com/productCatalog#Stereo -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Stereo">
+        <owl:equivalentClass rdf:resource="http://www.productontology.org/id/Loudspeaker"/>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#NotPortableDevice"/>
         <rdfs:comment xml:lang="en">A big device made for listening to music</rdfs:comment>
         <rdfs:label xml:lang="en">Stereo</rdfs:label>
@@ -1253,6 +1262,7 @@
     <!-- http://www.modsem.com/productCatalog#Tablet -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Tablet">
+        <owl:equivalentClass rdf:resource="http://www.productontology.org/id/Tablet_computer"/>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
         <rdfs:comment xml:lang="en">Mobile device, typically with a mobile operating system and touchscreen display processing circuitry, and a rechargeable battery in a single, thin and flat package</rdfs:comment>
         <rdfs:label xml:lang="en">Tablet</rdfs:label>
@@ -1273,17 +1283,106 @@
     <!-- http://www.modsem.com/productCatalog#2in1 -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#2in1">
+        <owl:equivalentClass rdf:resource="http://www.productontology.org/id/2-in-1_PC"/>
         <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
         <rdfs:comment xml:lang="en">A portable computer that has features of both tablets and laptops</rdfs:comment>
         <rdfs:label xml:lang="en">2in1</rdfs:label>
     </owl:Class>
-    
+
+
+
+    <!-- http://www.productontology.org/id/Headphones -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Headphones">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.productontology.org/id/Laptop -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Laptop">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.productontology.org/id/Loudspeaker -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Loudspeaker">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#NotPortableDevice"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.productontology.org/id/Personal_computer -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Personal_computer">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#NotPortableDevice"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.productontology.org/id/Power_cable -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Power_cable">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.productontology.org/id/Smartphone -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Smartphone">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.productontology.org/id/Smartwatch -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Smartwatch">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.productontology.org/id/Tablet_computer -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Tablet_computer">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.productontology.org/id/2-in-1_PC -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/2-in-1_PC">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.productontology.org/id/Housing_(engineering) -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Housing_(engineering)">
+        <rdfs:subClassOf rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.productontology.org/id/Product_(business) -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Product_(business)">
+        <rdfs:subClassOf rdf:resource="http://purl.org/dc/dcmitype/PhysicalObject"/>
+    </owl:Class>
+
 
 
     <!-- http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection -->
 
     <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection"/>
-    
+
 
 
     <!-- http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem -->
@@ -1301,7 +1400,7 @@
             </owl:Class>
         </owl:equivalentClass>
     </rdf:Description>
-    
+
 
 
     <!-- http://xmlns.com/foaf/0.1/Organization -->
@@ -1376,7 +1475,7 @@
         <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#Lightning_cable"/>
         <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.modsem.com/productCatalog#AppleCatalog -->
@@ -1390,7 +1489,7 @@
         <rdfs:comment xml:lang="en">Apple web site catalog</rdfs:comment>
         <rdfs:label xml:lang="en">AppleCatalog</rdfs:label>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.modsem.com/productCatalog#AppleMobile -->
@@ -1402,7 +1501,7 @@
         <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
         <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.modsem.com/productCatalog#ApplePC -->
@@ -1469,7 +1568,7 @@
         <rdfs:comment xml:lang="en">Asus web site catalog</rdfs:comment>
         <rdfs:label xml:lang="en">AsusCatalog</rdfs:label>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.modsem.com/productCatalog#AsusPC -->
@@ -1491,7 +1590,7 @@
         <rdfs:comment xml:lang="en">Company that sells audio products</rdfs:comment>
         <rdfs:label xml:lang="en">BeatsAudio</rdfs:label>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.modsem.com/productCatalog#BeatsCatalog -->
@@ -1501,7 +1600,7 @@
         <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
         <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.modsem.com/productCatalog#Beats_cuffie -->
@@ -1705,7 +1804,7 @@
         <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#USBC_cable"/>
         <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#USBC_cable"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.modsem.com/productCatalog#SamsungCatalag -->
@@ -1717,7 +1816,7 @@
         <rdfs:comment xml:lang="en">Samsung web site catalog</rdfs:comment>
         <rdfs:label xml:lang="en">SamsungCatalog</rdfs:label>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.modsem.com/productCatalog#SamsungGalaxy -->
@@ -1727,7 +1826,7 @@
         <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
         <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.modsem.com/productCatalog#SamsungGalaxyS10_global -->
