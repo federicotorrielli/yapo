@@ -17,3 +17,4 @@ delle proposte annuali disponibili sul mercato.
 Apple (Italy). Available at: *https://www.apple.com/it/*
 
 Samsung (Italy). Available at: *https://www.samsung.com/it/*
+

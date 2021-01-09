@@ -44,3 +44,4 @@ alla fascia media dell'anno N+1 permettendo il riutilizzo dei *vecchi device* al
 riducendo le scorte avanzate in magazzino allo stesso tempo. L'organizzazione del catalogo attraverso una 
 rappresentazione della conoscenza, aggiornabile nel tempo, permette la riorganizzazione delle proposte degli anni 
 successivi in base alle scelte di *marketing* stabilite dal *team* addetto all'interno dell'azienda.
+
