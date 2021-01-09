@@ -102,6 +102,10 @@
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#brandContainedIn">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="http://www.modsem.com/productCatalog#containsBrand"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Company"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#SellingCatalog"/>
+        <rdfs:comment xml:lang="en">Shows if a company is listed on a Selling Catalog</rdfs:comment>
+        <rdfs:label xml:lang="en">brandContainedIn</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -116,6 +120,8 @@
             <rdf:Description rdf:about="http://www.modsem.com/productCatalog#buysProduct"/>
             <rdf:Description rdf:about="http://www.modsem.com/productCatalog#isContainedIn"/>
         </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Shows what user is buying from the X selling catalog</rdfs:comment>
+        <rdfs:label xml:lang="en">buysFrom</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -126,6 +132,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#User"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:comment xml:lang="en">Shows what product is the user buying</rdfs:comment>
+        <rdfs:label xml:lang="en">buysProduct</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -140,6 +148,8 @@
             <rdf:Description rdf:about="http://www.modsem.com/productCatalog#sells"/>
             <rdf:Description rdf:about="http://www.modsem.com/productCatalog#inCollabWith"/>
         </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Shows company collaborations to create a certain product</rdfs:comment>
+        <rdfs:label xml:lang="en">collabsWith</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -201,6 +211,8 @@
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#containsInBox">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="http://www.modsem.com/productCatalog#inBoxOf"/>
+        <rdfs:comment xml:lang="en">Shows the items inside a product box</rdfs:comment>
+        <rdfs:label xml:lang="en">containsInBox</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -246,6 +258,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Company"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#ProductCatalog"/>
+        <rdfs:comment xml:lang="en">Shows what catalog X Company has available</rdfs:comment>
+        <rdfs:label xml:lang="en">hasCatalog</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -282,6 +296,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Company"/>
+        <rdfs:comment xml:lang="en">Shows company collaborations to create a certain product</rdfs:comment>
+        <rdfs:label xml:lang="en">inCollabWith</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -383,6 +399,8 @@
             <rdf:Description rdf:about="http://www.modsem.com/productCatalog#sells"/>
             <rdf:Description rdf:about="http://www.modsem.com/productCatalog#containsInBox"/>
         </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Shows what items are put in a product&apos;s box</rdfs:comment>
+        <rdfs:label xml:lang="en">putInBoxes</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1476,9 +1494,9 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AppleAccessories">
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
-        <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
         <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#Lightning_cable"/>
         <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
+        <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
     </owl:NamedIndividual>
     
 
@@ -1501,10 +1519,10 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AppleMobile">
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
-        <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
-        <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
         <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
+        <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
+        <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
     </owl:NamedIndividual>
     
 
