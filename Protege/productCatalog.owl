@@ -13,10 +13,12 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:sapg="http://www.modsem.com/productCatalog#"
      xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:price="http://www.ontologydesignpatterns.org/cp/owl/price.owl#"
      xmlns:collectionentity="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#"
      xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
     <owl:Ontology rdf:about="http://www.modsem.com/productCatalog">
         <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl"/>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Federico Torrielli</dc:creator>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ivan Spada</dc:creator>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</dc:date>
@@ -1444,6 +1446,7 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AirPods_wirelessCharge">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
         <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
+        <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#200Euro"/>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">White</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chip H1</CpuType>
@@ -1530,6 +1533,7 @@
         <needsConnectionWith rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
         <needsConnectionWith rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <needsConnectionWith rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
+        <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#500Euro"/>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silver, Graphite (DLC), Gold (PVD)</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dual-core</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.4</Depth>
@@ -1610,8 +1614,17 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Beats_cuffie">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
+        <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#200Euro"/>
         <rdfs:comment xml:lang="en">Over ear made by BeatsAudio</rdfs:comment>
         <rdfs:label xml:lang="en">Beats_cuffie</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#Euro -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Euro">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Currency"/>
     </owl:NamedIndividual>
     
 
@@ -1658,6 +1671,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#IpadAir_2020">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Tablet"/>
+        <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#600Euro"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Space Gray, Silver, Rose Gold, Green, Sky Blue</Color>
@@ -1688,6 +1702,7 @@
         <predecessorOf rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <successorOf rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
         <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256"/>
+        <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#600Euro"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, Green, Yellow, Purple, Red, White</Color>
@@ -1721,6 +1736,7 @@
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
         <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
+        <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#10Euro"/>
         <rdfs:label xml:lang="en">Lightning_cable</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1730,6 +1746,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#MacBookAir_M1">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Laptop"/>
+        <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#1000Euro"/>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gold, Silver, Space Gray</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple M1 chip</CpuType>
@@ -1836,6 +1853,7 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global"/>
+        <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#500Euro"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.0</CameraMP>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prism White, Prism Black, Prism Green, Prism Blue, Canary Yellow, Flamingo Pink, Cardinal Red, Smoke Blue</Color>
@@ -1865,6 +1883,7 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <successorOf rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
+        <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#800Euro"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">64.0</CameraMP>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cosmic Grey, Cloud Blue, Cloud Pink, Cloud White, Aura Red</Color>
@@ -1925,6 +1944,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#2in1"/>
+        <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#1800Euro"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.2</CameraMP>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nero jada</Color>
@@ -1954,6 +1974,7 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Computer"/>
         <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#MacBookAir_M1"/>
+        <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#1800Euro"/>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silver</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Intel Core i5 6‑core 10gen 3.1GHz (Turbo Boost 4.5GHz)</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">203.0</Depth>
@@ -1982,6 +2003,7 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iPhone12_64">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
+        <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#800Euro"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, White, Red, Green, Blue</Color>
@@ -2011,7 +2033,78 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iPhoneX_64">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
+        <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#500Euro"/>
         <ProductName>iPhone X 64GB</ProductName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#10Euro -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#10Euro">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
+        <price:hasCurrency rdf:resource="http://www.modsem.com/productCatalog#Euro"/>
+        <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.0</price:hasValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#1000Euro -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#1000Euro">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
+        <price:hasCurrency rdf:resource="http://www.modsem.com/productCatalog#Euro"/>
+        <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1000.0</price:hasValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#1800Euro -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#1800Euro">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
+        <price:hasCurrency rdf:resource="http://www.modsem.com/productCatalog#Euro"/>
+        <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1800.0</price:hasValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#200Euro -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#200Euro">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
+        <price:hasCurrency rdf:resource="http://www.modsem.com/productCatalog#Euro"/>
+        <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">200.0</price:hasValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#500Euro -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#500Euro">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
+        <price:hasCurrency rdf:resource="http://www.modsem.com/productCatalog#Euro"/>
+        <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">500.0</price:hasValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#600Euro -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#600Euro">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
+        <price:hasCurrency rdf:resource="http://www.modsem.com/productCatalog#Euro"/>
+        <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">600.0</price:hasValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#800Euro -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#800Euro">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
+        <price:hasCurrency rdf:resource="http://www.modsem.com/productCatalog#Euro"/>
+        <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">800.0</price:hasValue>
     </owl:NamedIndividual>
 </rdf:RDF>
 
