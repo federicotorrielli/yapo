@@ -2,15 +2,18 @@
 <rdf:RDF xmlns="http://www.modsem.com/productCatalog#"
      xml:base="http://www.modsem.com/productCatalog"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:bag="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:pto="http://www.productontology.org/id/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:list="http://www.ontologydesignpatterns.org/cp/owl/list.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:sapg="http://www.modsem.com/productCatalog#"
      xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:collectionentity="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#"
      xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
     <owl:Ontology rdf:about="http://www.modsem.com/productCatalog">
         <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl"/>
@@ -125,7 +128,7 @@
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Company"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Company"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#sell"/>
+            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#sells"/>
             <rdf:Description rdf:about="http://www.modsem.com/productCatalog#inCollabWith"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -159,8 +162,28 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#ProductCatalog"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
+        </owl:propertyChainAxiom>
         <rdfs:comment xml:lang="en">Availability of a product in a product catalog</rdfs:comment>
         <rdfs:label xml:lang="en">contains</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#containsBrand -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#containsBrand">
+        <owl:inverseOf rdf:resource="http://www.modsem.com/productCatalog#soldIn"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#SellingCatalog"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Company"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#contains"/>
+            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#soldBy"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Company that sells products in SellingCatalog</rdfs:comment>
+        <rdfs:label xml:lang="en">containsBrand</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -341,36 +364,24 @@
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Company"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#sell"/>
+            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#sells"/>
             <rdf:Description rdf:about="http://www.modsem.com/productCatalog#containsInBox"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.modsem.com/productCatalog#sell -->
+    <!-- http://www.modsem.com/productCatalog#sells -->
 
-    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#sell">
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#sells">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="http://www.modsem.com/productCatalog#soldBy"/>
-        <rdfs:comment xml:lang="en">Product is sold by X company</rdfs:comment>
-        <rdfs:label xml:lang="en">sell</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.modsem.com/productCatalog#sellsBrand -->
-
-    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#sellsBrand">
-        <owl:inverseOf rdf:resource="http://www.modsem.com/productCatalog#soldIn"/>
-        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#SellingCatalog"/>
-        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Company"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#hasCatalog"/>
             <rdf:Description rdf:about="http://www.modsem.com/productCatalog#contains"/>
-            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#soldBy"/>
         </owl:propertyChainAxiom>
-        <rdfs:comment xml:lang="en">Company that sells products in SellingCatalog</rdfs:comment>
-        <rdfs:label xml:lang="en">sellsBrand</rdfs:label>
+        <rdfs:comment xml:lang="en">Product is sold by X company</rdfs:comment>
+        <rdfs:label xml:lang="en">sells</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1102,6 +1113,7 @@
     <!-- http://www.modsem.com/productCatalog#ProductCatalog -->
 
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#ProductCatalog">
+        <owl:equivalentClass rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection"/>
         <owl:equivalentClass rdf:resource="https://www.w3.org/ns/dcat#Catalog"/>
         <owl:equivalentClass>
             <owl:Restriction>
@@ -1266,6 +1278,30 @@
     
 
 
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Product"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.modsem.com/productCatalog#isContainedIn"/>
+                        <owl:someValuesFrom rdf:resource="http://www.modsem.com/productCatalog#SellingCatalog"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </rdf:Description>
+    
+
+
     <!-- http://xmlns.com/foaf/0.1/Organization -->
 
     <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
@@ -1299,6 +1335,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AirPods_wirelessCharge">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
+        <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">White</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chip H1</CpuType>
@@ -1320,37 +1357,58 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Apple">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Company"/>
-        <hasCatalog rdf:resource="http://www.modsem.com/productCatalog#AppleSite"/>
+        <hasCatalog rdf:resource="http://www.modsem.com/productCatalog#AppleCatalog"/>
         <manufacturesTo rdf:resource="http://www.modsem.com/productCatalog#Foxconn"/>
         <manufacturesTo rdf:resource="http://www.modsem.com/productCatalog#Qualcomm"/>
-        <sell rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
-        <sell rdf:resource="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
-        <sell rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
-        <sell rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
-        <sell rdf:resource="http://www.modsem.com/productCatalog#Lightning_cable"/>
-        <sell rdf:resource="http://www.modsem.com/productCatalog#MacBookAir_M1"/>
-        <sell rdf:resource="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256"/>
-        <sell rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <rdfs:comment xml:lang="en">Famous company that design and sell electronic devices</rdfs:comment>
         <rdfs:label xml:lang="en">Apple</rdfs:label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.modsem.com/productCatalog#AppleSite -->
+    <!-- http://www.modsem.com/productCatalog#AppleAccessories -->
 
-    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AppleSite">
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AppleAccessories">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+        <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
+        <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#Lightning_cable"/>
+        <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#AppleCatalog -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AppleCatalog">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#SellingCatalog"/>
-        <contains rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
-        <contains rdf:resource="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
-        <contains rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
-        <contains rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
-        <contains rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
-        <contains rdf:resource="http://www.modsem.com/productCatalog#MacBookAir_M1"/>
-        <contains rdf:resource="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256"/>
-        <contains rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
+        <collectionentity:hasMember rdf:resource="http://www.modsem.com/productCatalog#AppleAccessories"/>
+        <collectionentity:hasMember rdf:resource="http://www.modsem.com/productCatalog#AppleMobile"/>
+        <collectionentity:hasMember rdf:resource="http://www.modsem.com/productCatalog#ApplePC"/>
+        <collectionentity:hasMember rdf:resource="http://www.modsem.com/productCatalog#BeatsCatalog"/>
         <rdfs:comment xml:lang="en">Apple web site catalog</rdfs:comment>
-        <rdfs:label xml:lang="en">AppleSite</rdfs:label>
+        <rdfs:label xml:lang="en">AppleCatalog</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#AppleMobile -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AppleMobile">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+        <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
+        <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
+        <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
+        <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#ApplePC -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#ApplePC">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+        <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256"/>
+        <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#MacBookAir_M1"/>
     </owl:NamedIndividual>
     
 
@@ -1393,22 +1451,31 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Asus">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Company"/>
         <designs rdf:resource="http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371"/>
-        <hasCatalog rdf:resource="http://www.modsem.com/productCatalog#AsusSite"/>
+        <hasCatalog rdf:resource="http://www.modsem.com/productCatalog#AsusCatalog"/>
         <manufacturesTo rdf:resource="http://www.modsem.com/productCatalog#Huáshuò"/>
-        <sell rdf:resource="http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371"/>
         <rdfs:comment xml:lang="en">AsusTek is a Taiwanese multinational computer and phone hardware and electronics company headquartered in Beitou District, Taipei, Taiwan.</rdfs:comment>
         <rdfs:label xml:lang="en">Asus</rdfs:label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.modsem.com/productCatalog#AsusSite -->
+    <!-- http://www.modsem.com/productCatalog#AsusCatalog -->
 
-    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AsusSite">
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AsusCatalog">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#SellingCatalog"/>
-        <contains rdf:resource="http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371"/>
+        <collectionentity:hasMember rdf:resource="http://www.modsem.com/productCatalog#AsusPC"/>
         <rdfs:comment xml:lang="en">Asus web site catalog</rdfs:comment>
-        <rdfs:label xml:lang="en">AsusSite</rdfs:label>
+        <rdfs:label xml:lang="en">AsusCatalog</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#AsusPC -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AsusPC">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+        <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371"/>
+        <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371"/>
     </owl:NamedIndividual>
     
 
@@ -1418,9 +1485,19 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#BeatsAudio">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Company"/>
         <designs rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
-        <sell rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
+        <sells rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
         <rdfs:comment xml:lang="en">Company that sells audio products</rdfs:comment>
         <rdfs:label xml:lang="en">BeatsAudio</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#BeatsCatalog -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#BeatsCatalog">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+        <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
+        <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
     </owl:NamedIndividual>
     
 
@@ -1506,6 +1583,7 @@
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
         <predecessorOf rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <successorOf rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
+        <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, Green, Yellow, Purple, Red, White</Color>
@@ -1538,6 +1616,7 @@
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
+        <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
         <rdfs:label xml:lang="en">Lightning_cable</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1609,13 +1688,42 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Samsung">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Company"/>
-        <hasCatalog rdf:resource="http://www.modsem.com/productCatalog#SamsungSite"/>
+        <hasCatalog rdf:resource="http://www.modsem.com/productCatalog#SamsungCatalag"/>
         <manufacturesTo rdf:resource="http://www.modsem.com/productCatalog#Huáshuò"/>
-        <sell rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
-        <sell rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global"/>
-        <sell rdf:resource="http://www.modsem.com/productCatalog#USBC_cable"/>
         <rdfs:comment xml:lang="en">Samsung is a South Korean multinational electronics company headquartered in the Yeongtong District of Suwon</rdfs:comment>
         <rdfs:label xml:lang="en">Samsung</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#SamsungAccessories -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#SamsungAccessories">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+        <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#USBC_cable"/>
+        <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#USBC_cable"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#SamsungCatalag -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#SamsungCatalag">
+        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#SellingCatalog"/>
+        <collectionentity:hasMember rdf:resource="http://www.modsem.com/productCatalog#SamsungAccessories"/>
+        <collectionentity:hasMember rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxy"/>
+        <rdfs:comment xml:lang="en">Samsung web site catalog</rdfs:comment>
+        <rdfs:label xml:lang="en">SamsungCatalog</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#SamsungGalaxy -->
+
+    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#SamsungGalaxy">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+        <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
+        <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global"/>
     </owl:NamedIndividual>
     
 
@@ -1624,6 +1732,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
+        <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.0</CameraMP>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prism White, Prism Black, Prism Green, Prism Blue, Canary Yellow, Flamingo Pink, Cardinal Red, Smoke Blue</Color>
@@ -1673,18 +1782,6 @@
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
         <rdfs:comment xml:lang="en">Smarphone made by Samsung</rdfs:comment>
         <rdfs:label xml:lang="en">SamsungGalaxyS20_5G_global</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.modsem.com/productCatalog#SamsungSite -->
-
-    <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#SamsungSite">
-        <rdf:type rdf:resource="http://www.modsem.com/productCatalog#SellingCatalog"/>
-        <contains rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
-        <contains rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global"/>
-        <rdfs:comment xml:lang="en">Samsung web site catalog</rdfs:comment>
-        <rdfs:label xml:lang="en">SamsungSite</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1753,6 +1850,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Computer"/>
+        <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#MacBookAir_M1"/>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silver</Color>
         <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Intel Core i5 6‑core 10gen 3.1GHz (Turbo Boost 4.5GHz)</CpuType>
         <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">203.0</Depth>
@@ -1780,6 +1878,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iPhone12_64">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
+        <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, White, Red, Green, Blue</Color>
@@ -1808,6 +1907,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iPhoneX_64">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
+        <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
         <ProductName>iPhone X 64GB</ProductName>
     </owl:NamedIndividual>
 </rdf:RDF>
