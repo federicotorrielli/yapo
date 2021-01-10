@@ -82,3 +82,28 @@ Qua è possibile visionare la divisione di vari computer da lavoro (sia fissi, c
 che ibridi). Più o meno si adatta lo stesso pattern di Samsung, in quanto il modello
 di azienda è equiparabile.
 
+## Organizzazione aziendale
+
+La presenza di molteplici compagnie che hanno preso parte al ciclo produttivo degli
+articoli ha ispirato la classificazione delle stesse per ruolo: progettazione e produzione.
+
+Ogni azienda, nel ramo IT, o:
+
+- Rappresenta la company che commissiona produzione e design
+- Progetta solamente i prodotti
+- Produce solamente i prodotti
+
+Un esempio già citato è la Apple, che commissiona il design dei prodotti a Foxconn e 
+la sua produzione di Chipset a Qualcomm (non attualmente, ma è un buon esempio).
+
+## Organizzazione user
+
+I prodotti IT vengono spesso realizzati avendo in mente una tipologia (o target)
+di clientela, come ad esempio la divisione delle serie (J,Z,M,A...) di Samsung.
+
+In un catalogo di prodotti IT, più di altri, è importante ricordare che si tratta di vendere
+prodotti che solitamente sono costosi: un catalogo che permetta la visualizzazione per
+fascia di prezzo è spesso apprezzato e aiuta la clientela a scegliere prodotti
+per feature/prezzo e qualità/prezzo.
+
+
