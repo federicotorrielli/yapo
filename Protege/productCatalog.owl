@@ -256,7 +256,7 @@
         <rdfs:comment xml:lang="en">Checking the compatibility between a cover and its device</rdfs:comment>
         <rdfs:label xml:lang="en">fitFor</rdfs:label>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://www.modsem.com/productCatalog#hasBrand -->
@@ -269,7 +269,7 @@
         <rdfs:label xml:lang="en">Shows the brand of the product</rdfs:label>
         <rdfs:label xml:lang="en">hasBrand</rdfs:label>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://www.modsem.com/productCatalog#hasCatalog -->
@@ -331,7 +331,7 @@
         <rdfs:comment xml:lang="en">Shows the products of the brand</rdfs:comment>
         <rdfs:label xml:lang="en">isBrandOf</rdfs:label>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://www.modsem.com/productCatalog#isContainedIn -->
@@ -1530,6 +1530,9 @@
         <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
         <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#Lightning_cable"/>
         <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
+        <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
+        <rdfs:comment xml:lang="en">Section of the Apple Product List that covers Accessories</rdfs:comment>
+        <rdfs:label xml:lang="en">AppleAccessories</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1556,6 +1559,10 @@
         <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
         <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
+        <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
+        <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
+        <rdfs:comment xml:lang="en">Section of the Apple Product List that covers Mobile Phones</rdfs:comment>
+        <rdfs:label xml:lang="en">AppleMobile</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1566,6 +1573,8 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
         <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256"/>
         <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#MacBookAir_M1"/>
+        <rdfs:comment xml:lang="en">Section of the Apple Product List that covers PCs</rdfs:comment>
+        <rdfs:label xml:lang="en">ApplePC</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1634,6 +1643,8 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
         <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371"/>
         <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371"/>
+        <rdfs:comment xml:lang="en">Section of the Asus Product List that covers PCs</rdfs:comment>
+        <rdfs:label xml:lang="en">AsusPC</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1655,6 +1666,8 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
         <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
         <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
+        <rdfs:comment xml:lang="en">Section of the Beats Product List that covers Earplugs</rdfs:comment>
+        <rdfs:label xml:lang="en">BeatsEarPlugs</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1675,6 +1688,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Euro">
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Currency"/>
+        <rdfs:comment xml:lang="en">European Currency</rdfs:comment>
+        <rdfs:label xml:lang="en">Euro</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1701,6 +1716,7 @@
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#User"/>
         <buysProduct rdf:resource="http://www.modsem.com/productCatalog#MacBookAir_M1"/>
         <buysProduct rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
+        <rdfs:label xml:lang="en">Giovanni</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1790,6 +1806,7 @@
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
         <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
         <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#10Euro"/>
+        <rdfs:comment xml:lang="en">The standard cable for iPhones</rdfs:comment>
         <rdfs:label xml:lang="en">Lightning_cable</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1829,6 +1846,7 @@
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Michela_CasualUser">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#User"/>
         <buysProduct rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
+        <rdfs:label xml:lang="en">Michela</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1876,6 +1894,8 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
         <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#USBC_cable"/>
         <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#USBC_cable"/>
+        <rdfs:comment xml:lang="en">Section of the Samsung Product List that covers Accessories</rdfs:comment>
+        <rdfs:label xml:lang="en">SamsungAccessories</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1898,6 +1918,8 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
         <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
         <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global"/>
+        <rdfs:comment xml:lang="en">Section of the Samsung Product List that covers Phones</rdfs:comment>
+        <rdfs:label xml:lang="en">SamsungGalaxy</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1979,6 +2001,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#ShortFactory">
         <produces rdf:resource="http://www.modsem.com/productCatalog#Beats_cuffie"/>
+        <rdfs:comment xml:lang="en">A small product factory that only produces Beats!</rdfs:comment>
+        <rdfs:label xml:lang="en">ShortFactory</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1992,6 +2016,7 @@
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global"/>
         <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C Cable</ProductName>
+        <rdfs:comment xml:lang="en">The new world standard for USB communication</rdfs:comment>
         <rdfs:label xml:lang="en">USBC_cable</rdfs:label>
     </owl:NamedIndividual>
     
@@ -2096,6 +2121,8 @@
         <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
         <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#500Euro"/>
         <ProductName>iPhone X 64GB</ProductName>
+        <rdfs:comment xml:lang="en">iPhone X, 64GB edition</rdfs:comment>
+        <rdfs:label xml:lang="en">iPhoneX_64</rdfs:label>
     </owl:NamedIndividual>
     
 
