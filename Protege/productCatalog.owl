@@ -196,11 +196,12 @@
     <!-- http://www.modsem.com/productCatalog#containsBrand -->
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#containsBrand">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#SellingCatalog"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Company"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.modsem.com/productCatalog#contains"/>
-            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#soldBy"/>
+            <rdf:Description rdf:about="http://www.modsem.com/productCatalog#hasBrand"/>
         </owl:propertyChainAxiom>
         <rdfs:comment xml:lang="en">Company that sells products in SellingCatalog</rdfs:comment>
         <rdfs:label xml:lang="en">containsBrand</rdfs:label>
@@ -213,6 +214,8 @@
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#containsInBox">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="http://www.modsem.com/productCatalog#inBoxOf"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Accessory"/>
         <rdfs:comment xml:lang="en">Shows the items inside a product box</rdfs:comment>
         <rdfs:label xml:lang="en">containsInBox</rdfs:label>
     </owl:ObjectProperty>
@@ -236,6 +239,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#designs">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Engineering"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Product"/>
         <rdfs:comment xml:lang="en">Who made the design of a product</rdfs:comment>
         <rdfs:label xml:lang="en">designs</rdfs:label>
     </owl:ObjectProperty>
@@ -250,6 +255,19 @@
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#PortableDevice"/>
         <rdfs:comment xml:lang="en">Checking the compatibility between a cover and its device</rdfs:comment>
         <rdfs:label xml:lang="en">fitFor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.modsem.com/productCatalog#hasBrand -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#hasBrand">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.modsem.com/productCatalog#isBrandOf"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Company"/>
+        <rdfs:label xml:lang="en">Shows the brand of the product</rdfs:label>
+        <rdfs:label xml:lang="en">hasBrand</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -304,10 +322,24 @@
     
 
 
+    <!-- http://www.modsem.com/productCatalog#isBrandOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#isBrandOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Company"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:comment xml:lang="en">Shows the products of the brand</rdfs:comment>
+        <rdfs:label xml:lang="en">isBrandOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.modsem.com/productCatalog#isContainedIn -->
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#isContainedIn">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#ProductCatalog"/>
         <rdfs:comment xml:lang="en">Availability of a product in a product catalog</rdfs:comment>
         <rdfs:label xml:lang="en">isContainedIn</rdfs:label>
     </owl:ObjectProperty>
@@ -317,6 +349,7 @@
     <!-- http://www.modsem.com/productCatalog#isManifacturerOf -->
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#isManifacturerOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="http://www.modsem.com/productCatalog#manufacturesTo"/>
         <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Manufacturer"/>
         <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Company"/>
@@ -329,6 +362,9 @@
     <!-- http://www.modsem.com/productCatalog#manufacturesTo -->
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#manufacturesTo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Company"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Manufacturer"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.modsem.com/productCatalog#sells"/>
             <rdf:Description rdf:about="http://www.modsem.com/productCatalog#designedBy"/>
@@ -385,6 +421,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#produces">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Factory"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Product"/>
         <rdfs:comment xml:lang="en">Checking what factory produced the X device</rdfs:comment>
         <rdfs:label xml:lang="en">produces</rdfs:label>
     </owl:ObjectProperty>
@@ -429,6 +467,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.modsem.com/productCatalog#soldBy">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.modsem.com/productCatalog#Product"/>
+        <rdfs:range rdf:resource="http://www.modsem.com/productCatalog#Company"/>
         <rdfs:comment xml:lang="en">Product is sold by X company</rdfs:comment>
         <rdfs:label xml:lang="en">soldBy</rdfs:label>
     </owl:ObjectProperty>
@@ -847,6 +887,8 @@
                 </owl:oneOf>
             </rdfs:Datatype>
         </rdfs:range>
+        <rdfs:label xml:lang="en">Customer&apos;s range the product is made to</rdfs:label>
+        <rdfs:label xml:lang="en">isInRange</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1133,10 +1175,15 @@
     <owl:Class rdf:about="http://www.modsem.com/productCatalog#Product">
         <owl:equivalentClass rdf:resource="http://www.productontology.org/id/Product_(business)"/>
         <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.modsem.com/productCatalog#isContainedIn"/>
-                <owl:someValuesFrom rdf:resource="http://www.modsem.com/productCatalog#ProductCatalog"/>
-            </owl:Restriction>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.modsem.com/productCatalog#isContainedIn"/>
+                        <owl:someValuesFrom rdf:resource="http://www.modsem.com/productCatalog#ProductCatalog"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.org/dc/dcmitype/PhysicalObject"/>
         <rdfs:comment xml:lang="en">Something that is produced and used</rdfs:comment>
@@ -1324,24 +1371,6 @@
     
 
 
-    <!-- http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem -->
-
-    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.modsem.com/productCatalog#Product"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.modsem.com/productCatalog#isContainedIn"/>
-                        <owl:someValuesFrom rdf:resource="http://www.modsem.com/productCatalog#SellingCatalog"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-    </rdf:Description>
-    
-
-
     <!-- http://www.productontology.org/id/Headphones -->
 
     <owl:Class rdf:about="http://www.productontology.org/id/Headphones">
@@ -1463,6 +1492,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AirPods_wirelessCharge">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
+        <hasBrand rdf:resource="http://www.modsem.com/productCatalog#Apple"/>
         <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
         <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#200Euro"/>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
@@ -1547,6 +1577,7 @@
         <compatibleWith rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
         <compatibleWith rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <compatibleWith rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
+        <hasBrand rdf:resource="http://www.modsem.com/productCatalog#Apple"/>
         <inCollabWith rdf:resource="http://www.modsem.com/productCatalog#Nike"/>
         <needsConnectionWith rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
         <needsConnectionWith rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
@@ -1632,6 +1663,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Beats_cuffie">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#EarPlugs"/>
+        <hasBrand rdf:resource="http://www.modsem.com/productCatalog#BeatsAudio"/>
         <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#200Euro"/>
         <rdfs:comment xml:lang="en">Over ear made by BeatsAudio</rdfs:comment>
         <rdfs:label xml:lang="en">Beats_cuffie</rdfs:label>
@@ -1689,6 +1721,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#IpadAir_2020">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Tablet"/>
+        <hasBrand rdf:resource="http://www.modsem.com/productCatalog#Apple"/>
         <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#600Euro"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
@@ -1717,6 +1750,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Iphone11_64">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
+        <hasBrand rdf:resource="http://www.modsem.com/productCatalog#Apple"/>
         <predecessorOf rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <successorOf rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
         <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256"/>
@@ -1749,6 +1783,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#Lightning_cable">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Cable"/>
+        <hasBrand rdf:resource="http://www.modsem.com/productCatalog#Apple"/>
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
@@ -1764,6 +1799,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#MacBookAir_M1">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Laptop"/>
+        <hasBrand rdf:resource="http://www.modsem.com/productCatalog#Apple"/>
         <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#1000Euro"/>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gold, Silver, Space Gray</Color>
@@ -1870,6 +1906,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
+        <hasBrand rdf:resource="http://www.modsem.com/productCatalog#Samsung"/>
         <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global"/>
         <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#500Euro"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.0</CameraMP>
@@ -1900,6 +1937,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
+        <hasBrand rdf:resource="http://www.modsem.com/productCatalog#Samsung"/>
         <successorOf rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
         <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#800Euro"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">64.0</CameraMP>
@@ -1949,6 +1987,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#USBC_cable">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Cable"/>
+        <hasBrand rdf:resource="http://www.modsem.com/productCatalog#Samsung"/>
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS10_global"/>
         <inBoxOf rdf:resource="http://www.modsem.com/productCatalog#SamsungGalaxyS20_5G_global"/>
@@ -1962,6 +2001,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#ZenBookFlip_S_UX371">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#2in1"/>
+        <hasBrand rdf:resource="http://www.modsem.com/productCatalog#Asus"/>
         <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#1800Euro"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.2</CameraMP>
         <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
@@ -1991,6 +2031,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iMac_27_RetinaDisplay_5k_256">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Computer"/>
+        <hasBrand rdf:resource="http://www.modsem.com/productCatalog#Apple"/>
         <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#MacBookAir_M1"/>
         <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#1800Euro"/>
         <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silver</Color>
@@ -2020,6 +2061,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iPhone12_64">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
+        <hasBrand rdf:resource="http://www.modsem.com/productCatalog#Apple"/>
         <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
         <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#800Euro"/>
         <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
@@ -2050,6 +2092,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#iPhoneX_64">
         <rdf:type rdf:resource="http://www.modsem.com/productCatalog#Smartphone"/>
+        <hasBrand rdf:resource="http://www.modsem.com/productCatalog#Apple"/>
         <list:nextItem rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
         <price:hasPrice rdf:resource="http://www.modsem.com/productCatalog#500Euro"/>
         <ProductName>iPhone X 64GB</ProductName>
@@ -2063,6 +2106,8 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
         <price:hasCurrency rdf:resource="http://www.modsem.com/productCatalog#Euro"/>
         <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.0</price:hasValue>
+        <rdfs:comment xml:lang="en">10 Euro</rdfs:comment>
+        <rdfs:label xml:lang="en">10Euro</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2073,6 +2118,8 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
         <price:hasCurrency rdf:resource="http://www.modsem.com/productCatalog#Euro"/>
         <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1000.0</price:hasValue>
+        <rdfs:comment xml:lang="en">1000 Euro</rdfs:comment>
+        <rdfs:label xml:lang="en">1000Euro</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2083,6 +2130,8 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
         <price:hasCurrency rdf:resource="http://www.modsem.com/productCatalog#Euro"/>
         <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1800.0</price:hasValue>
+        <rdfs:comment xml:lang="en">1800 Euro</rdfs:comment>
+        <rdfs:label xml:lang="en">1800Euro</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2093,6 +2142,8 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
         <price:hasCurrency rdf:resource="http://www.modsem.com/productCatalog#Euro"/>
         <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">200.0</price:hasValue>
+        <rdfs:comment xml:lang="en">200 Euro</rdfs:comment>
+        <rdfs:label xml:lang="en">200Euro</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2103,6 +2154,8 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
         <price:hasCurrency rdf:resource="http://www.modsem.com/productCatalog#Euro"/>
         <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">500.0</price:hasValue>
+        <rdfs:comment xml:lang="en">500 Euro</rdfs:comment>
+        <rdfs:label xml:lang="en">500Euro</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2113,6 +2166,8 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
         <price:hasCurrency rdf:resource="http://www.modsem.com/productCatalog#Euro"/>
         <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">600.0</price:hasValue>
+        <rdfs:comment xml:lang="en">600 Euro</rdfs:comment>
+        <rdfs:label xml:lang="en">600Euro</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -2123,6 +2178,8 @@
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
         <price:hasCurrency rdf:resource="http://www.modsem.com/productCatalog#Euro"/>
         <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">800.0</price:hasValue>
+        <rdfs:comment xml:lang="en">800 Euro</rdfs:comment>
+        <rdfs:label xml:lang="en">800Euro</rdfs:label>
     </owl:NamedIndividual>
 </rdf:RDF>
 
