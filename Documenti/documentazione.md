@@ -28,7 +28,7 @@ di allineare i concetti di partenza.
 
 ## Documenti informali
 
-![Accessori1](https://ibb.co/cyxKNrd)
-![Accessori2](https://ibb.co/6w4wSph)
-![Accessori3](https://ibb.co/z7qT80d)
-![Accessori4](https://ibb.co/dmMKdfd)
+![Accessori1](https://i.ibb.co/K5mc9rH/image-2021-01-10-17-05-25.png)
+![Accessori2](https://i.ibb.co/XLzLPdB/image-2021-01-10-17-06-16.png)
+![Accessori3](https://i.ibb.co/s68d5M7/image-2021-01-10-17-06-32.png)
+![Accessori4](https://i.ibb.co/jJf4c8c/image-2021-01-10-17-06-43.png)
