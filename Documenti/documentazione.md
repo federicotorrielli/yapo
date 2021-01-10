@@ -28,7 +28,40 @@ di allineare i concetti di partenza.
 
 ## Documenti informali
 
+### Apple
+
+La creazione dell'ontolgia si è ispirata all'organizzazione dei prodotti in catalogo
+di aziende come Apple, di cui è possibile trovare sotto alcuni esempi
+
 ![Accessori1](https://i.ibb.co/K5mc9rH/image-2021-01-10-17-05-25.png)
+
+> Macbook e iMac
+
 ![Accessori2](https://i.ibb.co/XLzLPdB/image-2021-01-10-17-06-16.png)
+
+> iPad
+
 ![Accessori3](https://i.ibb.co/s68d5M7/image-2021-01-10-17-06-32.png)
+
+> iPhone
+
 ![Accessori4](https://i.ibb.co/jJf4c8c/image-2021-01-10-17-06-43.png)
+
+> Accessori e Apple Watch
+
+Si può chiaramente vedere come la prima divisione fatta sia tramite "tipologia" di
+prodotto: i computer, poi i laptop, e ancora gli iPad, iPhone ed infine gli accessori
+come Apple Watch e AirPods.
+
+Accanto ad ogni categoria è poi possibile confrontare tipi equivalenti di prodotto
+(ad es. laptop con laptop) tramite il menù "Confronta". Non è invece possibile
+fare confronti di prezzo sulle intere categorie (che sarebbe uno degli obiettivi
+della nostra ontologia!).
+
+Abbiamo notato che la classificazione dei prodotti data da Apple è confusa e chiaramente
+tende a far notare a primo impatto i prodotti più nuovi, invece che i più venduti, cosa 
+che invece siti come MediaWorld fanno, non essendo legati ad un marchio soltanto.
+
+### Samsung
+
+
