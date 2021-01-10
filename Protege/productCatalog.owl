@@ -256,7 +256,7 @@
         <rdfs:comment xml:lang="en">Checking the compatibility between a cover and its device</rdfs:comment>
         <rdfs:label xml:lang="en">fitFor</rdfs:label>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- http://www.modsem.com/productCatalog#hasBrand -->
@@ -269,7 +269,7 @@
         <rdfs:label xml:lang="en">Shows the brand of the product</rdfs:label>
         <rdfs:label xml:lang="en">hasBrand</rdfs:label>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- http://www.modsem.com/productCatalog#hasCatalog -->
@@ -331,7 +331,7 @@
         <rdfs:comment xml:lang="en">Shows the products of the brand</rdfs:comment>
         <rdfs:label xml:lang="en">isBrandOf</rdfs:label>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- http://www.modsem.com/productCatalog#isContainedIn -->
@@ -1530,7 +1530,6 @@
         <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
         <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#Lightning_cable"/>
         <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
-        <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
         <rdfs:comment xml:lang="en">Section of the Apple Product List that covers Accessories</rdfs:comment>
         <rdfs:label xml:lang="en">AppleAccessories</rdfs:label>
     </owl:NamedIndividual>
@@ -1559,8 +1558,6 @@
         <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
         <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
-        <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
-        <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
         <rdfs:comment xml:lang="en">Section of the Apple Product List that covers Mobile Phones</rdfs:comment>
         <rdfs:label xml:lang="en">AppleMobile</rdfs:label>
     </owl:NamedIndividual>
