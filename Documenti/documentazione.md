@@ -59,9 +59,26 @@ fare confronti di prezzo sulle intere categorie (che sarebbe uno degli obiettivi
 della nostra ontologia!).
 
 Abbiamo notato che la classificazione dei prodotti data da Apple è confusa e chiaramente
-tende a far notare a primo impatto i prodotti più nuovi, invece che i più venduti, cosa 
+tende a far notare a primo impatto i prodotti più nuovi invece che i più venduti, cosa 
 che invece siti come MediaWorld fanno, non essendo legati ad un marchio soltanto.
 
 ### Samsung
 
+![Samsung1](https://i.postimg.cc/SsFCmm95/image-2021-01-10-17-20-49.png)
+
+Sul sito di Samsung si può già notare la differenziazione tra dispositivi portatili e
+non, cosa che faremo anche notare all'interno della nostra ontologia e che chiaramente
+rende più semplice la visualizzazione di un catalogo di Prodotti elettronici.
+
+Il fatto che Samsung abbia un'organizzazione di questo tipo fa pensare che, a differenza
+di Apple, i suoi prodotti non sono pensati per essere iconici, e che, ovviamente, il loro
+catalogo sia ben più vasto della già citata azienda di Cupertino.
+
+### Asus
+
+![Asus1](https://i.postimg.cc/xCvHCByd/image-2021-01-10-17-22-25.png)
+
+Qua è possibile visionare la divisione di vari computer da lavoro (sia fissi, che portatili,
+che ibridi). Più o meno si adatta lo stesso pattern di Samsung, in quanto il modello
+di azienda è equiparabile.
 
