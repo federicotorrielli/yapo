@@ -106,4 +106,17 @@ prodotti che solitamente sono costosi: un catalogo che permetta la visualizzazio
 fascia di prezzo è spesso apprezzato e aiuta la clientela a scegliere prodotti
 per feature/prezzo e qualità/prezzo.
 
+## Comparare i prodotti
+
+![GalaxyZ](https://i.postimg.cc/k5p0Yhkf/image-2021-01-10-17-55-26.png)
+
+Nel mondo dei device tecnologici forse il più importante fattore di scelta 
+di un prodotto piuttosto che un altro sono le sue specifiche tecniche.
+Nella precedente immagina possiamo notare come le diverse caratteristiche
+si dividano, a seconda del dispositivo, nelle sue componenti interne.
+
+Le stesse vengono anche utilizzate per proporre "comparison" (confronti)
+tra dispositivi in modo da poter fare una scelta più accurata.
+
+![Comparison](https://i.postimg.cc/pT5gwJvx/image-2021-01-10-18-04-35.png)
 
