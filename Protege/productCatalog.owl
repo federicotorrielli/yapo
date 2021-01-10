@@ -1497,9 +1497,9 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AppleAccessories">
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+        <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
         <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#Lightning_cable"/>
         <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
-        <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#AirPods_wirelessCharge"/>
     </owl:NamedIndividual>
     
 
@@ -1522,10 +1522,10 @@
 
     <owl:NamedIndividual rdf:about="http://www.modsem.com/productCatalog#AppleMobile">
         <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
-        <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
-        <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
         <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#Iphone11_64"/>
         <bag:hasItem rdf:resource="http://www.modsem.com/productCatalog#iPhone12_64"/>
+        <list:hasFirstItem rdf:resource="http://www.modsem.com/productCatalog#iPhoneX_64"/>
+        <list:hasLastItem rdf:resource="http://www.modsem.com/productCatalog#IpadAir_2020"/>
     </owl:NamedIndividual>
     
 
