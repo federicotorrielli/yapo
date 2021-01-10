@@ -24,7 +24,7 @@
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</dc:date>
         <dc:description xml:lang="en">The &quot;Simple IT Product Catalog&quot; is a product management/catalog ontology to demonstrate a fairly simple product catalog and how a reasoner shoud work with Company nodes and devices. It could also be applied as a model for other companies product catalogs</dc:description>
         <vann:preferredNamespacePrefix>sipg</vann:preferredNamespacePrefix>
-        <vann:preferredNamespaceUri xml:lang="en">https://evilscript.altervista.org/productCatalog.owl</vann:preferredNamespaceUri>
+        <vann:preferredNamespaceUri>https://evilscript.altervista.org/productCatalog.owl</vann:preferredNamespaceUri>
         <rdfs:label>ITCatalog</rdfs:label>
     </owl:Ontology>
     
