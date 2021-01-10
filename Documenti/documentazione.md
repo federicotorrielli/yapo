@@ -21,7 +21,14 @@ fosse nata principalmente a scopo di SEO Tool per siti web che possedevano CMS
 Figlia della già nota Good Relations, abbiamo la [Product Ontology](http://www.productontology.org/)
 un'ontologia, autoesplicativa nel nome, che fa riferimento a Wikipedia per esplicare i singoli
 prodotti, cui abbiamo deciso di allinare parecchie nostre definizioni per avere anche un punto
-di vista interessante su una ontologia pre-esistente. La Product Ontology è davvero interessante
+di vista interessante su una ontologia pre-esistente. La Product Ontology è davvero particolare
 in quanto non ha bisogno di manualmente "integrare" la sua T-BOX ed A-BOX per l'ontologia,
 ma, come già accennato, prende in prestito le sue definizioni da Wikipedia, e le ordina come la comunità ha deciso
 di allineare i concetti di partenza.
+
+## Documenti informali
+
+![Accessori1](https://ibb.co/cyxKNrd)
+![Accessori2](https://ibb.co/6w4wSph)
+![Accessori3](https://ibb.co/z7qT80d)
+![Accessori4](https://ibb.co/dmMKdfd)
