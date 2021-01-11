@@ -1,4 +1,4 @@
-# Properties
+# Object properties
 
 ## Descrizione delle proprietà
 -   Funzionale: 
