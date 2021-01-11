@@ -113,6 +113,7 @@
     <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/productCatalog.owl#brandContainedIn">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="https://evilscript.altervista.org/productCatalog.owl#containsBrand"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Company"/>
         <rdfs:range rdf:resource="https://evilscript.altervista.org/productCatalog.owl#SellingCatalog"/>
         <rdfs:comment xml:lang="en">Shows if a company is listed on a Selling Catalog</rdfs:comment>
@@ -153,6 +154,7 @@
 
     <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/productCatalog.owl#collabsWith">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Company"/>
         <rdfs:range rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Company"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -206,6 +208,7 @@
 
     <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/productCatalog.owl#containsBrand">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="https://evilscript.altervista.org/productCatalog.owl#SellingCatalog"/>
         <rdfs:range rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Company"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -223,6 +226,7 @@
     <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/productCatalog.owl#containsInBox">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="https://evilscript.altervista.org/productCatalog.owl#inBoxOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Product"/>
         <rdfs:range rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Accessory"/>
         <rdfs:comment xml:lang="en">Shows the items inside a product box</rdfs:comment>
@@ -236,6 +240,7 @@
     <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/productCatalog.owl#designedBy">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="https://evilscript.altervista.org/productCatalog.owl#designs"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Product"/>
         <rdfs:range rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Engineering"/>
         <rdfs:comment xml:lang="en">Who made the design of a product</rdfs:comment>
@@ -273,9 +278,10 @@
     <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/productCatalog.owl#hasBrand">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="https://evilscript.altervista.org/productCatalog.owl#isBrandOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Product"/>
         <rdfs:range rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Company"/>
-        <rdfs:label xml:lang="en">Shows the brand of the product</rdfs:label>
+        <rdfs:comment xml:lang="en">Shows the brand of the product</rdfs:comment>
         <rdfs:label xml:lang="en">hasBrand</rdfs:label>
     </owl:ObjectProperty>
     
@@ -297,7 +303,6 @@
 
     <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/productCatalog.owl#hasProducer">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Engineering"/>
         <rdfs:range rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Factory"/>
         <rdfs:comment xml:lang="en">Checking what engineering produced the design to be produced in a factory</rdfs:comment>
@@ -335,6 +340,7 @@
 
     <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/productCatalog.owl#isBrandOf">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Company"/>
         <rdfs:range rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Product"/>
         <rdfs:comment xml:lang="en">Shows the products of the brand</rdfs:comment>
@@ -347,6 +353,7 @@
 
     <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/productCatalog.owl#isContainedIn">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Product"/>
         <rdfs:range rdf:resource="https://evilscript.altervista.org/productCatalog.owl#ProductCatalog"/>
         <rdfs:comment xml:lang="en">Availability of a product in a product catalog</rdfs:comment>
@@ -405,6 +412,7 @@
     <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/productCatalog.owl#predecessorOf">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="https://evilscript.altervista.org/productCatalog.owl#successorOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Product"/>
         <rdfs:range rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Product"/>
         <rdfs:comment xml:lang="en">Previous device version</rdfs:comment>
@@ -488,7 +496,7 @@
 
     <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/productCatalog.owl#successorOf">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Product"/>
         <rdfs:range rdf:resource="https://evilscript.altervista.org/productCatalog.owl#Product"/>
         <rdfs:comment xml:lang="en">Next device version</rdfs:comment>
