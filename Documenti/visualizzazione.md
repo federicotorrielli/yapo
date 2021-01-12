@@ -1,7 +1,7 @@
 # Visualizzazione dei dati
 
 ## Lode
-[Qui il report LODE](ITCatalog.html)
+[Qui il report LODE](lode.pdf)
 
 ## Tassonomia delle classi
 
