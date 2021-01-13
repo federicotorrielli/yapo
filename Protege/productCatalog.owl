@@ -11,7 +11,7 @@
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:list="http://www.ontologydesignpatterns.org/cp/owl/list.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:sapg="http://www.modsem.com/productCatalog#"
+     xmlns:sipg="http://www.modsem.com/productCatalog#"
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:price="http://www.ontologydesignpatterns.org/cp/owl/price.owl#"
      xmlns:collectionentity="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#"
@@ -1956,8 +1956,8 @@
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">70.4</Width>
         <isInRange>Medium</isInRange>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
+        <rdfs:comment xml:lang="en">Smarphone made by Samsung</rdfs:comment>
         <rdfs:label xml:lang="en">SamsungGalaxyS10_global</rdfs:label>
-        <rdfs:label xml:lang="en">Smarphone made by Samsung</rdfs:label>
     </owl:NamedIndividual>
     
 
