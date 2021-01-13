@@ -8,6 +8,7 @@ app = typer.Typer()
 
 # TODO: Take all the products from the productCatalog
 # TODO: Take all the required data from the productCatalog
+# TODO: Query other data platforms
 
 def show_results(results):
     colonna = input("Inserisci il nome della colonne che vuoi visualizzare, separate da una virgola: ").split(",")
@@ -15,16 +16,20 @@ def show_results(results):
     with typer.progressbar(results["results"]["bindings"], label="Progress") as progress:
         for result in progress:
             for res in colonna:
-                print(f"{result[res]['value']}", end=" || ")
+                try:
+                    print(f"{result[res]['value']}", end=" || ")
+                except KeyError as kerr:
+                    typer.secho(f"La colonna {kerr.args[0]} non esiste!", fg=typer.colors.RED, err=True)
             print("")
             time.sleep(0.001)
 
     confirm = typer.confirm("Vuoi esportare i tuoi dati in un file?")
     if confirm:
-        with open("query.txt", "w") as text_file:
+        file_name = input("Inserisci il nome del file: ")
+        with open(file_name, "w") as text_file:
             pretty_output = yaml.dump(results, default_flow_style=False)
             print(pretty_output, file=text_file)
-        typer.secho("File query.txt correttamente creato!", fg=typer.colors.BRIGHT_GREEN)
+        typer.secho(f"File {file_name} correttamente creato!", fg=typer.colors.BRIGHT_GREEN)
 
 
 def do_query(sqlery: str):
@@ -60,6 +65,7 @@ def welcome(name: str):
 def query(query_text: str):
     """
     Queries the text query on the productCatalog.
+
     Only SELECT queries are accepted
     """
     query_styled = typer.style(query_text, fg=typer.colors.BRIGHT_GREEN, bold=True)
@@ -73,9 +79,11 @@ def query(query_text: str):
 def query_from_text():
     """
     Takes a query from a file called do.txt
-    Every query must be a one-liner only: one query per line
+    Every query must be a one-liner only: one query per line.
+
+    Only SELECT queries are accepted
     """
-    num_lines = sum(1 for line in open("do.txt"))
+    num_lines = sum(1 for _ in open("do.txt"))
     with open("do.txt", "r") as file:
         for lines in range(num_lines):
             do_query(file.readline())
