@@ -169,6 +169,8 @@ SELECT ?usernameIG ?label WHERE {
 ## trovando apple su ig vede i prodotti della beats nella stessa pagina e trova il profilo ig di beats (trova lo user)
 ## si chiede quindi quali altri prodotti ha fatto l'azienda per fantasticare per il prossimo acquisto 
 ## (oppure il sito ufficiale)
+## (oppure può chiedersi chi lavora ai piani alti in apple che c'è molta gente)
+
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX p: <http://www.wikidata.org/prop/>
