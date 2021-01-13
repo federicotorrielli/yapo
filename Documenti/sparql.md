@@ -160,17 +160,37 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX p: <http://www.wikidata.org/prop/>
 PREFIX v: <http://www.wikidata.org/prop/statement/>
 
-SELECT ?company WHERE {
-    ?company rdf:type wd:Q43229;
-             wdt:P2003 ?ig.
-	FILTER(?ig = "https://www.instagram.com/apple/_label").
+SELECT ?usernameIG ?label WHERE {
+	wd:Q312 wdt:P2003 ?usernameIG;
+            rdfs:label ?label 
+    FILTER (lang(?label) = "it").
 }
 
-## trovando apple su ig vede i prodotti della beats nella stessa pagina e trova il profilo ig di beats (trova il link)
-## si chiede quindi quali altri prodotti ha datto l'azienda per fantasticare per il prossimo acquisto 
-## (oppure info storiche)
-> da fare
+## trovando apple su ig vede i prodotti della beats nella stessa pagina e trova il profilo ig di beats (trova lo user)
+## si chiede quindi quali altri prodotti ha fatto l'azienda per fantasticare per il prossimo acquisto 
+## (oppure il sito ufficiale)
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX v: <http://www.wikidata.org/prop/statement/>
 
+SELECT ?company ?prod WHERE {
+	?company wdt:P2003 ?usernameIG;
+             wdt:P1056 ?prod.
+    FILTER (?usernameIG = "beatsbydre").
+}
+> oppure
+
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX v: <http://www.wikidata.org/prop/statement/>
+
+SELECT ?company ?website WHERE {
+	?company wdt:P2003 ?usernameIG; 
+             wdt:P856 ?website.
+    FILTER (?usernameIG = "beatsbydre").
+}
 ## fa il reso dello smartwatch
 DELETE buysProduct
 
