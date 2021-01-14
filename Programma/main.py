@@ -9,7 +9,6 @@ from SPARQLWrapper import SPARQLWrapper, SPARQLExceptions, GET, DIGEST, JSON
 app = typer.Typer()
 
 
-# TODO: Take all the required data from the productCatalog
 # TODO: Query other data platforms
 
 def show_results(results: dict, opt_column: str):
