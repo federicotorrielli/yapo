@@ -1,4 +1,4 @@
-#SPARQL
+# SPARQL
 
 ## 1) Query che dato il nome dell'azienda tira fuori tutti i suoi prodotti
 
