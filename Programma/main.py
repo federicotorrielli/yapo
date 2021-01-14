@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import time
 import typer
 import yaml
@@ -10,7 +12,7 @@ app = typer.Typer()
 # TODO: Take all the required data from the productCatalog
 # TODO: Query other data platforms
 
-def show_results(results, opt_column: str):
+def show_results(results: dict, opt_column: str):
     if opt_column == "":
         colonna = input("Inserisci il nome della colonne che vuoi visualizzare, separate da una virgola: ").split(",")
     else:
@@ -85,6 +87,15 @@ def query_product(company: str):
     input company
     """
     do_query(queries.query1(company), "prod")
+
+
+@app.command()
+def query_subcompanies(company: str):
+    """
+    Queries all the companies that work
+    for the input company
+    """
+    do_query(queries.query2(company), "companyTo")
 
 
 @app.command()
