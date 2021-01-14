@@ -1,6 +1,7 @@
 #SPARQL
 
 ## 1) Query che dato il nome dell'azienda tira fuori tutti i suoi prodotti
+
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -15,6 +16,7 @@ SELECT ?prod WHERE{
 }
 
 ## 2) Query che dato il nome dell'azienda tira fuori tutte le altre aziende che lavorano per quella
+
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -51,7 +53,8 @@ SELECT ?prod ?brand ?price WHERE {
 }
 ORDER BY ?price
 
-## guarda gli smartwatch e vede con quali smartphone sono compatibili
+## Guarda gli smartwatch e vede con quali smartphone sono compatibili
+
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -69,7 +72,8 @@ SELECT ?smartw ?brand ?pricesmartw ?smartp WHERE {
 		price:hasPrice ?pricesmartw.
 }
 
-## guarda se ci sono smartphone che coincidono con quelli che ha guardato prima
+## Guarda se ci sono smartphone che coincidono con quelli che ha guardato prima
+
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -91,8 +95,9 @@ SELECT ?smartw ?brand ?pricesmartw ?smartp ?pricesmartp WHERE {
 	FILTER (?vsmartp >= "600"^^xsd:float)
 }
 
-## ora ha scelto lo smartwatch e l'iphone12, vuole un altro cavo per lo smarphone e quindi ne cerca un'altro 
+## Ora ha scelto lo smartwatch e l'iphone12, vuole un altro cavo per lo smarphone e quindi ne cerca un'altro 
 ## uguale a quello in confezione
+
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -106,7 +111,8 @@ SELECT ?smartp ?cable WHERE {
 	FILTER(?smartp = sipg:iPhone12_64)
 }
 
-## compra lo smartphone, lo smartwath e il cavo
+## Compra lo smartphone, lo smartwath e il cavo
+
 > to check, insert non funziona in protege
 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -129,9 +135,10 @@ WHERE {
 }
 
 
-## chiede a Siri se vendono anche cuffie della beats, la sua marca preferita (è fuori dallo store apple), 
+## Chiede a Siri se vendono anche cuffie della beats, la sua marca preferita (è fuori dallo store apple), 
 ## poi cambia idea perchè ha già passato 
 ## la cassa e non ha voglia di tornare dentro perchè la coda con 1m di distanza covid usciva fuori in strada
+
 > to check, ask non funziona in protege
 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -151,7 +158,8 @@ WHERE{
 	FILTER(?company = sipg:Apple && ?brand = sip:BeatsAudio)
 }
 
-## presa dalla felicità del suo nuovo smartphone acquistato si chiede qual è il profilo ig per seguirlo
+## Presa dalla felicità del suo nuovo smartphone acquistato si chiede qual è il profilo ig per seguirlo
+
 > da fare
 
 PREFIX wd: <http://www.wikidata.org/entity/>
@@ -166,7 +174,7 @@ SELECT ?usernameIG ?label WHERE {
     FILTER (lang(?label) = "it").
 }
 
-## trovando apple su ig vede i prodotti della beats nella stessa pagina e trova il profilo ig di beats (trova lo user)
+## Trovando apple su ig vede i prodotti della beats nella stessa pagina e trova il profilo ig di beats (trova lo user)
 ## si chiede quindi quali altri prodotti ha fatto l'azienda per fantasticare per il prossimo acquisto 
 ## (oppure il sito ufficiale)
 ## (oppure può chiedersi chi lavora ai piani alti in apple che c'è molta gente)
@@ -193,11 +201,13 @@ SELECT ?company ?website WHERE {
              wdt:P856 ?website.
     FILTER (?usernameIG = "beatsbydre").
 }
-## fa il reso dello smartwatch
+
+## Fa il reso dello smartwatch
+
 DELETE buysProduct
 
-## cerca un tablet apple
+## Cerca un tablet apple
 > boh
 
-## compra un ipad e un altro cavo se è diverso da quello di iphone12 che ha già comprato
+## Compra un ipad e un altro cavo se è diverso da quello di iphone12 che ha già comprato
 > boh
