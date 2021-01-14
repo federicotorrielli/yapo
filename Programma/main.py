@@ -36,7 +36,7 @@ def show_results(results: dict, opt_column: str):
         typer.secho(f"File {file_name} correttamente creato!", fg=typer.colors.BRIGHT_GREEN)
 
 
-def do_query(sqlery: str, opt_column=""):
+def do_query(sqlery: str, opt_column: str = ""):
     # First we connect to the Database, the link is different from machine to machine
     # You can find it under Setup/Repositories and then productCatalog --> chain icon
     sparql = SPARQLWrapper("http://192.168.1.57:7200/repositories/productCatalog")
