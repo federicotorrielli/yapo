@@ -1,17 +1,20 @@
 import time
 import typer
 import yaml
+import queries
 from SPARQLWrapper import SPARQLWrapper, SPARQLExceptions, GET, DIGEST, JSON
 
 app = typer.Typer()
 
 
-# TODO: Take all the products from the productCatalog
 # TODO: Take all the required data from the productCatalog
 # TODO: Query other data platforms
 
-def show_results(results):
-    colonna = input("Inserisci il nome della colonne che vuoi visualizzare, separate da una virgola: ").split(",")
+def show_results(results, opt_column: str):
+    if opt_column == "":
+        colonna = input("Inserisci il nome della colonne che vuoi visualizzare, separate da una virgola: ").split(",")
+    else:
+        colonna = opt_column.split(",")
 
     with typer.progressbar(results["results"]["bindings"], label="Progress") as progress:
         for result in progress:
@@ -32,7 +35,7 @@ def show_results(results):
         typer.secho(f"File {file_name} correttamente creato!", fg=typer.colors.BRIGHT_GREEN)
 
 
-def do_query(sqlery: str):
+def do_query(sqlery: str, opt_column=""):
     # First we connect to the Database, the link is different from machine to machine
     # You can find it under Setup/Repositories and then productCatalog --> chain icon
     sparql = SPARQLWrapper("http://192.168.1.57:7200/repositories/productCatalog")
@@ -46,7 +49,7 @@ def do_query(sqlery: str):
     try:
         ret = sparql.query().convert()
         # Results are stored in JSON ff
-        show_results(ret)
+        show_results(ret, opt_column)
     except SPARQLExceptions.EndPointNotFound as err:
         typer.secho(f"Errore: non riesco a trovare il server GraphDB!", fg=typer.colors.RED)
         typer.echo(err)
@@ -76,17 +79,29 @@ def query(query_text: str):
 
 
 @app.command()
+def query_product(company: str):
+    """
+    Queries all the products sold by the
+    input company
+    """
+    do_query(queries.query1(company), "prod")
+
+
+@app.command()
 def query_from_text():
     """
     Takes a query from a file called do.txt
-    Every query must be a one-liner only: one query per line.
+    Every query must be separated with these characters ||
 
     Only SELECT queries are accepted
     """
-    num_lines = sum(1 for _ in open("do.txt"))
     with open("do.txt", "r") as file:
-        for lines in range(num_lines):
-            do_query(file.readline())
+        text = file.read().split("||")
+        num = 1
+        for t in text:
+            typer.secho(f"Risultato della query numero {num}: ", fg=typer.colors.BRIGHT_BLUE)
+            do_query(t)
+            num = num + 1
 
 
 if __name__ == '__main__':
