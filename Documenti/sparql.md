@@ -2,6 +2,7 @@
 
 ## 1) Query che dato il nome dell'azienda tira fuori tutti i suoi prodotti
 
+```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -14,9 +15,11 @@ SELECT ?prod WHERE{
 		sipg:sells ?prod.
 	FILTER(?company = sipg:Apple)
 }
+```
 
 ## 2) Query che dato il nome dell'azienda tira fuori tutte le altre aziende che lavorano per quella
 
+```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -29,12 +32,14 @@ SELECT ?companyTo WHERE{
 		sipg:manufacturesTo ?companyTo.
 	FILTER(?company = sipg:Apple)
 }
+```
 
 > Iterazione dell'utente "Giovanni"
 
 ## Vuole comprare uno smartphone ma l'unica sua richiesta è che deve spendere più di 600 euro e vuole vedere 
 ## dal meno costoso al più costoso 
 
+```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -52,9 +57,11 @@ SELECT ?prod ?brand ?price WHERE {
 	FILTER (?v >= "600"^^xsd:float)
 }
 ORDER BY ?price
+```
 
 ## Guarda gli smartwatch e vede con quali smartphone sono compatibili
 
+```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -71,9 +78,11 @@ SELECT ?smartw ?brand ?pricesmartw ?smartp WHERE {
 		sipg:hasBrand ?brand;
 		price:hasPrice ?pricesmartw.
 }
+```
 
 ## Guarda se ci sono smartphone che coincidono con quelli che ha guardato prima
 
+```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -94,10 +103,12 @@ SELECT ?smartw ?brand ?pricesmartw ?smartp ?pricesmartp WHERE {
 		price:hasPrice ?pricesmartw.
 	FILTER (?vsmartp >= "600"^^xsd:float)
 }
+```
 
 ## Ora ha scelto lo smartwatch e l'iphone12, vuole un altro cavo per lo smarphone e quindi ne cerca un'altro 
 ## uguale a quello in confezione
 
+```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -110,11 +121,13 @@ SELECT ?smartp ?cable WHERE {
 		sipg:containsInBox ?cable.
 	FILTER(?smartp = sipg:iPhone12_64)
 }
+```
 
 ## Compra lo smartphone, lo smartwath e il cavo
 
 > to check, insert non funziona in protege
 
+```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -133,7 +146,7 @@ WHERE {
 	?cable rdf:type sipg:Cable.
 	FILTER(?buyer = sipg:Michela && ?smartp = sipg:iPhone12_64 && ?smartw = sipg:AppleWatchSeries6_40mm_GPS_Cellular_Nike && ?cable = sipg:Lightning_cable )
 }
-
+```
 
 ## Chiede a Siri se vendono anche cuffie della beats, la sua marca preferita (è fuori dallo store apple), 
 ## poi cambia idea perchè ha già passato 
@@ -141,6 +154,7 @@ WHERE {
 
 > to check, ask non funziona in protege
 
+```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -157,11 +171,13 @@ WHERE{
 		sipg:isBrandOf ?earPlugs.
 	FILTER(?company = sipg:Apple && ?brand = sip:BeatsAudio)
 }
+```
 
 ## Presa dalla felicità del suo nuovo smartphone acquistato si chiede qual è il profilo ig per seguirlo
 
 > da fare
 
+```SPARQL
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -173,12 +189,14 @@ SELECT ?usernameIG ?label WHERE {
             rdfs:label ?label 
     FILTER (lang(?label) = "it").
 }
+```
 
 ## Trovando apple su ig vede i prodotti della beats nella stessa pagina e trova il profilo ig di beats (trova lo user)
 ## si chiede quindi quali altri prodotti ha fatto l'azienda per fantasticare per il prossimo acquisto 
 ## (oppure il sito ufficiale)
 ## (oppure può chiedersi chi lavora ai piani alti in apple che c'è molta gente)
 
+```SPARQL
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX p: <http://www.wikidata.org/prop/>
@@ -189,8 +207,11 @@ SELECT ?company ?prod WHERE {
              wdt:P1056 ?prod.
     FILTER (?usernameIG = "beatsbydre").
 }
+```
+
 > oppure
 
+```SPARQL
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX p: <http://www.wikidata.org/prop/>
@@ -201,10 +222,13 @@ SELECT ?company ?website WHERE {
              wdt:P856 ?website.
     FILTER (?usernameIG = "beatsbydre").
 }
+```
 
 ## Fa il reso dello smartwatch
 
+```SPARQL
 DELETE buysProduct
+```
 
 ## Cerca un tablet apple
 > boh
