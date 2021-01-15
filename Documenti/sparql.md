@@ -237,7 +237,7 @@ DELETE buysProduct
 > boh
 
 
-## new
+## dato l'iphone che ha appena comprato, vuole sapere quali altri dispositivi montano lo stesso chip
 ```
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
@@ -245,12 +245,12 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
 SELECT ?prod ?cpu WHERE {      
-    ?smartp sipg:CpuType ?cpu.
+    ?device sipg:CpuType ?cpu.
     SERVICE <https://query.wikidata.org/sparql> {       
         ?chip wdt:P31 wd:Q610398;
           rdfs:label ?label;
           wdt:P1535 ?prod.   
-        FILTER (?smartp = sipg:iPhone12_64 && lang(?label) = "it" && regex(?label, ?cpu)).
+        FILTER (?device = sipg:iPhone12_64 && lang(?label) = "it" && regex(?label, ?cpu)).
     } 
 }
 ```
