@@ -212,15 +212,15 @@ SELECT ?company ?prod WHERE {
 > oppure
 
 ```SPARQL
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX p: <http://www.wikidata.org/prop/>
-PREFIX v: <http://www.wikidata.org/prop/statement/>
+PREFIX wd: <http://www.wikidata.org/entity/> 
+PREFIX wdt: <http://www.wikidata.org/prop/direct/> 
 
-SELECT ?company ?website WHERE {
-	?company wdt:P2003 ?usernameIG; 
+SELECT ?company ?website WHERE {      
+    SERVICE <https://query.wikidata.org/sparql> {       
+        ?company wdt:P2003 ?usernameIG; 
              wdt:P856 ?website.
-    FILTER (?usernameIG = "beatsbydre").
+    	FILTER (?usernameIG = "beatsbydre").     
+    } 
 }
 ```
 
@@ -235,3 +235,20 @@ DELETE buysProduct
 
 ## Compra un ipad e un altro cavo se è diverso da quello di iphone12 che ha già comprato
 > boh
+
+
+## new
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX v: <http://www.wikidata.org/prop/statement/>
+PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+
+SELECT ?prod ?cpu WHERE {
+  ?chip wdt:P31 wd:Q610398;
+          rdfs:label ?label;
+          wdt:P1535 ?prod.
+  ?smartp sipg:CpuType ?cpu.
+    FILTER (?smartp = sipg:iPhone12_64 && lang(?label) = "it" && regex(?label, ?cpu)).
+}
