@@ -60,6 +60,18 @@ def query3(product: str):
             }"
 
 
+def query4(person: str):
+    return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>\
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\
+            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            SELECT ?prod WHERE{\
+                ?user rdf:type sipg:User;\
+                sipg:buysProduct ?prod\
+            }"
+
+
 def show_results(results: dict, opt_column: str):
     if opt_column == "":
         colonna = input("Inserisci il nome della colonne che vuoi visualizzare, separate da una virgola: ").split(",")
