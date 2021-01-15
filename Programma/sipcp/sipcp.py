@@ -62,13 +62,11 @@ def query3(product: str):
 
 def query4(person: str):
     return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
-            PREFIX owl: <http://www.w3.org/2002/07/owl#>\
-            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
-            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\
             PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
             SELECT ?prod WHERE{\
                 ?user rdf:type sipg:User;\
-                sipg:buysProduct ?prod\
+                sipg:buysProduct ?prod.\
+                FILTER (?user = sipg:" + person + ")\
             }"
 
 
@@ -173,6 +171,24 @@ def query_from_text():
             typer.secho(f"Risultato della query numero {num}: ", fg=typer.colors.BRIGHT_BLUE)
             do_query(t)
             num = num + 1
+
+
+@app.command()
+def myproducts(user: str):
+    """
+    Takes the user and returns all the products
+    that the user bought from the productCatalog
+    """
+    do_query(query4(user), "prod")
+
+
+@app.command()
+def cputype(product: str):
+    """
+    Takes the product name and returns the
+    CPU type of the product from WikiData
+    """
+    do_query(query3(product), "prod,cpu")
 
 
 if __name__ == '__main__':

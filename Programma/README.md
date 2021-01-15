@@ -17,6 +17,9 @@ direttamente nel terminale nel seguente modo:
   compagnia Compagnia. es: `sipcp query-product Apple` restituisce tutti i prodotti venduti dalla Apple
 - `sipcp query-subcompanies Compagnia` similare a quello prima, interroga il productCatalog restituendo
   tutte le compagnie che lavorano per la compagnia Compagnia.
+- `sipcp myproducts User` effettua la ricerca di tutti i prodotti comprati da un utente nel productCatalog,
+  molto utile per il comando seguente
+- `sipcp cputype Prodotto` effettua la ricerca del tipo di cpu del prodotto Prodotto
 
 Per invocare un help in formato internazionale, basta digitare `sipcp --help`
 Supporta Python3.6 e le versioni successive.
