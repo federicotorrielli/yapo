@@ -39,6 +39,27 @@ def query2(company: str):
             }"
 
 
+def query3(product: str):
+    """
+    Given a product, it returns the cpu type of that product
+    :param product:
+    :return: cpu type of that product
+    """
+    return "PREFIX wd: <http://www.wikidata.org/entity/>\
+            PREFIX wdt: <http://www.wikidata.org/prop/direct/>\
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
+            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            SELECT ?prod ?cpu WHERE {\
+            ?device sipg:CpuType ?cpu.\
+            SERVICE <https://query.wikidata.org/sparql> {\
+                ?chip wdt:P31 wd:Q610398;\
+                rdfs:label ?label;\
+                wdt:P1535 ?prod.\
+            FILTER (?device = sipg:" + product + " && lang(?label) = 'it' && regex(?label, ?cpu)).\
+            }\
+            }"
+
+
 def show_results(results: dict, opt_column: str):
     if opt_column == "":
         colonna = input("Inserisci il nome della colonne che vuoi visualizzare, separate da una virgola: ").split(",")
