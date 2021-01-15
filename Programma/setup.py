@@ -1,11 +1,16 @@
 import setuptools
 
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
 setuptools.setup(
     name="sipcp",
-    version="0.1.2",
+    version="0.1.3",
     author="Federico Torrielli",
     author_email="evilscript@protonmail.com",
     description="An example program querying the Simple IT Product Catalog Ontology",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     url="https://github.com/federicotorrielli/modsem",
     packages=["sipcp"],
     entry_points={'console_scripts': [

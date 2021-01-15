@@ -238,6 +238,7 @@ DELETE buysProduct
 
 
 ## new
+```SPARQL
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -252,3 +253,4 @@ SELECT ?prod ?cpu WHERE {
   ?smartp sipg:CpuType ?cpu.
     FILTER (?smartp = sipg:iPhone12_64 && lang(?label) = "it" && regex(?label, ?cpu)).
 }
+```
