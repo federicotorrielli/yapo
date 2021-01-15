@@ -2,14 +2,14 @@ import setuptools
 
 setuptools.setup(
     name="sipcp",
-    version="0.1",
+    version="0.1.2",
     author="Federico Torrielli",
     author_email="evilscript@protonmail.com",
     description="An example program querying the Simple IT Product Catalog Ontology",
     url="https://github.com/federicotorrielli/modsem",
     packages=["sipcp"],
     entry_points={'console_scripts': [
-        'sipcp = sipcp.sipcp:main',
+        'sipcp = sipcp.sipcp:app',
     ],
     },
     classifiers=[
