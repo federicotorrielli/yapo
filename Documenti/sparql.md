@@ -250,7 +250,22 @@ SELECT ?prod ?cpu WHERE {
         ?chip wdt:P31 wd:Q610398;
           rdfs:label ?label;
           wdt:P1535 ?prod.   
-        FILTER (?device = sipg:iPhone12_64 && lang(?label) = "it" && regex(?label, ?cpu)).
+        FILTER (?device = sipg:iPhone12_64 && lang(?label) = "it" && ?label = ?cpu)).
     } 
+}
+```
+
+## dato un utente, restituisce i prods che ha acquistato
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+
+SELECT ?prod WHERE{	
+	?user rdf:type sipg:User;
+		sipg:buysProduct ?prod
+		
 }
 ```
