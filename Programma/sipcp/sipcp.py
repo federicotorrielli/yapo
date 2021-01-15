@@ -1,15 +1,43 @@
 #!/usr/bin/env python
 
 import time
+
 import typer
 import yaml
-import queries
 from SPARQLWrapper import SPARQLWrapper, SPARQLExceptions, GET, DIGEST, JSON
 
 app = typer.Typer()
 
 
 # TODO: Query other data platforms
+
+def query1(company: str):
+    return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>\
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\
+            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            SELECT ?prod WHERE{\
+                ?prod rdf:type sipg:Product.\
+                ?company rdf:type sipg:Company;\
+                sipg:sells ?prod.\
+            FILTER(?company = sipg:" + company + ")\
+            }"
+
+
+def query2(company: str):
+    return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>\
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\
+            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            SELECT ?companyTo WHERE{\
+                ?companyTo rdf:type sipg:Company.\
+                ?company rdf:type sipg:Company;\
+                sipg:manufacturesTo ?companyTo.\
+                FILTER(?company = sipg:" + company + ")\
+            }"
+
 
 def show_results(results: dict, opt_column: str):
     if opt_column == "":
@@ -85,7 +113,7 @@ def query_product(company: str):
     Queries all the products sold by the
     input company
     """
-    do_query(queries.query1(company), "prod")
+    do_query(query1(company), "prod")
 
 
 @app.command()
@@ -94,7 +122,7 @@ def query_subcompanies(company: str):
     Queries all the companies that work
     for the input company
     """
-    do_query(queries.query2(company), "companyTo")
+    do_query(query2(company), "companyTo")
 
 
 @app.command()
