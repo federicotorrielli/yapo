@@ -111,9 +111,28 @@ def query5(price: str):
                 ?prod rdf:type sipg:Smartphone;\
                     sipg:hasBrand ?brand;\
                     price:hasPrice ?price.\
-                FILTER (?v >= '600'^^xsd:float)\
+                FILTER (?v >= '" + price + "'^^xsd:float)\
             }\
             ORDER BY ?price"
+
+
+def query6():
+    """
+    Returns all the known smartphones
+    and compatible smartwatches with them
+    """
+    return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
+            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            PREFIX price: <http://www.ontologydesignpatterns.org/cp/owl/price.owl#>\
+            SELECT ?smartw ?brand ?pricesmartw ?smartp WHERE { \
+                ?brand rdf:type sipg:Company.\
+                ?pricesmartw rdf:type price:Price.\
+                ?smartp rdf:type sipg:Smartphone.\
+                ?smartw rdf:type sipg:Smartwatch;\
+                    sipg:compatibleWith ?smartp;\
+                    sipg:hasBrand ?brand;\
+                    price:hasPrice ?pricesmartw.\
+            }"
 
 
 def show_results(results: dict, opt_column: str):
@@ -177,14 +196,6 @@ def do_query(sqlery: str, opt_column: str = ""):
 
 
 @app.command()
-def welcome(name: str):
-    """
-    Shows the welcome message, in italian
-    """
-    typer.echo(f"Ciao, {name}! Scrivi la tua query SPARQL con il comando query.")
-
-
-@app.command()
 def query(query_text: str):
     """
     Queries the text query on the productCatalog.
@@ -197,8 +208,15 @@ def query(query_text: str):
     # Processing the query and showing the progress bar
     do_query(query_text)
 
+
 @app.command()
-def query_smartphone
+def query_smartphone(base_price: str):
+    """
+    Given a price, it returns all the smartphones that cost
+    more than that price, ordered from the least expensive
+    to the most
+    """
+    do_query(query5(base_price), "prod,brand,price")
 
 
 @app.command()
@@ -234,6 +252,15 @@ def query_from_text():
             typer.secho(f"Risultato della query numero {num}: ", fg=typer.colors.BRIGHT_BLUE)
             do_query(t)
             num = num + 1
+
+
+@app.command()
+def compatible_smartphones():
+    """
+    Returns all the compatibility options for smartwatches
+    and smartphones
+    """
+    do_query(query6(), "smartw,smartp")
 
 
 @app.command()
