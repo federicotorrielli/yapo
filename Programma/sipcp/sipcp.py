@@ -52,21 +52,23 @@ def query2(company: str):
 
 def query3(product: str):
     """
-    Given a product, it returns the cpu type of that product
+    Given a product, it returns the products that have the same
+    CPU type of the given products
     :param product:
-    :return: cpu type of that product
     """
     return "PREFIX wd: <http://www.wikidata.org/entity/>\
             PREFIX wdt: <http://www.wikidata.org/prop/direct/>\
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
             PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
-            SELECT ?prod ?cpu WHERE {\
-            ?device sipg:CpuType ?cpu.\
-            SERVICE <https://query.wikidata.org/sparql> {\
-                ?chip wdt:P31 wd:Q610398;\
-                rdfs:label ?label;\
-                wdt:P1535 ?prod.\
-            FILTER (?device = sipg:" + product + " && lang(?label) = 'it' && regex(?label, ?cpu)).\
+            SELECT ?prodLabel WHERE {\
+                ?device sipg:CpuType ?cpu.\
+                SERVICE <https://query.wikidata.org/sparql> {\
+                    ?chip wdt:P31 wd:Q610398;\
+                        rdfs:label ?label;\
+                        wdt:P1535 ?prod.\
+                    ?prod rdfs:label ?prodLabel.\
+                FILTER (?device = sipg:" + product + " && lang(?label) = 'it' && lang(?prodLabel) = 'it' " \
+                                                     "&& regex(?label, ?cpu)).\
             }\
             }"
 
@@ -86,6 +88,32 @@ def query4(person: str):
                 sipg:buysProduct ?prod.\
                 FILTER (?user = sipg:" + person + ")\
             }"
+
+
+def query5(price: str):
+    """
+    Given a price, it returns all the smartphones that cost
+    more than that price, ordered from the least expensive
+    to the most
+    :param price:
+    :return: products
+    """
+    return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>\
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\
+            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            PREFIX price: <http://www.ontologydesignpatterns.org/cp/owl/price.owl#>\
+            SELECT ?prod ?brand ?price WHERE {\
+                ?brand rdf:type sipg:Company.\
+                ?price rdf:type price:Price;\
+                    price:hasValue ?v.\
+                ?prod rdf:type sipg:Smartphone;\
+                    sipg:hasBrand ?brand;\
+                    price:hasPrice ?price.\
+                FILTER (?v >= '600'^^xsd:float)\
+            }\
+            ORDER BY ?price"
 
 
 def show_results(results: dict, opt_column: str):
@@ -169,6 +197,9 @@ def query(query_text: str):
     # Processing the query and showing the progress bar
     do_query(query_text)
 
+@app.command()
+def query_smartphone
+
 
 @app.command()
 def query_product(company: str):
@@ -215,12 +246,12 @@ def myproducts(user: str):
 
 
 @app.command()
-def cputype(product: str):
+def search_from_cpu(product: str):
     """
     Takes the product name and returns the
-    CPU type of the product from WikiData
+    products that have the same CPU from WikiData
     """
-    do_query(query3(product), "prod,cpu")
+    do_query(query3(product), "prodLabel")
 
 
 if __name__ == '__main__':

@@ -54,7 +54,7 @@ SELECT ?prod ?brand ?price WHERE {
 	?prod rdf:type sipg:Smartphone;
 		sipg:hasBrand ?brand;
 		price:hasPrice ?price.
-	FILTER (?v >= "600"^^xsd:float)
+	FILTER (?v >= '600'^^xsd:float)
 }
 ORDER BY ?price
 ```
