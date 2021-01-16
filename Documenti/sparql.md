@@ -4,9 +4,6 @@
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
 SELECT ?prod WHERE{
@@ -21,9 +18,6 @@ SELECT ?prod WHERE{
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
 SELECT ?companyTo WHERE{
@@ -41,8 +35,6 @@ SELECT ?companyTo WHERE{
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 PREFIX price: <http://www.ontologydesignpatterns.org/cp/owl/price.owl#>
@@ -63,9 +55,6 @@ ORDER BY ?price
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 PREFIX price: <http://www.ontologydesignpatterns.org/cp/owl/price.owl#>
 
@@ -84,8 +73,6 @@ SELECT ?smartw ?brand ?pricesmartw ?smartp WHERE {
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 PREFIX price: <http://www.ontologydesignpatterns.org/cp/owl/price.owl#>
@@ -110,9 +97,6 @@ SELECT ?smartw ?brand ?pricesmartw ?smartp ?pricesmartp WHERE {
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
 SELECT ?smartp ?cable WHERE { 
@@ -129,22 +113,16 @@ SELECT ?smartp ?cable WHERE {
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
-INSERT DATA{ 
-	?buyer sipg:buysProduct ?smartp.
-	?buyer sipg:buysProduct ?smartw.
-	?buyer sipg:buysProduct ?cable.
-}
-WHERE {
+INSERT { 
+	?buyer sipg:buysProduct ?smartp, ?smartw, ?cable.
+} WHERE {
 	?buyer rdf:type sipg:User.
-	?smartp rdf:type sipg:Smartphone;
-	?smartw rdf:type sipg:Smartwatch;
+	?smartp rdf:type sipg:Smartphone.
+	?smartw rdf:type sipg:Smartwatch.
 	?cable rdf:type sipg:Cable.
-	FILTER(?buyer = sipg:Michela && ?smartp = sipg:iPhone12_64 && ?smartw = sipg:AppleWatchSeries6_40mm_GPS_Cellular_Nike && ?cable = sipg:Lightning_cable )
+	FILTER(?buyer = sipg:Michela_CasualUser && ?smartp = sipg:iPhone12_64 && ?smartw = sipg:AppleWatchSeries6_40mm_GPS_Cellular_Nike && ?cable = sipg:Lightning_cable )
 }
 ```
 
@@ -156,20 +134,15 @@ WHERE {
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
 ASK {
 	?company sipg:sells ?earPlugs.
-}
-WHERE{
-	?earPlugs rdf:type sipg:EarPlugs.	
+    ?earPlugs rdf:type sipg:EarPlugs.	
 	?company rdf:type sipg:Company.	
 	?brand rdf:type sipg:Company;
 		sipg:isBrandOf ?earPlugs.
-	FILTER(?company = sipg:Apple && ?brand = sip:BeatsAudio)
+	FILTER(?company = sipg:Apple && ?brand = sipg:BeatsAudio).
 }
 ```
 
@@ -196,49 +169,24 @@ SELECT ?company ?labelCompany ?labelbrand ?usernameIG WHERE {
 }
 ```
 
-## Trovando apple su ig vede i prodotti della beats nella stessa pagina e trova il profilo ig di beats (trova lo user)
-## si chiede quindi quali altri prodotti ha fatto l'azienda per fantasticare per il prossimo acquisto 
-## (oppure il sito ufficiale)
-## (oppure può chiedersi chi lavora ai piani alti in apple che c'è molta gente)
+## Fa il reso dello smartwatch 
 
 ```SPARQL
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX p: <http://www.wikidata.org/prop/>
-PREFIX v: <http://www.wikidata.org/prop/statement/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
-SELECT ?company ?prod WHERE {
-	?company wdt:P2003 ?usernameIG;
-             wdt:P1056 ?prod.
-    FILTER (?usernameIG = "beatsbydre").
+DELETE { 
+	?buyer sipg:buysProduct ?smartw.
+} WHERE {
+	?smartw rdf:type sipg:Smartwatch.
+	FILTER(?buyer = sipg:Michela_CasualUser && ?smartw = sipg:AppleWatchSeries6_40mm_GPS_Cellular_Nike)
 }
 ```
 
-> oppure
-
-```SPARQL
-PREFIX wd: <http://www.wikidata.org/entity/> 
-PREFIX wdt: <http://www.wikidata.org/prop/direct/> 
-
-SELECT ?company ?website WHERE {      
-    SERVICE <https://query.wikidata.org/sparql> {       
-        ?company wdt:P2003 ?usernameIG; 
-             wdt:P856 ?website.
-    	FILTER (?usernameIG = "beatsbydre").     
-    } 
-}
-```
-
-## Fa il reso dello smartwatch
-
-```SPARQL
-DELETE buysProduct
-```
-
-## Cerca un tablet apple
+## Cerca un tablet apple (solo se necessario)
 > boh
 
-## Compra un ipad e un altro cavo se è diverso da quello di iphone12 che ha già comprato
+## Compra un ipad e un altro cavo se è diverso da quello di iphone12 che ha già comprato (solo se necessario)
 > boh
 
 
