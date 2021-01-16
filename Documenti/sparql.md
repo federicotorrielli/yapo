@@ -1,8 +1,14 @@
-# SPARQL
+# Flusso di iterazione utente
 
 ## Operazioni Utente
 
 ![Operazioni utente](Images/iteration_schema.png)
+
+## CLI
+
+![CLI](Images/cli.png)
+
+## SPARQL
 
 ### Operazione 1
 
@@ -307,7 +313,7 @@ Return:
 -   productCatalog:Qualcomm
 -   productCatalog:ShortFactory
 
-## Query 2
+### Query 2
 
 Descrizione:
 dato un utente e uno specifico prodotto, registra l'acquisto del prodotto.
@@ -328,7 +334,7 @@ INSERT {
 Return:
 -   Added 1 statements.
 
-## Query 3
+### Query 3
 
 Descrizione:
 dato un utente e uno specifico prodotto, rimuove l'acquisto del prodotto.
