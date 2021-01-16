@@ -2,6 +2,8 @@
 
 ## Operazioni Utente
 
+![Operazioni utente](Images/iteration_schema.png)
+
 ### Operazione 1
 
 Descrizione:
