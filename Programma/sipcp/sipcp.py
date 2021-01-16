@@ -5,11 +5,13 @@ import time
 import typer
 import yaml
 import xml.etree.ElementTree as ET
+import configparser
 from fuzzywuzzy import fuzz
 from SPARQLWrapper import SPARQLWrapper, SPARQLExceptions, GET, DIGEST, JSON, POST, XML
 from urllib import error
 
 app = typer.Typer()
+dburl = "http://192.168.1.57:7200/repositories/productCatalog"
 
 
 def query1(company: str):
@@ -253,7 +255,25 @@ def show_results(results: dict, opt_column: str):
 def do_query(sqlery: str, opt_column: str = "", update=False, ask=False):
     # First we connect to the Database, the link is different from machine to machine
     # You can find it under Setup/Repositories and then productCatalog --> chain icon
-    sparql = SPARQLWrapper("http://192.168.1.57:7200/repositories/productCatalog")
+    config = configparser.ConfigParser()
+    global dburl
+    if len(config.read("config.ini")) == 0:
+        # We check if it's the first time that the user ran the program
+        # if it is, we create a new config file with the server url and
+        # we stop the current query
+        confirmation = typer.confirm(f"Sembra essere la prima volta che utilizzi il programma..."
+                                     f" Il server pre-impostato è {dburl}, vuoi cambiarlo?")
+        if confirmation:
+            change_server()
+        else:
+            change_server(dburl)
+        return
+
+    # If the config already exists, we take the url from there
+    dburl = config["GraphDB"]["url"]
+
+    sparql = SPARQLWrapper(dburl)
+
     sparql.setHTTPAuth(DIGEST)
     sparql.setCredentials("database", "test")
     if ask:
@@ -280,9 +300,12 @@ def do_query(sqlery: str, opt_column: str = "", update=False, ask=False):
     except SPARQLExceptions.EndPointNotFound as err:
         typer.secho(f"Errore: non riesco a trovare il server GraphDB!", err=True, fg=typer.colors.RED)
         typer.echo(err, err=True)
-    except error.URLError:
+    except error.URLError as err:
         typer.secho("Errore: il server GraphDB sembra spento o non correttamente avviato, accertati del suo "
                     "funzionamento!", err=True, fg=typer.colors.RED)
+        confirm = typer.confirm("Vuoi avere altre informazioni sull'errore?")
+        if confirm:
+            typer.echo(err, err=True)
     except SPARQLExceptions.QueryBadFormed as err:
         typer.secho("La query in input non è corretta, accertati che sia scritta correttamente e non contenga"
                     " doppi apici nel caso in cui tu sia in standard query mode!", err=True, fg=typer.colors.RED)
@@ -408,6 +431,26 @@ def search_brand(company: str, brand: str):
         typer.secho(f"Il brand {brand} è venduto sul sito {company}!", fg=typer.colors.GREEN)
     else:
         typer.secho(f"Il brand {brand} NON è venduto sul sito {company}!", fg=typer.colors.RED)
+
+
+@app.command()
+def change_server(opt_url=""):
+    """
+    Changes the server URL pointing to the GraphDB endpoint
+    and saves it in a file called config.ini
+    :return:
+    """
+    # Create the config.ini object and ask which server to put in
+    config_obj = configparser.ConfigParser()
+    if opt_url == "":
+        newurl = input("Inserire l'URL nuovo: ")
+    else:
+        newurl = opt_url
+    config_obj["GraphDB"] = {
+        "url": newurl
+    }
+    with open("config.ini", "w") as conf:
+        config_obj.write(conf)
 
 
 if __name__ == '__main__':
