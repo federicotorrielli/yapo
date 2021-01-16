@@ -286,7 +286,9 @@ def do_query(sqlery: str, opt_column: str = "", update=False, ask=False):
     except SPARQLExceptions.QueryBadFormed as err:
         typer.secho("La query in input non è corretta, accertati che sia scritta correttamente e non contenga"
                     " doppi apici nel caso in cui tu sia in standard query mode!", err=True, fg=typer.colors.RED)
-        typer.echo(err, err=True)
+        confirm = typer.confirm("Vuoi avere altre informazioni sull'errore?")
+        if confirm:
+            typer.echo(err, err=True)
     # Then, we show the results, or the error if it enters in the except
 
 
