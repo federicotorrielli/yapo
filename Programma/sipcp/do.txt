@@ -1,18 +1,20 @@
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 PREFIX price: <http://www.ontologydesignpatterns.org/cp/owl/price.owl#>
 
-SELECT ?smartw ?brand ?pricesmartw ?smartp WHERE {
+SELECT ?smartw ?brand ?pricesmartw ?smartp ?pricesmartp WHERE {
 	?brand rdf:type sipg:Company.
 	?pricesmartw rdf:type price:Price.
-	?smartp rdf:type sipg:Smartphone.
+	?pricesmartp rdf:type price:Price;
+		price:hasValue ?vsmartp.
+	?smartp rdf:type sipg:Smartphone;
+		price:hasPrice ?pricesmartp.
 	?smartw rdf:type sipg:Smartwatch;
 		sipg:compatibleWith ?smartp;
 		sipg:hasBrand ?brand;
 		price:hasPrice ?pricesmartw.
+	FILTER (?vsmartp >= "600"^^xsd:float)
 }
 ||
 PREFIX wd: <http://www.wikidata.org/entity/>
