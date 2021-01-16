@@ -4,7 +4,7 @@ import time
 
 import typer
 import yaml
-from SPARQLWrapper import SPARQLWrapper, SPARQLExceptions, GET, DIGEST, JSON, POST
+from SPARQLWrapper import SPARQLWrapper, SPARQLExceptions, GET, DIGEST, JSON, POST, INSERT
 from urllib import error
 
 app = typer.Typer()
@@ -150,21 +150,6 @@ def query7(smartphone: str):
             }"
 
 
-def query8(user: str, producttype: str, product: str):
-    """
-    Query for buying a product
-    """
-    return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
-            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
-            INSERT { \
-                ?buyer sipg:buysProduct ?prod.\
-            } WHERE {\
-                ?buyer rdf:type sipg:User.\
-                ?prod rdf:type sipg:" + producttype + ".\
-                FILTER(?buyer = sipg:" + user + " && ?prod = sipg:" + product + " )\
-            }"
-
-
 def show_results(results: dict, opt_column: str):
     # First, we take the colums that the user wants to see from input or from the optional parameter
     print("Le colonne disponibili dalla query sono: ", end="")
@@ -198,26 +183,26 @@ def show_results(results: dict, opt_column: str):
         typer.secho(f"File {file_name} correttamente creato!", fg=typer.colors.BRIGHT_GREEN)
 
 
-def do_query(sqlery: str, opt_column: str = "", insert=False):
+def do_query(sqlery: str, opt_column: str = "", update=False):
     # First we connect to the Database, the link is different from machine to machine
     # You can find it under Setup/Repositories and then productCatalog --> chain icon
     sparql = SPARQLWrapper("http://192.168.1.57:7200/repositories/productCatalog")
     sparql.setHTTPAuth(DIGEST)
     sparql.setCredentials("database", "test")
-    if not insert:
+    if not update:
         sparql.setMethod(GET)
+        sparql.setReturnFormat(JSON)
     else:
         sparql.setMethod(POST)
-    # Then we ask for the result and we show the progress bar
     sparql.setQuery(sqlery)
-    sparql.setReturnFormat(JSON)
     # Then we recover the query results with a try except
     try:
-        ret = sparql.queryAndConvert()
         # Results are stored in JSON
-        if not insert:
+        if not update:
+            ret = sparql.queryAndConvert()
             show_results(ret, opt_column)
         else:
+            sparql.query()
             typer.secho("Operazione effettuata!", fg=typer.colors.GREEN)
     except SPARQLExceptions.EndPointNotFound as err:
         typer.secho(f"Errore: non riesco a trovare il server GraphDB!", err=True, fg=typer.colors.RED)
@@ -230,14 +215,6 @@ def do_query(sqlery: str, opt_column: str = "", insert=False):
                     " doppi apici nel caso in cui tu sia in standard query mode!", err=True, fg=typer.colors.RED)
         typer.echo(err, err=True)
     # Then, we show the results, or the error if it enters in the except
-
-
-@app.command()
-def buy(user: str, product_type: str, product: str):
-    """
-    Links a user to a bought product of the type product_type
-    """
-    do_query(query8(user, product_type, product), "", True)
 
 
 @app.command()
