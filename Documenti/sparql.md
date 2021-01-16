@@ -1,7 +1,11 @@
 # SPARQL
 
-## 1) Query che dato il nome dell'azienda tira fuori tutti i suoi prodotti
+### Operazione 1
 
+Descrizione query:
+Dato il nome dell'azienda, restituisce tutti i prodotti che vende.
+
+Query:
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
@@ -13,6 +17,18 @@ SELECT ?prod WHERE{
 	FILTER(?company = sipg:Apple)
 }
 ```
+
+Return:
+- productCatalog:AirPods_wirelessCharge
+- productCatalog:AppleWatchSeries6_40mm_GPS_Cellular_Nike
+- productCatalog:Lightning_cable
+- productCatalog:IpadAir_2020
+- productCatalog:Iphone11_64
+- productCatalog:MacBookAir_M1
+- productCatalog:iMac_27_RetinaDisplay_5k_256
+- productCatalog:iPhone12_64
+- productCatalog:iPhoneX_64
+- productCatalog:Beats_cuffie
 
 ## 2) Query che dato il nome dell'azienda tira fuori tutte le altre aziende che lavorano per quella
 
