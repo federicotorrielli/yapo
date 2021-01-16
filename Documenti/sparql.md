@@ -1,8 +1,10 @@
 # SPARQL
 
+## Operazioni Utente
+
 ### Operazione 1
 
-Descrizione query:
+Descrizione:
 Dato il nome dell'azienda, restituisce tutti i prodotti che vende.
 
 Query:
@@ -19,36 +21,24 @@ SELECT ?prod WHERE{
 ```
 
 Return:
-- productCatalog:AirPods_wirelessCharge
-- productCatalog:AppleWatchSeries6_40mm_GPS_Cellular_Nike
-- productCatalog:Lightning_cable
-- productCatalog:IpadAir_2020
-- productCatalog:Iphone11_64
-- productCatalog:MacBookAir_M1
-- productCatalog:iMac_27_RetinaDisplay_5k_256
-- productCatalog:iPhone12_64
-- productCatalog:iPhoneX_64
-- productCatalog:Beats_cuffie
+-   productCatalog:AirPods_wirelessCharge
+-   productCatalog:AppleWatchSeries6_40mm_GPS_Cellular_Nike
+-   productCatalog:Lightning_cable
+-   productCatalog:IpadAir_2020
+-   productCatalog:Iphone11_64
+-   productCatalog:MacBookAir_M1
+-   productCatalog:iMac_27_RetinaDisplay_5k_256
+-   productCatalog:iPhone12_64
+-   productCatalog:iPhoneX_64
+-   productCatalog:Beats_cuffie
 
-## 2) Query che dato il nome dell'azienda tira fuori tutte le altre aziende che lavorano per quella
+### Operazione 2
 
-```SPARQL
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+Descrizione:
+Data una soglia di prezzo base P, restituisce tutti gli smartphone 
+con prezzo >= P e relativi azienda e prezzo prodotto ordinati per prezzo ASC
 
-SELECT ?companyTo WHERE{
-	?companyTo rdf:type sipg:Company.	
-	?company rdf:type sipg:Company;
-		sipg:manufacturesTo ?companyTo.
-	FILTER(?company = sipg:Apple)
-}
-```
-
-> Iterazione dell'utente "Giovanni"
-
-## Vuole comprare uno smartphone ma l'unica sua richiesta è che deve spendere più di 600 euro e vuole vedere 
-## dal meno costoso al più costoso 
-
+Query:
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -67,8 +57,24 @@ SELECT ?prod ?brand ?price WHERE {
 ORDER BY ?price
 ```
 
-## Guarda gli smartwatch e vede con quali smartphone sono compatibili
+Return:
+-   productCatalog:Iphone11_64
+    productCatalog:Apple
+	productCatalog:600Euro
+-   productCatalog:iPhone12_64
+	productCatalog:Apple
+	productCatalog:800Euro
+-   productCatalog:SamsungGalaxyS20_5G_global
+	productCatalog:Samsung
+	productCatalog:800Euro
 
+### Operazione 3
+
+Descrizione:
+Restituisce gli smartwatch che sono compatibili con uno smartphone,
+visualizza smartwatch, brand smartwatch, prezzo smartwatch, smartphone compatibile
+
+Query:
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
@@ -84,6 +90,65 @@ SELECT ?smartw ?brand ?pricesmartw ?smartp WHERE {
 		price:hasPrice ?pricesmartw.
 }
 ```
+
+Return:
+-   productCatalog:AppleWatchSeries6_40mm_GPS_Cellular_Nike
+	productCatalog:Apple
+	productCatalog:500Euro
+	productCatalog:Iphone11_64
+-   productCatalog:AppleWatchSeries6_40mm_GPS_Cellular_Nike
+	productCatalog:Apple
+	productCatalog:500Euro
+	productCatalog:iPhone12_64
+-   productCatalog:AppleWatchSeries6_40mm_GPS_Cellular_Nike
+	productCatalog:Apple
+	productCatalog:500Euro
+	productCatalog:iPhoneX_64
+
+### Operazione 4
+
+Descrizione:
+
+
+Query:
+```SPARQL
+
+```
+
+Return:
+- a
+
+### Operazione 5
+
+Descrizione:
+
+
+Query:
+```SPARQL
+
+```
+
+Return:
+- a
+
+---
+
+## Altre query
+
+### 2) Query che dato il nome dell'azienda tira fuori tutte le altre aziende che lavorano per quella
+
+```SPARQL
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+
+SELECT ?companyTo WHERE{
+	?companyTo rdf:type sipg:Company.	
+	?company rdf:type sipg:Company;
+		sipg:manufacturesTo ?companyTo.
+	FILTER(?company = sipg:Apple)
+}
+```
+
 
 ## Guarda se ci sono smartphone che coincidono con quelli che ha guardato prima
 
