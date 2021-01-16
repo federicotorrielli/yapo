@@ -7,7 +7,7 @@
 ### Operazione 1
 
 Descrizione:
-Dato il nome dell'azienda, restituisce tutti i prodotti che vende.
+dato il nome dell'azienda, restituisce tutti i prodotti che vende.
 
 Query:
 ```SPARQL
@@ -37,7 +37,7 @@ Return:
 ### Operazione 2
 
 Descrizione:
-Data una soglia di prezzo base P, restituisce tutti gli smartphone 
+data una soglia di prezzo base P, restituisce tutti gli smartphone 
 con prezzo >= P e relativi azienda e prezzo prodotto ordinati per prezzo ASC.
 
 Query:
@@ -73,7 +73,7 @@ Return:
 ### Operazione 3
 
 Descrizione:
-Restituisce gli smartwatch che sono compatibili con uno smartphone,
+restituisce gli smartwatch che sono compatibili con uno smartphone,
 visualizza smartwatch, brand smartwatch, prezzo smartwatch, smartphone compatibile.
 
 Query:
@@ -110,7 +110,7 @@ Return:
 ### Operazione 4
 
 Descrizione:
-Dato un prezzo base P per gli smarphone, restituisce gli smartwatch
+dato un prezzo base P per gli smarphone, restituisce gli smartwatch
 compativi con gli smartphone con prezzo >= P, il brand dello smartwatch e i prezzi
 dei due dispositivi.
 
@@ -151,7 +151,7 @@ Return:
 ### Operazione 5
 
 Descrizione:
-Data la scelta di uno smartphone in particolare, restituisce il cavo 
+data la scelta di uno smartphone in particolare, restituisce il cavo 
 che è contenuto all'interno della confezione di vendita.
 
 Query:
@@ -174,7 +174,7 @@ Return:
 ### Operazione 6
 
 Descrizione:
-Restituisce se nel catalogo Apple ci sono anche cuffie della BeatsAudio.
+restituisce se nel catalogo Apple ci sono anche cuffie della BeatsAudio.
 
 Query:
 ```SPARQL
@@ -197,7 +197,7 @@ Return:
 ### Operazione 7
 
 Descrizione:
-Data la scelta di uno device in particolare, restituisce gli altri
+data la scelta di uno device in particolare, restituisce gli altri
 dispositivi che hanno montata la medesima cpu.
 
 Query:
@@ -229,7 +229,7 @@ Return:
 ### Operazione 8
 
 Descrizione:
-Data la scelta di un device in particolare, restituisce lo username
+data la scelta di un device in particolare, restituisce lo username
 Instagram del brand del device.
 
 Query:
@@ -260,7 +260,7 @@ Return:
 ### Operazione 9
 
 Descrizione:
-Dato un utente, restituisce i prodotti che ha acquistato.
+dato un utente, restituisce i prodotti che ha acquistato.
 
 Query:
 ```SPARQL
@@ -286,7 +286,7 @@ Return:
 ### Query 1
 
 Descrizione:
-Data un'azienda, restituisce le aziende che lavorano con la prima.
+data un'azienda, restituisce le aziende che lavorano con la prima.
 
 Query:
 ```SPARQL
@@ -310,7 +310,7 @@ Return:
 ## Query 2
 
 Descrizione:
-Dato un utente e uno specifico prodotto, registra l'acquisto di un prodotto.
+dato un utente e uno specifico prodotto, registra l'acquisto del prodotto.
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -331,7 +331,7 @@ Return:
 ## Query 3
 
 Descrizione:
-Dato un utente e uno specifico prodotto, rimuove l'acquisto di un prodotto.
+dato un utente e uno specifico prodotto, rimuove l'acquisto del prodotto.
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
