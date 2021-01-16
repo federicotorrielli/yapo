@@ -94,9 +94,9 @@ def show_results(results: dict, opt_column: str):
     for key, value in results["results"].items():
         for kex in value[0].keys():
             print(kex, end=" ")
-
+    print("")
     if opt_column == "":
-        colonna = input("\nInserisci il nome della colonne che vuoi visualizzare, separate da una virgola: ").split(",")
+        colonna = input("Inserisci il nome della colonne che vuoi visualizzare, separate da una virgola: ").split(",")
     else:
         colonna = opt_column.split(",")
 
