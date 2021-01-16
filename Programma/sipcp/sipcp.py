@@ -4,7 +4,8 @@ import time
 
 import typer
 import yaml
-from SPARQLWrapper import SPARQLWrapper, SPARQLExceptions, GET, DIGEST, JSON, POST, INSERT
+from fuzzywuzzy import fuzz
+from SPARQLWrapper import SPARQLWrapper, SPARQLExceptions, GET, DIGEST, JSON, POST
 from urllib import error
 
 app = typer.Typer()
@@ -124,14 +125,14 @@ def query6():
     return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
             PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
             PREFIX price: <http://www.ontologydesignpatterns.org/cp/owl/price.owl#>\
-            SELECT ?smartw ?brand ?pricesmartw ?smartp WHERE { \
+            SELECT ?smartwatch ?brand ?pricesmartwatch ?smartphone WHERE { \
                 ?brand rdf:type sipg:Company.\
-                ?pricesmartw rdf:type price:Price.\
-                ?smartp rdf:type sipg:Smartphone.\
-                ?smartw rdf:type sipg:Smartwatch;\
-                    sipg:compatibleWith ?smartp;\
+                ?pricesmartwatch rdf:type price:Price.\
+                ?smartphone rdf:type sipg:Smartphone.\
+                ?smartwatch rdf:type sipg:Smartwatch;\
+                    sipg:compatibleWith ?smartphone;\
                     sipg:hasBrand ?brand;\
-                    price:hasPrice ?pricesmartw.\
+                    price:hasPrice ?pricesmartwatch.\
             }"
 
 
@@ -150,15 +151,34 @@ def query7(smartphone: str):
             }"
 
 
+def fuzz_check(colonna, to_check):
+    """
+    Checks the most similar element from column
+    to column
+    :param colonna:
+    :param to_check:
+    :return: a list of unique column elements
+    """
+    newcolonna = set()
+    for elem in colonna:
+        for elem2 in to_check:
+            if fuzz.ratio(elem.lower(), elem2.lower()) > 85:
+                newcolonna.add(elem)
+    return list(newcolonna)
+
+
 def show_results(results: dict, opt_column: str):
+    columns = []
     # First, we take the colums that the user wants to see from input or from the optional parameter
     print("Le colonne disponibili dalla query sono: ", end="")
     for key, value in results["results"].items():
         for kex in value[0].keys():
+            columns.append(kex)
             print(kex, end=" ")
     print("")
     if opt_column == "":
         colonna = input("Inserisci il nome della colonne che vuoi visualizzare, separate da una virgola: ").split(",")
+        colonna = fuzz_check(columns, colonna)
     else:
         colonna = opt_column.split(",")
 
@@ -282,7 +302,7 @@ def compatible_smartphones():
     Returns all the compatibility options for smartwatches
     and smartphones
     """
-    do_query(query6(), "smartw,smartp")
+    do_query(query6(), "smartwatch,smartphone")
 
 
 @app.command()
