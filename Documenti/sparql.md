@@ -1,4 +1,4 @@
-# Flusso di iterazione utente
+# Flusso d'iterazione utente
 
 ## Operazioni Utente
 
