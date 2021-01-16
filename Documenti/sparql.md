@@ -175,19 +175,24 @@ WHERE{
 
 ## Presa dalla felicità del suo nuovo smartphone acquistato si chiede qual è il profilo ig per seguirlo
 
-> da fare
-
 ```SPARQL
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX p: <http://www.wikidata.org/prop/>
-PREFIX v: <http://www.wikidata.org/prop/statement/>
+PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-SELECT ?usernameIG ?label WHERE {
-	wd:Q312 wdt:P2003 ?usernameIG;
-            rdfs:label ?label 
-    FILTER (lang(?label) = "it").
+SELECT ?company ?labelCompany ?labelbrand ?usernameIG WHERE {      
+    ?device rdf:type sipg:Device;
+            sipg:hasBrand ?brand.
+    ?brand rdf:type sipg:Company;
+           rdfs:label ?labelbrand.
+    SERVICE <https://query.wikidata.org/sparql> {       
+        ?company wdt:P31 wd:Q4830453;
+            wdt:P2003 ?usernameIG;
+            rdfs:label ?labelCompany.
+        FILTER (?device = sipg:iPhone12_64 && lang(?labelCompany) = "it" && STR(?labelCompany) = STR(?labelbrand)).
+    } 
 }
 ```
 
@@ -238,13 +243,14 @@ DELETE buysProduct
 
 
 ## dato l'iphone che ha appena comprato, vuole sapere quali altri dispositivi montano lo stesso chip
-```
+
+```SPARQL
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
-SELECT ?prod ?cpu WHERE {      
+SELECT ?prod ?label WHERE {      
     ?device sipg:CpuType ?cpu.
     SERVICE <https://query.wikidata.org/sparql> {       
         ?chip wdt:P31 wd:Q610398;
@@ -256,7 +262,8 @@ SELECT ?prod ?cpu WHERE {
 ```
 
 ## dato utente, return prods
-```
+
+```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
