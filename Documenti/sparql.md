@@ -36,7 +36,7 @@ Return:
 
 Descrizione:
 Data una soglia di prezzo base P, restituisce tutti gli smartphone 
-con prezzo >= P e relativi azienda e prezzo prodotto ordinati per prezzo ASC
+con prezzo >= P e relativi azienda e prezzo prodotto ordinati per prezzo ASC.
 
 Query:
 ```SPARQL
@@ -72,7 +72,7 @@ Return:
 
 Descrizione:
 Restituisce gli smartwatch che sono compatibili con uno smartphone,
-visualizza smartwatch, brand smartwatch, prezzo smartwatch, smartphone compatibile
+visualizza smartwatch, brand smartwatch, prezzo smartwatch, smartphone compatibile.
 
 Query:
 ```SPARQL
@@ -108,50 +108,11 @@ Return:
 ### Operazione 4
 
 Descrizione:
-
-
-Query:
-```SPARQL
-
-```
-
-Return:
-- a
-
-### Operazione 5
-
-Descrizione:
-
+Dato un prezzo base P per gli smarphone, restituisce gli smartwatch
+compativi con gli smartphone con prezzo >= P, il brand dello smartwatch e i prezzi
+dei due dispositivi.
 
 Query:
-```SPARQL
-
-```
-
-Return:
-- a
-
----
-
-## Altre query
-
-### 2) Query che dato il nome dell'azienda tira fuori tutte le altre aziende che lavorano per quella
-
-```SPARQL
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
-
-SELECT ?companyTo WHERE{
-	?companyTo rdf:type sipg:Company.	
-	?company rdf:type sipg:Company;
-		sipg:manufacturesTo ?companyTo.
-	FILTER(?company = sipg:Apple)
-}
-```
-
-
-## Guarda se ci sono smartphone che coincidono con quelli che ha guardato prima
-
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -173,9 +134,25 @@ SELECT ?smartw ?brand ?pricesmartw ?smartp ?pricesmartp WHERE {
 }
 ```
 
-## Ora ha scelto lo smartwatch e l'iphone12, vuole un altro cavo per lo smarphone e quindi ne cerca un'altro 
-## uguale a quello in confezione
+Return:
+-   productCatalog:AppleWatchSeries6_40mm_GPS_Cellular_Nike
+	productCatalog:Apple
+	productCatalog:500Euro
+	productCatalog:Iphone11_64
+	productCatalog:600Euro
+-   productCatalog:AppleWatchSeries6_40mm_GPS_Cellular_Nike
+	productCatalog:Apple
+	productCatalog:500Euro
+	productCatalog:iPhone12_64
+	productCatalog:800Euro
 
+### Operazione 5
+
+Descrizione:
+Data la scelta di uno smartphone in particolare, restituisce il cavo 
+che è contenuto all'interno della confezione di vendita.
+
+Query:
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
@@ -184,51 +161,44 @@ SELECT ?smartp ?cable WHERE {
 	?cable rdf:type sipg:Cable.
 	?smartp rdf:type sipg:Smartphone;
 		sipg:containsInBox ?cable.
-	FILTER(?smartp = sipg:iPhone12_64)
+	FILTER(?smartp = sipg:Iphone11_64)
 }
 ```
 
-## Compra lo smartphone, lo smartwath e il cavo
+Return:
+-   productCatalog:Iphone11_64
+	productCatalog:Lightning_cable
 
-> to check, insert non funziona in protege
+### Operazione 6
 
-```SPARQL
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+Descrizione:
+Restituisce se nel catalogo Apple ci sono anche cuffie della BeatsAudio.
 
-INSERT { 
-	?buyer sipg:buysProduct ?smartp, ?smartw, ?cable.
-} WHERE {
-	?buyer rdf:type sipg:User.
-	?smartp rdf:type sipg:Smartphone.
-	?smartw rdf:type sipg:Smartwatch.
-	?cable rdf:type sipg:Cable.
-	FILTER(?buyer = sipg:Michela_CasualUser && ?smartp = sipg:iPhone12_64 && ?smartw = sipg:AppleWatchSeries6_40mm_GPS_Cellular_Nike && ?cable = sipg:Lightning_cable )
-}
-```
-
-## Chiede a Siri se vendono anche cuffie della beats, la sua marca preferita (è fuori dallo store apple), 
-## poi cambia idea perchè ha già passato 
-## la cassa e non ha voglia di tornare dentro perchè la coda con 1m di distanza covid usciva fuori in strada
-
-> to check, ask non funziona in protege
-
+Query:
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
 ASK {
-	?company sipg:sells ?earPlugs.
+	?company rdf:type sipg:Company;
+	    sipg:sells ?earPlugs.
     ?earPlugs rdf:type sipg:EarPlugs.	
-	?company rdf:type sipg:Company.	
 	?brand rdf:type sipg:Company;
 		sipg:isBrandOf ?earPlugs.
 	FILTER(?company = sipg:Apple && ?brand = sipg:BeatsAudio).
 }
 ```
 
-## Presa dalla felicità del suo nuovo smartphone acquistato si chiede qual è il profilo ig per seguirlo
+Return:
+-   YES
 
+### Operazione 7
+
+Descrizione:
+Data la scelta di uno device in particolare, restituisce gli altri
+dispositivi che hanno montata la medesima cpu.
+
+Query:
 ```SPARQL
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
@@ -236,7 +206,39 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-SELECT ?company ?labelCompany ?labelbrand ?usernameIG WHERE {      
+SELECT ?prodLabel WHERE {      
+    ?device rdf:type sipg:Device;
+          sipg:CpuType ?cpu.
+    SERVICE <https://query.wikidata.org/sparql> {       
+        ?chip wdt:P31 wd:Q610398;
+          rdfs:label ?label;
+          wdt:P1535 ?prod.
+        ?prod rdfs:label ?prodLabel.
+        FILTER (?device = sipg:Iphone11_64 && lang(?prodLabel) = "it" && lang(?label) = "it" && regex(?label, ?cpu)).
+    } 
+}
+```
+
+Return:
+-   "iPhone 11"@it
+-   "iPhone 11 Pro"@it
+-   "iPhone SE"@it
+
+### Operazione 8
+
+Descrizione:
+Data la scelta di un device in particolare, restituisce lo username
+Instagram del brand del device.
+
+Query:
+```SPARQL
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?usernameIG WHERE {      
     ?device rdf:type sipg:Device;
             sipg:hasBrand ?brand.
     ?brand rdf:type sipg:Company;
@@ -245,60 +247,102 @@ SELECT ?company ?labelCompany ?labelbrand ?usernameIG WHERE {
         ?company wdt:P31 wd:Q4830453;
             wdt:P2003 ?usernameIG;
             rdfs:label ?labelCompany.
-        FILTER (?device = sipg:iPhone12_64 && lang(?labelCompany) = "it" && STR(?labelCompany) = STR(?labelbrand)).
+        FILTER (?device = sipg:Iphone11_64 && lang(?labelCompany) = "it" && STR(?labelCompany) = STR(?labelbrand)).
     } 
 }
 ```
 
-## Fa il reso dello smartwatch 
+Return:
+- "apple"
+
+### Operazione 9
+
+Descrizione:
+Dato un utente, restituisce i prodotti che ha acquistato.
+
+Query:
+```SPARQL
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+
+SELECT ?prod WHERE{	
+    ?prod rdf:type sipg:Product.
+	?user rdf:type sipg:User;
+		sipg:buysProduct ?prod.
+	FILTER (?user = sipg:Giovanni_PowerUser)
+}
+```
+
+Return:
+-   productCatalog:MacBookAir_M1
+-   productCatalog:iPhone12_64
+
+---
+
+## Altre query
+
+### Query 1
+
+Descrizione:
+Data un'azienda, restituisce le aziende che lavorano con la prima.
+
+Query:
+```SPARQL
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+
+SELECT ?companyTo WHERE{
+	?companyTo rdf:type sipg:Company.	
+	?company rdf:type sipg:Company;
+		sipg:manufacturesTo ?companyTo.
+	FILTER(?company = sipg:Apple)
+}
+```
+
+Return:
+-   productCatalog:BeatsAudio
+-   productCatalog:Foxconn
+-   productCatalog:Qualcomm
+-   productCatalog:ShortFactory
+
+## Query 2
+
+Descrizione:
+Dato un utente e uno specifico prodotto, registra l'acquisto di un prodotto.
+
+```SPARQL
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+
+INSERT { 
+	?buyer sipg:buysProduct ?prod.
+} WHERE {
+	?buyer rdf:type sipg:User.
+	?prod rdf:type sipg:Product.
+	FILTER(?buyer = sipg:Giovanni_PowerUser && ?prod = sipg:Iphone11_64)
+}
+```
+
+Return:
+-   Added 1 statements.
+
+## Query 3
+
+Descrizione:
+Dato un utente e uno specifico prodotto, rimuove l'acquisto di un prodotto.
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
 DELETE { 
-	?buyer sipg:buysProduct ?smartw.
+	?buyer sipg:buysProduct ?prod.
 } WHERE {
-	?smartw rdf:type sipg:Smartwatch.
-	FILTER(?buyer = sipg:Michela_CasualUser && ?smartw = sipg:AppleWatchSeries6_40mm_GPS_Cellular_Nike)
+	?buyer rdf:type sipg:User.
+	?prod rdf:type sipg:Product.
+	FILTER(?buyer = sipg:Giovanni_PowerUser && ?prod = sipg:Iphone11_64)
 }
 ```
 
-## Cerca un tablet apple (solo se necessario)
-> boh
-
-## Compra un ipad e un altro cavo se è diverso da quello di iphone12 che ha già comprato (solo se necessario)
-> boh
-
-
-## dato l'iphone che ha appena comprato, vuole sapere quali altri dispositivi montano lo stesso chip
-
-```SPARQL
-PREFIX wd: <http://www.wikidata.org/entity/>
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
-
-SELECT ?prod ?label WHERE {      
-    ?device sipg:CpuType ?cpu.
-    SERVICE <https://query.wikidata.org/sparql> {       
-        ?chip wdt:P31 wd:Q610398;
-          rdfs:label ?label;
-          wdt:P1535 ?prod.   
-        FILTER (?device = sipg:iPhone12_64 && lang(?label) = "it" && regex(?label, ?cpu)).
-    } 
-}
-```
-
-## dato utente, return prods
-
-```SPARQL
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
-
-SELECT ?prod WHERE{	
-	?user rdf:type sipg:User;
-		sipg:buysProduct ?prod.
-	FILTER (?user = sipg:Michela_CasualUser)
-}
-```
+Return:
+-   Removed 1 statements.
