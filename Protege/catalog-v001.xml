@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1610558326645" name="https://evilscript.altervista.org/productCatalog.owl" uri="productCatalog.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1610558326645" name="shadowed:https://evilscript.altervista.org/productCatalog.owl" uri="rdfxml/productCatalog.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1610885990158" name="https://evilscript.altervista.org/productCatalog.owl" uri="productCatalog.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1610885990158" name="shadowed:https://evilscript.altervista.org/productCatalog.owl" uri="rdfxml/productCatalog.owl"/>
     </group>
 </catalog>
