@@ -259,7 +259,6 @@ Per quanto riguarda la colonna del contesto, è stata riportata ma il contesto a
 
 [L'esportazione Turtle si trova QUI](https://github.com/federicotorrielli/modsem/raw/master/Protege/turtle/productCatalog.owl)
 
-
 ---
 
 # PARTE II
@@ -383,8 +382,8 @@ Return:
 
 Descrizione:
 dato un prezzo base P per gli smarphone, restituisce gli smartwatch
-compativi con gli smartphone con prezzo >= P, il brand dello smartwatch e i prezzi
-dei due dispositivi.
+compatibili con gli smartphone con prezzo >= P, il brand dello smartwatch e i prezzi
+dei due dispositivi. Ordinato per prezzo smartphone crescente.
 
 Query:
 ```SPARQL
@@ -650,9 +649,10 @@ direttamente nel terminale nel seguente modo:
   molto utile per il comando seguente
 - `sipcp cputype Prodotto` effettua la ricerca del tipo di cpu del prodotto Prodotto
 - `sipcp compatible-cables Smartphone` cerca tutti i cavi compatibili con lo smartphone specificato
-- `sipcp compatible-smartphones` cerca tutte le opzioni di compatibilità tra cavi e smartphones
+- `sipcp compatible-smartphones` cerca tutte le opzioni di compatibilità tra smartwatch e smartphones
 - `sipcp query-smartphone Prezzo` cerca tutti gli smartphones che costano di piu' della cifra specificata
   e li ordina dal meno costoso al piu' costoso
+- `sipcp query_smartwatch_smartphone Prezzo` cerca tutti i match per compatibilità fra smartphone e smartwatch
 - `sipcp search-brand Company Brand` cerca tutti i Brand che vendono venduti sul sito di Company
 - `sipcp search-from-cpu Device` cerca tutti i devices su Wikidata che hanno la stessa CPU del
   device in input
@@ -670,3 +670,4 @@ Su Windows funziona in ogni caso, ma le differenze principali sono:
 
 - Non si possono incollare sul terminale Query multi-lines per il comando `sipcp query ""`
 - L'output non è colorato (sembra banale ma rende l'interazione interessante)
+
