@@ -6,11 +6,11 @@
 
 ## Iterazione Utente
 
-![Operazioni utente](Images/iteration_schema.png)
+![Operazioni utente](https://i.postimg.cc/FR5R8Wj4/iteration-schema.png)
 
 ## Schema di interfaccia: CLI ed esempi reali
 
-![CLI](Images/cli.png)
+![CLI](https://i.postimg.cc/9FJD0Bjd/cli.png)
 
 ## SPARQL
 
