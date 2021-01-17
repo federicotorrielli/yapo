@@ -181,22 +181,30 @@ def query8(device: str):
             }"
 
 
-def query9(company, brand):
+def query10(price: str):
     """
-    Searches for all the product sold by :brand
-    on the :company site and returns if it's sold there
-    :param company:
-    :param brand:
+    Given a price, it returns all the smartphones that cost
+    more than that price, ordered from the least expensive
+    to the most, matched with compatible smartwatch
+    :param price:
+    :return: products
     """
     return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\
             PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
-            ASK {\
-                ?company sipg:sells ?earPlugs.\
-                ?earPlugs rdf:type sipg:EarPlugs.\
-                ?company rdf:type sipg:Company.\
-                ?brand rdf:type sipg:Company;\
-                    sipg:isBrandOf ?earPlugs.\
-                FILTER(?company = sipg:" + company + " && ?brand = sipg:" + brand + ").\
+            PREFIX price: <http://www.ontologydesignpatterns.org/cp/owl/price.owl#>\
+            SELECT ?smartw ?brand ?pricesmartw ?smartp ?pricesmartp WHERE {\
+            ?brand rdf:type sipg:Company.\
+            ?pricesmartw rdf:type price:Price.\
+            ?pricesmartp rdf:type price:Price;\
+                price:hasValue ?vsmartp.\
+            ?smartp rdf:type sipg:Smartphone;\
+                price:hasPrice ?pricesmartp.\
+            ?smartw rdf:type sipg:Smartwatch;\
+                sipg:compatibleWith ?smartp;\
+                sipg:hasBrand ?brand;\
+                price:hasPrice ?pricesmartw.\
+            FILTER (?vsmartp >= \""+price+"\"^^xsd:float)\
             }"
 
 
@@ -338,6 +346,16 @@ def query_smartphone(base_price: str):
     to the most
     """
     do_query(query5(base_price), "prod,brand,price")
+
+
+@app.command()
+def query_smartwatch_smartphone(base_price: str):
+    """
+    Given a price, it returns all the smartphones that cost
+    more than that price, ordered from the least expensive
+    to the most, matched with compatible smartwatch
+    """
+    do_query(query10(base_price), "smartw,brand,pricesmartw,smartp,pricesmartp")
 
 
 @app.command()
