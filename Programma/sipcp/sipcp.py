@@ -175,7 +175,8 @@ def query8(device: str):
                     ?company wdt:P31 wd:Q4830453;\
                         wdt:P2003 ?usernameIG;\
                         rdfs:label ?labelCompany.\
-                    FILTER (?device = sipg:" + device + " && lang(?labelCompany) = 'it' && STR(?labelCompany) = STR(?labelbrand)).\
+                    FILTER (?device = sipg:" + device + " && lang(?labelCompany) = " \
+                                                        "'it' && STR(?labelCompany) = STR(?labelbrand)).\
                 }\
             }"
 
