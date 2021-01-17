@@ -6,6 +6,8 @@
 
 ## Template utilizzati per i dati (GraphDB)
 
+<span style="color:red">TODO</span>
+
 ## Triple di esempio
 
 Si sono voluti selezionare due esempi (rispettivamente *productCatalog:Apple* e *productCatalog:iPhone12_X*)
