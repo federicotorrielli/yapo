@@ -228,13 +228,13 @@ tra dispositivi in modo da poter fare una scelta più accurata.
 
 [Qui il report LODE](http://150.146.207.114/lode/extract?url=https%3A%2F%2Fevilscript.altervista.org%2FproductCatalog.owl&lang=en)
 
-[Qui il report LODE in formato PDF](lode.pdf)
+[Qui il report LODE in formato PDF](https://github.com/federicotorrielli/modsem/raw/master/Documenti/lode.pdf)
 
 # Visualizzazione
 
 ## Tassonomia delle classi
 
-![Tassonomia di progetto](Images/tassonomia.png)
+![Tassonomia di progetto](https://i.postimg.cc/2SyVZBzP/tassonomia.png)
 
 ## Template utilizzati per i dati (GraphDB)
 
@@ -245,7 +245,7 @@ tra dispositivi in modo da poter fare una scelta più accurata.
 Si sono voluti selezionare due esempi (rispettivamente *productCatalog:Apple* e *productCatalog:iPhone12_X*)
 per mostrare alcune delle triple più utilizzate nel progetto per descrivere istanze dell'ontologia
 
-![Apple](Images/graph01.png)
+![Apple](https://i.postimg.cc/fRPkjTyk/graph01.png)
 
 Sono state incluse, come si può notare, anche le inferenze, che tramite GraphDB vengono 
 esplicitate qui in tabella.
@@ -253,7 +253,7 @@ esplicitate qui in tabella.
 Per quanto riguarda la colonna del contesto, è stata riportata ma il contesto accluso
 è quello di default dell'applicazione.
 
-![Apple2](Images/graph02.png)
+![Apple2](https://i.postimg.cc/nLQrdb92/graph02.png)
 
 ## Esportazione Turtle
 
@@ -268,11 +268,11 @@ Per quanto riguarda la colonna del contesto, è stata riportata ma il contesto a
 
 ## Iterazione Utente
 
-![Operazioni utente](Images/iteration_schema.png)
+![Operazioni utente](https://i.postimg.cc/FR5R8Wj4/iteration-schema.png)
 
 ## Schema di interfaccia: CLI ed esempi reali
 
-![CLI](Images/cli.png)
+![CLI](https://i.postimg.cc/9FJD0Bjd/cli.png)
 
 ## SPARQL
 
