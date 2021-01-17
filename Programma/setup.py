@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="sipcp",
-    version="0.1.6",
+    version="0.2.5",
     author="Federico Torrielli",
     author_email="evilscript@protonmail.com",
     description="An example program querying the Simple IT Product Catalog Ontology",
@@ -24,5 +24,6 @@ setuptools.setup(
     ],
     python_requires='>=3.6',
     install_requires=["click==7.1.2", "isodate==0.6.0", "pyparsing==2.4.7", "PyYAML==5.3.1", "rdflib==5.0.0",
-                      "six==1.15.0", "typer==0.3.2", "SPARQLWrapper==1.8.5"]
+                      "six==1.15.0", "typer==0.3.2", "SPARQLWrapper==1.8.5", "fuzzywuzzy==0.18.0",
+                      "levenshtein==0.12.0"]
 )

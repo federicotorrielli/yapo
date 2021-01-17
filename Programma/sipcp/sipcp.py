@@ -4,10 +4,14 @@ import time
 
 import typer
 import yaml
-from SPARQLWrapper import SPARQLWrapper, SPARQLExceptions, GET, DIGEST, JSON, POST, INSERT
+import xml.etree.ElementTree as ET
+import configparser
+from fuzzywuzzy import fuzz
+from SPARQLWrapper import SPARQLWrapper, SPARQLExceptions, GET, DIGEST, JSON, POST, XML
 from urllib import error
 
 app = typer.Typer()
+dburl = "http://192.168.1.57:7200/repositories/productCatalog"
 
 
 def query1(company: str):
@@ -124,14 +128,14 @@ def query6():
     return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
             PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
             PREFIX price: <http://www.ontologydesignpatterns.org/cp/owl/price.owl#>\
-            SELECT ?smartw ?brand ?pricesmartw ?smartp WHERE { \
+            SELECT ?smartwatch ?brand ?pricesmartwatch ?smartphone WHERE { \
                 ?brand rdf:type sipg:Company.\
-                ?pricesmartw rdf:type price:Price.\
-                ?smartp rdf:type sipg:Smartphone.\
-                ?smartw rdf:type sipg:Smartwatch;\
-                    sipg:compatibleWith ?smartp;\
+                ?pricesmartwatch rdf:type price:Price.\
+                ?smartphone rdf:type sipg:Smartphone.\
+                ?smartwatch rdf:type sipg:Smartwatch;\
+                    sipg:compatibleWith ?smartphone;\
                     sipg:hasBrand ?brand;\
-                    price:hasPrice ?pricesmartw.\
+                    price:hasPrice ?pricesmartwatch.\
             }"
 
 
@@ -150,15 +154,81 @@ def query7(smartphone: str):
             }"
 
 
+def query8(device: str):
+    """
+    Returns the instagram profile of the company producing
+    the input device
+    :param device:
+    :return: the instagram profile of the maker of the device
+    """
+    return "PREFIX wd: <http://www.wikidata.org/entity/>\
+            PREFIX wdt: <http://www.wikidata.org/prop/direct/>\
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
+            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
+            SELECT ?company ?labelCompany ?labelbrand ?usernameIG WHERE {\
+                ?device rdf:type sipg:Device;\
+                        sipg:hasBrand ?brand.\
+                ?brand rdf:type sipg:Company;\
+                       rdfs:label ?labelbrand.\
+                SERVICE <https://query.wikidata.org/sparql> {\
+                    ?company wdt:P31 wd:Q4830453;\
+                        wdt:P2003 ?usernameIG;\
+                        rdfs:label ?labelCompany.\
+                    FILTER (?device = sipg:" + device + " && lang(?labelCompany) = " \
+                                                        "'it' && STR(?labelCompany) = STR(?labelbrand)).\
+                }\
+            }"
+
+
+def query9(company, brand):
+    """
+    Searches for all the product sold by :brand
+    on the :company site and returns if it's sold there
+    :param company:
+    :param brand:
+    """
+    return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
+            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            ASK {\
+                ?company sipg:sells ?earPlugs.\
+                ?earPlugs rdf:type sipg:EarPlugs.\
+                ?company rdf:type sipg:Company.\
+                ?brand rdf:type sipg:Company;\
+                    sipg:isBrandOf ?earPlugs.\
+                FILTER(?company = sipg:" + company + " && ?brand = sipg:" + brand + ").\
+            }"
+
+
+def fuzz_check(colonna, to_check):
+    """
+    Checks the most similar element from column
+    to column
+    :param colonna:
+    :param to_check:
+    :return: a list of unique column elements
+    """
+    newcolonna = set()
+    for elem in colonna:
+        for elem2 in to_check:
+            if fuzz.ratio(elem.lower(), elem2.lower()) > 85:
+                newcolonna.add(elem)
+    return list(newcolonna)
+
+
 def show_results(results: dict, opt_column: str):
+    columns = []
     # First, we take the colums that the user wants to see from input or from the optional parameter
     print("Le colonne disponibili dalla query sono: ", end="")
     for key, value in results["results"].items():
-        for kex in value[0].keys():
-            print(kex, end=" ")
+        if len(value) > 0:
+            for kex in value[0].keys():
+                columns.append(kex)
+                print(kex, end=" ")
     print("")
     if opt_column == "":
         colonna = input("Inserisci il nome della colonne che vuoi visualizzare, separate da una virgola: ").split(",")
+        colonna = fuzz_check(columns, colonna)
     else:
         colonna = opt_column.split(",")
 
@@ -183,13 +253,34 @@ def show_results(results: dict, opt_column: str):
         typer.secho(f"File {file_name} correttamente creato!", fg=typer.colors.BRIGHT_GREEN)
 
 
-def do_query(sqlery: str, opt_column: str = "", update=False):
+def do_query(sqlery: str, opt_column: str = "", update=False, ask=False):
     # First we connect to the Database, the link is different from machine to machine
     # You can find it under Setup/Repositories and then productCatalog --> chain icon
-    sparql = SPARQLWrapper("http://192.168.1.57:7200/repositories/productCatalog")
+    config = configparser.ConfigParser()
+    global dburl
+    if len(config.read("config.ini")) == 0:
+        # We check if it's the first time that the user ran the program
+        # if it is, we create a new config file with the server url and
+        # we stop the current query
+        confirmation = typer.confirm(f"Sembra essere la prima volta che utilizzi il programma..."
+                                     f" Il server pre-impostato è {dburl}, vuoi cambiarlo?")
+        if confirmation:
+            change_server()
+        else:
+            change_server(dburl)
+        return
+
+    # If the config already exists, we take the url from there
+    dburl = config["GraphDB"]["url"]
+
+    sparql = SPARQLWrapper(dburl)
+
     sparql.setHTTPAuth(DIGEST)
     sparql.setCredentials("database", "test")
-    if not update:
+    if ask:
+        sparql.setMethod(GET)
+        sparql.setReturnFormat(XML)
+    elif not update:
         sparql.setMethod(GET)
         sparql.setReturnFormat(JSON)
     else:
@@ -200,20 +291,28 @@ def do_query(sqlery: str, opt_column: str = "", update=False):
         # Results are stored in JSON
         if not update:
             ret = sparql.queryAndConvert()
-            show_results(ret, opt_column)
+            if not ask:
+                show_results(ret, opt_column)
+            else:
+                return ret.toxml()
         else:
             sparql.query()
             typer.secho("Operazione effettuata!", fg=typer.colors.GREEN)
     except SPARQLExceptions.EndPointNotFound as err:
         typer.secho(f"Errore: non riesco a trovare il server GraphDB!", err=True, fg=typer.colors.RED)
         typer.echo(err, err=True)
-    except error.URLError:
+    except error.URLError as err:
         typer.secho("Errore: il server GraphDB sembra spento o non correttamente avviato, accertati del suo "
                     "funzionamento!", err=True, fg=typer.colors.RED)
+        confirm = typer.confirm("Vuoi avere altre informazioni sull'errore?")
+        if confirm:
+            typer.echo(err, err=True)
     except SPARQLExceptions.QueryBadFormed as err:
         typer.secho("La query in input non è corretta, accertati che sia scritta correttamente e non contenga"
                     " doppi apici nel caso in cui tu sia in standard query mode!", err=True, fg=typer.colors.RED)
-        typer.echo(err, err=True)
+        confirm = typer.confirm("Vuoi avere altre informazioni sull'errore?")
+        if confirm:
+            typer.echo(err, err=True)
     # Then, we show the results, or the error if it enters in the except
 
 
@@ -282,7 +381,7 @@ def compatible_smartphones():
     Returns all the compatibility options for smartwatches
     and smartphones
     """
-    do_query(query6(), "smartw,smartp")
+    do_query(query6(), "smartwatch,smartphone")
 
 
 @app.command()
@@ -310,6 +409,49 @@ def search_from_cpu(product: str):
     products that have the same CPU from WikiData
     """
     do_query(query3(product), "prodLabel")
+
+
+@app.command()
+def search_ig_profile(device: str):
+    """
+    Returns the instagram profile of the company producing
+    the input device
+    """
+    do_query(query8(device), "usernameIG")
+
+
+@app.command()
+def search_brand(company: str, brand: str):
+    """
+    Searches for all the product sold by :brand
+    on the :company site and returns if it's sold there
+    """
+    responseb = do_query(query9(company, brand), ask=True)
+    response_xml = ET.XML(responseb)
+    if response_xml[1].text == 'true':
+        typer.secho(f"Il brand {brand} è venduto sul sito {company}!", fg=typer.colors.GREEN)
+    else:
+        typer.secho(f"Il brand {brand} NON è venduto sul sito {company}!", fg=typer.colors.RED)
+
+
+@app.command()
+def change_server(opt_url=""):
+    """
+    Changes the server URL pointing to the GraphDB endpoint
+    and saves it in a file called config.ini
+    :return:
+    """
+    # Create the config.ini object and ask which server to put in
+    config_obj = configparser.ConfigParser()
+    if opt_url == "":
+        newurl = input("Inserire l'URL nuovo: ")
+    else:
+        newurl = opt_url
+    config_obj["GraphDB"] = {
+        "url": newurl
+    }
+    with open("config.ini", "w") as conf:
+        config_obj.write(conf)
 
 
 if __name__ == '__main__':

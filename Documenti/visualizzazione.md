@@ -27,3 +27,4 @@ Per quanto riguarda la colonna del contesto, è stata riportata ma il contesto a
 
 
 ![Apple2](Images/graph02.png)
+
