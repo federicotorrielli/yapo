@@ -25,7 +25,7 @@ direttamente nel terminale nel seguente modo:
   molto utile per il comando seguente
 - `sipcp cputype Prodotto` effettua la ricerca del tipo di cpu del prodotto Prodotto
 - `sipcp compatible-cables Smartphone` cerca tutti i cavi compatibili con lo smartphone specificato
-- `sipcp compatible-smartphones` cerca tutte le opzioni di compatibilità tra cavi e smartphones
+- `sipcp compatible-smartphones` cerca tutte le opzioni di compatibilità tra smartwatch e smartphones
 - `sipcp query-smartphone Prezzo` cerca tutti gli smartphones che costano di piu' della cifra specificata
   e li ordina dal meno costoso al piu' costoso
 - `sipcp search-brand Company Brand` cerca tutti i Brand che vendono venduti sul sito di Company
