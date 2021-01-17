@@ -9,6 +9,10 @@ Il programma è completamente fatto in Python e non include una GUI.
 Per utilizzarlo basta installarlo con il comando `pip install sipcp` ed utilizzarlo
 direttamente nel terminale nel seguente modo:
 
+> NB: la prima esecuzione del programma chiederà all'utente di inizializzare un file
+> config.ini che conterrà l'URL di GraphDB in locale (o su server), da quel momento
+> in poi sarà registrato in locale *nella cartella in cui è stato eseguito*
+
 - `sipcp query "query qui"` effettua una query in-line, non sono permessi caratteri come virgolette
   quindi l'utilizzo rimane limitato alle query veloci e tipo "listing"
 - `sipcp query-from-text` effettua tutte le query prendendole da un file di testo chiamato "do.txt"
@@ -20,6 +24,15 @@ direttamente nel terminale nel seguente modo:
 - `sipcp myproducts User` effettua la ricerca di tutti i prodotti comprati da un utente nel productCatalog,
   molto utile per il comando seguente
 - `sipcp cputype Prodotto` effettua la ricerca del tipo di cpu del prodotto Prodotto
+- `sipcp compatible-cables Smartphone` cerca tutti i cavi compatibili con lo smartphone specificato
+- `sipcp compatible-smartphones` cerca tutte le opzioni di compatibilità tra cavi e smartphones
+- `sipcp query-smartphone Prezzo` cerca tutti gli smartphones che costano di piu' della cifra specificata
+  e li ordina dal meno costoso al piu' costoso
+- `sipcp search-brand Company Brand` cerca tutti i Brand che vendono venduti sul sito di Company
+- `sipcp search-from-cpu Device` cerca tutti i devices su Wikidata che hanno la stessa CPU del
+  device in input
+- `sipcp search-ig-profile Device` cerca la pagina instagram su Wikidata della compagnia che vende
+  il device Device.
 
 Per invocare un help in formato internazionale, basta digitare `sipcp --help`
 Supporta Python3.6 e le versioni successive.
