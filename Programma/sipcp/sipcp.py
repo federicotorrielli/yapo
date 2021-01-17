@@ -181,6 +181,25 @@ def query8(device: str):
             }"
 
 
+def query9(company, brand):
+    """
+    Searches for all the product sold by :brand
+    on the :company site and returns if it's sold there
+    :param company:
+    :param brand:
+    """
+    return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
+            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            ASK {\
+                ?company sipg:sells ?earPlugs.\
+                ?earPlugs rdf:type sipg:EarPlugs.\
+                ?company rdf:type sipg:Company.\
+                ?brand rdf:type sipg:Company;\
+                    sipg:isBrandOf ?earPlugs.\
+                FILTER(?company = sipg:" + company + " && ?brand = sipg:" + brand + ").\
+            }"
+
+
 def query10(price: str):
     """
     Given a price, it returns all the smartphones that cost
