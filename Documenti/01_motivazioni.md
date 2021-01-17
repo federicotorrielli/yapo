@@ -5,6 +5,9 @@
 ---
 # Progetto: IT Catalog
 
+# Motivazioni
+> Rilevanza del dominio scelto dal punto di vista culturale, professionale, sociale, ecc.
+
 ## Argomento scelto
 
 Catalogo di prodotti e servizi di una generica azienda nell'ambito di vendita e noleggio di prodotti tecnologici. In 
