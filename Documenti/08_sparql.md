@@ -1,6 +1,6 @@
 ---
 
-#PARTE II
+# PARTE II
 
 # Flusso d'iterazione utente
 
