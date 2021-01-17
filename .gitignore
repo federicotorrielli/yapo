@@ -1,6 +1,7 @@
 # User folders
 Protege/catalog-v001.xml
 .idea/
+Programma/sipcp/config.ini
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
