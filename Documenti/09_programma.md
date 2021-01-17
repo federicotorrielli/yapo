@@ -1,6 +1,6 @@
 # Documentazione del programma
 
-# Simple IT Product Catalog Program
+## Simple IT Product Catalog Program
 
 Programma terminale "sipcp" che permette non solo di fare delle query al SIPC ma
 di utilizzare l'endpoint GraphDB per interfacciarsi con SPARQL verso fonti esterne
@@ -30,6 +30,7 @@ direttamente nel terminale nel seguente modo:
 - `sipcp compatible-smartphones` cerca tutte le opzioni di compatibilità tra smartwatch e smartphones
 - `sipcp query-smartphone Prezzo` cerca tutti gli smartphones che costano di piu' della cifra specificata
   e li ordina dal meno costoso al piu' costoso
+- `sipcp query_smartwatch_smartphone Prezzo` cerca tutti i match per compatibilità fra smartphone e smartwatch
 - `sipcp search-brand Company Brand` cerca tutti i Brand che vendono venduti sul sito di Company
 - `sipcp search-from-cpu Device` cerca tutti i devices su Wikidata che hanno la stessa CPU del
   device in input
