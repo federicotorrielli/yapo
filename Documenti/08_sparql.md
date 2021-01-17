@@ -121,8 +121,8 @@ Return:
 
 Descrizione:
 dato un prezzo base P per gli smarphone, restituisce gli smartwatch
-compativi con gli smartphone con prezzo >= P, il brand dello smartwatch e i prezzi
-dei due dispositivi.
+compatibili con gli smartphone con prezzo >= P, il brand dello smartwatch e i prezzi
+dei due dispositivi. Ordinato per prezzo smartphone crescente.
 
 Query:
 ```SPARQL
