@@ -1,30 +1,26 @@
-# Documentazione di dominio
+# Documentazione sul dominio
 
 > Qua verranno mostrati documenti informali, specifiche e standard esistenti ed
 > un esempio reale che mostri il funzionamento della nostra ontologia.
 
 ## Ontologie similari ed ispirazione
 
-Per trarre ispirazione della Simple IT Product Ontology siamo partiti dalla già nota 
-necessità di avere un ontologia dei prodotti, di nostra fantasia, che potesse esplicare
-concetti come "catalogo", "prodotto" e "device".
-Ci siamo quindi accorti che durante la costruzione della stessa si stava virando sempre
-più verso il concetto di "ontologia per l'e-commerce": abbiamo quindi preso spunto da
-esempi come la [Good Relations](http://www.heppnetz.de/projects/goodrelations/) ontology,
-un vocabolario web appositamente creato per questo genere di utilizzi, sia da aziende
-che da altre ontologie che ne fanno utilizzo.
+Per trarre ispirazione della Simple IT Product Catalog si è partiti dalla già nota necessità di avere un ontologia 
+dei prodotti, di fantasia, che potesse esplicare concetti come "catalogo", "prodotto" e "device".
+Ci si è quindi accorti che durante la costruzione della stessa si stava virando sempre più verso il concetto di 
+"ontologia per l'e-commerce": è stato quindi preso spunto da esempi come la 
+[Good Relations](http://www.heppnetz.de/projects/goodrelations/) ontology, un vocabolario web appositamente creato 
+per questo genere di utilizzi, sia da aziende che da altre ontologie che ne fanno utilizzo.
 
-Nonostante Good Relations fosse un buon punto di partenza, si palesava il fatto che
-fosse nata principalmente a scopo di SEO Tool per siti web che possedevano CMS
-(ad esempio un SEO per Wordpress!).
+Nonostante Good Relations fosse un buon punto di partenza, si palesava il fatto che fosse nata principalmente a 
+scopo di SEO Tool per siti web che possedevano CMS (ad esempio un SEO per Wordpress!).
 
-Figlia della già nota Good Relations, abbiamo la [Product Ontology](http://www.productontology.org/)
-un'ontologia, autoesplicativa nel nome, che fa riferimento a Wikipedia per esplicare i singoli
-prodotti, cui abbiamo deciso di allinare parecchie nostre definizioni per avere anche un punto
-di vista interessante su una ontologia pre-esistente. La Product Ontology è davvero particolare
-in quanto non ha bisogno di manualmente "integrare" la sua T-BOX ed A-BOX per l'ontologia,
-ma, come già accennato, prende in prestito le sue definizioni da Wikipedia, e le ordina come la comunità ha deciso
-di allineare i concetti di partenza.
+Figlia della già nota Good Relations, la [Product Ontology](http://www.productontology.org/) un'ontologia, 
+autoesplicativa nel nome, che fa riferimento a Wikipedia per esplicare i singoli prodotti, cui si è deciso 
+di allinare parecchie nostre definizioni per avere anche un punto di vista interessante su una ontologia pre-esistente. 
+La Product Ontology è davvero particolare in quanto non ha bisogno di manualmente "integrare" la sua T-BOX ed A-BOX 
+per l'ontologia, ma, come già accennato, prende in prestito le sue definizioni da Wikipedia, e le ordina come la 
+comunità ha deciso di allineare i concetti di partenza.
 
 ## Documenti informali
 
@@ -58,7 +54,7 @@ Accanto ad ogni categoria è poi possibile confrontare tipi equivalenti di prodo
 fare confronti di prezzo sulle intere categorie (che sarebbe uno degli obiettivi
 della nostra ontologia!).
 
-Abbiamo notato che la classificazione dei prodotti data da Apple è confusa e chiaramente
+È stato notato che la classificazione dei prodotti data da Apple è confusa e chiaramente
 tende a far notare a primo impatto i prodotti più nuovi invece che i più venduti, cosa 
 che invece siti come MediaWorld fanno, non essendo legati ad un marchio soltanto.
 
@@ -67,7 +63,7 @@ che invece siti come MediaWorld fanno, non essendo legati ad un marchio soltanto
 ![Samsung1](https://i.postimg.cc/SsFCmm95/image-2021-01-10-17-20-49.png)
 
 Sul sito di Samsung si può già notare la differenziazione tra dispositivi portatili e
-non, cosa che faremo anche notare all'interno della nostra ontologia e che chiaramente
+non, cosa presente anche all'interno della nostra ontologia e che chiaramente
 rende più semplice la visualizzazione di un catalogo di Prodotti elettronici.
 
 Il fatto che Samsung abbia un'organizzazione di questo tipo fa pensare che, a differenza

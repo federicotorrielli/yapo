@@ -1,10 +1,14 @@
+---
+
+#PARTE II
+
 # Flusso d'iterazione utente
 
-## Operazioni Utente
+## Iterazione Utente
 
 ![Operazioni utente](Images/iteration_schema.png)
 
-## CLI
+## Schema di interfaccia: CLI ed esempi reali
 
 ![CLI](Images/cli.png)
 

@@ -1,16 +1,12 @@
-# Visualizzazione dei dati
-
-## Lode
-
-[Qui il report LODE](http://150.146.207.114/lode/extract?url=https%3A%2F%2Fevilscript.altervista.org%2FproductCatalog.owl&lang=en)
-
-[Qui il report LODE in formato PDF](lode.pdf)
+# Visualizzazione
 
 ## Tassonomia delle classi
 
 ![Tassonomia di progetto](Images/tassonomia.png)
 
 ## Template utilizzati per i dati (GraphDB)
+
+<span style="color:red">TODO</span>
 
 ## Triple di esempio
 
@@ -24,7 +20,6 @@ esplicitate qui in tabella.
 
 Per quanto riguarda la colonna del contesto, è stata riportata ma il contesto accluso
 è quello di default dell'applicazione.
-
 
 ![Apple2](Images/graph02.png)
 
