@@ -6,7 +6,9 @@
 
 ## Template utilizzati per i dati (GraphDB)
 
-<span style="color:red">TODO</span>
+![Apple template](https://i.postimg.cc/13cL31hx/firefox-T1q-YKb-W2-Aj.png)
+
+![iPhone12 64GB template](https://i.postimg.cc/QMFkncq6/firefox-BYsgoai6o-C.png)
 
 ## Triple di esempio
 
