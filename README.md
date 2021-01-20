@@ -234,11 +234,13 @@ tra dispositivi in modo da poter fare una scelta più accurata.
 
 ## Tassonomia delle classi
 
-![Tassonomia di progetto](https://i.postimg.cc/2SyVZBzP/tassonomia.png)
+![Tassonomia di progetto](https://i.postimg.cc/HWKvpPfY/tassonomia.png)
 
 ## Template utilizzati per i dati (GraphDB)
 
-<span style="color:red">TODO</span>
+![Apple template](https://i.postimg.cc/13cL31hx/firefox-T1q-YKb-W2-Aj.png)
+
+![iPhone12 64GB template](https://i.postimg.cc/QMFkncq6/firefox-BYsgoai6o-C.png)
 
 ## Triple di esempio
 
@@ -267,11 +269,15 @@ Per quanto riguarda la colonna del contesto, è stata riportata ma il contesto a
 
 ## Iterazione Utente
 
-![Operazioni utente](https://i.postimg.cc/FR5R8Wj4/iteration-schema.png)
+![Operazioni utente](https://i.postimg.cc/pVcdKR4V/iteration-schema.png)
 
-## Schema di interfaccia: CLI ed esempi reali
+## Schema di interfaccia: CLI
 
-![CLI](https://i.postimg.cc/9FJD0Bjd/cli.png)
+![CLI](https://i.postimg.cc/fWYPWhhw/cli.png)
+
+## Esempio su terminale sipcp
+
+[Esempio - ASCIINEMA](https://asciinema.org/a/58fTGH48YAQ50INdwq4rX4VlO)
 
 ## SPARQL
 
@@ -671,3 +677,72 @@ Su Windows funziona in ogni caso, ma le differenze principali sono:
 - Non si possono incollare sul terminale Query multi-lines per il comando `sipcp query ""`
 - L'output non è colorato (sembra banale ma rende l'interazione interessante)
 
+# Omeka-S per productCatalog
+
+## Motivazioni della scelta dell'estensione
+
+Tra le estensioni disponibili è stata scelta quella di Omeka-S, una piattaforma CMS
+che è in tutto e per tutto una Linked Data Platform.
+
+A differenza di GraphDB, Omeka ci ha dato molta più liberta di "giocare" con i dati
+a disposizione e creare individui e resource templates utilizzando ciò
+che avevamo già in input, ma con un grado di modificabilità e visibilità maggiore
+rispetto a GraphDB.
+
+Come GraphDB possiamo effettuare query semantiche sulla KB e utilizzarle nelle pagine.
+
+## Specifiche
+
+La piattaforma è stata installata manualmente su un server pubblico dotato di 
+Ubuntu 20.10, fatto un setup di MySql, phpmyadmin e tutti gli strumenti necessari
+alla piattaforma per far lavorare il server senza intoppi.
+
+Il link è pubblicamente accessibile [QUI](http://51.210.104.53/omeka/s/product-catalog/)
+
+Dalla versione di base è stato modificato il tema pre-installato, giusto per dare
+un "tocco più e-commerce" alla piattaforma.
+
+## Items e Item sets
+
+In Omeka gli individuals sono chiamati "items": ognuno di questi item fa riferimento
+ad un template per la sua creazione chiamato il "resource template".
+
+Sono stati creati, nel nostro caso, tre resource template rispettivamente per:
+
+- brand: ovvero, le aziende che fanno dei prodotti
+- inStock: ovvero, un prodotto che è correntemente nella condizione di essere in stock
+- outOfStock: il complementare del precedente
+
+Sono quindi stati definiti degli Item sets rispettivamente:
+
+- inStockList: la lista degli item che sono inStock
+- OutOfStockList: la lista degli item che sono outOfStock
+- Brands: la lista dei brand
+
+E poi, aggiunti degli items, come si può vedere nell'immagine:
+
+![Item list](https://i.imgur.com/fJt2obp.png)
+
+## Pagine
+
+Sono state create delle pagine per contenere ognuna di queste liste:
+
+- [Brands page](http://51.210.104.53/omeka/s/product-catalog/page/brands)
+- [OutOfStock page](http://51.210.104.53/omeka/s/product-catalog/page/out-of-stock)
+- [InStock page](http://51.210.104.53/omeka/s/product-catalog/page/in-stock)
+
+Come si può vedere, ogni pagina rimanda ad una lista di prodotti o brand che sono
+del dominio specificato.
+
+![Brands page](https://i.imgur.com/DP0NbcM.png)
+![InStock page](https://i.imgur.com/Xvdmk9s.png)
+![OutOfStock page](https://i.imgur.com/FHyq2p2.png)
+
+Infatti, ognuna di queste pagine invia una query in-real-time al CMS semantico chiedendo
+la lista dei prodotti (o dei brand), senza mai mantenere una vera e propria cache.
+
+## Conclusione
+
+Questo strumento mostra come anche un'azienda, attrezzata di un CMS come Omeka S,
+possa usufruire di questa tecnologia per pubblicare un catalogo completo di prodotti
+(e molto altro) alla fruizione del pubblico intero.
