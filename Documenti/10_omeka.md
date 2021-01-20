@@ -41,3 +41,24 @@ Sono quindi stati definiti degli Item sets rispettivamente:
 E poi, aggiunti degli items, come si può vedere nell'immagine:
 
 ![Item list](https://i.imgur.com/fJt2obp.png)
+
+## Pagine
+
+Sono state create delle pagine per contenere ognuna di queste liste:
+
+- [Brands page](http://51.210.104.53/omeka/s/product-catalog/page/brands)
+- [Apple InStock page](http://51.210.104.53/omeka/s/product-catalog/page/apple-in-stock)
+- [Apple OutOfStock page](http://51.210.104.53/omeka/s/product-catalog/page/apple-oos)
+- [OutOfStock page](http://51.210.104.53/omeka/s/product-catalog/page/out-of-stock)
+
+Come si può vedere, sono state aggiunte delle pagine che sono *specifiche* del dominio di
+Apple, questo perchè si potesse mostrare la potenzialità delle query su Omeka.
+
+Infatti, ognuna di queste pagine invia una query in-real-time al CMS semantico chiedendo
+la lista dei prodotti (o dei brand), senza mai mantenere una vera e propria cache.
+
+## Conclusione
+
+Questo strumento mostra come anche un'azienda, attrezzata di un CMS come Omeka S,
+possa usufruire di questa tecnologia per pubblicare un catalogo completo di prodotti
+(e molto altro) alla fruizione del pubblico intero.
