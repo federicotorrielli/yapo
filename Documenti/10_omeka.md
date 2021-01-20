@@ -16,7 +16,7 @@ La piattaforma è stata installata manualmente su un server pubblico dotato di
 Ubuntu 20.10, fatto un setup di MySql, phpmyadmin e tutti gli strumenti necessari
 alla piattaforma per far lavorare il server senza intoppi.
 
-Il link è pubblicamente accessibile [QUI](51.210.104.53/omeka/s/product-catalog/)
+Il link è pubblicamente accessibile [QUI](http://51.210.104.53/omeka/s/product-catalog/)
 
 Dalla versione di base è stato modificato il tema pre-installato, giusto per dare
 un "tocco più e-commerce" alla piattaforma.
@@ -41,3 +41,27 @@ Sono quindi stati definiti degli Item sets rispettivamente:
 E poi, aggiunti degli items, come si può vedere nell'immagine:
 
 ![Item list](https://i.imgur.com/fJt2obp.png)
+
+## Pagine
+
+Sono state create delle pagine per contenere ognuna di queste liste:
+
+- [Brands page](http://51.210.104.53/omeka/s/product-catalog/page/brands)
+- [OutOfStock page](http://51.210.104.53/omeka/s/product-catalog/page/out-of-stock)
+- [InStock page](http://51.210.104.53/omeka/s/product-catalog/page/in-stock)
+
+Come si può vedere, ogni pagina rimanda ad una lista di prodotti o brand che sono
+del dominio specificato.
+
+![Brands page](https://i.imgur.com/DP0NbcM.png)
+![InStock page](https://i.imgur.com/Xvdmk9s.png)
+![OutOfStock page](https://i.imgur.com/FHyq2p2.png)
+
+Infatti, ognuna di queste pagine invia una query in-real-time al CMS semantico chiedendo
+la lista dei prodotti (o dei brand), senza mai mantenere una vera e propria cache.
+
+## Conclusione
+
+Questo strumento mostra come anche un'azienda, attrezzata di un CMS come Omeka S,
+possa usufruire di questa tecnologia per pubblicare un catalogo completo di prodotti
+(e molto altro) alla fruizione del pubblico intero.
