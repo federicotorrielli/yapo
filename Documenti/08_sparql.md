@@ -8,9 +8,12 @@
 
 ![Operazioni utente](https://i.postimg.cc/pVcdKR4V/iteration-schema.png)
 
-## Schema di interfaccia: CLI ed esempi reali
+## Schema di interfaccia: CLI
 
 ![CLI](https://i.postimg.cc/PfCHsZVh/cli.png)
+
+## Esempi
+![Esempi]()
 
 ## SPARQL
 

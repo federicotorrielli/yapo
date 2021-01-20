@@ -2,7 +2,7 @@
 
 ## Tassonomia delle classi
 
-![Tassonomia di progetto](https://i.postimg.cc/2SyVZBzP/tassonomia.png)
+![Tassonomia di progetto](https://i.postimg.cc/HWKvpPfY/tassonomia.png)
 
 ## Template utilizzati per i dati (GraphDB)
 
