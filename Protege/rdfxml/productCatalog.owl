@@ -1270,7 +1270,7 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
                 </owl:oneOf>
             </rdfs:Datatype>
         </rdfs:range>
-        <rdfs:label xml:lang="en">Customer&apos;s range the product is made to</rdfs:label>
+        <rdfs:comment xml:lang="en">Customer&apos;s range the product is made to</rdfs:comment>
         <rdfs:label xml:lang="en">isInRange</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -3222,8 +3222,8 @@ Subproperties can be defined in order to distinguish the different uses.</rdfs:c
         <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">70.4</Width>
         <isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Medium</isInRange>
         <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
+        <rdfs:comment xml:lang="en">Smarphone made by Samsung</rdfs:comment>
         <rdfs:label xml:lang="en">SamsungGalaxyS10_global</rdfs:label>
-        <rdfs:label xml:lang="en">Smarphone made by Samsung</rdfs:label>
     </owl:NamedIndividual>
     
 
