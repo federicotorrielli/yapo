@@ -6,9 +6,11 @@ Tra le estensioni disponibili è stata scelta quella di Omeka-S, una piattaforma
 che è in tutto e per tutto una Linked Data Platform.
 
 A differenza di GraphDB, Omeka ci ha dato molta più liberta di "giocare" con i dati
-a disposizione e creare classi, resource templates e individuals utilizzando ciò
+a disposizione e creare individui e resource templates utilizzando ciò
 che avevamo già in input, ma con un grado di modificabilità e visibilità maggiore
-rispetto a GraphDB
+rispetto a GraphDB.
+
+Come GraphDB possiamo effettuare query semantiche sulla KB e utilizzarle nelle pagine.
 
 ## Specifiche
 
