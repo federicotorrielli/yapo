@@ -16,7 +16,7 @@ La piattaforma è stata installata manualmente su un server pubblico dotato di
 Ubuntu 20.10, fatto un setup di MySql, phpmyadmin e tutti gli strumenti necessari
 alla piattaforma per far lavorare il server senza intoppi.
 
-Il link è pubblicamente accessibile [QUI](51.210.104.53/omeka/s/product-catalog/)
+Il link è pubblicamente accessibile [QUI](http://51.210.104.53/omeka/s/product-catalog/)
 
 Dalla versione di base è stato modificato il tema pre-installato, giusto per dare
 un "tocco più e-commerce" alla piattaforma.
