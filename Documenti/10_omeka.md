@@ -53,6 +53,10 @@ Sono state create delle pagine per contenere ognuna di queste liste:
 Come si può vedere, ogni pagina rimanda ad una lista di prodotti o brand che sono
 del dominio specificato.
 
+![Brands page](https://i.imgur.com/FcwiBbF.png)
+![InStock page](https://i.imgur.com/Xvdmk9s.png)
+![OutOfStock page](https://i.imgur.com/FHyq2p2.png)
+
 Infatti, ognuna di queste pagine invia una query in-real-time al CMS semantico chiedendo
 la lista dei prodotti (o dei brand), senza mai mantenere una vera e propria cache.
 
