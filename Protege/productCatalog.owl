@@ -896,7 +896,7 @@
                 </owl:oneOf>
             </rdfs:Datatype>
         </rdfs:range>
-        <rdfs:label xml:lang="en">Customer&apos;s range the product is made to</rdfs:label>
+        <rdfs:comment xml:lang="en">Customer&apos;s range the product is made to</rdfs:comment>
         <rdfs:label xml:lang="en">isInRange</rdfs:label>
     </owl:DatatypeProperty>
     
