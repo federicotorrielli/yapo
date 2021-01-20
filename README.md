@@ -1,6 +1,9 @@
 # Modellazione concettuale per il web semantico (2020/21)
-# Progetto: IT Catalog
+
+## Progetto: IT Catalog
+
 ### Docente: Prof.ssa Rossana Damiano
+
 ### Studenti: Ivan Spada e Federico Torrielli
 
 ---
