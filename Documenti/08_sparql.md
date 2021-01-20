@@ -14,7 +14,7 @@
 
 ## Esempio su terminale sipcp
 
-![Esempio - ASCIINEMA](https://asciinema.org/a/58fTGH48YAQ50INdwq4rX4VlO)
+[Esempio - ASCIINEMA](https://asciinema.org/a/58fTGH48YAQ50INdwq4rX4VlO)
 
 ## SPARQL
 
