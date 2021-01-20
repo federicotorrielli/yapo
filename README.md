@@ -287,7 +287,7 @@ Descrizione:
 dato il nome dell'azienda, restituisce tutti i prodotti che vende.
 
 Query:
-```SPARQL
+```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
@@ -318,7 +318,7 @@ data una soglia di prezzo base P, restituisce tutti gli smartphone
 con prezzo >= P e relativi azienda e prezzo prodotto ordinati per prezzo ASC.
 
 Query:
-```SPARQL
+```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
@@ -354,7 +354,8 @@ restituisce gli smartwatch che sono compatibili con uno smartphone,
 visualizza smartwatch, brand smartwatch, prezzo smartwatch, smartphone compatibile.
 
 Query:
-```SPARQL
+
+```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 PREFIX price: <http://www.ontologydesignpatterns.org/cp/owl/price.owl#>
@@ -392,7 +393,8 @@ compatibili con gli smartphone con prezzo >= P, il brand dello smartwatch e i pr
 dei due dispositivi. Ordinato per prezzo smartphone crescente.
 
 Query:
-```SPARQL
+
+```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
@@ -432,7 +434,8 @@ data la scelta di uno smartphone in particolare, restituisce il cavo
 che è contenuto all'interno della confezione di vendita.
 
 Query:
-```SPARQL
+
+```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
@@ -454,7 +457,8 @@ Descrizione:
 restituisce se nel catalogo Apple ci sono anche cuffie della BeatsAudio.
 
 Query:
-```SPARQL
+
+```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
@@ -478,7 +482,8 @@ data la scelta di uno device in particolare, restituisce gli altri
 dispositivi che hanno montata la medesima cpu.
 
 Query:
-```SPARQL
+
+```
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -510,7 +515,8 @@ data la scelta di un device in particolare, restituisce lo username
 Instagram del brand del device.
 
 Query:
-```SPARQL
+
+```
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -540,7 +546,8 @@ Descrizione:
 dato un utente, restituisce i prodotti che ha acquistato.
 
 Query:
-```SPARQL
+
+```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
@@ -566,7 +573,8 @@ Descrizione:
 data un'azienda, restituisce le aziende che lavorano con la prima.
 
 Query:
-```SPARQL
+
+```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
@@ -589,7 +597,9 @@ Return:
 Descrizione:
 dato un utente e uno specifico prodotto, registra l'acquisto del prodotto.
 
-```SPARQL
+Query:
+
+```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
@@ -610,7 +620,9 @@ Return:
 Descrizione:
 dato un utente e uno specifico prodotto, rimuove l'acquisto del prodotto.
 
-```SPARQL
+Query:
+
+```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
 
