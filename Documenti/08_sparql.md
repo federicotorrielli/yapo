@@ -10,7 +10,7 @@
 
 ## Schema di interfaccia: CLI
 
-![CLI](https://i.postimg.cc/PfCHsZVh/cli.png)
+![CLI](https://i.postimg.cc/fWYPWhhw/cli.png)
 
 ## Esempi
 ![Esempi]()
