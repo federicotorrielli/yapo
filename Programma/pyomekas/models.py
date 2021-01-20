@@ -1,12 +1,11 @@
 # pyomeka-s
 
+import hashlib
 import json
 import logging
-import hashlib
 import os
-import pdb
-import requests
 
+import requests
 
 # setup logger
 logging.basicConfig(level=logging.DEBUG)
@@ -15,774 +14,686 @@ logging.getLogger('parso.python.diff').disabled = True
 logging.getLogger('parso.cache').disabled = True
 logger = logging.getLogger(__name__)
 
-
 # look for config.json at ~/pyomeka-s.json
-config_json_path = os.path.join(os.path.expanduser("~"),'pyomeka-s.json')
+config_json_path = os.path.join(os.path.expanduser("~"), 'pyomeka-s.json')
 if os.path.exists(config_json_path):
-	logger.debug('pyomeka-s.json located, using...')
-	with open(config_json_path,'r') as f:
-		config = json.loads(f.read())
+    logger.debug('pyomeka-s.json located, using...')
+    with open(config_json_path, 'r') as f:
+        config = json.loads(f.read())
 else:
-	config = None
+    config = None
 
 
 class Repository(object):
+    """
+    Class to represent Omeka-S instance
+    """
 
-	'''
-	Class to represent Omeka-S instance
-	'''
+    def __init__(self):
 
-	def __init__(self):
+        # if config loaded, use
+        if config:
+            self.api_endpoint = config['repository']['api_endpoint']
+            self.api_key_identity = config['repository']['api_key_identity']
+            self.api_key_credential = config['repository']['api_key_credential']
 
-		# if config loaded, use
-		if config:
-			self.api_endpoint = config['repository']['api_endpoint']
-			self.api_key_identity = config['repository']['api_key_identity']
-			self.api_key_credential = config['repository']['api_key_credential']
+        # API instance
+        self.api = API(
+            api_endpoint=self.api_endpoint,
+            api_key_identity=self.api_key_identity,
+            api_key_credential=self.api_key_credential)
 
-		# API instance
-		self.api = API(
-			api_endpoint=self.api_endpoint,
-			api_key_identity=self.api_key_identity,
-			api_key_credential=self.api_key_credential)
+    def get_items(self, per_page=25, use_cache=False):
 
+        """
+        Method to list items in Repository
 
-	def get_items(self, per_page=25, use_cache=False):
+        Returns:
+            generator
+        """
 
-		'''
-		Method to list items in Repository
+        # api GET request
+        response = self.api.get('items', params={'per_page': per_page}, use_cache=use_cache)
 
-		Returns:
-			generator
-		'''
+        # return
+        if response.status_code == 200:
 
-		# api GET request
-		response = self.api.get('items', params={'per_page':per_page}, use_cache=use_cache)
+            # parse JSON
+            response = response.json()
 
-		# return
-		if response.status_code == 200:
+            # yield
+            for item_json in response:
+                yield Item(self, item_json)
 
-			# parse JSON
-			response = response.json()
+    def get_item(self, item_id, use_cache=False):
 
-			# yield
-			for item_json in response:
-				yield Item(self, item_json)
+        """
+        Method to return single item
+        """
 
+        # api GET request
+        response = self.api.get('item/%s' % item_id, params={}, use_cache=use_cache)
 
-	def get_item(self, item_id, use_cache=False):
+        # return
+        if response.status_code == 200:
 
-		'''
-		Method to return single item
-		'''
+            # return Item
+            return Item(self, response.json())
 
-		# api GET request
-		response = self.api.get('item/%s' % item_id, params={}, use_cache=use_cache)
+        else:
 
-		# return
-		if response.status_code == 200:
+            return None
 
-			# return Item
-			return Item(self, response.json())
+    def get_vocabularies(self, per_page=100):
 
-		else:
+        """
+        Method to return info about vocabularies
+        """
 
-			return None
+        # api GET request
+        response = self.api.get('vocabularies', params={'per_page': per_page})
 
+        # return
+        if response.status_code == 200:
+            # return as Vocabulary instances
+            return [Vocabulary(self, vocab) for vocab in response.json()]
 
-	def get_vocabularies(self, per_page=100):
+    def get_vocabulary(self, prefix=None, uri=None):
 
-		'''
-		Method to return info about vocabularies
-		'''
+        """
+        Retrieve Vocabulary by prefix or URI
+        """
 
-		# api GET request
-		response = self.api.get('vocabularies', params={'per_page':per_page})
+        # api GET request
+        if prefix is not None:
+            response = self.api.get('vocabularies', params={'prefix': prefix})
+        elif uri is not None:
+            response = self.api.get('vocabularies', params={'namespace_uri': uri})
 
-		# return
-		if response.status_code == 200:
+        if response.status_code == 200:
 
-			# return as Vocabulary instances
-			return [ Vocabulary(self, vocab) for vocab in response.json() ]
+            # parse for length
+            vocabs = response.json()
 
+            if len(vocabs) == 1:
+                return Vocabulary(self, vocabs[0])
 
-	def get_vocabulary(self, prefix=None, uri=None):
+            else:
+                logger.debug('multiple vocabularies found, returning as list')
+                return [Vocabulary(self, vocab) for vocab in vocabs]
 
-		'''
-		Retrieve Vocabulary by prefix or URI
-		'''
+    def get_property(self, term):
 
-		# api GET request
-		if prefix != None:
-			response = self.api.get('vocabularies', params={'prefix':prefix})
-		elif uri != None:
-			response = self.api.get('vocabularies', params={'namespace_uri':uri})
+        """
+        Method to return Property based on term
+            - assume full prefix:local_name as this level
+        """
 
-		if response.status_code == 200:
+        # api GET request
+        response = self.api.get('properties', params={'term': term})
 
-			# parse for length
-			vocabs = response.json()
+        # parse
+        if response.status_code == 200:
 
-			if len(vocabs) == 1:
-				return Vocabulary(self, vocabs[0])
+            properties = response.json()
 
-			else:
-				logger.debug('multiple vocabularies found, returning as list')
-				return [ Vocabulary(self, vocab) for vocab in vocabs ]
+            # if one, return as single Property
+            if len(properties) == 1:
+                return Property(self, properties[0])
 
+            elif len(properties) == 0:
+                raise Exception('property not found: %s' % term)
 
-	def get_property(self, term):
-
-		'''
-		Method to return Property based on term
-			- assume full prefix:local_name as this level
-		'''
-
-		# api GET request
-		response = self.api.get('properties', params={'term':term})
-
-		# parse
-		if response.status_code == 200:
-
-			properties = response.json()
-
-			# if one, return as single Property
-			if len(properties) == 1:
-				return Property(self, properties[0])
-
-			elif len(properties) == 0:
-				raise Exception('property not found: %s' % term)
-
-			else:
-				raise Exception('expecting 1 but found %s properties for qualified term: %s' % (len(properties), term))
-
+            else:
+                raise Exception('expecting 1 but found %s properties for qualified term: %s' % (len(properties), term))
 
 
 class API(object):
+    """
+    Class to handle API requests/responses
+    """
 
-	'''
-	Class to handle API requests/responses
-	'''
+    def __init__(self,
+                 api_endpoint=None,
+                 api_key_identity=None,
+                 api_key_credential=None,
+                 authenticate_all_requests=True):
 
-	def __init__(self,
-		api_endpoint=None,
-		api_key_identity=None,
-		api_key_credential=None,
-		authenticate_all_requests=True):
+        self.api_endpoint = api_endpoint
+        self.api_key_identity = api_key_identity
+        self.api_key_credential = api_key_credential
+        self.authenticate_all_requests = authenticate_all_requests
 
-		self.api_endpoint = api_endpoint
-		self.api_key_identity = api_key_identity
-		self.api_key_credential = api_key_credential
-		self.authenticate_all_requests = authenticate_all_requests
+        # init cache
+        self.cache = APICache()
+        self.use_cache = True
 
-		# init cache
-		self.cache = APICache()
-		self.use_cache = True
+    def _merge_credentials(self, params):
 
+        params.update({
+            'key_identity': self.api_key_identity,
+            'key_credential': self.api_key_credential
+        })
+        return params
 
-	def _merge_credentials(self, params):
+    def get(self,
+            path,
+            params=None,
+            use_cache=None):
 
-		params.update({
-			'key_identity':self.api_key_identity,
-			'key_credential':self.api_key_credential
-		})
-		return params
+        """
+        GET requsts to API
+        """
 
+        # handle caching flag
+        if params is None:
+            params = {}
+        if use_cache is None:
+            use_cache = self.use_cache
 
-	def get(self,
-		path,
-		params = {},
-		use_cache=None):
+        # credential
+        if self.authenticate_all_requests:
+            params = self._merge_credentials(params)
 
-		'''
-		GET requsts to API
-		'''
+        # check cache
+        if use_cache:
+            cache_hit = self.cache.cache_check('get', {'path': path, 'params': params})
+            if cache_hit is not None:
+                return cache_hit
 
-		# handle caching flag
-		if use_cache == None:
-			use_cache = self.use_cache
+        # issue GET request
+        response = requests.get('%s/%s' % (self.api_endpoint, path.lstrip('/')), params=params)
 
-		# credential
-		if self.authenticate_all_requests:
-			params = self._merge_credentials(params)
+        # store cache
+        if response.status_code == 200:
 
-		# check cache
-		if use_cache:
-			cache_hit = self.cache.cache_check('get', {'path':path,'params':params})
-			if cache_hit != None:
-				return cache_hit
+            if use_cache and cache_hit is None:
+                self.cache.cache_store('get', {'path': path, 'params': params}, response)
 
-		# issue GET request
-		response = requests.get('%s/%s' % (self.api_endpoint, path.lstrip('/')), params=params)
+        # return
+        return response
 
-		# store cache
-		if response.status_code == 200:
+    def patch(self,
+              path,
+              json_body,
+              params=None):
 
-			if use_cache and cache_hit == None:
-				self.cache.cache_store('get', {'path':path,'params':params}, response)
+        """
+        PATCH requsts to API
+            - for PATCH requests, credentials are needed
+        """
 
-		# return
-		return response
+        # credential
+        if params is None:
+            params = {}
+        params = self._merge_credentials(params)
+        logger.debug(params)
 
-
-	def patch(self,
-		path,
-		json_body,
-		params = {}):
-
-		'''
-		PATCH requsts to API
-			- for PATCH requests, credentials are needed
-		'''
-
-		# credential
-		params = self._merge_credentials(params)
-		logger.debug(params)
-
-		# issue GET request
-		response = requests.patch('%s/%s' % (self.api_endpoint, path.lstrip('/')), params=params, json=json_body)
-		return response
-
+        # issue GET request
+        response = requests.patch('%s/%s' % (self.api_endpoint, path.lstrip('/')), params=params, json=json_body)
+        return response
 
 
 class APICache(object):
+    """
+    Class for API Cache
+        - naive, lightweight
+        - only cache Property and Vocabulary queries
+            - unlikely to change
+    """
 
-	'''
-	Class for API Cache
-		- naive, lightweight
-		- only cache Property and Vocabulary queries
-			- unlikely to change
-	'''
+    def __init__(self):
+        self.store = {
+            'get': {},
+            'patch': {}
+        }
 
-	def __init__(self):
+    def _calc_cache_hash(self, dict):
+        """
+        Calcuate MD5 hash based on dictionary
+        """
 
-		self.store = {
-			'get':{},
-			'patch':{}
-		}
+        return hashlib.md5(json.dumps(dict, sort_keys=True).encode('utf-8')).hexdigest()
 
+    def cache_check(self, http_verb, dict):
+        """
+        Check cache based on dict
+        """
 
-	def _calc_cache_hash(self, dict):
+        cache_hit = self.store.get(http_verb).get(self._calc_cache_hash(dict), None)
+        return cache_hit
 
-		'''
-		Calcuate MD5 hash based on dictionary
-		'''
+    def cache_store(self, http_verb, dict, response):
+        """
+        Store response
+        """
 
-		return hashlib.md5(json.dumps(dict, sort_keys=True).encode('utf-8')).hexdigest()
-
-
-	def cache_check(self, http_verb, dict):
-
-		'''
-		Check cache based on dict
-		'''
-
-		cache_hit = self.store.get(http_verb).get(self._calc_cache_hash(dict), None)
-		return cache_hit
-
-
-	def cache_store(self, http_verb, dict, response):
-
-		'''
-		Store response
-		'''
-
-		self.store[http_verb][self._calc_cache_hash(dict)] = response
+        self.store[http_verb][self._calc_cache_hash(dict)] = response
 
 
 class Item(object):
+    """
+    Class to represent an Omeka-S Item
+    """
 
-	'''
-	Class to represent an Omeka-S Item
-	'''
+    def __init__(self, repo, item_json):
 
-	def __init__(self, repo, item_json):
+        # store repository instance
+        self.repo = repo
 
-		# store repository instance
-		self.repo = repo
+        # store json
+        self.json = item_json
 
-		# store json
-		self.json = item_json
+        # init rollback versions with 0th version
+        self.versions = {
+            0: self.json.copy()
+        }
 
-		# init rollback versions with 0th version
-		self.versions = {
-			0:self.json.copy()
-		}
+    @property
+    def id(self):
+        return self.json.get('o:id')
 
+    @property
+    def uri(self):
+        return self.json.get('@id')
 
-	@property
-	def id(self):
-		return self.json.get('o:id')
+    def __repr__(self):
+        return '<Item: #%s, "%s">' % (self.id, self.title)
 
+    def _calc_last_version_id(self):
 
-	@property
-	def uri(self):
-		return self.json.get('@id')
+        """
+        Method to return most recent version id
 
+        Returns:
+            (int): integer key of self.versions
+        """
 
-	def __repr__(self):
-		return '<Item: #%s, "%s">' % (self.id, self.title)
+        vkeys = list(self.versions.keys())
+        vkeys.sort()
+        return vkeys[-1]
 
+    @property
+    def title(self):
 
-	def _calc_last_version_id(self):
+        """
+        Return title based on Omeka-S default to dcterms:title
+        """
 
-		'''
-		Method to return most recent version id
+        title = self.get_property('dcterms:title')
 
-		Returns:
-			(int): integer key of self.versions
-		'''
+        if title != []:
+            return title[0].value
+        else:
+            return '[Untitled]'
 
-		vkeys = list(self.versions.keys())
-		vkeys.sort()
-		return vkeys[-1]
+    def get_properties(self):
 
+        """
+        Return metadata properties
+        """
 
-	@property
-	def title(self):
+        _omeka_internal = ['@context', '@id', '@type']
 
-		'''
-		Return title based on Omeka-S default to dcterms:title
-		'''
+        # loop and create subset
+        props = {}
+        for property_name in self.json.keys():
+            if property_name not in _omeka_internal and not property_name.startswith('o:'):
+                props[property_name] = [Value(self.repo, value_json) for value_json in self.json.get(property_name)]
 
-		title = self.get_property('dcterms:title')
+        # return
+        return props
 
-		if title != []:
-			return title[0].value
-		else:
-			return '[Untitled]'
+    def get_property(self, property_input, default=[]):
 
+        """
+        Return instance of single Property
+        """
 
-	def get_properties(self):
+        # handle property_input
+        prop = self._handle_property_arg(property_input)
 
-		'''
-		Return metadata properties
-		'''
+        value_instances = self.json.get(prop.term, default)
 
-		_omeka_internal = ['@context','@id','@type']
+        return [Value(self.repo, value_json) for value_json in value_instances]
 
-		# loop and create subset
-		props = {}
-		for property_name in self.json.keys():
-			if property_name not in _omeka_internal and not property_name.startswith('o:'):
-				props[property_name] = [ Value(self.repo, value_json) for value_json in self.json.get(property_name) ]
+    def _handle_property_arg(self, property_input):
 
-		# return
-		return props
+        """
+        Method to return Property instance given equivocal input
+        """
 
+        # handle property_input
+        if type(property_input) == Property:
+            prop = property_input
+        elif type(property_input) == str:
+            # query for property_input id
+            prop = self.repo.get_property(property_input)
+        else:
+            raise Exception('expecting str or Property instance as property')
 
-	def get_property(self, property_input, default=[]):
+        # return
+        return prop
+
+    def add_property(self,
+                     property_input,
+                     value,
+                     is_public=True,
+                     property_type='literal'):
 
-		'''
-		Return instance of single Property
-		'''
+        """
+        Method to add Property
+            - literal values may repeat
 
-		# handle property_input
-		prop = self._handle_property_arg(property_input)
+        Args:
+            term (str|Property): if string, assume prefix:local_name, else use Property
+            value: value to set for @value
 
-		value_instances = self.json.get(prop.term, default)
+        Value instance:
+        {
+            '@value': '...',
+            'is_public': True,
+            'property_id': 1,
+            'property_label': 'Title',
+            'type': 'literal'
+         }
+        """
 
-		return [ Value(self.repo, value_json) for value_json in value_instances ]
+        # handle property_input
+        prop = self._handle_property_arg(property_input)
 
+        # build value dictionary
+        val_dict = {
+            '@value': value,
+            'is_public': True,
+            'property_id': prop.id,
+            'property_label': prop.label,
+            'type': property_type
+        }
 
-	def _handle_property_arg(self, property_input):
+        # append if term exists, else create
+        if prop.term in self.get_properties().keys():
+            self.json[prop.term].append(val_dict)
+        else:
+            self.json[prop.term] = [val_dict]
 
-		'''
-		Method to return Property instance given equivocal input
-		'''
+    def remove_value(self,
+                     property_input,
+                     value):
 
-		# handle property_input
-		if type(property_input) == Property:
-			prop = property_input
-		elif type(property_input) == str:
-			# query for property_input id
-			prop = self.repo.get_property(property_input)
-		else:
-			raise Exception('expecting str or Property instance as property')
+        """
+        Method to remove property from Item
+        """
 
-		# return
-		return prop
+        # handle property_input
+        prop = self._handle_property_arg(property_input)
 
+        # check self for property AND value
+        e_values = self.get_property(prop)
 
-	def add_property(self,
-		property_input,
-		value,
-		is_public=True,
-		property_type='literal'):
+        # comprehend values sans matches
+        values_keep = [e_value for e_value in e_values if e_value.value != value]
 
-		'''
-		Method to add Property
-			- literal values may repeat
+        # update property
+        self.json[prop.term] = [value.json for value in values_keep]
 
-		Args:
-			term (str|Property): if string, assume prefix:local_name, else use Property
-			value: value to set for @value
+    def update(self):
 
-		Value instance:
-		{
-			'@value': '...',
-			'is_public': True,
-			'property_id': 1,
-			'property_label': 'Title',
-			'type': 'literal'
-	 	}
-		'''
+        """
+        Method to update Item in Repository
+        """
 
-		# handle property_input
-		prop = self._handle_property_arg(property_input)
+        # PATCH with self.json
+        response = self.repo.api.patch('items/%s' % self.id, self.json)
 
-		# build value dictionary
-		val_dict = {
-			'@value': value,
-			'is_public': True,
-			'property_id': prop.id,
-			'property_label': prop.label,
-			'type': property_type
-		}
+        if response.status_code == 200:
+            # write version
+            self.write_version(response.json())
 
-		# append if term exists, else create
-		if prop.term in self.get_properties().keys():
-			self.json[prop.term].append(val_dict)
-		else:
-			self.json[prop.term] = [val_dict]
+            # return
+            return True
 
+    def write_version(self, item_version_json):
 
-	def remove_value(self,
-		property_input,
-		value):
+        """
+        Method to write version
+        """
 
-		'''
-		Method to remove property from Item
-		'''
+        # get new version to write
+        last_version_id = self._calc_last_version_id() + 1
 
-		# handle property_input
-		prop = self._handle_property_arg(property_input)
+        # write
+        logger.debug('writing item v%s' % last_version_id)
+        self.versions[last_version_id] = item_version_json
 
-		# check self for property AND value
-		e_values = self.get_property(prop)
+    def refresh(self):
 
-		# comprehend values sans matches
-		values_keep = [ e_value for e_value in e_values if e_value.value != value ]
+        """
+        Methdo to refresh Item
+        """
 
-		# update property
-		self.json[prop.term] = [ value.json for value in values_keep ]
+        # get self from repository
+        _item = self.repo.get_item(self.id, use_cache=False)
 
+        # write version
+        self.write_version(_item.json.copy())
 
-	def update(self):
-
-		'''
-		Method to update Item in Repository
-		'''
-
-		# PATCH with self.json
-		response = self.repo.api.patch('items/%s' % self.id, self.json)
-
-		if response.status_code == 200:
-
-			# write version
-			self.write_version(response.json())
-
-			# return
-			return True
-
-
-	def write_version(self, item_version_json):
-
-		'''
-		Method to write version
-		'''
-
-		# get new version to write
-		last_version_id = self._calc_last_version_id() + 1
-
-		# write
-		logger.debug('writing item v%s' % last_version_id)
-		self.versions[last_version_id] = item_version_json
-
-
-	def refresh(self):
-
-		'''
-		Methdo to refresh Item
-		'''
-
-		# get self from repository
-		_item = self.repo.get_item(self.id, use_cache=False)
-
-		# write version
-		self.write_version(_item.json.copy())
-
-		# set
-		self.json = _item.json.copy()
-
+        # set
+        self.json = _item.json.copy()
 
 
 class Property(object):
+    """
+    Class to represent Property
 
-	'''
-	Class to represent Property
+    Property Model example:
+        {
+        "@context": "http://example.com/api-context",
+        "@id": "http://example.com/api/properties/1",
+        "@type": "o:Property",
+        "o:id": 1,
+        "o:local_name": "title",
+        "o:label": "Title",
+        "o:comment": "A name given to the resource.",
+        "o:term": "dcterms:title",
+        "o:vocabulary": {
+            "@id": "http://example.com/api/vocabularies/1",
+            "o:id": 1
+        }
+    }
+    """
 
-	Property Model example:
-		{
-	    "@context": "http://example.com/api-context",
-	    "@id": "http://example.com/api/properties/1",
-	    "@type": "o:Property",
-	    "o:id": 1,
-	    "o:local_name": "title",
-	    "o:label": "Title",
-	    "o:comment": "A name given to the resource.",
-	    "o:term": "dcterms:title",
-	    "o:vocabulary": {
-	        "@id": "http://example.com/api/vocabularies/1",
-	        "o:id": 1
-	    }
-	}
-	'''
+    def __init__(self, repo, property_json):
+        # store repository instance
+        self.repo = repo
 
-	def __init__(self, repo, property_json):
+        # store json
+        self.json = property_json
 
-		# store repository instance
-		self.repo = repo
+    @property
+    def id(self):
+        return self.json.get('o:id')
 
-		# store json
-		self.json = property_json
+    @property
+    def term(self):
+        return self.json.get('o:term')
 
+    @property
+    def label(self):
+        return self.json.get('o:label')
 
-	@property
-	def id(self):
-		return self.json.get('o:id')
+    @property
+    def comment(self):
+        return self.json.get('o:comment')
 
+    @property
+    def vocabulary_id(self):
+        return self.json.get('o:vocabulary').get('o:id')
 
-	@property
-	def term(self):
-		return self.json.get('o:term')
+    def __repr__(self):
+        return '<Property: #%s, %s, "%s">' % (self.id, self.term, self.label)
 
+    @property
+    def vocabulary(self):
+        """
+        Return instance of associated Vocabulary
+        """
 
-	@property
-	def label(self):
-		return self.json.get('o:label')
+        # query
+        response = self.repo.api.get('vocabularies', params={'id': self.vocabulary_id})
 
-
-	@property
-	def comment(self):
-		return self.json.get('o:comment')
-
-
-	@property
-	def vocabulary_id(self):
-		return self.json.get('o:vocabulary').get('o:id')
-
-
-	def __repr__(self):
-
-		return '<Property: #%s, %s, "%s">' % (self.id, self.term, self.label)
-
-
-	@property
-	def vocabulary(self):
-
-		'''
-		Return instance of associated Vocabulary
-		'''
-
-		# query
-		response = self.repo.api.get('vocabularies', params={'id':self.vocabulary_id})
-
-		if response.status_code == 200:
-
-			return Vocabulary(self.repo, response.json())
-
+        if response.status_code == 200:
+            return Vocabulary(self.repo, response.json())
 
 
 class Value(object):
+    """
+    Class to represent value of property
 
-	'''
-	Class to represent value of property
+    Value Instance:
+    {
+        '@value': '...',
+        'is_public': True,
+        'property_id': 1,
+        'property_label': 'Title',
+        'type': 'literal'
+     }
+    """
 
-	Value Instance:
-	{
-		'@value': '...',
-		'is_public': True,
-		'property_id': 1,
-		'property_label': 'Title',
-		'type': 'literal'
- 	}
-	'''
+    def __init__(self, repo, value_json):
 
-	def __init__(self, repo, value_json):
+        # store repo
+        self.repo = repo
 
-		# store repo
-		self.repo = repo
+        # store json
+        self.json = value_json
 
-		# store json
-		self.json = value_json
+    def __repr__(self, tlen=50):
 
+        if self.value != None:
+            if type(self.value) == str:
+                value_repr = self.value[:tlen] + '..' if len(self.value) > tlen else self.value
+            else:
+                value_repr = self.value
+        else:
+            value_repr = None
 
-	def __repr__(self, tlen=50):
+        return '<Value: "%s">' % (value_repr)
 
-		if self.value != None:
-			if type(self.value) == str:
-				value_repr = self.value[:tlen] + '..' if len(self.value) > tlen else self.value
-			else:
-				value_repr = self.value
-		else:
-			value_repr = None
+    @property
+    def value(self):
+        return self.json.get('@value', None)
 
-		return '<Value: "%s">' % (value_repr)
+    @property
+    def property_label(self):
+        return self.json.get('property_label')
 
+    @property
+    def property_id(self):
+        return self.json.get('property_id', None)
 
-	@property
-	def value(self):
-		return self.json.get('@value', None)
+    @property
+    def property(self):
 
+        """
+        Property to return Property instance associated with Value
+        """
 
-	@property
-	def property_label(self):
-		return self.json.get('property_label')
+        # query
+        response = self.repo.api.get('properties', params={'id': self.property_id})
 
-
-	@property
-	def property_id(self):
-		return self.json.get('property_id', None)
-
-
-	@property
-	def property(self):
-
-		'''
-		Property to return Property instance associated with Value
-		'''
-
-		# query
-		response = self.repo.api.get('properties', params={'id':self.property_id})
-
-		if response.status_code == 200:
-
-			return Property(self.repo, response.json())
-
+        if response.status_code == 200:
+            return Property(self.repo, response.json())
 
 
 class Vocabulary(object):
+    """
+    Class to represent Omeka-S Vocabulary
+    """
 
-	'''
-	Class to represent Omeka-S Vocabulary
-	'''
+    def __init__(self, repo, vocab_json):
 
-	def __init__(self, repo, vocab_json):
+        # store repository instance
+        self.repo = repo
 
-		# store repository instance
-		self.repo = repo
+        # store json
+        self.json = vocab_json
 
-		# store json
-		self.json = vocab_json
+    @property
+    def id(self):
+        return self.json.get('o:id')
 
+    @property
+    def uri(self):
+        return self.json.get('@id')
 
-	@property
-	def id(self):
-		return self.json.get('o:id')
+    @property
+    def uri(self):
+        return self.json.get('o:namespace_uri')
 
+    @property
+    def prefix(self):
+        return self.json.get('o:prefix')
 
-	@property
-	def uri(self):
-		return self.json.get('@id')
+    @property
+    def label(self):
+        return self.json.get('o:label')
 
+    @property
+    def comment(self):
+        return self.json.get('o:comment')
 
-	@property
-	def uri(self):
-		return self.json.get('o:namespace_uri')
+    def __repr__(self):
 
+        return '<Vocabulary: #%s, %s, prefix:%s, uri:%s>' % (self.id, self.label, self.prefix, self.uri)
 
-	@property
-	def prefix(self):
-		return self.json.get('o:prefix')
+    def get_properties(self):
 
+        """
+        Method to return all associated Properties
+            - query /properties endpoint, searching by vocab id
 
-	@property
-	def label(self):
-		return self.json.get('o:label')
+        Returns:
+            generator
+        """
 
+        # api GET request
+        response = self.repo.api.get('properties', params={'vocabulary_id': self.id})
 
-	@property
-	def comment(self):
-		return self.json.get('o:comment')
+        # return
+        if response.status_code == 200:
 
+            # parse JSON
+            response = response.json()
 
-	def __repr__(self):
+            # yield
+            for property_json in response:
+                yield Property(self.repo, property_json)
 
-		return '<Vocabulary: #%s, %s, prefix:%s, uri:%s>' % (self.id, self.label, self.prefix, self.uri)
+    def get_property(self, term):
 
+        """
+        Method to return property
 
-	def get_properties(self):
+        Args:
+            term (str): term, with or without Vocabulary namespace prefex
+        """
 
-		'''
-		Method to return all associated Properties
-			- query /properties endpoint, searching by vocab id
+        # remove prefix if added
+        if self.prefix in term:
+            term = term.split('%s:')[-1]
 
-		Returns:
-			generator
-		'''
+        # api GET request
+        response = self.repo.api.get('properties', params={'vocabulary_id': self.id, 'local_name': term})
 
-		# api GET request
-		response = self.repo.api.get('properties', params={'vocabulary_id':self.id})
+        # return
+        if response.status_code == 200:
 
-		# return
-		if response.status_code == 200:
+            # should only be one, confirm and return
+            properties = response.json()
 
-			# parse JSON
-			response = response.json()
+            if len(properties) == 1:
+                return Property(self.repo, properties[0])
 
-			# yield
-			for property_json in response:
-				yield Property(self.repo, property_json)
-
-
-	def get_property(self, term):
-
-		'''
-		Method to return property
-
-		Args:
-			term (str): term, with or without Vocabulary namespace prefex
-		'''
-
-		# remove prefix if added
-		if self.prefix in term:
-			term = term.split('%s:')[-1]
-
-		# api GET request
-		response = self.repo.api.get('properties', params={'vocabulary_id':self.id, 'local_name':term})
-
-		# return
-		if response.status_code == 200:
-
-			# should only be one, confirm and return
-			properties = response.json()
-
-			if len(properties) == 1:
-				return Property(self.repo, properties[0])
-
-			else:
-				raise Exception('only expecting on property for this vocabulary for term: %s' % term)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            else:
+                raise Exception('only expecting on property for this vocabulary for term: %s' % term)
