@@ -12,8 +12,9 @@
 
 ![CLI](https://i.postimg.cc/PfCHsZVh/cli.png)
 
-## Esempi
-![Esempi]()
+## Esempio su terminale sipcp
+
+![Esempio - ASCIINEMA](https://asciinema.org/a/58fTGH48YAQ50INdwq4rX4VlO)
 
 ## SPARQL
 
