@@ -53,7 +53,7 @@ Sono state create delle pagine per contenere ognuna di queste liste:
 Come si può vedere, ogni pagina rimanda ad una lista di prodotti o brand che sono
 del dominio specificato.
 
-![Brands page](https://i.imgur.com/FcwiBbF.png)
+![Brands page](https://i.imgur.com/DP0NbcM.png)
 ![InStock page](https://i.imgur.com/Xvdmk9s.png)
 ![OutOfStock page](https://i.imgur.com/FHyq2p2.png)
 
