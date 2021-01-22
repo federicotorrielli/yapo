@@ -238,8 +238,6 @@ tra dispositivi in modo da poter fare una scelta più accurata.
 
 [Qui il report LODE](http://150.146.207.114/lode/extract?url=https%3A%2F%2Fevilscript.altervista.org%2Fyapo.owl&lang=en)
 
-[Qui il report LODE in formato PDF](https://github.com/federicotorrielli/modsem/raw/master/Documenti/lode.pdf)
-
 # Visualizzazione
 
 ## Tassonomia delle classi
