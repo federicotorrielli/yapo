@@ -252,17 +252,17 @@ tra dispositivi in modo da poter fare una scelta più accurata.
 
 ## Triple di esempio
 
-Si sono voluti selezionare due esempi (rispettivamente *yapo:Apple* e *yapo:iPhone12_X*)
-per mostrare alcune delle triple più utilizzate nel progetto per descrivere istanze dell'ontologia
+Si sono voluti selezionare due esempi (rispettivamente *yapo:Apple* e *yapo:iPhone12_64*)
+per mostrare alcune delle triple più utilizzate nel progetto per descrivere istanze dell'ontologia: gli esempi sono *incompleti* di tutti i dati dell'ontologia.
 
-![Apple](https://i.postimg.cc/fRPkjTyk/graph01.png)
+![Apple](https://i.imgur.com/jwJfsSi.png)
 
-Sono state incluse, come si può notare, anche le inferenze, che tramite GraphDB vengono esplicitate qui in tabella.
+Sono state incluse, come si può notare, anche alcune delle inferenze che tramite GraphDB vengono esplicitate qui in tabella.
 
 Per quanto riguarda la colonna del contesto, è stata riportata ma il contesto accluso è quello di default
 dell'applicazione.
 
-![Apple2](https://i.postimg.cc/nLQrdb92/graph02.png)
+![Apple2](https://i.imgur.com/bZ7zy0o.png)
 
 ## Esportazione Turtle
 

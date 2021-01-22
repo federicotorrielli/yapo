@@ -143,7 +143,9 @@ It is extracted from DOLCE-UltraLite by partial clone of elements.""" ,
 
 ###  http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem
 <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem> rdf:type owl:ObjectProperty ;
-                                                               rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember> ;
+                                                               rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember> ,
+                                                                                  [ owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf>
+                                                                                  ] ;
                                                                owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf> ;
                                                                rdfs:domain <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag> ;
                                                                rdfs:range <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ;
@@ -163,7 +165,9 @@ It is extracted from DOLCE-UltraLite by partial clone of elements.""" ,
 
 ###  http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf
 <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf> rdf:type owl:ObjectProperty ;
-                                                              rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf> ;
+                                                              rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf> ,
+                                                                                 [ owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember>
+                                                                                 ] ;
                                                               rdfs:domain <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ;
                                                               rdfs:range <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag> ;
                                                               rdfs:comment "item of - The link from an item to the Bag where it is contained"^^xsd:string ;
@@ -190,7 +194,9 @@ It is extracted from DOLCE-UltraLite by partial clone of elements.""" ,
 
 ###  http://www.ontologydesignpatterns.org/cp/owl/list.owl#firstItemOf
 <http://www.ontologydesignpatterns.org/cp/owl/list.owl#firstItemOf> rdf:type owl:ObjectProperty ;
-                                                                    rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf> ;
+                                                                    rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf> ,
+                                                                                       [ owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem>
+                                                                                       ] ;
                                                                     owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasFirstItem> ;
                                                                     rdfs:domain <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> ;
                                                                     rdfs:range <http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> ;
@@ -199,7 +205,9 @@ It is extracted from DOLCE-UltraLite by partial clone of elements.""" ,
 
 ###  http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasFirstItem
 <http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasFirstItem> rdf:type owl:ObjectProperty ;
-                                                                     rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem> ;
+                                                                     rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem> ,
+                                                                                        [ owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf>
+                                                                                        ] ;
                                                                      rdf:type owl:FunctionalProperty ;
                                                                      rdfs:domain <http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> ;
                                                                      rdfs:range <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> ;
@@ -209,7 +217,9 @@ It is extracted from DOLCE-UltraLite by partial clone of elements.""" ,
 
 ###  http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasLastItem
 <http://www.ontologydesignpatterns.org/cp/owl/list.owl#hasLastItem> rdf:type owl:ObjectProperty ;
-                                                                    rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem> ;
+                                                                    rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem> ,
+                                                                                       [ owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf>
+                                                                                       ] ;
                                                                     owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#lastItemOf> ;
                                                                     rdf:type owl:FunctionalProperty ;
                                                                     rdfs:domain <http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> ;
@@ -220,7 +230,9 @@ It is extracted from DOLCE-UltraLite by partial clone of elements.""" ,
 
 ###  http://www.ontologydesignpatterns.org/cp/owl/list.owl#lastItemOf
 <http://www.ontologydesignpatterns.org/cp/owl/list.owl#lastItemOf> rdf:type owl:ObjectProperty ;
-                                                                   rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf> ;
+                                                                   rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf> ,
+                                                                                      [ owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem>
+                                                                                      ] ;
                                                                    rdfs:domain <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> ;
                                                                    rdfs:range <http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> ;
                                                                    rdfs:label "last item of"^^xsd:string .
@@ -228,7 +240,9 @@ It is extracted from DOLCE-UltraLite by partial clone of elements.""" ,
 
 ###  http://www.ontologydesignpatterns.org/cp/owl/list.owl#nextItem
 <http://www.ontologydesignpatterns.org/cp/owl/list.owl#nextItem> rdf:type owl:ObjectProperty ;
-                                                                 rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyFollows> ;
+                                                                 rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyFollows> ,
+                                                                                    [ owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyPrecedes>
+                                                                                    ] ;
                                                                  owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/list.owl#previousItem> ;
                                                                  rdf:type owl:FunctionalProperty ;
                                                                  rdfs:domain <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> ;
@@ -239,7 +253,9 @@ It is extracted from DOLCE-UltraLite by partial clone of elements.""" ,
 
 ###  http://www.ontologydesignpatterns.org/cp/owl/list.owl#previousItem
 <http://www.ontologydesignpatterns.org/cp/owl/list.owl#previousItem> rdf:type owl:ObjectProperty ;
-                                                                     rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyPrecedes> ;
+                                                                     rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyPrecedes> ,
+                                                                                        [ owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyFollows>
+                                                                                        ] ;
                                                                      rdf:type owl:FunctionalProperty ;
                                                                      rdfs:domain <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> ;
                                                                      rdfs:range <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> ;
@@ -274,7 +290,9 @@ It is extracted from DOLCE-UltraLite by partial clone of elements.""" ,
 
 ###  http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyFollows
 <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyFollows> rdf:type owl:ObjectProperty ;
-                                                                            rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows> ;
+                                                                            rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows> ,
+                                                                                               [ owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes>
+                                                                                               ] ;
                                                                             owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyPrecedes> ;
                                                                             rdfs:domain owl:Thing ;
                                                                             rdfs:range owl:Thing ;
@@ -286,7 +304,9 @@ It is extracted from DOLCE-UltraLite by partial clone of elements.""" ,
 
 ###  http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyPrecedes
 <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyPrecedes> rdf:type owl:ObjectProperty ;
-                                                                             rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> ;
+                                                                             rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> ,
+                                                                                                [ owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows>
+                                                                                                ] ;
                                                                              rdfs:domain owl:Thing ;
                                                                              rdfs:range owl:Thing ;
                                                                              rdfs:comment "The intransitive precedes relation. For example, Monday directly precedes Tuesday. Directness of precedence depends on the designer conceptualization." ;
@@ -325,9 +345,9 @@ Subproperties can be defined in order to distinguish the different uses."""^^xsd
 
 ###  http://www.w3.org/2002/07/owl#topObjectProperty
 owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
+                      owl:inverseOf owl:topObjectProperty ;
                       rdf:type owl:SymmetricProperty ,
-                               owl:TransitiveProperty ,
-                               owl:ReflexiveProperty .
+                               owl:TransitiveProperty .
 
 
 ###  https://evilscript.altervista.org/yapo.owl#brandContainedIn
@@ -939,39 +959,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                                            rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> ,
                                                                            :ProductCatalog ,
                                                                            <https://www.w3.org/ns/dcat#Catalog> ;
-                                                           owl:disjointWith <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ,
-                                                                            <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> ,
-                                                                            <http://www.productontology.org/id/Headphones> ,
-                                                                            <http://www.productontology.org/id/Laptop> ,
-                                                                            <http://www.productontology.org/id/Loudspeaker> ,
-                                                                            <http://www.productontology.org/id/Personal_computer> ,
-                                                                            <http://www.productontology.org/id/Power_cable> ,
-                                                                            <http://www.productontology.org/id/Smartphone> ,
-                                                                            <http://www.productontology.org/id/Smartwatch> ,
-                                                                            <http://www.productontology.org/id/Tablet_computer> ,
-                                                                            <http://www.productontology.org/id/2-in-1_PC> ,
-                                                                            <http://www.productontology.org/id/Housing_(engineering)> ,
-                                                                            <http://www.productontology.org/id/Product_(business)> ,
-                                                                            :Accessory ,
-                                                                            :Cable ,
-                                                                            :Computer ,
-                                                                            :Cover ,
-                                                                            :Device ,
-                                                                            :EarPlugs ,
-                                                                            :HardCover ,
-                                                                            :Laptop ,
-                                                                            :NotPortableDevice ,
-                                                                            :PortableDevice ,
-                                                                            :Product ,
-                                                                            :ProductHigh ,
-                                                                            :ProductLow ,
-                                                                            :ProductMedium ,
-                                                                            :Smartphone ,
-                                                                            :Smartwatch ,
-                                                                            :SoftCover ,
-                                                                            :Stereo ,
-                                                                            :Tablet ,
-                                                                            <https://evilscript.altervista.org/yapo.owl#2in1> ;
                                                            rdfs:comment "Bag - Collection that can have a number of copies of each object"^^xsd:string ;
                                                            rdfs:label "(collections) Bag"^^xsd:string .
 
@@ -983,12 +970,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                                                               owl:onProperty <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemContent> ;
                                                                               owl:cardinality "1"^^xsd:nonNegativeInteger
                                                                             ] ;
-                                                            owl:disjointWith <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> ,
-                                                                             <http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> ,
-                                                                             :ProductCatalog ,
-                                                                             :SellingCatalog ,
-                                                                             :StockCatalog ,
-                                                                             <https://www.w3.org/ns/dcat#Catalog> ;
+                                                            owl:disjointWith <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> ;
                                                             rdfs:comment "Item - Element belonging to a Bag"^^xsd:string ;
                                                             rdfs:label "item"^^xsd:string .
 
@@ -996,38 +978,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 ###  http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection
 <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> rdf:type owl:Class ;
                                                                                owl:equivalentClass :ProductCatalog ;
-                                                                               owl:disjointWith <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> ,
-                                                                                                <http://www.productontology.org/id/Headphones> ,
-                                                                                                <http://www.productontology.org/id/Laptop> ,
-                                                                                                <http://www.productontology.org/id/Loudspeaker> ,
-                                                                                                <http://www.productontology.org/id/Personal_computer> ,
-                                                                                                <http://www.productontology.org/id/Power_cable> ,
-                                                                                                <http://www.productontology.org/id/Smartphone> ,
-                                                                                                <http://www.productontology.org/id/Smartwatch> ,
-                                                                                                <http://www.productontology.org/id/Tablet_computer> ,
-                                                                                                <http://www.productontology.org/id/2-in-1_PC> ,
-                                                                                                <http://www.productontology.org/id/Housing_(engineering)> ,
-                                                                                                <http://www.productontology.org/id/Product_(business)> ,
-                                                                                                :Accessory ,
-                                                                                                :Cable ,
-                                                                                                :Computer ,
-                                                                                                :Cover ,
-                                                                                                :Device ,
-                                                                                                :EarPlugs ,
-                                                                                                :HardCover ,
-                                                                                                :Laptop ,
-                                                                                                :NotPortableDevice ,
-                                                                                                :PortableDevice ,
-                                                                                                :Product ,
-                                                                                                :ProductHigh ,
-                                                                                                :ProductLow ,
-                                                                                                :ProductMedium ,
-                                                                                                :Smartphone ,
-                                                                                                :Smartwatch ,
-                                                                                                :SoftCover ,
-                                                                                                :Stereo ,
-                                                                                                :Tablet ,
-                                                                                                <https://evilscript.altervista.org/yapo.owl#2in1> ;
                                                                                rdfs:comment "Any container for entities that share one or more common properties. E.g. \"stone objects\", \"the nurses\", \"the Louvre Aegyptian collection\". A collection is not a logical class: a collection is a first-order entity, while a class is a second-order one." ;
                                                                                rdfs:isDefinedBy <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl> ;
                                                                                rdfs:label "Collection"@en .
@@ -1036,38 +986,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 ###  http://www.ontologydesignpatterns.org/cp/owl/list.owl#List
 <http://www.ontologydesignpatterns.org/cp/owl/list.owl#List> rdf:type owl:Class ;
                                                              rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag> ;
-                                                             owl:disjointWith <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> ,
-                                                                              <http://www.productontology.org/id/Headphones> ,
-                                                                              <http://www.productontology.org/id/Laptop> ,
-                                                                              <http://www.productontology.org/id/Loudspeaker> ,
-                                                                              <http://www.productontology.org/id/Personal_computer> ,
-                                                                              <http://www.productontology.org/id/Power_cable> ,
-                                                                              <http://www.productontology.org/id/Smartphone> ,
-                                                                              <http://www.productontology.org/id/Smartwatch> ,
-                                                                              <http://www.productontology.org/id/Tablet_computer> ,
-                                                                              <http://www.productontology.org/id/2-in-1_PC> ,
-                                                                              <http://www.productontology.org/id/Housing_(engineering)> ,
-                                                                              <http://www.productontology.org/id/Product_(business)> ,
-                                                                              :Accessory ,
-                                                                              :Cable ,
-                                                                              :Computer ,
-                                                                              :Cover ,
-                                                                              :Device ,
-                                                                              :EarPlugs ,
-                                                                              :HardCover ,
-                                                                              :Laptop ,
-                                                                              :NotPortableDevice ,
-                                                                              :PortableDevice ,
-                                                                              :Product ,
-                                                                              :ProductHigh ,
-                                                                              :ProductLow ,
-                                                                              :ProductMedium ,
-                                                                              :Smartphone ,
-                                                                              :Smartwatch ,
-                                                                              :SoftCover ,
-                                                                              :Stereo ,
-                                                                              :Tablet ,
-                                                                              <https://evilscript.altervista.org/yapo.owl#2in1> ;
                                                              rdfs:comment "List - An ordered array of items, that can be present in multiple copies"^^xsd:string ;
                                                              rdfs:label "list"^^xsd:string .
 
@@ -1075,10 +993,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 ###  http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem
 <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> rdf:type owl:Class ;
                                                                  rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ;
-                                                                 owl:disjointWith :ProductCatalog ,
-                                                                                  :SellingCatalog ,
-                                                                                  :StockCatalog ,
-                                                                                  <https://www.w3.org/ns/dcat#Catalog> ;
                                                                  rdfs:comment "ListItem - Element belonging to a list"^^xsd:string ;
                                                                  rdfs:label "list item"^^xsd:string .
 
@@ -1109,279 +1023,68 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 ###  http://www.productontology.org/id/Headphones
 <http://www.productontology.org/id/Headphones> rdf:type owl:Class ;
                                                owl:equivalentClass :EarPlugs ;
-                                               rdfs:subClassOf :Accessory ;
-                                               owl:disjointWith <http://www.productontology.org/id/Laptop> ,
-                                                                <http://www.productontology.org/id/Loudspeaker> ,
-                                                                <http://www.productontology.org/id/Personal_computer> ,
-                                                                <http://www.productontology.org/id/Power_cable> ,
-                                                                <http://www.productontology.org/id/Smartphone> ,
-                                                                <http://www.productontology.org/id/Smartwatch> ,
-                                                                <http://www.productontology.org/id/Tablet_computer> ,
-                                                                <http://www.productontology.org/id/2-in-1_PC> ,
-                                                                <http://www.productontology.org/id/Housing_(engineering)> ,
-                                                                :Cable ,
-                                                                :Computer ,
-                                                                :Cover ,
-                                                                :Device ,
-                                                                :HardCover ,
-                                                                :Laptop ,
-                                                                :NotPortableDevice ,
-                                                                :PortableDevice ,
-                                                                :ProductCatalog ,
-                                                                :SellingCatalog ,
-                                                                :Smartphone ,
-                                                                :Smartwatch ,
-                                                                :SoftCover ,
-                                                                :Stereo ,
-                                                                :StockCatalog ,
-                                                                :Tablet ,
-                                                                <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                                                                <https://www.w3.org/ns/dcat#Catalog> .
+                                               rdfs:subClassOf :Accessory .
 
 
 ###  http://www.productontology.org/id/Laptop
 <http://www.productontology.org/id/Laptop> rdf:type owl:Class ;
                                            owl:equivalentClass :Laptop ;
-                                           rdfs:subClassOf :PortableDevice ;
-                                           owl:disjointWith <http://www.productontology.org/id/Loudspeaker> ,
-                                                            <http://www.productontology.org/id/Personal_computer> ,
-                                                            <http://www.productontology.org/id/Power_cable> ,
-                                                            <http://www.productontology.org/id/Smartphone> ,
-                                                            <http://www.productontology.org/id/Smartwatch> ,
-                                                            <http://www.productontology.org/id/Housing_(engineering)> ,
-                                                            :Accessory ,
-                                                            :Cable ,
-                                                            :Computer ,
-                                                            :Cover ,
-                                                            :EarPlugs ,
-                                                            :HardCover ,
-                                                            :NotPortableDevice ,
-                                                            :ProductCatalog ,
-                                                            :SellingCatalog ,
-                                                            :Smartphone ,
-                                                            :Smartwatch ,
-                                                            :SoftCover ,
-                                                            :Stereo ,
-                                                            :StockCatalog ,
-                                                            <https://www.w3.org/ns/dcat#Catalog> .
+                                           rdfs:subClassOf :PortableDevice .
 
 
 ###  http://www.productontology.org/id/Loudspeaker
 <http://www.productontology.org/id/Loudspeaker> rdf:type owl:Class ;
                                                 owl:equivalentClass :Stereo ;
-                                                rdfs:subClassOf :NotPortableDevice ;
-                                                owl:disjointWith <http://www.productontology.org/id/Personal_computer> ,
-                                                                 <http://www.productontology.org/id/Power_cable> ,
-                                                                 <http://www.productontology.org/id/Smartphone> ,
-                                                                 <http://www.productontology.org/id/Smartwatch> ,
-                                                                 <http://www.productontology.org/id/Tablet_computer> ,
-                                                                 <http://www.productontology.org/id/2-in-1_PC> ,
-                                                                 <http://www.productontology.org/id/Housing_(engineering)> ,
-                                                                 :Accessory ,
-                                                                 :Cable ,
-                                                                 :Computer ,
-                                                                 :Cover ,
-                                                                 :EarPlugs ,
-                                                                 :HardCover ,
-                                                                 :Laptop ,
-                                                                 :PortableDevice ,
-                                                                 :ProductCatalog ,
-                                                                 :SellingCatalog ,
-                                                                 :Smartphone ,
-                                                                 :Smartwatch ,
-                                                                 :SoftCover ,
-                                                                 :StockCatalog ,
-                                                                 :Tablet ,
-                                                                 <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                                                                 <https://www.w3.org/ns/dcat#Catalog> .
+                                                rdfs:subClassOf :NotPortableDevice .
 
 
 ###  http://www.productontology.org/id/Personal_computer
 <http://www.productontology.org/id/Personal_computer> rdf:type owl:Class ;
                                                       owl:equivalentClass :Computer ;
-                                                      rdfs:subClassOf :NotPortableDevice ;
-                                                      owl:disjointWith <http://www.productontology.org/id/Power_cable> ,
-                                                                       <http://www.productontology.org/id/Smartphone> ,
-                                                                       <http://www.productontology.org/id/Smartwatch> ,
-                                                                       <http://www.productontology.org/id/Tablet_computer> ,
-                                                                       <http://www.productontology.org/id/2-in-1_PC> ,
-                                                                       <http://www.productontology.org/id/Housing_(engineering)> ,
-                                                                       :Accessory ,
-                                                                       :Cable ,
-                                                                       :Cover ,
-                                                                       :EarPlugs ,
-                                                                       :HardCover ,
-                                                                       :Laptop ,
-                                                                       :PortableDevice ,
-                                                                       :ProductCatalog ,
-                                                                       :SellingCatalog ,
-                                                                       :Smartphone ,
-                                                                       :Smartwatch ,
-                                                                       :SoftCover ,
-                                                                       :Stereo ,
-                                                                       :StockCatalog ,
-                                                                       :Tablet ,
-                                                                       <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                                                                       <https://www.w3.org/ns/dcat#Catalog> .
+                                                      rdfs:subClassOf :NotPortableDevice .
 
 
 ###  http://www.productontology.org/id/Power_cable
 <http://www.productontology.org/id/Power_cable> rdf:type owl:Class ;
                                                 owl:equivalentClass :Cable ;
-                                                rdfs:subClassOf :Accessory ;
-                                                owl:disjointWith <http://www.productontology.org/id/Smartphone> ,
-                                                                 <http://www.productontology.org/id/Smartwatch> ,
-                                                                 <http://www.productontology.org/id/Tablet_computer> ,
-                                                                 <http://www.productontology.org/id/2-in-1_PC> ,
-                                                                 <http://www.productontology.org/id/Housing_(engineering)> ,
-                                                                 :Computer ,
-                                                                 :Cover ,
-                                                                 :Device ,
-                                                                 :EarPlugs ,
-                                                                 :HardCover ,
-                                                                 :Laptop ,
-                                                                 :NotPortableDevice ,
-                                                                 :PortableDevice ,
-                                                                 :ProductCatalog ,
-                                                                 :SellingCatalog ,
-                                                                 :Smartphone ,
-                                                                 :Smartwatch ,
-                                                                 :SoftCover ,
-                                                                 :Stereo ,
-                                                                 :StockCatalog ,
-                                                                 :Tablet ,
-                                                                 <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                                                                 <https://www.w3.org/ns/dcat#Catalog> .
+                                                rdfs:subClassOf :Accessory .
 
 
 ###  http://www.productontology.org/id/Smartphone
 <http://www.productontology.org/id/Smartphone> rdf:type owl:Class ;
                                                owl:equivalentClass :Smartphone ;
-                                               rdfs:subClassOf :PortableDevice ;
-                                               owl:disjointWith <http://www.productontology.org/id/Smartwatch> ,
-                                                                <http://www.productontology.org/id/Tablet_computer> ,
-                                                                <http://www.productontology.org/id/2-in-1_PC> ,
-                                                                <http://www.productontology.org/id/Housing_(engineering)> ,
-                                                                :Accessory ,
-                                                                :Cable ,
-                                                                :Computer ,
-                                                                :Cover ,
-                                                                :EarPlugs ,
-                                                                :HardCover ,
-                                                                :Laptop ,
-                                                                :NotPortableDevice ,
-                                                                :ProductCatalog ,
-                                                                :SellingCatalog ,
-                                                                :Smartwatch ,
-                                                                :SoftCover ,
-                                                                :Stereo ,
-                                                                :StockCatalog ,
-                                                                :Tablet ,
-                                                                <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                                                                <https://www.w3.org/ns/dcat#Catalog> .
+                                               rdfs:subClassOf :PortableDevice .
 
 
 ###  http://www.productontology.org/id/Smartwatch
 <http://www.productontology.org/id/Smartwatch> rdf:type owl:Class ;
                                                owl:equivalentClass :Smartwatch ;
-                                               rdfs:subClassOf :PortableDevice ;
-                                               owl:disjointWith <http://www.productontology.org/id/Tablet_computer> ,
-                                                                <http://www.productontology.org/id/2-in-1_PC> ,
-                                                                <http://www.productontology.org/id/Housing_(engineering)> ,
-                                                                :Accessory ,
-                                                                :Cable ,
-                                                                :Computer ,
-                                                                :Cover ,
-                                                                :EarPlugs ,
-                                                                :HardCover ,
-                                                                :Laptop ,
-                                                                :NotPortableDevice ,
-                                                                :ProductCatalog ,
-                                                                :SellingCatalog ,
-                                                                :Smartphone ,
-                                                                :SoftCover ,
-                                                                :Stereo ,
-                                                                :StockCatalog ,
-                                                                :Tablet ,
-                                                                <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                                                                <https://www.w3.org/ns/dcat#Catalog> .
+                                               rdfs:subClassOf :PortableDevice .
 
 
 ###  http://www.productontology.org/id/Tablet_computer
 <http://www.productontology.org/id/Tablet_computer> rdf:type owl:Class ;
                                                     owl:equivalentClass :Tablet ;
-                                                    rdfs:subClassOf :PortableDevice ;
-                                                    owl:disjointWith <http://www.productontology.org/id/Housing_(engineering)> ,
-                                                                     :Accessory ,
-                                                                     :Cable ,
-                                                                     :Computer ,
-                                                                     :Cover ,
-                                                                     :EarPlugs ,
-                                                                     :HardCover ,
-                                                                     :NotPortableDevice ,
-                                                                     :ProductCatalog ,
-                                                                     :SellingCatalog ,
-                                                                     :Smartphone ,
-                                                                     :Smartwatch ,
-                                                                     :SoftCover ,
-                                                                     :Stereo ,
-                                                                     :StockCatalog ,
-                                                                     <https://www.w3.org/ns/dcat#Catalog> .
+                                                    rdfs:subClassOf :PortableDevice .
 
 
 ###  http://www.productontology.org/id/2-in-1_PC
 <http://www.productontology.org/id/2-in-1_PC> rdf:type owl:Class ;
                                               owl:equivalentClass <https://evilscript.altervista.org/yapo.owl#2in1> ;
-                                              rdfs:subClassOf :PortableDevice ;
-                                              owl:disjointWith <http://www.productontology.org/id/Housing_(engineering)> ,
-                                                               :Accessory ,
-                                                               :Cable ,
-                                                               :Computer ,
-                                                               :Cover ,
-                                                               :EarPlugs ,
-                                                               :HardCover ,
-                                                               :NotPortableDevice ,
-                                                               :ProductCatalog ,
-                                                               :SellingCatalog ,
-                                                               :Smartphone ,
-                                                               :Smartwatch ,
-                                                               :SoftCover ,
-                                                               :Stereo ,
-                                                               :StockCatalog ,
-                                                               <https://www.w3.org/ns/dcat#Catalog> .
+                                              rdfs:subClassOf :PortableDevice .
 
 
 ###  http://www.productontology.org/id/Housing_(engineering)
 <http://www.productontology.org/id/Housing_(engineering)> rdf:type owl:Class ;
                                                           owl:equivalentClass :Cover ;
-                                                          rdfs:subClassOf :Accessory ;
-                                                          owl:disjointWith :Cable ,
-                                                                           :Computer ,
-                                                                           :Device ,
-                                                                           :EarPlugs ,
-                                                                           :Laptop ,
-                                                                           :NotPortableDevice ,
-                                                                           :PortableDevice ,
-                                                                           :ProductCatalog ,
-                                                                           :SellingCatalog ,
-                                                                           :Smartphone ,
-                                                                           :Smartwatch ,
-                                                                           :Stereo ,
-                                                                           :StockCatalog ,
-                                                                           :Tablet ,
-                                                                           <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                                                                           <https://www.w3.org/ns/dcat#Catalog> .
+                                                          rdfs:subClassOf :Accessory .
 
 
 ###  http://www.productontology.org/id/Product_(business)
 <http://www.productontology.org/id/Product_(business)> rdf:type owl:Class ;
                                                        owl:equivalentClass :Product ;
                                                        rdfs:subClassOf <http://purl.org/dc/dcmitype/PhysicalObject> ,
-                                                                       <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> ;
-                                                       owl:disjointWith :ProductCatalog ,
-                                                                        :SellingCatalog ,
-                                                                        :StockCatalog ,
-                                                                        <https://www.w3.org/ns/dcat#Catalog> .
+                                                                       <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> .
 
 
 ###  http://xmlns.com/foaf/0.1/Organization
@@ -1396,20 +1099,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 :Accessory rdf:type owl:Class ;
            rdfs:subClassOf <http://www.productontology.org/id/Product_(business)> ,
                            :Product ;
-           owl:disjointWith :Computer ,
-                            :Device ,
-                            :Laptop ,
-                            :NotPortableDevice ,
-                            :PortableDevice ,
-                            :ProductCatalog ,
-                            :SellingCatalog ,
-                            :Smartphone ,
-                            :Smartwatch ,
-                            :Stereo ,
-                            :StockCatalog ,
-                            :Tablet ,
-                            <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                            <https://www.w3.org/ns/dcat#Catalog> ;
+           owl:disjointWith :Device ;
            rdfs:comment "A product used with or within the device use"@en ;
            rdfs:label "Accessory"@en .
 
@@ -1422,7 +1112,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                       owl:onClass :Product
                                     ] ;
                 rdfs:subClassOf :Engineering ;
-                owl:disjointWith :Factory ;
                 rdfs:comment "A part of the engineering process that is eventually bigger than the normal one"@en ;
                 rdfs:label "BigEngineering"@en .
 
@@ -1430,24 +1119,8 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 ###  https://evilscript.altervista.org/yapo.owl#Cable
 :Cable rdf:type owl:Class ;
        rdfs:subClassOf :Accessory ;
-       owl:disjointWith :Computer ,
-                        :Cover ,
-                        :Device ,
-                        :EarPlugs ,
-                        :HardCover ,
-                        :Laptop ,
-                        :NotPortableDevice ,
-                        :PortableDevice ,
-                        :ProductCatalog ,
-                        :SellingCatalog ,
-                        :Smartphone ,
-                        :Smartwatch ,
-                        :SoftCover ,
-                        :Stereo ,
-                        :StockCatalog ,
-                        :Tablet ,
-                        <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                        <https://www.w3.org/ns/dcat#Catalog> .
+       owl:disjointWith :Cover ,
+                        :EarPlugs .
 
 
 ###  https://evilscript.altervista.org/yapo.owl#CasualUser
@@ -1468,21 +1141,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 ###  https://evilscript.altervista.org/yapo.owl#Computer
 :Computer rdf:type owl:Class ;
           rdfs:subClassOf :NotPortableDevice ;
-          owl:disjointWith :Cover ,
-                           :EarPlugs ,
-                           :HardCover ,
-                           :Laptop ,
-                           :PortableDevice ,
-                           :ProductCatalog ,
-                           :SellingCatalog ,
-                           :Smartphone ,
-                           :Smartwatch ,
-                           :SoftCover ,
-                           :Stereo ,
-                           :StockCatalog ,
-                           :Tablet ,
-                           <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                           <https://www.w3.org/ns/dcat#Catalog> ;
+          owl:disjointWith :Stereo ;
           rdfs:comment "Just a computer"@en ;
           rdfs:label "Computer"@en .
 
@@ -1490,20 +1149,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 ###  https://evilscript.altervista.org/yapo.owl#Cover
 :Cover rdf:type owl:Class ;
        rdfs:subClassOf :Accessory ;
-       owl:disjointWith :Device ,
-                        :EarPlugs ,
-                        :Laptop ,
-                        :NotPortableDevice ,
-                        :PortableDevice ,
-                        :ProductCatalog ,
-                        :SellingCatalog ,
-                        :Smartphone ,
-                        :Smartwatch ,
-                        :Stereo ,
-                        :StockCatalog ,
-                        :Tablet ,
-                        <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                        <https://www.w3.org/ns/dcat#Catalog> ;
+       owl:disjointWith :EarPlugs ;
        rdfs:comment "A product made for protecting a device from accidental falls"@en ;
        rdfs:label "Cover"@en .
 
@@ -1512,13 +1158,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 :Device rdf:type owl:Class ;
         rdfs:subClassOf <http://www.productontology.org/id/Product_(business)> ,
                         :Product ;
-        owl:disjointWith :EarPlugs ,
-                         :HardCover ,
-                         :ProductCatalog ,
-                         :SellingCatalog ,
-                         :SoftCover ,
-                         :StockCatalog ,
-                         <https://www.w3.org/ns/dcat#Catalog> ;
         rdfs:comment "An electronic product"@en ;
         rdfs:label "Device"@en .
 
@@ -1526,20 +1165,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 ###  https://evilscript.altervista.org/yapo.owl#EarPlugs
 :EarPlugs rdf:type owl:Class ;
           rdfs:subClassOf :Accessory ;
-          owl:disjointWith :HardCover ,
-                           :Laptop ,
-                           :NotPortableDevice ,
-                           :PortableDevice ,
-                           :ProductCatalog ,
-                           :SellingCatalog ,
-                           :Smartphone ,
-                           :Smartwatch ,
-                           :SoftCover ,
-                           :Stereo ,
-                           :StockCatalog ,
-                           :Tablet ,
-                           <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                           <https://www.w3.org/ns/dcat#Catalog> ;
           rdfs:comment "A small accessory device made for listening to music"@en ;
           rdfs:label "EarPlugs"@en .
 
@@ -1563,7 +1188,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                owl:someValuesFrom :Product
                              ] ;
          rdfs:subClassOf :Manufacturer ;
-         owl:disjointWith :ITEngineering ;
          rdfs:comment "The part of the Manufactorer process that phisically produces the product"@en ;
          rdfs:label "Factory"@en .
 
@@ -1572,19 +1196,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 :HardCover rdf:type owl:Class ;
            rdfs:subClassOf <http://www.productontology.org/id/Housing_(engineering)> ,
                            :Cover ;
-           owl:disjointWith :Laptop ,
-                            :NotPortableDevice ,
-                            :PortableDevice ,
-                            :ProductCatalog ,
-                            :SellingCatalog ,
-                            :Smartphone ,
-                            :Smartwatch ,
-                            :SoftCover ,
-                            :Stereo ,
-                            :StockCatalog ,
-                            :Tablet ,
-                            <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                            <https://www.w3.org/ns/dcat#Catalog> ;
+           owl:disjointWith :SoftCover ;
            rdfs:comment "An hard cover"@en ;
            rdfs:label "HardCover"@en .
 
@@ -1604,15 +1216,8 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 ###  https://evilscript.altervista.org/yapo.owl#Laptop
 :Laptop rdf:type owl:Class ;
         rdfs:subClassOf :PortableDevice ;
-        owl:disjointWith :NotPortableDevice ,
-                         :ProductCatalog ,
-                         :SellingCatalog ,
-                         :Smartphone ,
-                         :Smartwatch ,
-                         :SoftCover ,
-                         :Stereo ,
-                         :StockCatalog ,
-                         <https://www.w3.org/ns/dcat#Catalog> ;
+        owl:disjointWith :Smartphone ,
+                         :Smartwatch ;
         rdfs:comment "A small portable personal computer"@en ;
         rdfs:label "Laptop"@en .
 
@@ -1628,6 +1233,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                                 :Qualcomm
                                                 :Samsung
                                                 :ShortEngineer
+                                                :ShortFactory
                                               )
                                   ] ;
               rdfs:subClassOf :Company ;
@@ -1638,16 +1244,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 ###  https://evilscript.altervista.org/yapo.owl#NotPortableDevice
 :NotPortableDevice rdf:type owl:Class ;
                    rdfs:subClassOf :Device ;
-                   owl:disjointWith :PortableDevice ,
-                                    :ProductCatalog ,
-                                    :SellingCatalog ,
-                                    :Smartphone ,
-                                    :Smartwatch ,
-                                    :SoftCover ,
-                                    :StockCatalog ,
-                                    :Tablet ,
-                                    <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                                    <https://www.w3.org/ns/dcat#Catalog> ;
+                   owl:disjointWith :PortableDevice ;
                    rdfs:comment "A device that is not made to be moved from the initial position"@en ;
                    rdfs:label "NotPortableDevice"@en .
 
@@ -1655,12 +1252,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 ###  https://evilscript.altervista.org/yapo.owl#PortableDevice
 :PortableDevice rdf:type owl:Class ;
                 rdfs:subClassOf :Device ;
-                owl:disjointWith :ProductCatalog ,
-                                 :SellingCatalog ,
-                                 :SoftCover ,
-                                 :Stereo ,
-                                 :StockCatalog ,
-                                 <https://www.w3.org/ns/dcat#Catalog> ;
                 rdfs:comment "A device made for everyday life"@en ;
                 rdfs:label "PortableDevice"@en .
 
@@ -1688,10 +1279,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                              ] ;
          rdfs:subClassOf <http://purl.org/dc/dcmitype/PhysicalObject> ,
                          <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem> ;
-         owl:disjointWith :ProductCatalog ,
-                          :SellingCatalog ,
-                          :StockCatalog ,
-                          <https://www.w3.org/ns/dcat#Catalog> ;
          rdfs:comment "Something that is produced and used"@en ;
          rdfs:label "Product"@en .
 
@@ -1704,15 +1291,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                       owl:someValuesFrom :Product
                                     ] ;
                 rdfs:subClassOf owl:Thing ;
-                owl:disjointWith :ProductHigh ,
-                                 :ProductLow ,
-                                 :ProductMedium ,
-                                 :Smartphone ,
-                                 :Smartwatch ,
-                                 :SoftCover ,
-                                 :Stereo ,
-                                 :Tablet ,
-                                 <https://evilscript.altervista.org/yapo.owl#2in1> ;
                 rdfs:comment "A catalog of products"@en ;
                 rdfs:label "ProductCatalog"@en .
 
@@ -1728,10 +1306,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                    rdf:type owl:Class
                                  ] ;
              rdfs:subClassOf <http://www.productontology.org/id/Product_(business)> ,
-                             :Product ;
-             owl:disjointWith :SellingCatalog ,
-                              :StockCatalog ,
-                              <https://www.w3.org/ns/dcat#Catalog> .
+                             :Product .
 
 
 ###  https://evilscript.altervista.org/yapo.owl#ProductLow
@@ -1745,10 +1320,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                   rdf:type owl:Class
                                 ] ;
             rdfs:subClassOf <http://www.productontology.org/id/Product_(business)> ,
-                            :Product ;
-            owl:disjointWith :SellingCatalog ,
-                             :StockCatalog ,
-                             <https://www.w3.org/ns/dcat#Catalog> .
+                            :Product .
 
 
 ###  https://evilscript.altervista.org/yapo.owl#ProductMedium
@@ -1762,10 +1334,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                      rdf:type owl:Class
                                    ] ;
                rdfs:subClassOf <http://www.productontology.org/id/Product_(business)> ,
-                               :Product ;
-               owl:disjointWith :SellingCatalog ,
-                                :StockCatalog ,
-                                <https://www.w3.org/ns/dcat#Catalog> .
+                               :Product .
 
 
 ###  https://evilscript.altervista.org/yapo.owl#SellingCatalog
@@ -1773,13 +1342,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                 rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> ,
                                 :ProductCatalog ,
                                 <https://www.w3.org/ns/dcat#Catalog> ;
-                owl:disjointWith :Smartphone ,
-                                 :Smartwatch ,
-                                 :SoftCover ,
-                                 :Stereo ,
-                                 :StockCatalog ,
-                                 :Tablet ,
-                                 <https://evilscript.altervista.org/yapo.owl#2in1> ;
+                owl:disjointWith :StockCatalog ;
                 rdfs:comment "A catalog of products made to be sold"@en ;
                 rdfs:label "SellingCatalog"@en .
 
@@ -1788,12 +1351,8 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 :Smartphone rdf:type owl:Class ;
             rdfs:subClassOf :PortableDevice ;
             owl:disjointWith :Smartwatch ,
-                             :SoftCover ,
-                             :Stereo ,
-                             :StockCatalog ,
                              :Tablet ,
-                             <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                             <https://www.w3.org/ns/dcat#Catalog> ;
+                             <https://evilscript.altervista.org/yapo.owl#2in1> ;
             rdfs:comment "Mobile device that combines cellular and mobile computing functions into one unit"@en ;
             rdfs:label "Smartphone"@en .
 
@@ -1801,12 +1360,8 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 ###  https://evilscript.altervista.org/yapo.owl#Smartwatch
 :Smartwatch rdf:type owl:Class ;
             rdfs:subClassOf :PortableDevice ;
-            owl:disjointWith :SoftCover ,
-                             :Stereo ,
-                             :StockCatalog ,
-                             :Tablet ,
-                             <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                             <https://www.w3.org/ns/dcat#Catalog> ;
+            owl:disjointWith :Tablet ,
+                             <https://evilscript.altervista.org/yapo.owl#2in1> ;
             rdfs:comment "Wearable computer in the form of a watch"@en ;
             rdfs:label "Smartwatch"@en .
 
@@ -1815,11 +1370,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 :SoftCover rdf:type owl:Class ;
            rdfs:subClassOf <http://www.productontology.org/id/Housing_(engineering)> ,
                            :Cover ;
-           owl:disjointWith :Stereo ,
-                            :StockCatalog ,
-                            :Tablet ,
-                            <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                            <https://www.w3.org/ns/dcat#Catalog> ;
            rdfs:comment "A soft cover"@en ;
            rdfs:label "SoftCover"@en .
 
@@ -1827,10 +1377,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 ###  https://evilscript.altervista.org/yapo.owl#Stereo
 :Stereo rdf:type owl:Class ;
         rdfs:subClassOf :NotPortableDevice ;
-        owl:disjointWith :StockCatalog ,
-                         :Tablet ,
-                         <https://evilscript.altervista.org/yapo.owl#2in1> ,
-                         <https://www.w3.org/ns/dcat#Catalog> ;
         rdfs:comment "A big device made for listening to music"@en ;
         rdfs:label "Stereo"@en .
 
@@ -1840,8 +1386,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
               rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> ,
                               :ProductCatalog ,
                               <https://www.w3.org/ns/dcat#Catalog> ;
-              owl:disjointWith :Tablet ,
-                               <https://evilscript.altervista.org/yapo.owl#2in1> ;
               rdfs:comment "A catalog of products made to keep track of stock coverage"@en ;
               rdfs:label "StockCatalog"@en .
 
@@ -1849,7 +1393,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 ###  https://evilscript.altervista.org/yapo.owl#Tablet
 :Tablet rdf:type owl:Class ;
         rdfs:subClassOf :PortableDevice ;
-        owl:disjointWith <https://www.w3.org/ns/dcat#Catalog> ;
         rdfs:comment "Mobile device, typically with a mobile operating system and touchscreen display processing circuitry, and a rechargeable battery in a single, thin and flat package"@en ;
         rdfs:label "Tablet"@en .
 
@@ -1864,7 +1407,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 ###  https://evilscript.altervista.org/yapo.owl#2in1
 <https://evilscript.altervista.org/yapo.owl#2in1> rdf:type owl:Class ;
                                                   rdfs:subClassOf :PortableDevice ;
-                                                  owl:disjointWith <https://www.w3.org/ns/dcat#Catalog> ;
                                                   rdfs:comment "A portable computer that has features of both tablets and laptops"@en ;
                                                   rdfs:label "2in1"@en .
 
@@ -1934,7 +1476,9 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                   :iPhone12_64 ,
                   :iPhoneX_64 ;
        :manufacturesTo :BeatsAudio ,
-                       :Foxconn ;
+                       :Foxconn ,
+                       :Qualcomm ,
+                       :ShortFactory ;
        :putInBoxes :Lightning_cable ,
                    :USBC_cable ;
        :sells :AirPods_wirelessCharge ,
@@ -1991,8 +1535,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                         :iMac_27_RetinaDisplay_5k_256 ,
                         :iPhone12_64 ,
                         :iPhoneX_64 ;
-              :containsBrand :Apple ,
-                             :BeatsAudio ;
               rdfs:comment "Apple web site catalog"@en ;
               rdfs:label "AppleCatalog"@en .
 
@@ -2099,7 +1641,9 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
       :designs :ZenBookFlip_S_UX371 ;
       :hasCatalog :AsusCatalog ;
       :isBrandOf :ZenBookFlip_S_UX371 ;
-      :manufacturesTo :Asus ;
+      :isManifacturerOf :Asus ;
+      :manufacturesTo :Asus ,
+                      :Huáshuò ;
       :sells :ZenBookFlip_S_UX371 ;
       rdfs:comment "AsusTek is a Taiwanese multinational computer and phone hardware and electronics company headquartered in Beitou District, Taipei, Taiwan."@en ;
       rdfs:label "Asus"@en .
@@ -2113,7 +1657,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                       <https://www.w3.org/ns/dcat#Catalog> ;
              <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember> :AsusPC ;
              :contains :ZenBookFlip_S_UX371 ;
-             :containsBrand :Asus ;
              rdfs:comment "Asus web site catalog"@en ;
              rdfs:label "AsusCatalog"@en .
 
@@ -2142,6 +1685,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                      :Manufacturer ;
             :designs :Beats_cuffie ;
             :isBrandOf :Beats_cuffie ;
+            :isManifacturerOf :Apple ;
             rdfs:comment "Company that sells audio products"@en ;
             rdfs:label "BeatsAudio"@en .
 
@@ -2208,6 +1752,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                   :MacBookAir_M1 ,
                   :iMac_27_RetinaDisplay_5k_256 ,
                   :iPhone12_64 ;
+         :isManifacturerOf :Apple ;
          rdfs:comment "ITengineering company that designs CPUs for Apple"@en ;
          rdfs:label "Foxconn"@en .
 
@@ -2217,6 +1762,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                              <http://xmlns.com/foaf/0.1/Person> ,
                              :PowerUser ,
                              :User ;
+                    :buysFrom :AppleCatalog ;
                     :buysProduct :MacBookAir_M1 ,
                                  :iPhone12_64 ;
                     rdfs:label "Giovanni"@en .
@@ -2228,6 +1774,8 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                   :Company ,
                   :Factory ,
                   :Manufacturer ;
+         :isManifacturerOf :Asus ,
+                           :Samsung ;
          :produces :SamsungGalaxyS10_global ,
                    :SamsungGalaxyS20_5G_global ,
                    :ZenBookFlip_S_UX371 ;
@@ -2318,8 +1866,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
              :Depth "8.3"^^xsd:double ;
              :EAN "A2221"^^xsd:string ;
              :Height "150.9"^^xsd:double ;
-             :MemorySize 64 ,
-                         "64"^^xsd:nonNegativeInteger ;
+             :MemorySize 64 ;
              :OperativeSystem "iOS 13"^^xsd:string ;
              :Price "719.0"^^xsd:double ;
              :ProductName "Iphone 11 64GB"^^xsd:string ;
@@ -2423,6 +1970,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 :Nike rdf:type owl:NamedIndividual ,
                <http://xmlns.com/foaf/0.1/Organization> ,
                :Company ;
+      :collabsWith :Apple ;
       rdfs:comment "A company that sells sports products"@en ;
       rdfs:label "Nike"@en .
 
@@ -2433,6 +1981,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                    :Company ,
                    :Factory ,
                    :Manufacturer ;
+          :isManifacturerOf :Apple ;
           :produces :AirPods_wirelessCharge ,
                     :AppleWatchSeries6_40mm_GPS_Cellular_Nike ,
                     :IpadAir_2020 ,
@@ -2449,12 +1998,12 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                   <http://xmlns.com/foaf/0.1/Organization> ,
                   :Company ,
                   :Manufacturer ;
-         :brandContainedIn :SamsungCatalag ;
          :hasCatalog :SamsungCatalag ;
          :isBrandOf :SamsungGalaxyS10_global ,
                     :SamsungGalaxyS20_5G_global ,
                     :USBC_cable ;
-         :manufacturesTo :ShortEngineer ;
+         :manufacturesTo :Huáshuò ,
+                         :ShortEngineer ;
          :putInBoxes :USBC_cable ;
          :sells :SamsungGalaxyS10_global ,
                 :SamsungGalaxyS20_5G_global ,
@@ -2490,7 +2039,6 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                 :contains :SamsungGalaxyS10_global ,
                           :SamsungGalaxyS20_5G_global ,
                           :USBC_cable ;
-                :containsBrand :Samsung ;
                 rdfs:comment "Samsung web site catalog"@en ;
                 rdfs:label "SamsungCatalog"@en .
 
@@ -2555,7 +2103,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                          :ScreenSize "6.1"^^xsd:double ;
                          :Weight "157.0"^^xsd:double ;
                          :Width "70.4"^^xsd:double ;
-                         :isInRange "Medium"^^xsd:string ;
+                         :isInRange "Medium" ;
                          :isTouchScreen "true"^^xsd:boolean ;
                          rdfs:comment "Smarphone made by Samsung"@en ;
                          rdfs:label "SamsungGalaxyS10_global"@en .
@@ -2629,6 +2177,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                        :Company ,
                        :Factory ,
                        :Manufacturer ;
+              :isManifacturerOf :Apple ;
               :produces :Beats_cuffie ;
               rdfs:comment "A small product factory that only produces Beats!"@en ;
               rdfs:label "ShortFactory"@en .
@@ -2783,8 +2332,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
              :Depth "7.4"^^xsd:double ;
              :EAN "A2172"^^xsd:string ;
              :Height "146.7"^^xsd:double ;
-             :MemorySize 64 ,
-                         "64"^^xsd:nonNegativeInteger ;
+             :MemorySize 64 ;
              :OperativeSystem "iOS 14"^^xsd:string ;
              :Price "939.0"^^xsd:double ;
              :ProductName "Iphone12 64 GB"^^xsd:string ;
@@ -2824,7 +2372,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
             :isContainedIn :AppleCatalog ;
             :predecessorOf :Iphone11_64 ;
             :soldBy :Apple ;
-            :ProductName "iPhone X 64GB"^^xsd:string ;
+            :ProductName "iPhone X 64GB" ;
             rdfs:comment "iPhone X, 64GB edition"@en ;
             rdfs:label "iPhoneX_64"@en .
 

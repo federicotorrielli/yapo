@@ -5,10 +5,10 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="sipcp",
-    version="0.2.6",
+    version="0.3",
     author="Federico Torrielli",
     author_email="evilscript@protonmail.com",
-    description="An example program querying the Simple IT Product Catalog Ontology",
+    description="An example program querying the YAPO ontology",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/federicotorrielli/modsem",

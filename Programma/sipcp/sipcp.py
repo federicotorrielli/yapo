@@ -11,7 +11,7 @@ from SPARQLWrapper import SPARQLWrapper, SPARQLExceptions, GET, DIGEST, JSON, PO
 from urllib import error
 
 app = typer.Typer()
-dburl = "http://192.168.1.57:7200/repositories/productCatalog"
+dburl = "http://192.168.1.57:7200/repositories/yapo"
 
 
 def query1(company: str):
@@ -25,12 +25,12 @@ def query1(company: str):
             PREFIX owl: <http://www.w3.org/2002/07/owl#>\
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
             PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\
-            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>\
             SELECT ?prod WHERE{\
-                ?prod rdf:type sipg:Product.\
-                ?company rdf:type sipg:Company;\
-                sipg:sells ?prod.\
-            FILTER(?company = sipg:" + company + ")\
+                ?prod rdf:type yapo:Product.\
+                ?company rdf:type yapo:Company;\
+                yapo:sells ?prod.\
+            FILTER(?company = yapo:" + company + ")\
             }"
 
 
@@ -45,12 +45,12 @@ def query2(company: str):
             PREFIX owl: <http://www.w3.org/2002/07/owl#>\
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
             PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\
-            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>\
             SELECT ?companyTo WHERE{\
-                ?companyTo rdf:type sipg:Company.\
-                ?company rdf:type sipg:Company;\
-                sipg:manufacturesTo ?companyTo.\
-                FILTER(?company = sipg:" + company + ")\
+                ?companyTo rdf:type yapo:Company.\
+                ?company rdf:type yapo:Company;\
+                yapo:manufacturesTo ?companyTo.\
+                FILTER(?company = yapo:" + company + ")\
             }"
 
 
@@ -63,16 +63,17 @@ def query3(product: str):
     return "PREFIX wd: <http://www.wikidata.org/entity/>\
             PREFIX wdt: <http://www.wikidata.org/prop/direct/>\
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
-            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>\
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
             SELECT ?prodLabel WHERE {\
-                ?device sipg:CpuType ?cpu.\
-                SERVICE <https://query.wikidata.org/sparql> {\
-                    ?chip wdt:P31 wd:Q610398;\
-                        rdfs:label ?label;\
-                        wdt:P1535 ?prod.\
-                    ?prod rdfs:label ?prodLabel.\
-                FILTER (?device = sipg:" + product + " && lang(?label) = 'it' && lang(?prodLabel) = 'it' " \
-                                                     "&& regex(?label, ?cpu)).\
+            ?device rdf:type yapo:Device;\
+                yapo:CpuType ?cpu.\
+            SERVICE <https://query.wikidata.org/sparql> {\
+                ?chip wdt:P31 wd:Q610398;\
+                    rdfs:label ?label;\
+                    wdt:P1535 ?prod.\
+                ?prod rdfs:label ?prodLabel.\
+            FILTER (?device = yapo:" + product + " && lang(?prodLabel) = 'it' && lang(?label) = 'it' && regex(?label, ?cpu)).\
             }\
             }"
 
@@ -81,16 +82,16 @@ def query4(person: str):
     """
     Given a user, it returns all the products that the
     user bought from one of the companies listed in the
-    productCatalog itself
+    yapo itself
     :param person:
     :return: products
     """
     return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
-            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>\
             SELECT ?prod WHERE{\
-                ?user rdf:type sipg:User;\
-                sipg:buysProduct ?prod.\
-                FILTER (?user = sipg:" + person + ")\
+                ?user rdf:type yapo:User;\
+                yapo:buysProduct ?prod.\
+                FILTER (?user = yapo:" + person + ")\
             }"
 
 
@@ -106,14 +107,14 @@ def query5(price: str):
             PREFIX owl: <http://www.w3.org/2002/07/owl#>\
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
             PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\
-            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>\
             PREFIX price: <http://www.ontologydesignpatterns.org/cp/owl/price.owl#>\
             SELECT ?prod ?brand ?price WHERE {\
-                ?brand rdf:type sipg:Company.\
+                ?brand rdf:type yapo:Company.\
                 ?price rdf:type price:Price;\
                     price:hasValue ?v.\
-                ?prod rdf:type sipg:Smartphone;\
-                    sipg:hasBrand ?brand;\
+                ?prod rdf:type yapo:Smartphone;\
+                    yapo:hasBrand ?brand;\
                     price:hasPrice ?price.\
                 FILTER (?v >= '" + price + "'^^xsd:float)\
             }\
@@ -126,15 +127,15 @@ def query6():
     and compatible smartwatches with them
     """
     return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
-            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>\
             PREFIX price: <http://www.ontologydesignpatterns.org/cp/owl/price.owl#>\
             SELECT ?smartwatch ?brand ?pricesmartwatch ?smartphone WHERE { \
-                ?brand rdf:type sipg:Company.\
+                ?brand rdf:type yapo:Company.\
                 ?pricesmartwatch rdf:type price:Price.\
-                ?smartphone rdf:type sipg:Smartphone.\
-                ?smartwatch rdf:type sipg:Smartwatch;\
-                    sipg:compatibleWith ?smartphone;\
-                    sipg:hasBrand ?brand;\
+                ?smartphone rdf:type yapo:Smartphone.\
+                ?smartwatch rdf:type yapo:Smartwatch;\
+                    yapo:compatibleWith ?smartphone;\
+                    yapo:hasBrand ?brand;\
                     price:hasPrice ?pricesmartwatch.\
             }"
 
@@ -145,12 +146,12 @@ def query7(smartphone: str):
     smartphone
     """
     return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
-            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>\
             SELECT ?smartp ?cable WHERE {\
-                ?cable rdf:type sipg:Cable.\
-                ?smartp rdf:type sipg:Smartphone;\
-                    sipg:containsInBox ?cable.\
-                FILTER(?smartp = sipg:" + smartphone + ")\
+                ?cable rdf:type yapo:Cable.\
+                ?smartp rdf:type yapo:Smartphone;\
+                    yapo:containsInBox ?cable.\
+                FILTER(?smartp = yapo:" + smartphone + ")\
             }"
 
 
@@ -164,18 +165,18 @@ def query8(device: str):
     return "PREFIX wd: <http://www.wikidata.org/entity/>\
             PREFIX wdt: <http://www.wikidata.org/prop/direct/>\
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
-            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>\
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
             SELECT ?company ?labelCompany ?labelbrand ?usernameIG WHERE {\
-                ?device rdf:type sipg:Device;\
-                        sipg:hasBrand ?brand.\
-                ?brand rdf:type sipg:Company;\
+                ?device rdf:type yapo:Device;\
+                        yapo:hasBrand ?brand.\
+                ?brand rdf:type yapo:Company;\
                        rdfs:label ?labelbrand.\
                 SERVICE <https://query.wikidata.org/sparql> {\
                     ?company wdt:P31 wd:Q4830453;\
                         wdt:P2003 ?usernameIG;\
                         rdfs:label ?labelCompany.\
-                    FILTER (?device = sipg:" + device + " && lang(?labelCompany) = " \
+                    FILTER (?device = yapo:" + device + " && lang(?labelCompany) = " \
                                                         "'it' && STR(?labelCompany) = STR(?labelbrand)).\
                 }\
             }"
@@ -189,14 +190,14 @@ def query9(company, brand):
     :param brand:
     """
     return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
-            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>\
             ASK {\
-                ?company sipg:sells ?earPlugs.\
-                ?earPlugs rdf:type sipg:EarPlugs.\
-                ?company rdf:type sipg:Company.\
-                ?brand rdf:type sipg:Company;\
-                    sipg:isBrandOf ?earPlugs.\
-                FILTER(?company = sipg:" + company + " && ?brand = sipg:" + brand + ").\
+                ?company yapo:sells ?earPlugs.\
+                ?earPlugs rdf:type yapo:EarPlugs.\
+                ?company rdf:type yapo:Company.\
+                ?brand rdf:type yapo:Company;\
+                    yapo:isBrandOf ?earPlugs.\
+                FILTER(?company = yapo:" + company + " && ?brand = yapo:" + brand + ").\
             }"
 
 
@@ -210,20 +211,20 @@ def query10(price: str):
     """
     return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
             PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\
-            PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>\
+            PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>\
             PREFIX price: <http://www.ontologydesignpatterns.org/cp/owl/price.owl#>\
             SELECT ?smartw ?brand ?pricesmartw ?smartp ?pricesmartp WHERE {\
-            ?brand rdf:type sipg:Company.\
+            ?brand rdf:type yapo:Company.\
             ?pricesmartw rdf:type price:Price.\
             ?pricesmartp rdf:type price:Price;\
                 price:hasValue ?vsmartp.\
-            ?smartp rdf:type sipg:Smartphone;\
+            ?smartp rdf:type yapo:Smartphone;\
                 price:hasPrice ?pricesmartp.\
-            ?smartw rdf:type sipg:Smartwatch;\
-                sipg:compatibleWith ?smartp;\
-                sipg:hasBrand ?brand;\
+            ?smartw rdf:type yapo:Smartwatch;\
+                yapo:compatibleWith ?smartp;\
+                yapo:hasBrand ?brand;\
                 price:hasPrice ?pricesmartw.\
-            FILTER (?vsmartp >= \""+price+"\"^^xsd:float)\
+            FILTER (?vsmartp >= \"" + price + "\"^^xsd:float)\
             }"
 
 
@@ -282,7 +283,7 @@ def show_results(results: dict, opt_column: str):
 
 def do_query(sqlery: str, opt_column: str = "", update=False, ask=False):
     # First we connect to the Database, the link is different from machine to machine
-    # You can find it under Setup/Repositories and then productCatalog --> chain icon
+    # You can find it under Setup/Repositories and then yapo --> chain icon
     config = configparser.ConfigParser()
     global dburl
     if len(config.read("config.ini")) == 0:
@@ -346,7 +347,7 @@ def do_query(sqlery: str, opt_column: str = "", update=False, ask=False):
 @app.command()
 def query(query_text: str):
     """
-    Queries the text query on the productCatalog.
+    Queries the text query on yapo.
 
     Only SELECT queries are accepted
     """
@@ -434,7 +435,7 @@ def compatible_cables(smartphone: str):
 def myproducts(user: str):
     """
     Takes the user and returns all the products
-    that the user bought from the productCatalog
+    that the user bought from yapo
     """
     do_query(query4(user), "prod")
 

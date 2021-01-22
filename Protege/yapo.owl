@@ -1247,6 +1247,7 @@
                     <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Qualcomm"/>
                     <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Samsung"/>
                     <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#ShortEngineer"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#ShortFactory"/>
                 </owl:oneOf>
             </owl:Class>
         </owl:equivalentClass>
