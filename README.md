@@ -1,6 +1,6 @@
 # Modellazione concettuale per il web semantico (2020/21)
 
-## Progetto: (Yet Another) Product Catalog Ontology
+## Progetto: (Yet Another) Product Ontology
 
 ### Docente: Prof.ssa Rossana Damiano
 
