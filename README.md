@@ -236,7 +236,7 @@ tra dispositivi in modo da poter fare una scelta più accurata.
 
 # Lode
 
-[Qui il report LODE](http://150.146.207.114/lode/extract?url=https%3A%2F%2Fevilscript.altervista.org%2FproductCatalog.owl&lang=en)
+[Qui il report LODE](http://150.146.207.114/lode/extract?url=https%3A%2F%2Fevilscript.altervista.org%2Fyapo.owl&lang=en)
 
 [Qui il report LODE in formato PDF](https://github.com/federicotorrielli/modsem/raw/master/Documenti/lode.pdf)
 
@@ -254,7 +254,7 @@ tra dispositivi in modo da poter fare una scelta più accurata.
 
 ## Triple di esempio
 
-Si sono voluti selezionare due esempi (rispettivamente *productCatalog:Apple* e *productCatalog:iPhone12_X*)
+Si sono voluti selezionare due esempi (rispettivamente *yapo:Apple* e *yapo:iPhone12_X*)
 per mostrare alcune delle triple più utilizzate nel progetto per descrivere istanze dell'ontologia
 
 ![Apple](https://i.postimg.cc/fRPkjTyk/graph01.png)
@@ -268,7 +268,7 @@ dell'applicazione.
 
 ## Esportazione Turtle
 
-[L'esportazione Turtle si trova QUI](https://github.com/federicotorrielli/modsem/raw/master/Protege/turtle/productCatalog.owl)
+[L'esportazione Turtle si trova QUI](https://github.com/federicotorrielli/modsem/raw/master/Protege/turtle/yapo.owl)
 
 ---
 
@@ -299,28 +299,28 @@ Query:
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>
 
 SELECT ?prod WHERE{
-	?prod rdf:type sipg:Product.	
-	?company rdf:type sipg:Company;
-		sipg:sells ?prod.
-	FILTER(?company = sipg:Apple)
+	?prod rdf:type yapo:Product.	
+	?company rdf:type yapo:Company;
+		yapo:sells ?prod.
+	FILTER(?company = yapo:Apple)
 }
 ```
 
 Return:
 
-- productCatalog:AirPods_wirelessCharge
-- productCatalog:AppleWatchSeries6_40mm_GPS_Cellular_Nike
-- productCatalog:Lightning_cable
-- productCatalog:IpadAir_2020
-- productCatalog:Iphone11_64
-- productCatalog:MacBookAir_M1
-- productCatalog:iMac_27_RetinaDisplay_5k_256
-- productCatalog:iPhone12_64
-- productCatalog:iPhoneX_64
-- productCatalog:Beats_cuffie
+- yapo:AirPods_wirelessCharge
+- yapo:AppleWatchSeries6_40mm_GPS_Cellular_Nike
+- yapo:Lightning_cable
+- yapo:IpadAir_2020
+- yapo:Iphone11_64
+- yapo:MacBookAir_M1
+- yapo:iMac_27_RetinaDisplay_5k_256
+- yapo:iPhone12_64
+- yapo:iPhoneX_64
+- yapo:Beats_cuffie
 
 ### Operazione 2
 
@@ -333,15 +333,15 @@ Query:
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>
 PREFIX price: <http://www.ontologydesignpatterns.org/cp/owl/price.owl#>
 
 SELECT ?prod ?brand ?price WHERE { 
-	?brand rdf:type sipg:Company.
+	?brand rdf:type yapo:Company.
 	?price rdf:type price:Price;
 		price:hasValue ?v.
-	?prod rdf:type sipg:Smartphone;
-		sipg:hasBrand ?brand;
+	?prod rdf:type yapo:Smartphone;
+		yapo:hasBrand ?brand;
 		price:hasPrice ?price.
 	FILTER (?v >= '600'^^xsd:float)
 }
@@ -350,9 +350,9 @@ ORDER BY ?price
 
 Return:
 
-- productCatalog:Iphone11_64 productCatalog:Apple productCatalog:600Euro
-- productCatalog:iPhone12_64 productCatalog:Apple productCatalog:800Euro
-- productCatalog:SamsungGalaxyS20_5G_global productCatalog:Samsung productCatalog:800Euro
+- yapo:Iphone11_64 yapo:Apple yapo:600Euro
+- yapo:iPhone12_64 yapo:Apple yapo:800Euro
+- yapo:SamsungGalaxyS20_5G_global yapo:Samsung yapo:800Euro
 
 ### Operazione 3
 
@@ -364,27 +364,27 @@ Query:
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>
 PREFIX price: <http://www.ontologydesignpatterns.org/cp/owl/price.owl#>
 
 SELECT ?smartw ?brand ?pricesmartw ?smartp WHERE { 
-	?brand rdf:type sipg:Company.
+	?brand rdf:type yapo:Company.
 	?pricesmartw rdf:type price:Price.
-	?smartp rdf:type sipg:Smartphone.
-	?smartw rdf:type sipg:Smartwatch;
-		sipg:compatibleWith ?smartp;
-		sipg:hasBrand ?brand;
+	?smartp rdf:type yapo:Smartphone.
+	?smartw rdf:type yapo:Smartwatch;
+		yapo:compatibleWith ?smartp;
+		yapo:hasBrand ?brand;
 		price:hasPrice ?pricesmartw.
 }
 ```
 
 Return:
 
-- productCatalog:AppleWatchSeries6_40mm_GPS_Cellular_Nike productCatalog:Apple productCatalog:500Euro productCatalog:
+- yapo:AppleWatchSeries6_40mm_GPS_Cellular_Nike yapo:Apple yapo:500Euro yapo:
   Iphone11_64
-- productCatalog:AppleWatchSeries6_40mm_GPS_Cellular_Nike productCatalog:Apple productCatalog:500Euro productCatalog:
+- yapo:AppleWatchSeries6_40mm_GPS_Cellular_Nike yapo:Apple yapo:500Euro yapo:
   iPhone12_64
-- productCatalog:AppleWatchSeries6_40mm_GPS_Cellular_Nike productCatalog:Apple productCatalog:500Euro productCatalog:
+- yapo:AppleWatchSeries6_40mm_GPS_Cellular_Nike yapo:Apple yapo:500Euro yapo:
   iPhoneX_64
 
 ### Operazione 4
@@ -398,19 +398,19 @@ Query:
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>
 PREFIX price: <http://www.ontologydesignpatterns.org/cp/owl/price.owl#>
 
 SELECT ?smartw ?brand ?pricesmartw ?smartp ?pricesmartp WHERE { 
-	?brand rdf:type sipg:Company.
+	?brand rdf:type yapo:Company.
 	?pricesmartw rdf:type price:Price.
 	?pricesmartp rdf:type price:Price;
 		price:hasValue ?vsmartp.
-	?smartp rdf:type sipg:Smartphone;
+	?smartp rdf:type yapo:Smartphone;
 		price:hasPrice ?pricesmartp.
-	?smartw rdf:type sipg:Smartwatch;
-		sipg:compatibleWith ?smartp;
-		sipg:hasBrand ?brand;
+	?smartw rdf:type yapo:Smartwatch;
+		yapo:compatibleWith ?smartp;
+		yapo:hasBrand ?brand;
 		price:hasPrice ?pricesmartw.
 	FILTER (?vsmartp >= "600"^^xsd:float)
 }
@@ -418,10 +418,10 @@ SELECT ?smartw ?brand ?pricesmartw ?smartp ?pricesmartp WHERE {
 
 Return:
 
-- productCatalog:AppleWatchSeries6_40mm_GPS_Cellular_Nike productCatalog:Apple productCatalog:500Euro productCatalog:
-  Iphone11_64 productCatalog:600Euro
-- productCatalog:AppleWatchSeries6_40mm_GPS_Cellular_Nike productCatalog:Apple productCatalog:500Euro productCatalog:
-  iPhone12_64 productCatalog:800Euro
+- yapo:AppleWatchSeries6_40mm_GPS_Cellular_Nike yapo:Apple yapo:500Euro yapo:
+  Iphone11_64 yapo:600Euro
+- yapo:AppleWatchSeries6_40mm_GPS_Cellular_Nike yapo:Apple yapo:500Euro yapo:
+  iPhone12_64 yapo:800Euro
 
 ### Operazione 5
 
@@ -433,19 +433,19 @@ Query:
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>
 
 SELECT ?smartp ?cable WHERE { 
-	?cable rdf:type sipg:Cable.
-	?smartp rdf:type sipg:Smartphone;
-		sipg:containsInBox ?cable.
-	FILTER(?smartp = sipg:Iphone11_64)
+	?cable rdf:type yapo:Cable.
+	?smartp rdf:type yapo:Smartphone;
+		yapo:containsInBox ?cable.
+	FILTER(?smartp = yapo:Iphone11_64)
 }
 ```
 
 Return:
 
-- productCatalog:Iphone11_64 productCatalog:Lightning_cable
+- yapo:Iphone11_64 yapo:Lightning_cable
 
 ### Operazione 6
 
@@ -456,15 +456,15 @@ Query:
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>
 
 ASK {
-	?company rdf:type sipg:Company;
-	    sipg:sells ?earPlugs.
-    ?earPlugs rdf:type sipg:EarPlugs.	
-	?brand rdf:type sipg:Company;
-		sipg:isBrandOf ?earPlugs.
-	FILTER(?company = sipg:Apple && ?brand = sipg:BeatsAudio).
+	?company rdf:type yapo:Company;
+	    yapo:sells ?earPlugs.
+    ?earPlugs rdf:type yapo:EarPlugs.	
+	?brand rdf:type yapo:Company;
+		yapo:isBrandOf ?earPlugs.
+	FILTER(?company = yapo:Apple && ?brand = yapo:BeatsAudio).
 }
 ```
 
@@ -483,18 +483,18 @@ Query:
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 SELECT ?prodLabel WHERE {      
-    ?device rdf:type sipg:Device;
-          sipg:CpuType ?cpu.
+    ?device rdf:type yapo:Device;
+          yapo:CpuType ?cpu.
     SERVICE <https://query.wikidata.org/sparql> {       
         ?chip wdt:P31 wd:Q610398;
           rdfs:label ?label;
           wdt:P1535 ?prod.
         ?prod rdfs:label ?prodLabel.
-        FILTER (?device = sipg:Iphone11_64 && lang(?prodLabel) = "it" && lang(?label) = "it" && regex(?label, ?cpu)).
+        FILTER (?device = yapo:Iphone11_64 && lang(?prodLabel) = "it" && lang(?label) = "it" && regex(?label, ?cpu)).
     } 
 }
 ```
@@ -516,19 +516,19 @@ Query:
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 SELECT ?usernameIG WHERE {      
-    ?device rdf:type sipg:Device;
-            sipg:hasBrand ?brand.
-    ?brand rdf:type sipg:Company;
+    ?device rdf:type yapo:Device;
+            yapo:hasBrand ?brand.
+    ?brand rdf:type yapo:Company;
            rdfs:label ?labelbrand.
     SERVICE <https://query.wikidata.org/sparql> {       
         ?company wdt:P31 wd:Q4830453;
             wdt:P2003 ?usernameIG;
             rdfs:label ?labelCompany.
-        FILTER (?device = sipg:Iphone11_64 && lang(?labelCompany) = "it" && STR(?labelCompany) = STR(?labelbrand)).
+        FILTER (?device = yapo:Iphone11_64 && lang(?labelCompany) = "it" && STR(?labelCompany) = STR(?labelbrand)).
     } 
 }
 ```
@@ -546,20 +546,20 @@ Query:
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>
 
 SELECT ?prod WHERE{	
-    ?prod rdf:type sipg:Product.
-	?user rdf:type sipg:User;
-		sipg:buysProduct ?prod.
-	FILTER (?user = sipg:Giovanni_PowerUser)
+    ?prod rdf:type yapo:Product.
+	?user rdf:type yapo:User;
+		yapo:buysProduct ?prod.
+	FILTER (?user = yapo:Giovanni_PowerUser)
 }
 ```
 
 Return:
 
-- productCatalog:MacBookAir_M1
-- productCatalog:iPhone12_64
+- yapo:MacBookAir_M1
+- yapo:iPhone12_64
 
 ---
 
@@ -574,22 +574,22 @@ Query:
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>
 
 SELECT ?companyTo WHERE{
-	?companyTo rdf:type sipg:Company.	
-	?company rdf:type sipg:Company;
-		sipg:manufacturesTo ?companyTo.
-	FILTER(?company = sipg:Apple)
+	?companyTo rdf:type yapo:Company.	
+	?company rdf:type yapo:Company;
+		yapo:manufacturesTo ?companyTo.
+	FILTER(?company = yapo:Apple)
 }
 ```
 
 Return:
 
-- productCatalog:BeatsAudio
-- productCatalog:Foxconn
-- productCatalog:Qualcomm
-- productCatalog:ShortFactory
+- yapo:BeatsAudio
+- yapo:Foxconn
+- yapo:Qualcomm
+- yapo:ShortFactory
 
 ### Query 2
 
@@ -600,14 +600,14 @@ Query:
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>
 
 INSERT { 
-	?buyer sipg:buysProduct ?prod.
+	?buyer yapo:buysProduct ?prod.
 } WHERE {
-	?buyer rdf:type sipg:User.
-	?prod rdf:type sipg:Product.
-	FILTER(?buyer = sipg:Giovanni_PowerUser && ?prod = sipg:Iphone11_64)
+	?buyer rdf:type yapo:User.
+	?prod rdf:type yapo:Product.
+	FILTER(?buyer = yapo:Giovanni_PowerUser && ?prod = yapo:Iphone11_64)
 }
 ```
 
@@ -624,14 +624,14 @@ Query:
 
 ```SPARQL
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX sipg: <https://evilscript.altervista.org/productCatalog.owl#>
+PREFIX yapo: <https://evilscript.altervista.org/yapo.owl#>
 
 DELETE { 
-	?buyer sipg:buysProduct ?prod.
+	?buyer yapo:buysProduct ?prod.
 } WHERE {
-	?buyer rdf:type sipg:User.
-	?prod rdf:type sipg:Product.
-	FILTER(?buyer = sipg:Giovanni_PowerUser && ?prod = sipg:Iphone11_64)
+	?buyer rdf:type yapo:User.
+	?prod rdf:type yapo:Product.
+	FILTER(?buyer = yapo:Giovanni_PowerUser && ?prod = yapo:Iphone11_64)
 }
 ```
 
@@ -659,11 +659,11 @@ seguente modo:
   rimane limitato alle query veloci e tipo "listing"
 - `sipcp query-from-text` effettua tutte le query prendendole da un file di testo chiamato "do.txt"
   il file deve essere nella directory in cui si sta attualmente per eseguire il programma sipcp
-- `sipcp query-product Compagnia` interroga il productCatalog alla ricerca di tutti i prodotti dalla compagnia
+- `sipcp query-product Compagnia` interroga il yapo alla ricerca di tutti i prodotti dalla compagnia
   Compagnia. es: `sipcp query-product Apple` restituisce tutti i prodotti venduti dalla Apple
-- `sipcp query-subcompanies Compagnia` similare a quello prima, interroga il productCatalog restituendo tutte le
+- `sipcp query-subcompanies Compagnia` similare a quello prima, interroga il yapo restituendo tutte le
   compagnie che lavorano per la compagnia Compagnia.
-- `sipcp myproducts User` effettua la ricerca di tutti i prodotti comprati da un utente nel productCatalog, molto utile
+- `sipcp myproducts User` effettua la ricerca di tutti i prodotti comprati da un utente nel catalogo, molto utile
   per il comando seguente
 - `sipcp cputype Prodotto` effettua la ricerca del tipo di cpu del prodotto Prodotto
 - `sipcp compatible-cables Smartphone` cerca tutti i cavi compatibili con lo smartphone specificato
@@ -686,7 +686,7 @@ circolazione, eseguendo anche output colorato. Su Windows funziona in ogni caso,
 - Non si possono incollare sul terminale Query multi-lines per il comando `sipcp query ""`
 - L'output non è colorato (sembra banale ma rende l'interazione interessante)
 
-# Omeka-S per productCatalog
+# Omeka-S per yapo
 
 ## Motivazioni della scelta dell'estensione
 
