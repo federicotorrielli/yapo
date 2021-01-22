@@ -1,68 +1,68 @@
-@prefix : <https://evilscript.altervista.org/productCatalog.owl#> .
+@prefix : <https://evilscript.altervista.org/yapo.owl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://evilscript.altervista.org/productCatalog.owl> .
+@base <https://evilscript.altervista.org/yapo.owl> .
 
-<https://evilscript.altervista.org/productCatalog.owl> rdf:type owl:Ontology ;
-                                                        <http://purl.org/dc/elements/1.1/creator> "Federico Torrielli"^^xsd:string ,
-                                                                                                  "Ivan Spada"^^xsd:string ;
-                                                        <http://purl.org/dc/elements/1.1/date> 2021 ;
-                                                        <http://purl.org/dc/elements/1.1/description> "The \"Simple IT Product Catalog\" is a product management/catalog ontology to demonstrate a fairly simple product catalog and how a reasoner shoud work with Company nodes and devices. It could also be applied as a model for other companies product catalogs"@en ;
-                                                        <http://purl.org/vocab/vann/preferredNamespacePrefix> "sipg" ;
-                                                        <http://purl.org/vocab/vann/preferredNamespaceUri> "https://evilscript.altervista.org/productCatalog.owl" ;
-                                                        <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements> "What are the items (elements) in this list?"^^xsd:string ,
-                                                                                                                                                  "What are the items contained in this bag? "^^xsd:string ,
-                                                                                                                                                  "What bag is this item an element of?"^^xsd:string ,
-                                                                                                                                                  "What is before what?,What's next?,What's immediately following this?" ,
-                                                                                                                                                  "What is the first/last item in this list?"^^xsd:string ,
-                                                                                                                                                  "What is the length (size) of this list?"^^xsd:string ,
-                                                                                                                                                  "What is the size of this bag?"^^xsd:string ,
-                                                                                                                                                  "What it the next/previous item in the list?"^^xsd:string ,
-                                                                                                                                                  "What resource does this item refer to?"^^xsd:string ,
-                                                                                                                                                  "What resource does this list item contain?"^^xsd:string ,
-                                                                                                                                                  "What things are contained in this collection (community, collective)? What collections this thing is member of?" ;
-                                                        <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom> "http://swan.mindinformatics.org/ontologies/1.2/collections.owl"^^xsd:string ,
-                                                                                                                                             "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl" ;
-                                                        <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasAuthor> "Aldo Gangemi" ,
-                                                                                                                                         "PaoloCiccarese"^^xsd:string ,
-                                                                                                                                         "Sara Bernardini" ,
-                                                                                                                                         "Valentina Presutti" ;
-                                                        <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent> "http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl"^^xsd:string ,
-                                                                                                                                            "http://www.ontologydesignpatterns.org/cp/owl/sequence.owl"^^xsd:string ;
-                                                        <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasConsequences> "Collections and their members can be associated. Time-indexed membership cannot be represented though (you need a situation-based pattern)." ,
-                                                                                                                                               "We can represent and reason over transitive or intransitive sequences of any kind. However, since coreference cannot be expressed in OWL, it is not possible to represent and reason over loops and other sequences involving coreference." ;
-                                                        <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasIntent> "To model bags of items (elements). The Bag is characterized by a collection that can have multiple copies of each object. "^^xsd:string ,
-                                                                                                                                         "To represent domain (not set theory) membership." ,
-                                                                                                                                         "To represent ordered collections, i.e. lists."^^xsd:string ,
-                                                                                                                                         """To represent sequence schemas. It defines the notion of transitive and intransitive precedence and their inverses. 
+<https://evilscript.altervista.org/yapo.owl> rdf:type owl:Ontology ;
+                                              <http://purl.org/dc/elements/1.1/creator> "Federico Torrielli"^^xsd:string ,
+                                                                                        "Ivan Spada"^^xsd:string ;
+                                              <http://purl.org/dc/elements/1.1/date> 2021 ;
+                                              <http://purl.org/dc/elements/1.1/description> "YAPO is a product management/catalog ontology to demonstrate a fairly simple product catalog and how a reasoner shoud work with Company nodes and devices. It could also be applied as a model for other companies product catalogs"@en ;
+                                              <http://purl.org/vocab/vann/preferredNamespacePrefix> "yapo" ;
+                                              <http://purl.org/vocab/vann/preferredNamespaceUri> "https://evilscript.altervista.org/yapo.owl" ;
+                                              <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements> "What are the items (elements) in this list?"^^xsd:string ,
+                                                                                                                                        "What are the items contained in this bag? "^^xsd:string ,
+                                                                                                                                        "What bag is this item an element of?"^^xsd:string ,
+                                                                                                                                        "What is before what?,What's next?,What's immediately following this?" ,
+                                                                                                                                        "What is the first/last item in this list?"^^xsd:string ,
+                                                                                                                                        "What is the length (size) of this list?"^^xsd:string ,
+                                                                                                                                        "What is the size of this bag?"^^xsd:string ,
+                                                                                                                                        "What it the next/previous item in the list?"^^xsd:string ,
+                                                                                                                                        "What resource does this item refer to?"^^xsd:string ,
+                                                                                                                                        "What resource does this list item contain?"^^xsd:string ,
+                                                                                                                                        "What things are contained in this collection (community, collective)? What collections this thing is member of?" ;
+                                              <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#extractedFrom> "http://swan.mindinformatics.org/ontologies/1.2/collections.owl"^^xsd:string ,
+                                                                                                                                   "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl" ;
+                                              <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasAuthor> "Aldo Gangemi" ,
+                                                                                                                               "PaoloCiccarese"^^xsd:string ,
+                                                                                                                               "Sara Bernardini" ,
+                                                                                                                               "Valentina Presutti" ;
+                                              <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent> "http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl"^^xsd:string ,
+                                                                                                                                  "http://www.ontologydesignpatterns.org/cp/owl/sequence.owl"^^xsd:string ;
+                                              <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasConsequences> "Collections and their members can be associated. Time-indexed membership cannot be represented though (you need a situation-based pattern)." ,
+                                                                                                                                     "We can represent and reason over transitive or intransitive sequences of any kind. However, since coreference cannot be expressed in OWL, it is not possible to represent and reason over loops and other sequences involving coreference." ;
+                                              <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasIntent> "To model bags of items (elements). The Bag is characterized by a collection that can have multiple copies of each object. "^^xsd:string ,
+                                                                                                                               "To represent domain (not set theory) membership." ,
+                                                                                                                               "To represent ordered collections, i.e. lists."^^xsd:string ,
+                                                                                                                               """To represent sequence schemas. It defines the notion of transitive and intransitive precedence and their inverses. 
 It can then be used between tasks, processes, time intervals, spatially locate objects, situations, etc.""" ;
-                                                        <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#isSpecializationOf> "http://www.ontologydesignpatterns.org/cp/owl/sequence.owl"^^xsd:string ;
-                                                        <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#reengineeredFrom> "http://swan.mindinformatics.org/ontologies/1.2/collections.owl"^^xsd:string ;
-                                                        <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs> "TimeIndexedMembership" ,
-                                                                                                                                          "http://www.ontologydesignpatterns.org/cp/owl/bag.owl"^^xsd:string ,
-                                                                                                                                          "http://www.ontologydesignpatterns.org/cp/owl/list.owl"^^xsd:string ,
-                                                                                                                                          "http://www.ontologydesignpatterns.org/cp/owl/set.owl"^^xsd:string ;
-                                                        <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios> "My saxophone collection includes a Mark VI tenor, a Balanced Action alto, and a Conn Transitional bari." ;
-                                                        rdfs:comment """The collection entity pattern. 
+                                              <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#isSpecializationOf> "http://www.ontologydesignpatterns.org/cp/owl/sequence.owl"^^xsd:string ;
+                                              <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#reengineeredFrom> "http://swan.mindinformatics.org/ontologies/1.2/collections.owl"^^xsd:string ;
+                                              <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs> "TimeIndexedMembership" ,
+                                                                                                                                "http://www.ontologydesignpatterns.org/cp/owl/bag.owl"^^xsd:string ,
+                                                                                                                                "http://www.ontologydesignpatterns.org/cp/owl/list.owl"^^xsd:string ,
+                                                                                                                                "http://www.ontologydesignpatterns.org/cp/owl/set.owl"^^xsd:string ;
+                                              <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios> "My saxophone collection includes a Mark VI tenor, a Balanced Action alto, and a Conn Transitional bari." ;
+                                              rdfs:comment """The collection entity pattern. 
 It is extracted from DOLCE-UltraLite by partial clone of elements.""" ,
-                                                                     "The price content ontology design pattern. This CP represents the price of an entity in a certain currency." ;
-                                                        rdfs:label "ITCatalog" ,
-                                                                   "collection entity" ,
-                                                                   "membership" ,
-                                                                   "ordering" ,
-                                                                   "precedence" ,
-                                                                   "sequence" ;
-                                                        owl:versionInfo """1.1
+                                                           "The price content ontology design pattern. This CP represents the price of an entity in a certain currency." ;
+                                              rdfs:label "Yet Another Product Ontology"@en ,
+                                                         "collection entity" ,
+                                                         "membership" ,
+                                                         "ordering" ,
+                                                         "precedence" ,
+                                                         "sequence" ;
+                                              owl:versionInfo """1.1
 - Revised and annotated for ODP submission by Aldo Gangemi
 1.0
 - Created by Valentina Presutti and Sara Bernardini""" ,
-                                                                        "1.1 added rdfs:isDefinedBy for all named entities"^^xsd:string ,
-                                                                        "Created by Aldo Gangemi and Valentina Presutti"^^xsd:string ,
-                                                                        "Created by Valentina Presutti"^^xsd:string ,
-                                                                        "Created with TopBraid Composer"^^xsd:string .
+                                                              "1.1 added rdfs:isDefinedBy for all named entities"^^xsd:string ,
+                                                              "Created by Aldo Gangemi and Valentina Presutti"^^xsd:string ,
+                                                              "Created by Valentina Presutti"^^xsd:string ,
+                                                              "Created with TopBraid Composer"^^xsd:string .
 
 #################################################################
 #    Annotation properties
@@ -330,7 +330,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                owl:ReflexiveProperty .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#brandContainedIn
+###  https://evilscript.altervista.org/yapo.owl#brandContainedIn
 :brandContainedIn rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf owl:topObjectProperty ;
                   owl:inverseOf :containsBrand ;
@@ -341,7 +341,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                   rdfs:label "brandContainedIn"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#buysFrom
+###  https://evilscript.altervista.org/yapo.owl#buysFrom
 :buysFrom rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf owl:topObjectProperty ;
           rdfs:domain :User ;
@@ -353,7 +353,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
           rdfs:label "buysFrom"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#buysProduct
+###  https://evilscript.altervista.org/yapo.owl#buysProduct
 :buysProduct rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:domain :User ;
@@ -362,7 +362,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:label "buysProduct"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#collabsWith
+###  https://evilscript.altervista.org/yapo.owl#collabsWith
 :collabsWith rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf owl:topObjectProperty ;
              owl:inverseOf :collabsWith ;
@@ -376,7 +376,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:label "collabsWith"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#compatibleWith
+###  https://evilscript.altervista.org/yapo.owl#compatibleWith
 :compatibleWith rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf owl:topObjectProperty ;
                 rdfs:domain [ rdf:type owl:Class ;
@@ -389,7 +389,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                 rdfs:label "compatibleWith"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#contains
+###  https://evilscript.altervista.org/yapo.owl#contains
 :contains rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf owl:topObjectProperty ;
           owl:inverseOf :isContainedIn ;
@@ -405,7 +405,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
           rdfs:label "contains"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#containsBrand
+###  https://evilscript.altervista.org/yapo.owl#containsBrand
 :containsBrand rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
                rdf:type owl:TransitiveProperty ;
@@ -418,7 +418,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:label "containsBrand"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#containsInBox
+###  https://evilscript.altervista.org/yapo.owl#containsInBox
 :containsInBox rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
                owl:inverseOf :inBoxOf ;
@@ -429,7 +429,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:label "containsInBox"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#designedBy
+###  https://evilscript.altervista.org/yapo.owl#designedBy
 :designedBy rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf owl:topObjectProperty ;
             owl:inverseOf :designs ;
@@ -440,7 +440,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:label "designedBy"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#designs
+###  https://evilscript.altervista.org/yapo.owl#designs
 :designs rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:domain :Engineering ;
@@ -449,7 +449,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:label "designs"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#fitFor
+###  https://evilscript.altervista.org/yapo.owl#fitFor
 :fitFor rdf:type owl:ObjectProperty ;
         rdfs:subPropertyOf owl:topObjectProperty ;
         rdfs:domain :Cover ;
@@ -458,7 +458,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
         rdfs:label "fitFor"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#hasBrand
+###  https://evilscript.altervista.org/yapo.owl#hasBrand
 :hasBrand rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf owl:topObjectProperty ;
           owl:inverseOf :isBrandOf ;
@@ -469,7 +469,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
           rdfs:label "hasBrand"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#hasCatalog
+###  https://evilscript.altervista.org/yapo.owl#hasCatalog
 :hasCatalog rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:domain :Company ;
@@ -478,7 +478,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:label "hasCatalog"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#hasProducer
+###  https://evilscript.altervista.org/yapo.owl#hasProducer
 :hasProducer rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:domain :Engineering ;
@@ -487,7 +487,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:label "hasProducer"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#inBoxOf
+###  https://evilscript.altervista.org/yapo.owl#inBoxOf
 :inBoxOf rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf owl:topObjectProperty ;
          rdf:type owl:TransitiveProperty ;
@@ -497,7 +497,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:label "inBoxOf"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#inCollabWith
+###  https://evilscript.altervista.org/yapo.owl#inCollabWith
 :inCollabWith rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf owl:topObjectProperty ;
               rdfs:domain :Product ;
@@ -506,7 +506,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
               rdfs:label "inCollabWith"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#isBrandOf
+###  https://evilscript.altervista.org/yapo.owl#isBrandOf
 :isBrandOf rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf owl:topObjectProperty ;
            rdf:type owl:InverseFunctionalProperty ;
@@ -516,7 +516,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
            rdfs:label "isBrandOf"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#isContainedIn
+###  https://evilscript.altervista.org/yapo.owl#isContainedIn
 :isContainedIn rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
                rdf:type owl:AsymmetricProperty ,
@@ -528,7 +528,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:label "isContainedIn"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#isManifacturerOf
+###  https://evilscript.altervista.org/yapo.owl#isManifacturerOf
 :isManifacturerOf rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf owl:topObjectProperty ;
                   owl:inverseOf :manufacturesTo ;
@@ -538,7 +538,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                   rdfs:label "isManufacturerOf"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#manufacturesTo
+###  https://evilscript.altervista.org/yapo.owl#manufacturesTo
 :manufacturesTo rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf owl:topObjectProperty ;
                 rdfs:domain :Company ;
@@ -553,7 +553,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                 rdfs:label "manufacturersTo"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#needsConnectionWith
+###  https://evilscript.altervista.org/yapo.owl#needsConnectionWith
 :needsConnectionWith rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf owl:topObjectProperty ;
                      rdfs:domain :Smartwatch ;
@@ -562,7 +562,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                      rdfs:label "needsConnectionWith"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#predecessorOf
+###  https://evilscript.altervista.org/yapo.owl#predecessorOf
 :predecessorOf rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
                owl:inverseOf :successorOf ;
@@ -573,7 +573,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:label "predecessorOf"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#producedBy
+###  https://evilscript.altervista.org/yapo.owl#producedBy
 :producedBy rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf owl:topObjectProperty ;
             owl:inverseOf :produces ;
@@ -583,7 +583,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:label "producedBy"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#produces
+###  https://evilscript.altervista.org/yapo.owl#produces
 :produces rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf owl:topObjectProperty ;
           rdfs:domain :Factory ;
@@ -592,7 +592,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
           rdfs:label "produces"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#putInBoxes
+###  https://evilscript.altervista.org/yapo.owl#putInBoxes
 :putInBoxes rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:domain :Company ;
@@ -604,7 +604,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:label "putInBoxes"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#sells
+###  https://evilscript.altervista.org/yapo.owl#sells
 :sells rdf:type owl:ObjectProperty ;
        rdfs:subPropertyOf owl:topObjectProperty ;
        owl:inverseOf :soldBy ;
@@ -618,7 +618,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
        rdfs:label "sells"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#soldBy
+###  https://evilscript.altervista.org/yapo.owl#soldBy
 :soldBy rdf:type owl:ObjectProperty ;
         rdfs:subPropertyOf owl:topObjectProperty ;
         rdfs:domain :Product ;
@@ -627,7 +627,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
         rdfs:label "soldBy"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#successorOf
+###  https://evilscript.altervista.org/yapo.owl#successorOf
 :successorOf rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf owl:topObjectProperty ;
              rdf:type owl:FunctionalProperty ;
@@ -657,7 +657,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                                                   rdfs:label "has value"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#CameraMP
+###  https://evilscript.altervista.org/yapo.owl#CameraMP
 :CameraMP rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf owl:topDataProperty ;
           rdfs:domain [ rdf:type owl:Class ;
@@ -675,7 +675,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
           rdfs:label "CameraMegaPixels"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#ChargingPortType
+###  https://evilscript.altervista.org/yapo.owl#ChargingPortType
 :ChargingPortType rdf:type owl:DatatypeProperty ;
                   rdfs:subPropertyOf owl:topDataProperty ;
                   rdfs:domain [ rdf:type owl:Class ;
@@ -702,7 +702,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                   rdfs:label "ChargingPortType"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Color
+###  https://evilscript.altervista.org/yapo.owl#Color
 :Color rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf owl:topDataProperty ;
        rdfs:domain :Product ;
@@ -711,7 +711,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
        rdfs:label "Color"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#CpuType
+###  https://evilscript.altervista.org/yapo.owl#CpuType
 :CpuType rdf:type owl:DatatypeProperty ;
          rdfs:subPropertyOf owl:topDataProperty ;
          rdfs:domain [ rdf:type owl:Class ;
@@ -724,7 +724,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:label "CpuType"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Depth
+###  https://evilscript.altervista.org/yapo.owl#Depth
 :Depth rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf owl:topDataProperty ;
        rdfs:domain :Product ;
@@ -738,7 +738,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
        rdfs:label "Depth"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#EAN
+###  https://evilscript.altervista.org/yapo.owl#EAN
 :EAN rdf:type owl:DatatypeProperty ;
      rdfs:subPropertyOf owl:topDataProperty ;
      rdfs:domain :Product ;
@@ -747,7 +747,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
      rdfs:label "EAN"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Height
+###  https://evilscript.altervista.org/yapo.owl#Height
 :Height rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf owl:topDataProperty ;
         rdfs:domain :Product ;
@@ -761,7 +761,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
         rdfs:label "Height"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#MemorySize
+###  https://evilscript.altervista.org/yapo.owl#MemorySize
 :MemorySize rdf:type owl:DatatypeProperty ;
             rdfs:subPropertyOf owl:topDataProperty ;
             rdfs:domain [ rdf:type owl:Class ;
@@ -774,7 +774,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:label "MemorySize"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#OperativeSystem
+###  https://evilscript.altervista.org/yapo.owl#OperativeSystem
 :OperativeSystem rdf:type owl:DatatypeProperty ;
                  rdfs:subPropertyOf owl:topDataProperty ;
                  rdfs:domain [ rdf:type owl:Class ;
@@ -787,7 +787,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                  rdfs:label "OperatingSystem"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Price
+###  https://evilscript.altervista.org/yapo.owl#Price
 :Price rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf owl:topDataProperty ;
        rdfs:domain :Product ;
@@ -801,7 +801,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
        rdfs:label "Price"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#ProductName
+###  https://evilscript.altervista.org/yapo.owl#ProductName
 :ProductName rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf owl:topDataProperty ;
              rdfs:domain :Product ;
@@ -810,7 +810,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:label "ProductName"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#RamSize
+###  https://evilscript.altervista.org/yapo.owl#RamSize
 :RamSize rdf:type owl:DatatypeProperty ;
          rdfs:subPropertyOf owl:topDataProperty ;
          rdfs:domain [ rdf:type owl:Class ;
@@ -823,13 +823,13 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:label "RamSize"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#RamType
+###  https://evilscript.altervista.org/yapo.owl#RamType
 :RamType rdf:type owl:DatatypeProperty ;
          rdfs:subPropertyOf owl:topDataProperty ;
          rdfs:domain [ rdf:type owl:Class ;
                        owl:unionOf ( :Computer
                                      :Laptop
-                                     <https://evilscript.altervista.org/productCatalog.owl#2in1>
+                                     <https://evilscript.altervista.org/yapo.owl#2in1>
                                    )
                      ] ;
          rdfs:range xsd:string ;
@@ -837,7 +837,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:label "RamType"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#RollOutDate
+###  https://evilscript.altervista.org/yapo.owl#RollOutDate
 :RollOutDate rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf owl:topDataProperty ;
              rdfs:domain :Product ;
@@ -846,7 +846,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:label "RollOutDate"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#ScreenSize
+###  https://evilscript.altervista.org/yapo.owl#ScreenSize
 :ScreenSize rdf:type owl:DatatypeProperty ;
             rdfs:subPropertyOf owl:topDataProperty ;
             rdfs:domain [ rdf:type owl:Class ;
@@ -864,7 +864,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:label "ScreenSize"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Weight
+###  https://evilscript.altervista.org/yapo.owl#Weight
 :Weight rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf owl:topDataProperty ;
         rdfs:domain :Product ;
@@ -878,7 +878,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
         rdfs:label "Weight"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Width
+###  https://evilscript.altervista.org/yapo.owl#Width
 :Width rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf owl:topDataProperty ;
        rdfs:domain :Product ;
@@ -892,7 +892,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
        rdfs:label "Width"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#isInRange
+###  https://evilscript.altervista.org/yapo.owl#isInRange
 :isInRange rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf owl:topDataProperty ;
            rdfs:domain :Product ;
@@ -912,7 +912,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
            rdfs:label "isInRange"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#isTouchScreen
+###  https://evilscript.altervista.org/yapo.owl#isTouchScreen
 :isTouchScreen rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf owl:topDataProperty ;
                rdf:type owl:FunctionalProperty ;
@@ -971,7 +971,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                                                             :SoftCover ,
                                                                             :Stereo ,
                                                                             :Tablet ,
-                                                                            <https://evilscript.altervista.org/productCatalog.owl#2in1> ;
+                                                                            <https://evilscript.altervista.org/yapo.owl#2in1> ;
                                                            rdfs:comment "Bag - Collection that can have a number of copies of each object"^^xsd:string ;
                                                            rdfs:label "(collections) Bag"^^xsd:string .
 
@@ -1027,7 +1027,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                                                                                 :SoftCover ,
                                                                                                 :Stereo ,
                                                                                                 :Tablet ,
-                                                                                                <https://evilscript.altervista.org/productCatalog.owl#2in1> ;
+                                                                                                <https://evilscript.altervista.org/yapo.owl#2in1> ;
                                                                                rdfs:comment "Any container for entities that share one or more common properties. E.g. \"stone objects\", \"the nurses\", \"the Louvre Aegyptian collection\". A collection is not a logical class: a collection is a first-order entity, while a class is a second-order one." ;
                                                                                rdfs:isDefinedBy <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl> ;
                                                                                rdfs:label "Collection"@en .
@@ -1067,7 +1067,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                                                               :SoftCover ,
                                                                               :Stereo ,
                                                                               :Tablet ,
-                                                                              <https://evilscript.altervista.org/productCatalog.owl#2in1> ;
+                                                                              <https://evilscript.altervista.org/yapo.owl#2in1> ;
                                                              rdfs:comment "List - An ordered array of items, that can be present in multiple copies"^^xsd:string ;
                                                              rdfs:label "list"^^xsd:string .
 
@@ -1135,7 +1135,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                                                 :Stereo ,
                                                                 :StockCatalog ,
                                                                 :Tablet ,
-                                                                <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                                                                <https://evilscript.altervista.org/yapo.owl#2in1> ,
                                                                 <https://www.w3.org/ns/dcat#Catalog> .
 
 
@@ -1192,7 +1192,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                                                  :SoftCover ,
                                                                  :StockCatalog ,
                                                                  :Tablet ,
-                                                                 <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                                                                 <https://evilscript.altervista.org/yapo.owl#2in1> ,
                                                                  <https://www.w3.org/ns/dcat#Catalog> .
 
 
@@ -1221,7 +1221,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                                                        :Stereo ,
                                                                        :StockCatalog ,
                                                                        :Tablet ,
-                                                                       <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                                                                       <https://evilscript.altervista.org/yapo.owl#2in1> ,
                                                                        <https://www.w3.org/ns/dcat#Catalog> .
 
 
@@ -1250,7 +1250,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                                                  :Stereo ,
                                                                  :StockCatalog ,
                                                                  :Tablet ,
-                                                                 <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                                                                 <https://evilscript.altervista.org/yapo.owl#2in1> ,
                                                                  <https://www.w3.org/ns/dcat#Catalog> .
 
 
@@ -1277,7 +1277,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                                                 :Stereo ,
                                                                 :StockCatalog ,
                                                                 :Tablet ,
-                                                                <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                                                                <https://evilscript.altervista.org/yapo.owl#2in1> ,
                                                                 <https://www.w3.org/ns/dcat#Catalog> .
 
 
@@ -1303,7 +1303,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                                                 :Stereo ,
                                                                 :StockCatalog ,
                                                                 :Tablet ,
-                                                                <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                                                                <https://evilscript.altervista.org/yapo.owl#2in1> ,
                                                                 <https://www.w3.org/ns/dcat#Catalog> .
 
 
@@ -1331,7 +1331,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 
 ###  http://www.productontology.org/id/2-in-1_PC
 <http://www.productontology.org/id/2-in-1_PC> rdf:type owl:Class ;
-                                              owl:equivalentClass <https://evilscript.altervista.org/productCatalog.owl#2in1> ;
+                                              owl:equivalentClass <https://evilscript.altervista.org/yapo.owl#2in1> ;
                                               rdfs:subClassOf :PortableDevice ;
                                               owl:disjointWith <http://www.productontology.org/id/Housing_(engineering)> ,
                                                                :Accessory ,
@@ -1369,7 +1369,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                                                            :Stereo ,
                                                                            :StockCatalog ,
                                                                            :Tablet ,
-                                                                           <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                                                                           <https://evilscript.altervista.org/yapo.owl#2in1> ,
                                                                            <https://www.w3.org/ns/dcat#Catalog> .
 
 
@@ -1392,7 +1392,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 <http://xmlns.com/foaf/0.1/Person> rdf:type owl:Class .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Accessory
+###  https://evilscript.altervista.org/yapo.owl#Accessory
 :Accessory rdf:type owl:Class ;
            rdfs:subClassOf <http://www.productontology.org/id/Product_(business)> ,
                            :Product ;
@@ -1408,13 +1408,13 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                             :Stereo ,
                             :StockCatalog ,
                             :Tablet ,
-                            <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                            <https://evilscript.altervista.org/yapo.owl#2in1> ,
                             <https://www.w3.org/ns/dcat#Catalog> ;
            rdfs:comment "A product used with or within the device use"@en ;
            rdfs:label "Accessory"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#BigEngineering
+###  https://evilscript.altervista.org/yapo.owl#BigEngineering
 :BigEngineering rdf:type owl:Class ;
                 owl:equivalentClass [ rdf:type owl:Restriction ;
                                       owl:onProperty :designs ;
@@ -1427,7 +1427,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                 rdfs:label "BigEngineering"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Cable
+###  https://evilscript.altervista.org/yapo.owl#Cable
 :Cable rdf:type owl:Class ;
        rdfs:subClassOf :Accessory ;
        owl:disjointWith :Computer ,
@@ -1446,11 +1446,11 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                         :Stereo ,
                         :StockCatalog ,
                         :Tablet ,
-                        <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                        <https://evilscript.altervista.org/yapo.owl#2in1> ,
                         <https://www.w3.org/ns/dcat#Catalog> .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#CasualUser
+###  https://evilscript.altervista.org/yapo.owl#CasualUser
 :CasualUser rdf:type owl:Class ;
             rdfs:subClassOf :User ;
             owl:disjointWith :PowerUser ;
@@ -1458,14 +1458,14 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:label "CasualUser"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Company
+###  https://evilscript.altervista.org/yapo.owl#Company
 :Company rdf:type owl:Class ;
          rdfs:subClassOf <http://xmlns.com/foaf/0.1/Organization> ;
          rdfs:comment "The company that has the project, the engineering process and the manifacturing to produce the product"@en ;
          rdfs:label "Company"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Computer
+###  https://evilscript.altervista.org/yapo.owl#Computer
 :Computer rdf:type owl:Class ;
           rdfs:subClassOf :NotPortableDevice ;
           owl:disjointWith :Cover ,
@@ -1481,13 +1481,13 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                            :Stereo ,
                            :StockCatalog ,
                            :Tablet ,
-                           <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                           <https://evilscript.altervista.org/yapo.owl#2in1> ,
                            <https://www.w3.org/ns/dcat#Catalog> ;
           rdfs:comment "Just a computer"@en ;
           rdfs:label "Computer"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Cover
+###  https://evilscript.altervista.org/yapo.owl#Cover
 :Cover rdf:type owl:Class ;
        rdfs:subClassOf :Accessory ;
        owl:disjointWith :Device ,
@@ -1502,13 +1502,13 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                         :Stereo ,
                         :StockCatalog ,
                         :Tablet ,
-                        <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                        <https://evilscript.altervista.org/yapo.owl#2in1> ,
                         <https://www.w3.org/ns/dcat#Catalog> ;
        rdfs:comment "A product made for protecting a device from accidental falls"@en ;
        rdfs:label "Cover"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Device
+###  https://evilscript.altervista.org/yapo.owl#Device
 :Device rdf:type owl:Class ;
         rdfs:subClassOf <http://www.productontology.org/id/Product_(business)> ,
                         :Product ;
@@ -1523,7 +1523,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
         rdfs:label "Device"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#EarPlugs
+###  https://evilscript.altervista.org/yapo.owl#EarPlugs
 :EarPlugs rdf:type owl:Class ;
           rdfs:subClassOf :Accessory ;
           owl:disjointWith :HardCover ,
@@ -1538,13 +1538,13 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                            :Stereo ,
                            :StockCatalog ,
                            :Tablet ,
-                           <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                           <https://evilscript.altervista.org/yapo.owl#2in1> ,
                            <https://www.w3.org/ns/dcat#Catalog> ;
           rdfs:comment "A small accessory device made for listening to music"@en ;
           rdfs:label "EarPlugs"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Engineering
+###  https://evilscript.altervista.org/yapo.owl#Engineering
 :Engineering rdf:type owl:Class ;
              owl:equivalentClass [ rdf:type owl:Restriction ;
                                    owl:onProperty :designs ;
@@ -1556,7 +1556,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:label "Engineering"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Factory
+###  https://evilscript.altervista.org/yapo.owl#Factory
 :Factory rdf:type owl:Class ;
          owl:equivalentClass [ rdf:type owl:Restriction ;
                                owl:onProperty :produces ;
@@ -1568,7 +1568,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:label "Factory"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#HardCover
+###  https://evilscript.altervista.org/yapo.owl#HardCover
 :HardCover rdf:type owl:Class ;
            rdfs:subClassOf <http://www.productontology.org/id/Housing_(engineering)> ,
                            :Cover ;
@@ -1583,13 +1583,13 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                             :Stereo ,
                             :StockCatalog ,
                             :Tablet ,
-                            <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                            <https://evilscript.altervista.org/yapo.owl#2in1> ,
                             <https://www.w3.org/ns/dcat#Catalog> ;
            rdfs:comment "An hard cover"@en ;
            rdfs:label "HardCover"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#ITEngineering
+###  https://evilscript.altervista.org/yapo.owl#ITEngineering
 :ITEngineering rdf:type owl:Class ;
                owl:equivalentClass [ rdf:type owl:Restriction ;
                                      owl:onProperty :designs ;
@@ -1601,7 +1601,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:label "ITEngineering"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Laptop
+###  https://evilscript.altervista.org/yapo.owl#Laptop
 :Laptop rdf:type owl:Class ;
         rdfs:subClassOf :PortableDevice ;
         owl:disjointWith :NotPortableDevice ,
@@ -1617,7 +1617,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
         rdfs:label "Laptop"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Manufacturer
+###  https://evilscript.altervista.org/yapo.owl#Manufacturer
 :Manufacturer rdf:type owl:Class ;
               owl:equivalentClass [ rdf:type owl:Class ;
                                     owl:oneOf ( :Apple
@@ -1635,7 +1635,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
               rdfs:label "Manufacturer"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#NotPortableDevice
+###  https://evilscript.altervista.org/yapo.owl#NotPortableDevice
 :NotPortableDevice rdf:type owl:Class ;
                    rdfs:subClassOf :Device ;
                    owl:disjointWith :PortableDevice ,
@@ -1646,13 +1646,13 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                     :SoftCover ,
                                     :StockCatalog ,
                                     :Tablet ,
-                                    <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                                    <https://evilscript.altervista.org/yapo.owl#2in1> ,
                                     <https://www.w3.org/ns/dcat#Catalog> ;
                    rdfs:comment "A device that is not made to be moved from the initial position"@en ;
                    rdfs:label "NotPortableDevice"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#PortableDevice
+###  https://evilscript.altervista.org/yapo.owl#PortableDevice
 :PortableDevice rdf:type owl:Class ;
                 rdfs:subClassOf :Device ;
                 owl:disjointWith :ProductCatalog ,
@@ -1665,7 +1665,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                 rdfs:label "PortableDevice"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#PowerUser
+###  https://evilscript.altervista.org/yapo.owl#PowerUser
 :PowerUser rdf:type owl:Class ;
            owl:equivalentClass [ rdf:type owl:Restriction ;
                                  owl:onProperty :buysProduct ;
@@ -1676,7 +1676,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
            rdfs:label "PowerUser"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Product
+###  https://evilscript.altervista.org/yapo.owl#Product
 :Product rdf:type owl:Class ;
          owl:equivalentClass [ owl:intersectionOf ( <http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem>
                                                     [ rdf:type owl:Restriction ;
@@ -1696,7 +1696,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:label "Product"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#ProductCatalog
+###  https://evilscript.altervista.org/yapo.owl#ProductCatalog
 :ProductCatalog rdf:type owl:Class ;
                 owl:equivalentClass <https://www.w3.org/ns/dcat#Catalog> ,
                                     [ rdf:type owl:Restriction ;
@@ -1712,12 +1712,12 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                  :SoftCover ,
                                  :Stereo ,
                                  :Tablet ,
-                                 <https://evilscript.altervista.org/productCatalog.owl#2in1> ;
+                                 <https://evilscript.altervista.org/yapo.owl#2in1> ;
                 rdfs:comment "A catalog of products"@en ;
                 rdfs:label "ProductCatalog"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#ProductHigh
+###  https://evilscript.altervista.org/yapo.owl#ProductHigh
 :ProductHigh rdf:type owl:Class ;
              owl:equivalentClass [ owl:intersectionOf ( :Product
                                                         [ rdf:type owl:Restriction ;
@@ -1734,7 +1734,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                               <https://www.w3.org/ns/dcat#Catalog> .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#ProductLow
+###  https://evilscript.altervista.org/yapo.owl#ProductLow
 :ProductLow rdf:type owl:Class ;
             owl:equivalentClass [ owl:intersectionOf ( :Product
                                                        [ rdf:type owl:Restriction ;
@@ -1751,7 +1751,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                              <https://www.w3.org/ns/dcat#Catalog> .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#ProductMedium
+###  https://evilscript.altervista.org/yapo.owl#ProductMedium
 :ProductMedium rdf:type owl:Class ;
                owl:equivalentClass [ owl:intersectionOf ( :Product
                                                           [ rdf:type owl:Restriction ;
@@ -1768,7 +1768,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                 <https://www.w3.org/ns/dcat#Catalog> .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#SellingCatalog
+###  https://evilscript.altervista.org/yapo.owl#SellingCatalog
 :SellingCatalog rdf:type owl:Class ;
                 rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> ,
                                 :ProductCatalog ,
@@ -1779,12 +1779,12 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                  :Stereo ,
                                  :StockCatalog ,
                                  :Tablet ,
-                                 <https://evilscript.altervista.org/productCatalog.owl#2in1> ;
+                                 <https://evilscript.altervista.org/yapo.owl#2in1> ;
                 rdfs:comment "A catalog of products made to be sold"@en ;
                 rdfs:label "SellingCatalog"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Smartphone
+###  https://evilscript.altervista.org/yapo.owl#Smartphone
 :Smartphone rdf:type owl:Class ;
             rdfs:subClassOf :PortableDevice ;
             owl:disjointWith :Smartwatch ,
@@ -1792,61 +1792,61 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                              :Stereo ,
                              :StockCatalog ,
                              :Tablet ,
-                             <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                             <https://evilscript.altervista.org/yapo.owl#2in1> ,
                              <https://www.w3.org/ns/dcat#Catalog> ;
             rdfs:comment "Mobile device that combines cellular and mobile computing functions into one unit"@en ;
             rdfs:label "Smartphone"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Smartwatch
+###  https://evilscript.altervista.org/yapo.owl#Smartwatch
 :Smartwatch rdf:type owl:Class ;
             rdfs:subClassOf :PortableDevice ;
             owl:disjointWith :SoftCover ,
                              :Stereo ,
                              :StockCatalog ,
                              :Tablet ,
-                             <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                             <https://evilscript.altervista.org/yapo.owl#2in1> ,
                              <https://www.w3.org/ns/dcat#Catalog> ;
             rdfs:comment "Wearable computer in the form of a watch"@en ;
             rdfs:label "Smartwatch"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#SoftCover
+###  https://evilscript.altervista.org/yapo.owl#SoftCover
 :SoftCover rdf:type owl:Class ;
            rdfs:subClassOf <http://www.productontology.org/id/Housing_(engineering)> ,
                            :Cover ;
            owl:disjointWith :Stereo ,
                             :StockCatalog ,
                             :Tablet ,
-                            <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                            <https://evilscript.altervista.org/yapo.owl#2in1> ,
                             <https://www.w3.org/ns/dcat#Catalog> ;
            rdfs:comment "A soft cover"@en ;
            rdfs:label "SoftCover"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Stereo
+###  https://evilscript.altervista.org/yapo.owl#Stereo
 :Stereo rdf:type owl:Class ;
         rdfs:subClassOf :NotPortableDevice ;
         owl:disjointWith :StockCatalog ,
                          :Tablet ,
-                         <https://evilscript.altervista.org/productCatalog.owl#2in1> ,
+                         <https://evilscript.altervista.org/yapo.owl#2in1> ,
                          <https://www.w3.org/ns/dcat#Catalog> ;
         rdfs:comment "A big device made for listening to music"@en ;
         rdfs:label "Stereo"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#StockCatalog
+###  https://evilscript.altervista.org/yapo.owl#StockCatalog
 :StockCatalog rdf:type owl:Class ;
               rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> ,
                               :ProductCatalog ,
                               <https://www.w3.org/ns/dcat#Catalog> ;
               owl:disjointWith :Tablet ,
-                               <https://evilscript.altervista.org/productCatalog.owl#2in1> ;
+                               <https://evilscript.altervista.org/yapo.owl#2in1> ;
               rdfs:comment "A catalog of products made to keep track of stock coverage"@en ;
               rdfs:label "StockCatalog"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Tablet
+###  https://evilscript.altervista.org/yapo.owl#Tablet
 :Tablet rdf:type owl:Class ;
         rdfs:subClassOf :PortableDevice ;
         owl:disjointWith <https://www.w3.org/ns/dcat#Catalog> ;
@@ -1854,19 +1854,19 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
         rdfs:label "Tablet"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#User
+###  https://evilscript.altervista.org/yapo.owl#User
 :User rdf:type owl:Class ;
       rdfs:subClassOf <http://xmlns.com/foaf/0.1/Person> ;
       rdfs:comment "An individual using a product"@en ;
       rdfs:label "User"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#2in1
-<https://evilscript.altervista.org/productCatalog.owl#2in1> rdf:type owl:Class ;
-                                                            rdfs:subClassOf :PortableDevice ;
-                                                            owl:disjointWith <https://www.w3.org/ns/dcat#Catalog> ;
-                                                            rdfs:comment "A portable computer that has features of both tablets and laptops"@en ;
-                                                            rdfs:label "2in1"@en .
+###  https://evilscript.altervista.org/yapo.owl#2in1
+<https://evilscript.altervista.org/yapo.owl#2in1> rdf:type owl:Class ;
+                                                  rdfs:subClassOf :PortableDevice ;
+                                                  owl:disjointWith <https://www.w3.org/ns/dcat#Catalog> ;
+                                                  rdfs:comment "A portable computer that has features of both tablets and laptops"@en ;
+                                                  rdfs:label "2in1"@en .
 
 
 ###  https://www.w3.org/ns/dcat#Catalog
@@ -1877,7 +1877,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 #    Individuals
 #################################################################
 
-###  https://evilscript.altervista.org/productCatalog.owl#AirPods_wirelessCharge
+###  https://evilscript.altervista.org/yapo.owl#AirPods_wirelessCharge
 :AirPods_wirelessCharge rdf:type owl:NamedIndividual ,
                                  <http://purl.org/dc/dcmitype/PhysicalObject> ,
                                  <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ,
@@ -1891,7 +1891,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                         <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf> :AppleAccessories ;
                         <http://www.ontologydesignpatterns.org/cp/owl/list.owl#nextItem> :AppleWatchSeries6_40mm_GPS_Cellular_Nike ;
                         <http://www.ontologydesignpatterns.org/cp/owl/list.owl#previousItem> :Lightning_cable ;
-                        <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/productCatalog.owl#200Euro> ;
+                        <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/yapo.owl#200Euro> ;
                         <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyFollows> :AppleWatchSeries6_40mm_GPS_Cellular_Nike ;
                         <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyPrecedes> :Lightning_cable ;
                         <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows> :AppleWatchSeries6_40mm_GPS_Cellular_Nike ;
@@ -1917,7 +1917,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                         rdfs:label "AirPods_wirelessCharge"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Apple
+###  https://evilscript.altervista.org/yapo.owl#Apple
 :Apple rdf:type owl:NamedIndividual ,
                 <http://xmlns.com/foaf/0.1/Organization> ,
                 :Company ,
@@ -1934,9 +1934,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                   :iPhone12_64 ,
                   :iPhoneX_64 ;
        :manufacturesTo :BeatsAudio ,
-                       :Foxconn ,
-                       :Qualcomm ,
-                       :ShortFactory ;
+                       :Foxconn ;
        :putInBoxes :Lightning_cable ,
                    :USBC_cable ;
        :sells :AirPods_wirelessCharge ,
@@ -1953,7 +1951,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
        rdfs:label "Apple"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#AppleAccessories
+###  https://evilscript.altervista.org/yapo.owl#AppleAccessories
 :AppleAccessories rdf:type owl:NamedIndividual ,
                            <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag> ,
                            <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> ,
@@ -1973,7 +1971,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                   rdfs:label "AppleAccessories"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#AppleCatalog
+###  https://evilscript.altervista.org/yapo.owl#AppleCatalog
 :AppleCatalog rdf:type owl:NamedIndividual ,
                        <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> ,
                        :ProductCatalog ,
@@ -1999,7 +1997,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
               rdfs:label "AppleCatalog"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#AppleMobile
+###  https://evilscript.altervista.org/yapo.owl#AppleMobile
 :AppleMobile rdf:type owl:NamedIndividual ,
                       <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag> ,
                       <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> ,
@@ -2021,7 +2019,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:label "AppleMobile"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#ApplePC
+###  https://evilscript.altervista.org/yapo.owl#ApplePC
 :ApplePC rdf:type owl:NamedIndividual ,
                   <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag> ,
                   <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> ,
@@ -2039,7 +2037,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:label "ApplePC"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#AppleWatchSeries6_40mm_GPS_Cellular_Nike
+###  https://evilscript.altervista.org/yapo.owl#AppleWatchSeries6_40mm_GPS_Cellular_Nike
 :AppleWatchSeries6_40mm_GPS_Cellular_Nike rdf:type owl:NamedIndividual ,
                                                    <http://purl.org/dc/dcmitype/PhysicalObject> ,
                                                    <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ,
@@ -2055,7 +2053,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                           <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf> :AppleAccessories ;
                                           <http://www.ontologydesignpatterns.org/cp/owl/list.owl#lastItemOf> :AppleAccessories ;
                                           <http://www.ontologydesignpatterns.org/cp/owl/list.owl#previousItem> :AirPods_wirelessCharge ;
-                                          <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/productCatalog.owl#500Euro> ;
+                                          <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/yapo.owl#500Euro> ;
                                           <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyPrecedes> :AirPods_wirelessCharge ;
                                           <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :AirPods_wirelessCharge ,
                                                                                                                :Lightning_cable ;
@@ -2091,7 +2089,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                                           rdfs:label "AppleWatchSeries6_40mm_GPS_Cellular"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Asus
+###  https://evilscript.altervista.org/yapo.owl#Asus
 :Asus rdf:type owl:NamedIndividual ,
                <http://xmlns.com/foaf/0.1/Organization> ,
                :Company ,
@@ -2101,14 +2099,13 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
       :designs :ZenBookFlip_S_UX371 ;
       :hasCatalog :AsusCatalog ;
       :isBrandOf :ZenBookFlip_S_UX371 ;
-      :manufacturesTo :Asus ,
-                      :Huáshuò ;
+      :manufacturesTo :Asus ;
       :sells :ZenBookFlip_S_UX371 ;
       rdfs:comment "AsusTek is a Taiwanese multinational computer and phone hardware and electronics company headquartered in Beitou District, Taipei, Taiwan."@en ;
       rdfs:label "Asus"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#AsusCatalog
+###  https://evilscript.altervista.org/yapo.owl#AsusCatalog
 :AsusCatalog rdf:type owl:NamedIndividual ,
                       <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> ,
                       :ProductCatalog ,
@@ -2121,7 +2118,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:label "AsusCatalog"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#AsusPC
+###  https://evilscript.altervista.org/yapo.owl#AsusPC
 :AsusPC rdf:type owl:NamedIndividual ,
                  <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag> ,
                  <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> ,
@@ -2137,7 +2134,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
         rdfs:label "AsusPC"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#BeatsAudio
+###  https://evilscript.altervista.org/yapo.owl#BeatsAudio
 :BeatsAudio rdf:type owl:NamedIndividual ,
                      <http://xmlns.com/foaf/0.1/Organization> ,
                      :Company ,
@@ -2149,7 +2146,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:label "BeatsAudio"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#BeatsEarPlugs
+###  https://evilscript.altervista.org/yapo.owl#BeatsEarPlugs
 :BeatsEarPlugs rdf:type owl:NamedIndividual ,
                         <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag> ,
                         <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> ,
@@ -2165,7 +2162,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:label "BeatsEarPlugs"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Beats_cuffie
+###  https://evilscript.altervista.org/yapo.owl#Beats_cuffie
 :Beats_cuffie rdf:type owl:NamedIndividual ,
                        <http://purl.org/dc/dcmitype/PhysicalObject> ,
                        <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ,
@@ -2179,7 +2176,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
               <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf> :BeatsEarPlugs ;
               <http://www.ontologydesignpatterns.org/cp/owl/list.owl#firstItemOf> :BeatsEarPlugs ;
               <http://www.ontologydesignpatterns.org/cp/owl/list.owl#lastItemOf> :BeatsEarPlugs ;
-              <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/productCatalog.owl#200Euro> ;
+              <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/yapo.owl#200Euro> ;
               :designedBy :BeatsAudio ;
               :hasBrand :BeatsAudio ;
               :isContainedIn :AppleCatalog ;
@@ -2189,14 +2186,14 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
               rdfs:label "Beats_cuffie"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Euro
+###  https://evilscript.altervista.org/yapo.owl#Euro
 :Euro rdf:type owl:NamedIndividual ,
                <http://www.ontologydesignpatterns.org/cp/owl/price.owl#Currency> ;
       rdfs:comment "European Currency"@en ;
       rdfs:label "Euro"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Foxconn
+###  https://evilscript.altervista.org/yapo.owl#Foxconn
 :Foxconn rdf:type owl:NamedIndividual ,
                   <http://xmlns.com/foaf/0.1/Organization> ,
                   :BigEngineering ,
@@ -2215,7 +2212,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:label "Foxconn"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Giovanni_PowerUser
+###  https://evilscript.altervista.org/yapo.owl#Giovanni_PowerUser
 :Giovanni_PowerUser rdf:type owl:NamedIndividual ,
                              <http://xmlns.com/foaf/0.1/Person> ,
                              :PowerUser ,
@@ -2225,13 +2222,12 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                     rdfs:label "Giovanni"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Huáshuò
+###  https://evilscript.altervista.org/yapo.owl#Huáshuò
 :Huáshuò rdf:type owl:NamedIndividual ,
                   <http://xmlns.com/foaf/0.1/Organization> ,
                   :Company ,
                   :Factory ,
                   :Manufacturer ;
-         :isManifacturerOf :Samsung ;
          :produces :SamsungGalaxyS10_global ,
                    :SamsungGalaxyS20_5G_global ,
                    :ZenBookFlip_S_UX371 ;
@@ -2239,7 +2235,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:label "Huáshuò"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#IpadAir_2020
+###  https://evilscript.altervista.org/yapo.owl#IpadAir_2020
 :IpadAir_2020 rdf:type owl:NamedIndividual ,
                        <http://purl.org/dc/dcmitype/PhysicalObject> ,
                        <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ,
@@ -2255,7 +2251,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
               <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf> :AppleMobile ;
               <http://www.ontologydesignpatterns.org/cp/owl/list.owl#lastItemOf> :AppleMobile ;
               <http://www.ontologydesignpatterns.org/cp/owl/list.owl#previousItem> :iPhone12_64 ;
-              <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/productCatalog.owl#600Euro> ;
+              <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/yapo.owl#600Euro> ;
               <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyPrecedes> :iPhone12_64 ;
               <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :iPhone12_64 ;
               :containsInBox :USBC_cable ;
@@ -2285,7 +2281,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
               rdfs:label "iPadAir_2020"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Iphone11_64
+###  https://evilscript.altervista.org/yapo.owl#Iphone11_64
 :Iphone11_64 rdf:type owl:NamedIndividual ,
                       <http://purl.org/dc/dcmitype/PhysicalObject> ,
                       <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ,
@@ -2301,7 +2297,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
              <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf> :AppleMobile ;
              <http://www.ontologydesignpatterns.org/cp/owl/list.owl#nextItem> :iMac_27_RetinaDisplay_5k_256 ;
              <http://www.ontologydesignpatterns.org/cp/owl/list.owl#previousItem> :iPhoneX_64 ;
-             <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/productCatalog.owl#600Euro> ;
+             <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/yapo.owl#600Euro> ;
              <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyFollows> :iMac_27_RetinaDisplay_5k_256 ;
              <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyPrecedes> :iPhoneX_64 ;
              <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows> :MacBookAir_M1 ,
@@ -2338,7 +2334,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:label "iPhone11_64"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Lightning_cable
+###  https://evilscript.altervista.org/yapo.owl#Lightning_cable
 :Lightning_cable rdf:type owl:NamedIndividual ,
                           <http://purl.org/dc/dcmitype/PhysicalObject> ,
                           <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ,
@@ -2352,7 +2348,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                  <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf> :AppleAccessories ;
                  <http://www.ontologydesignpatterns.org/cp/owl/list.owl#firstItemOf> :AppleAccessories ;
                  <http://www.ontologydesignpatterns.org/cp/owl/list.owl#nextItem> :AirPods_wirelessCharge ;
-                 <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/productCatalog.owl#10Euro> ;
+                 <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/yapo.owl#10Euro> ;
                  <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyFollows> :AirPods_wirelessCharge ;
                  <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows> :AirPods_wirelessCharge ,
                                                                                      :AppleWatchSeries6_40mm_GPS_Cellular_Nike ;
@@ -2367,7 +2363,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                  rdfs:label "Lightning_cable"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#MacBookAir_M1
+###  https://evilscript.altervista.org/yapo.owl#MacBookAir_M1
 :MacBookAir_M1 rdf:type owl:NamedIndividual ,
                         <http://purl.org/dc/dcmitype/PhysicalObject> ,
                         <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ,
@@ -2383,7 +2379,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf> :ApplePC ;
                <http://www.ontologydesignpatterns.org/cp/owl/list.owl#lastItemOf> :ApplePC ;
                <http://www.ontologydesignpatterns.org/cp/owl/list.owl#previousItem> :iMac_27_RetinaDisplay_5k_256 ;
-               <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/productCatalog.owl#1000Euro> ;
+               <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/yapo.owl#1000Euro> ;
                <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyPrecedes> :iMac_27_RetinaDisplay_5k_256 ;
                <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :Iphone11_64 ,
                                                                                     :iMac_27_RetinaDisplay_5k_256 ,
@@ -2414,7 +2410,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:label "MacBookAir_M1"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Michela_CasualUser
+###  https://evilscript.altervista.org/yapo.owl#Michela_CasualUser
 :Michela_CasualUser rdf:type owl:NamedIndividual ,
                              <http://xmlns.com/foaf/0.1/Person> ,
                              :User ;
@@ -2423,7 +2419,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                     rdfs:label "Michela"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Nike
+###  https://evilscript.altervista.org/yapo.owl#Nike
 :Nike rdf:type owl:NamedIndividual ,
                <http://xmlns.com/foaf/0.1/Organization> ,
                :Company ;
@@ -2431,7 +2427,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
       rdfs:label "Nike"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Qualcomm
+###  https://evilscript.altervista.org/yapo.owl#Qualcomm
 :Qualcomm rdf:type owl:NamedIndividual ,
                    <http://xmlns.com/foaf/0.1/Organization> ,
                    :Company ,
@@ -2448,7 +2444,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
           rdfs:label "Qualcomm"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#Samsung
+###  https://evilscript.altervista.org/yapo.owl#Samsung
 :Samsung rdf:type owl:NamedIndividual ,
                   <http://xmlns.com/foaf/0.1/Organization> ,
                   :Company ,
@@ -2458,8 +2454,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
          :isBrandOf :SamsungGalaxyS10_global ,
                     :SamsungGalaxyS20_5G_global ,
                     :USBC_cable ;
-         :manufacturesTo :Huáshuò ,
-                         :ShortEngineer ;
+         :manufacturesTo :ShortEngineer ;
          :putInBoxes :USBC_cable ;
          :sells :SamsungGalaxyS10_global ,
                 :SamsungGalaxyS20_5G_global ,
@@ -2468,7 +2463,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:label "Samsung"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#SamsungAccessories
+###  https://evilscript.altervista.org/yapo.owl#SamsungAccessories
 :SamsungAccessories rdf:type owl:NamedIndividual ,
                              <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag> ,
                              <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> ,
@@ -2484,7 +2479,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                     rdfs:label "SamsungAccessories"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#SamsungCatalag
+###  https://evilscript.altervista.org/yapo.owl#SamsungCatalag
 :SamsungCatalag rdf:type owl:NamedIndividual ,
                          <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> ,
                          :ProductCatalog ,
@@ -2500,7 +2495,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                 rdfs:label "SamsungCatalog"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#SamsungGalaxy
+###  https://evilscript.altervista.org/yapo.owl#SamsungGalaxy
 :SamsungGalaxy rdf:type owl:NamedIndividual ,
                         <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag> ,
                         <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> ,
@@ -2518,7 +2513,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:label "SamsungGalaxy"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#SamsungGalaxyS10_global
+###  https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global
 :SamsungGalaxyS10_global rdf:type owl:NamedIndividual ,
                                   <http://purl.org/dc/dcmitype/PhysicalObject> ,
                                   <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ,
@@ -2534,7 +2529,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                          <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf> :SamsungGalaxy ;
                          <http://www.ontologydesignpatterns.org/cp/owl/list.owl#firstItemOf> :SamsungGalaxy ;
                          <http://www.ontologydesignpatterns.org/cp/owl/list.owl#nextItem> :SamsungGalaxyS20_5G_global ;
-                         <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/productCatalog.owl#500Euro> ;
+                         <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/yapo.owl#500Euro> ;
                          <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyFollows> :SamsungGalaxyS20_5G_global ;
                          <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows> :SamsungGalaxyS20_5G_global ;
                          :containsInBox :USBC_cable ;
@@ -2566,7 +2561,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                          rdfs:label "SamsungGalaxyS10_global"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#SamsungGalaxyS20_5G_global
+###  https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS20_5G_global
 :SamsungGalaxyS20_5G_global rdf:type owl:NamedIndividual ,
                                      <http://purl.org/dc/dcmitype/PhysicalObject> ,
                                      <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ,
@@ -2582,7 +2577,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                             <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf> :SamsungGalaxy ;
                             <http://www.ontologydesignpatterns.org/cp/owl/list.owl#lastItemOf> :SamsungGalaxy ;
                             <http://www.ontologydesignpatterns.org/cp/owl/list.owl#previousItem> :SamsungGalaxyS10_global ;
-                            <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/productCatalog.owl#800Euro> ;
+                            <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/yapo.owl#800Euro> ;
                             <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyPrecedes> :SamsungGalaxyS10_global ;
                             <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#precedes> :SamsungGalaxyS10_global ;
                             :containsInBox :USBC_cable ;
@@ -2614,7 +2609,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                             rdfs:label "SamsungGalaxyS20_5G_global"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#ShortEngineer
+###  https://evilscript.altervista.org/yapo.owl#ShortEngineer
 :ShortEngineer rdf:type owl:NamedIndividual ,
                         <http://xmlns.com/foaf/0.1/Organization> ,
                         :Company ,
@@ -2628,7 +2623,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:label "ShortEngineer"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#ShortFactory
+###  https://evilscript.altervista.org/yapo.owl#ShortFactory
 :ShortFactory rdf:type owl:NamedIndividual ,
                        <http://xmlns.com/foaf/0.1/Organization> ,
                        :Company ,
@@ -2639,7 +2634,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
               rdfs:label "ShortFactory"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#USBC_cable
+###  https://evilscript.altervista.org/yapo.owl#USBC_cable
 :USBC_cable rdf:type owl:NamedIndividual ,
                      <http://purl.org/dc/dcmitype/PhysicalObject> ,
                      <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ,
@@ -2664,7 +2659,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:label "USBC_cable"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#ZenBookFlip_S_UX371
+###  https://evilscript.altervista.org/yapo.owl#ZenBookFlip_S_UX371
 :ZenBookFlip_S_UX371 rdf:type owl:NamedIndividual ,
                               <http://purl.org/dc/dcmitype/PhysicalObject> ,
                               <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ,
@@ -2674,12 +2669,12 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                               :Device ,
                               :PortableDevice ,
                               :Product ,
-                              <https://evilscript.altervista.org/productCatalog.owl#2in1> ;
+                              <https://evilscript.altervista.org/yapo.owl#2in1> ;
                      <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf> :AsusPC ;
                      <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf> :AsusPC ;
                      <http://www.ontologydesignpatterns.org/cp/owl/list.owl#firstItemOf> :AsusPC ;
                      <http://www.ontologydesignpatterns.org/cp/owl/list.owl#lastItemOf> :AsusPC ;
-                     <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/productCatalog.owl#1800Euro> ;
+                     <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/yapo.owl#1800Euro> ;
                      :designedBy :Asus ;
                      :hasBrand :Asus ;
                      :isContainedIn :AsusCatalog ;
@@ -2707,7 +2702,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                      rdfs:label "ZenBookFlip_S_UX371"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#iMac_27_RetinaDisplay_5k_256
+###  https://evilscript.altervista.org/yapo.owl#iMac_27_RetinaDisplay_5k_256
 :iMac_27_RetinaDisplay_5k_256 rdf:type owl:NamedIndividual ,
                                        <http://purl.org/dc/dcmitype/PhysicalObject> ,
                                        <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ,
@@ -2724,7 +2719,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                               <http://www.ontologydesignpatterns.org/cp/owl/list.owl#firstItemOf> :ApplePC ;
                               <http://www.ontologydesignpatterns.org/cp/owl/list.owl#nextItem> :MacBookAir_M1 ;
                               <http://www.ontologydesignpatterns.org/cp/owl/list.owl#previousItem> :Iphone11_64 ;
-                              <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/productCatalog.owl#1800Euro> ;
+                              <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/yapo.owl#1800Euro> ;
                               <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyFollows> :MacBookAir_M1 ;
                               <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyPrecedes> :Iphone11_64 ;
                               <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows> :MacBookAir_M1 ;
@@ -2756,7 +2751,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                               rdfs:label "iMac_27_RetinaDisplay_5k_256"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#iPhone12_64
+###  https://evilscript.altervista.org/yapo.owl#iPhone12_64
 :iPhone12_64 rdf:type owl:NamedIndividual ,
                       <http://purl.org/dc/dcmitype/PhysicalObject> ,
                       <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ,
@@ -2771,7 +2766,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
              <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#itemOf> :AppleMobile ;
              <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf> :AppleMobile ;
              <http://www.ontologydesignpatterns.org/cp/owl/list.owl#nextItem> :IpadAir_2020 ;
-             <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/productCatalog.owl#800Euro> ;
+             <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/yapo.owl#800Euro> ;
              <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyFollows> :IpadAir_2020 ;
              <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows> :IpadAir_2020 ;
              :containsInBox :Lightning_cable ;
@@ -2804,7 +2799,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:label "iPhone12_64"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#iPhoneX_64
+###  https://evilscript.altervista.org/yapo.owl#iPhoneX_64
 :iPhoneX_64 rdf:type owl:NamedIndividual ,
                      <http://purl.org/dc/dcmitype/PhysicalObject> ,
                      <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ,
@@ -2819,7 +2814,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
             <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf> :AppleMobile ;
             <http://www.ontologydesignpatterns.org/cp/owl/list.owl#firstItemOf> :AppleMobile ;
             <http://www.ontologydesignpatterns.org/cp/owl/list.owl#nextItem> :Iphone11_64 ;
-            <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/productCatalog.owl#500Euro> ;
+            <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasPrice> <https://evilscript.altervista.org/yapo.owl#500Euro> ;
             <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyFollows> :Iphone11_64 ;
             <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#follows> :Iphone11_64 ,
                                                                                 :MacBookAir_M1 ,
@@ -2834,80 +2829,80 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:label "iPhoneX_64"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#10Euro
-<https://evilscript.altervista.org/productCatalog.owl#10Euro> rdf:type owl:NamedIndividual ,
-                                                                       <http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price> ;
-                                                              <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasCurrency> :Euro ;
-                                                              <http://www.ontologydesignpatterns.org/cp/owl/price.owl#isPriceOf> :Lightning_cable ;
-                                                              <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasValue> "10.0"^^xsd:float ;
-                                                              rdfs:comment "10 Euro"@en ;
-                                                              rdfs:label "10Euro"@en .
+###  https://evilscript.altervista.org/yapo.owl#10Euro
+<https://evilscript.altervista.org/yapo.owl#10Euro> rdf:type owl:NamedIndividual ,
+                                                             <http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price> ;
+                                                    <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasCurrency> :Euro ;
+                                                    <http://www.ontologydesignpatterns.org/cp/owl/price.owl#isPriceOf> :Lightning_cable ;
+                                                    <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasValue> "10.0"^^xsd:float ;
+                                                    rdfs:comment "10 Euro"@en ;
+                                                    rdfs:label "10Euro"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#1000Euro
-<https://evilscript.altervista.org/productCatalog.owl#1000Euro> rdf:type owl:NamedIndividual ,
-                                                                         <http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price> ;
-                                                                <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasCurrency> :Euro ;
-                                                                <http://www.ontologydesignpatterns.org/cp/owl/price.owl#isPriceOf> :MacBookAir_M1 ;
-                                                                <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasValue> "1000.0"^^xsd:float ;
-                                                                rdfs:comment "1000 Euro"@en ;
-                                                                rdfs:label "1000Euro"@en .
+###  https://evilscript.altervista.org/yapo.owl#1000Euro
+<https://evilscript.altervista.org/yapo.owl#1000Euro> rdf:type owl:NamedIndividual ,
+                                                               <http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price> ;
+                                                      <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasCurrency> :Euro ;
+                                                      <http://www.ontologydesignpatterns.org/cp/owl/price.owl#isPriceOf> :MacBookAir_M1 ;
+                                                      <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasValue> "1000.0"^^xsd:float ;
+                                                      rdfs:comment "1000 Euro"@en ;
+                                                      rdfs:label "1000Euro"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#1800Euro
-<https://evilscript.altervista.org/productCatalog.owl#1800Euro> rdf:type owl:NamedIndividual ,
-                                                                         <http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price> ;
-                                                                <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasCurrency> :Euro ;
-                                                                <http://www.ontologydesignpatterns.org/cp/owl/price.owl#isPriceOf> :ZenBookFlip_S_UX371 ,
-                                                                                                                                   :iMac_27_RetinaDisplay_5k_256 ;
-                                                                <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasValue> "1800.0"^^xsd:float ;
-                                                                rdfs:comment "1800 Euro"@en ;
-                                                                rdfs:label "1800Euro"@en .
+###  https://evilscript.altervista.org/yapo.owl#1800Euro
+<https://evilscript.altervista.org/yapo.owl#1800Euro> rdf:type owl:NamedIndividual ,
+                                                               <http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price> ;
+                                                      <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasCurrency> :Euro ;
+                                                      <http://www.ontologydesignpatterns.org/cp/owl/price.owl#isPriceOf> :ZenBookFlip_S_UX371 ,
+                                                                                                                         :iMac_27_RetinaDisplay_5k_256 ;
+                                                      <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasValue> "1800.0"^^xsd:float ;
+                                                      rdfs:comment "1800 Euro"@en ;
+                                                      rdfs:label "1800Euro"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#200Euro
-<https://evilscript.altervista.org/productCatalog.owl#200Euro> rdf:type owl:NamedIndividual ,
-                                                                        <http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price> ;
-                                                               <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasCurrency> :Euro ;
-                                                               <http://www.ontologydesignpatterns.org/cp/owl/price.owl#isPriceOf> :AirPods_wirelessCharge ,
-                                                                                                                                  :Beats_cuffie ;
-                                                               <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasValue> "200.0"^^xsd:float ;
-                                                               rdfs:comment "200 Euro"@en ;
-                                                               rdfs:label "200Euro"@en .
+###  https://evilscript.altervista.org/yapo.owl#200Euro
+<https://evilscript.altervista.org/yapo.owl#200Euro> rdf:type owl:NamedIndividual ,
+                                                              <http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price> ;
+                                                     <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasCurrency> :Euro ;
+                                                     <http://www.ontologydesignpatterns.org/cp/owl/price.owl#isPriceOf> :AirPods_wirelessCharge ,
+                                                                                                                        :Beats_cuffie ;
+                                                     <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasValue> "200.0"^^xsd:float ;
+                                                     rdfs:comment "200 Euro"@en ;
+                                                     rdfs:label "200Euro"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#500Euro
-<https://evilscript.altervista.org/productCatalog.owl#500Euro> rdf:type owl:NamedIndividual ,
-                                                                        <http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price> ;
-                                                               <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasCurrency> :Euro ;
-                                                               <http://www.ontologydesignpatterns.org/cp/owl/price.owl#isPriceOf> :AppleWatchSeries6_40mm_GPS_Cellular_Nike ,
-                                                                                                                                  :SamsungGalaxyS10_global ,
-                                                                                                                                  :iPhoneX_64 ;
-                                                               <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasValue> "500.0"^^xsd:float ;
-                                                               rdfs:comment "500 Euro"@en ;
-                                                               rdfs:label "500Euro"@en .
+###  https://evilscript.altervista.org/yapo.owl#500Euro
+<https://evilscript.altervista.org/yapo.owl#500Euro> rdf:type owl:NamedIndividual ,
+                                                              <http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price> ;
+                                                     <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasCurrency> :Euro ;
+                                                     <http://www.ontologydesignpatterns.org/cp/owl/price.owl#isPriceOf> :AppleWatchSeries6_40mm_GPS_Cellular_Nike ,
+                                                                                                                        :SamsungGalaxyS10_global ,
+                                                                                                                        :iPhoneX_64 ;
+                                                     <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasValue> "500.0"^^xsd:float ;
+                                                     rdfs:comment "500 Euro"@en ;
+                                                     rdfs:label "500Euro"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#600Euro
-<https://evilscript.altervista.org/productCatalog.owl#600Euro> rdf:type owl:NamedIndividual ,
-                                                                        <http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price> ;
-                                                               <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasCurrency> :Euro ;
-                                                               <http://www.ontologydesignpatterns.org/cp/owl/price.owl#isPriceOf> :IpadAir_2020 ,
-                                                                                                                                  :Iphone11_64 ;
-                                                               <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasValue> "600.0"^^xsd:float ;
-                                                               rdfs:comment "600 Euro"@en ;
-                                                               rdfs:label "600Euro"@en .
+###  https://evilscript.altervista.org/yapo.owl#600Euro
+<https://evilscript.altervista.org/yapo.owl#600Euro> rdf:type owl:NamedIndividual ,
+                                                              <http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price> ;
+                                                     <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasCurrency> :Euro ;
+                                                     <http://www.ontologydesignpatterns.org/cp/owl/price.owl#isPriceOf> :IpadAir_2020 ,
+                                                                                                                        :Iphone11_64 ;
+                                                     <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasValue> "600.0"^^xsd:float ;
+                                                     rdfs:comment "600 Euro"@en ;
+                                                     rdfs:label "600Euro"@en .
 
 
-###  https://evilscript.altervista.org/productCatalog.owl#800Euro
-<https://evilscript.altervista.org/productCatalog.owl#800Euro> rdf:type owl:NamedIndividual ,
-                                                                        <http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price> ;
-                                                               <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasCurrency> :Euro ;
-                                                               <http://www.ontologydesignpatterns.org/cp/owl/price.owl#isPriceOf> :SamsungGalaxyS20_5G_global ,
-                                                                                                                                  :iPhone12_64 ;
-                                                               <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasValue> "800.0"^^xsd:float ;
-                                                               rdfs:comment "800 Euro"@en ;
-                                                               rdfs:label "800Euro"@en .
+###  https://evilscript.altervista.org/yapo.owl#800Euro
+<https://evilscript.altervista.org/yapo.owl#800Euro> rdf:type owl:NamedIndividual ,
+                                                              <http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price> ;
+                                                     <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasCurrency> :Euro ;
+                                                     <http://www.ontologydesignpatterns.org/cp/owl/price.owl#isPriceOf> :SamsungGalaxyS20_5G_global ,
+                                                                                                                        :iPhone12_64 ;
+                                                     <http://www.ontologydesignpatterns.org/cp/owl/price.owl#hasValue> "800.0"^^xsd:float ;
+                                                     rdfs:comment "800 Euro"@en ;
+                                                     rdfs:label "800Euro"@en .
 
 
 #################################################################

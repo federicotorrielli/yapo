@@ -1,0 +1,2224 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://evilscript.altervista.org/productCatalog.owl#"
+     xml:base="https://evilscript.altervista.org/productCatalog.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:bag="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:pto="http://www.productontology.org/id/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:list="http://www.ontologydesignpatterns.org/cp/owl/list.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:sipg="http://www.modsem.com/productCatalog#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:yapo="https://evilscript.altervista.org/yapo.owl#"
+     xmlns:price="http://www.ontologydesignpatterns.org/cp/owl/price.owl#"
+     xmlns:collectionentity="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
+    <owl:Ontology rdf:about="https://evilscript.altervista.org/yapo.owl">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl"/>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Federico Torrielli</dc:creator>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ivan Spada</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</dc:date>
+        <dc:description xml:lang="en">YAPO is a product management/catalog ontology to demonstrate a fairly simple product catalog and how a reasoner shoud work with Company nodes and devices. It could also be applied as a model for other companies product catalogs</dc:description>
+        <vann:preferredNamespacePrefix>yapo</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>https://evilscript.altervista.org/yapo.owl</vann:preferredNamespaceUri>
+        <rdfs:label xml:lang="en">Yet Another Product Ontology</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/name -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/name"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#PortType -->
+
+    <owl:AnnotationProperty rdf:about="https://evilscript.altervista.org/yapo.owl#PortType"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#brandContainedIn -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#brandContainedIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://evilscript.altervista.org/yapo.owl#containsBrand"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#SellingCatalog"/>
+        <rdfs:comment xml:lang="en">Shows if a company is listed on a Selling Catalog</rdfs:comment>
+        <rdfs:label xml:lang="en">brandContainedIn</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#buysFrom -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#buysFrom">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#User"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#SellingCatalog"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#buysProduct"/>
+            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#isContainedIn"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Shows what user is buying from the X selling catalog</rdfs:comment>
+        <rdfs:label xml:lang="en">buysFrom</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#buysProduct -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#buysProduct">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#User"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:comment xml:lang="en">Shows what product is the user buying</rdfs:comment>
+        <rdfs:label xml:lang="en">buysProduct</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#collabsWith -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#collabsWith">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#sells"/>
+            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#inCollabWith"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Shows company collaborations to create a certain product</rdfs:comment>
+        <rdfs:label xml:lang="en">collabsWith</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#compatibleWith -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#compatibleWith">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Accessory"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Device"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Device"/>
+        <rdfs:comment xml:lang="en">Checking the compatibility between accessories and devices</rdfs:comment>
+        <rdfs:label xml:lang="en">compatibleWith</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#contains -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#contains">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://evilscript.altervista.org/yapo.owl#isContainedIn"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#ProductCatalog"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Availability of a product in a product catalog</rdfs:comment>
+        <rdfs:label xml:lang="en">contains</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#containsBrand -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#containsBrand">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#SellingCatalog"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#contains"/>
+            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#hasBrand"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Company that sells products in SellingCatalog</rdfs:comment>
+        <rdfs:label xml:lang="en">containsBrand</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#containsInBox -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#containsInBox">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://evilscript.altervista.org/yapo.owl#inBoxOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Accessory"/>
+        <rdfs:comment xml:lang="en">Shows the items inside a product box</rdfs:comment>
+        <rdfs:label xml:lang="en">containsInBox</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#designedBy -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#designedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://evilscript.altervista.org/yapo.owl#designs"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Engineering"/>
+        <rdfs:comment xml:lang="en">Who made the design of a product</rdfs:comment>
+        <rdfs:label xml:lang="en">designedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#designs -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#designs">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Engineering"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:comment xml:lang="en">Who made the design of a product</rdfs:comment>
+        <rdfs:label xml:lang="en">designs</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#fitFor -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#fitFor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Cover"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+        <rdfs:comment xml:lang="en">Checking the compatibility between a cover and its device</rdfs:comment>
+        <rdfs:label xml:lang="en">fitFor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#hasBrand -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#hasBrand">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://evilscript.altervista.org/yapo.owl#isBrandOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <rdfs:comment xml:lang="en">Shows the brand of the product</rdfs:comment>
+        <rdfs:label xml:lang="en">hasBrand</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#hasCatalog -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#hasCatalog">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#ProductCatalog"/>
+        <rdfs:comment xml:lang="en">Shows what catalog X Company has available</rdfs:comment>
+        <rdfs:label xml:lang="en">hasCatalog</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#hasProducer -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#hasProducer">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Engineering"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Factory"/>
+        <rdfs:comment xml:lang="en">Checking what engineering produced the design to be produced in a factory</rdfs:comment>
+        <rdfs:label xml:lang="en">hasProducer</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#inBoxOf -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#inBoxOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Accessory"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:comment xml:lang="en">What products has a device&apos;s box in</rdfs:comment>
+        <rdfs:label xml:lang="en">inBoxOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#inCollabWith -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#inCollabWith">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <rdfs:comment xml:lang="en">Shows company collaborations to create a certain product</rdfs:comment>
+        <rdfs:label xml:lang="en">inCollabWith</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#isBrandOf -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#isBrandOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:comment xml:lang="en">Shows the products of the brand</rdfs:comment>
+        <rdfs:label xml:lang="en">isBrandOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#isContainedIn -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#isContainedIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#ProductCatalog"/>
+        <rdfs:comment xml:lang="en">Availability of a product in a product catalog</rdfs:comment>
+        <rdfs:label xml:lang="en">isContainedIn</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#isManifacturerOf -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#isManifacturerOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://evilscript.altervista.org/yapo.owl#manufacturesTo"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Manufacturer"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <rdfs:comment xml:lang="en">Keeps track of who is manifacturing this company for</rdfs:comment>
+        <rdfs:label xml:lang="en">isManufacturerOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#manufacturesTo -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#manufacturesTo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Manufacturer"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#sells"/>
+            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#designedBy"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#sells"/>
+            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#producedBy"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Keeps track of who is manifacturing this company for</rdfs:comment>
+        <rdfs:label xml:lang="en">manufacturersTo</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#needsConnectionWith -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#needsConnectionWith">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartwatch"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartphone"/>
+        <rdfs:comment xml:lang="en">Checking the wireless compatibility between a smarwatch and a smartphone</rdfs:comment>
+        <rdfs:label xml:lang="en">needsConnectionWith</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#predecessorOf -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#predecessorOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://evilscript.altervista.org/yapo.owl#successorOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:comment xml:lang="en">Previous device version</rdfs:comment>
+        <rdfs:label xml:lang="en">predecessorOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#producedBy -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#producedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://evilscript.altervista.org/yapo.owl#produces"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Factory"/>
+        <rdfs:comment xml:lang="en">Checking what factory produced the X device</rdfs:comment>
+        <rdfs:label xml:lang="en">producedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#produces -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#produces">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Factory"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:comment xml:lang="en">Checking what factory produced the X device</rdfs:comment>
+        <rdfs:label xml:lang="en">produces</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#putInBoxes -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#putInBoxes">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Accessory"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#sells"/>
+            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#containsInBox"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Shows what items are put in a product&apos;s box</rdfs:comment>
+        <rdfs:label xml:lang="en">putInBoxes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#sells -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#sells">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://evilscript.altervista.org/yapo.owl#soldBy"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#hasCatalog"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Product is sold by X company</rdfs:comment>
+        <rdfs:label xml:lang="en">sells</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#soldBy -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#soldBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <rdfs:comment xml:lang="en">Product is sold by X company</rdfs:comment>
+        <rdfs:label xml:lang="en">soldBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#successorOf -->
+
+    <owl:ObjectProperty rdf:about="https://evilscript.altervista.org/yapo.owl#successorOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:comment xml:lang="en">Next device version</rdfs:comment>
+        <rdfs:label xml:lang="en">successorOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#CameraMP -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#CameraMP">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Computer"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en">Number of megapixels in a camera&apos;s device</rdfs:comment>
+        <rdfs:label xml:lang="en">CameraMegaPixels</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#ChargingPortType -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#ChargingPortType">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#EarPlugs"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>Lightning</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>MicroUSB</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>Proprietary</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>USB-C</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en">Charging port type</rdfs:comment>
+        <rdfs:label xml:lang="en">ChargingPortType</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Color -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#Color">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Color of the product</rdfs:comment>
+        <rdfs:label xml:lang="en">Color</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#CpuType -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#CpuType">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Device"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#EarPlugs"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Cpu name</rdfs:comment>
+        <rdfs:label xml:lang="en">CpuType</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Depth -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#Depth">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en">Depth in mm of a product</rdfs:comment>
+        <rdfs:label xml:lang="en">Depth</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#EAN -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#EAN">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Unique product code of a device</rdfs:comment>
+        <rdfs:label xml:lang="en">EAN</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Height -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#Height">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en">Height of the product</rdfs:comment>
+        <rdfs:label xml:lang="en">Height</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#MemorySize -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#MemorySize">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Computer"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="en">Total &quot;Hard Disk&quot; size</rdfs:comment>
+        <rdfs:label xml:lang="en">MemorySize</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#OperativeSystem -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#OperativeSystem">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Computer"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Operating System installed in a product</rdfs:comment>
+        <rdfs:label xml:lang="en">OperatingSystem</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Price -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#Price">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en">Price in euros of a product</rdfs:comment>
+        <rdfs:label xml:lang="en">Price</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#ProductName -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#ProductName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Shared name of the product</rdfs:comment>
+        <rdfs:label xml:lang="en">ProductName</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#RamSize -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#RamSize">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Computer"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="en">Size in GB of the RAM</rdfs:comment>
+        <rdfs:label xml:lang="en">RamSize</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#RamType -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#RamType">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Computer"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Laptop"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#2in1"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Generic labeling of Ram Type</rdfs:comment>
+        <rdfs:label xml:lang="en">RamType</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#RollOutDate -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#RollOutDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">First date of the roll out</rdfs:comment>
+        <rdfs:label xml:lang="en">RollOutDate</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#ScreenSize -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#ScreenSize">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Computer"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en">Screen size in inches</rdfs:comment>
+        <rdfs:label xml:lang="en">ScreenSize</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Weight -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#Weight">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en">Weight in grams of a product</rdfs:comment>
+        <rdfs:label xml:lang="en">Weight</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Width -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#Width">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en">Witdh in mm of a product</rdfs:comment>
+        <rdfs:label xml:lang="en">Width</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#isInRange -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#isInRange">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>High</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Low</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>Medium</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en">Customer&apos;s range the product is made to</rdfs:comment>
+        <rdfs:label xml:lang="en">isInRange</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#isTouchScreen -->
+
+    <owl:DatatypeProperty rdf:about="https://evilscript.altervista.org/yapo.owl#isTouchScreen">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Computer"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">Checking if a device is touch screen</rdfs:comment>
+        <rdfs:label xml:lang="en">isTouchScreen</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/dcmitype/PhysicalObject -->
+
+    <owl:Class rdf:about="http://purl.org/dc/dcmitype/PhysicalObject"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection">
+        <owl:equivalentClass rdf:resource="https://evilscript.altervista.org/yapo.owl#ProductCatalog"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.productontology.org/id/Headphones -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Headphones">
+        <owl:equivalentClass rdf:resource="https://evilscript.altervista.org/yapo.owl#EarPlugs"/>
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Accessory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.productontology.org/id/Laptop -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Laptop">
+        <owl:equivalentClass rdf:resource="https://evilscript.altervista.org/yapo.owl#Laptop"/>
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.productontology.org/id/Loudspeaker -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Loudspeaker">
+        <owl:equivalentClass rdf:resource="https://evilscript.altervista.org/yapo.owl#Stereo"/>
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#NotPortableDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.productontology.org/id/Personal_computer -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Personal_computer">
+        <owl:equivalentClass rdf:resource="https://evilscript.altervista.org/yapo.owl#Computer"/>
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#NotPortableDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.productontology.org/id/Power_cable -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Power_cable">
+        <owl:equivalentClass rdf:resource="https://evilscript.altervista.org/yapo.owl#Cable"/>
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Accessory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.productontology.org/id/Smartphone -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Smartphone">
+        <owl:equivalentClass rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartphone"/>
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.productontology.org/id/Smartwatch -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Smartwatch">
+        <owl:equivalentClass rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartwatch"/>
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.productontology.org/id/Tablet_computer -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Tablet_computer">
+        <owl:equivalentClass rdf:resource="https://evilscript.altervista.org/yapo.owl#Tablet"/>
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.productontology.org/id/2-in-1_PC -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/2-in-1_PC">
+        <owl:equivalentClass rdf:resource="https://evilscript.altervista.org/yapo.owl#2in1"/>
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.productontology.org/id/Housing_(engineering) -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Housing_(engineering)">
+        <owl:equivalentClass rdf:resource="https://evilscript.altervista.org/yapo.owl#Cover"/>
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Accessory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.productontology.org/id/Product_(business) -->
+
+    <owl:Class rdf:about="http://www.productontology.org/id/Product_(business)">
+        <owl:equivalentClass rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/dc/dcmitype/PhysicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Organization -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Accessory -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#Accessory">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <owl:disjointWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Device"/>
+        <rdfs:comment xml:lang="en">A product used with or within the device use</rdfs:comment>
+        <rdfs:label xml:lang="en">Accessory</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#BigEngineering -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#BigEngineering">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://evilscript.altervista.org/yapo.owl#designs"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Engineering"/>
+        <rdfs:comment xml:lang="en">A part of the engineering process that is eventually bigger than the normal one</rdfs:comment>
+        <rdfs:label xml:lang="en">BigEngineering</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Cable -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#Cable">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Accessory"/>
+        <owl:disjointWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Cover"/>
+        <owl:disjointWith rdf:resource="https://evilscript.altervista.org/yapo.owl#EarPlugs"/>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#CasualUser -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#CasualUser">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#User"/>
+        <owl:disjointWith rdf:resource="https://evilscript.altervista.org/yapo.owl#PowerUser"/>
+        <rdfs:comment xml:lang="en">An individual using a product which is not used to technology</rdfs:comment>
+        <rdfs:label xml:lang="en">CasualUser</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Company -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#Company">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <rdfs:comment xml:lang="en">The company that has the project, the engineering process and the manifacturing to produce the product</rdfs:comment>
+        <rdfs:label xml:lang="en">Company</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Computer -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#Computer">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#NotPortableDevice"/>
+        <owl:disjointWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Stereo"/>
+        <rdfs:comment xml:lang="en">Just a computer</rdfs:comment>
+        <rdfs:label xml:lang="en">Computer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Cover -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#Cover">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Accessory"/>
+        <owl:disjointWith rdf:resource="https://evilscript.altervista.org/yapo.owl#EarPlugs"/>
+        <rdfs:comment xml:lang="en">A product made for protecting a device from accidental falls</rdfs:comment>
+        <rdfs:label xml:lang="en">Cover</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Device -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#Device">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+        <rdfs:comment xml:lang="en">An electronic product</rdfs:comment>
+        <rdfs:label xml:lang="en">Device</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#EarPlugs -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#EarPlugs">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Accessory"/>
+        <rdfs:comment xml:lang="en">A small accessory device made for listening to music</rdfs:comment>
+        <rdfs:label xml:lang="en">EarPlugs</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Engineering -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#Engineering">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://evilscript.altervista.org/yapo.owl#designs"/>
+                <owl:someValuesFrom rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Manufacturer"/>
+        <owl:disjointWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Factory"/>
+        <rdfs:comment xml:lang="en">The part of the Manufacturer process that creates the design of the product</rdfs:comment>
+        <rdfs:label xml:lang="en">Engineering</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Factory -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#Factory">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://evilscript.altervista.org/yapo.owl#produces"/>
+                <owl:someValuesFrom rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Manufacturer"/>
+        <rdfs:comment xml:lang="en">The part of the Manufactorer process that phisically produces the product</rdfs:comment>
+        <rdfs:label xml:lang="en">Factory</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#HardCover -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#HardCover">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Cover"/>
+        <owl:disjointWith rdf:resource="https://evilscript.altervista.org/yapo.owl#SoftCover"/>
+        <rdfs:comment xml:lang="en">An hard cover</rdfs:comment>
+        <rdfs:label xml:lang="en">HardCover</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#ITEngineering -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#ITEngineering">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://evilscript.altervista.org/yapo.owl#designs"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://evilscript.altervista.org/yapo.owl#Device"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Engineering"/>
+        <rdfs:comment xml:lang="en">An Engineering part of the Manufacturer process that specifically contributes to making machines and IT devices</rdfs:comment>
+        <rdfs:label xml:lang="en">ITEngineering</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Laptop -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#Laptop">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+        <owl:disjointWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartphone"/>
+        <owl:disjointWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartwatch"/>
+        <rdfs:comment xml:lang="en">A small portable personal computer</rdfs:comment>
+        <rdfs:label xml:lang="en">Laptop</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Manufacturer -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#Manufacturer">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Apple"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Asus"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#BeatsAudio"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Foxconn"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Huáshuò"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Qualcomm"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Samsung"/>
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#ShortEngineer"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <rdfs:comment xml:lang="en">The part of the company specifically addressed to engineer and produce the X product</rdfs:comment>
+        <rdfs:label xml:lang="en">Manufacturer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#NotPortableDevice -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#NotPortableDevice">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Device"/>
+        <owl:disjointWith rdf:resource="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+        <rdfs:comment xml:lang="en">A device that is not made to be moved from the initial position</rdfs:comment>
+        <rdfs:label xml:lang="en">NotPortableDevice</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#PortableDevice -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#PortableDevice">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Device"/>
+        <rdfs:comment xml:lang="en">A device made for everyday life</rdfs:comment>
+        <rdfs:label xml:lang="en">PortableDevice</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#PowerUser -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#PowerUser">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://evilscript.altervista.org/yapo.owl#buysProduct"/>
+                <owl:someValuesFrom rdf:resource="https://evilscript.altervista.org/yapo.owl#ProductHigh"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#User"/>
+        <rdfs:comment xml:lang="en">An expert individual using a product</rdfs:comment>
+        <rdfs:label xml:lang="en">PowerUser</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Product -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#Product">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/list.owl#ListItem"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://evilscript.altervista.org/yapo.owl#isContainedIn"/>
+                        <owl:someValuesFrom rdf:resource="https://evilscript.altervista.org/yapo.owl#ProductCatalog"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/dc/dcmitype/PhysicalObject"/>
+        <rdfs:comment xml:lang="en">Something that is produced and used</rdfs:comment>
+        <rdfs:label xml:lang="en">Product</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#ProductCatalog -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#ProductCatalog">
+        <owl:equivalentClass rdf:resource="https://www.w3.org/ns/dcat#Catalog"/>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://evilscript.altervista.org/yapo.owl#contains"/>
+                <owl:someValuesFrom rdf:resource="https://evilscript.altervista.org/yapo.owl#Product"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">A catalog of products</rdfs:comment>
+        <rdfs:label xml:lang="en">ProductCatalog</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#ProductHigh -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#ProductHigh">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Product"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://evilscript.altervista.org/yapo.owl#isInRange"/>
+                        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#ProductLow -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#ProductLow">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Product"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://evilscript.altervista.org/yapo.owl#isInRange"/>
+                        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Low</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#ProductMedium -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#ProductMedium">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#Product"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://evilscript.altervista.org/yapo.owl#isInRange"/>
+                        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Medium</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#SellingCatalog -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#SellingCatalog">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#ProductCatalog"/>
+        <owl:disjointWith rdf:resource="https://evilscript.altervista.org/yapo.owl#StockCatalog"/>
+        <rdfs:comment xml:lang="en">A catalog of products made to be sold</rdfs:comment>
+        <rdfs:label xml:lang="en">SellingCatalog</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Smartphone -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#Smartphone">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+        <owl:disjointWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartwatch"/>
+        <owl:disjointWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Tablet"/>
+        <owl:disjointWith rdf:resource="https://evilscript.altervista.org/yapo.owl#2in1"/>
+        <rdfs:comment xml:lang="en">Mobile device that combines cellular and mobile computing functions into one unit</rdfs:comment>
+        <rdfs:label xml:lang="en">Smartphone</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Smartwatch -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#Smartwatch">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+        <owl:disjointWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Tablet"/>
+        <owl:disjointWith rdf:resource="https://evilscript.altervista.org/yapo.owl#2in1"/>
+        <rdfs:comment xml:lang="en">Wearable computer in the form of a watch</rdfs:comment>
+        <rdfs:label xml:lang="en">Smartwatch</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#SoftCover -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#SoftCover">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Cover"/>
+        <rdfs:comment xml:lang="en">A soft cover</rdfs:comment>
+        <rdfs:label xml:lang="en">SoftCover</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Stereo -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#Stereo">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#NotPortableDevice"/>
+        <rdfs:comment xml:lang="en">A big device made for listening to music</rdfs:comment>
+        <rdfs:label xml:lang="en">Stereo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#StockCatalog -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#StockCatalog">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#ProductCatalog"/>
+        <rdfs:comment xml:lang="en">A catalog of products made to keep track of stock coverage</rdfs:comment>
+        <rdfs:label xml:lang="en">StockCatalog</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Tablet -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#Tablet">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+        <rdfs:comment xml:lang="en">Mobile device, typically with a mobile operating system and touchscreen display processing circuitry, and a rechargeable battery in a single, thin and flat package</rdfs:comment>
+        <rdfs:label xml:lang="en">Tablet</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#User -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#User">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:comment xml:lang="en">An individual using a product</rdfs:comment>
+        <rdfs:label xml:lang="en">User</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#2in1 -->
+
+    <owl:Class rdf:about="https://evilscript.altervista.org/yapo.owl#2in1">
+        <rdfs:subClassOf rdf:resource="https://evilscript.altervista.org/yapo.owl#PortableDevice"/>
+        <rdfs:comment xml:lang="en">A portable computer that has features of both tablets and laptops</rdfs:comment>
+        <rdfs:label xml:lang="en">2in1</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.w3.org/ns/dcat#Catalog -->
+
+    <owl:Class rdf:about="https://www.w3.org/ns/dcat#Catalog"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#AirPods_wirelessCharge -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#AirPods_wirelessCharge">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#EarPlugs"/>
+        <list:nextItem rdf:resource="https://evilscript.altervista.org/yapo.owl#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
+        <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#200Euro"/>
+        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <yapo:ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</yapo:ChargingPortType>
+        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">White</yapo:Color>
+        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chip H1</yapo:CpuType>
+        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21.3</yapo:Depth>
+        <yapo:EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A1938</yapo:EAN>
+        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">53.5</yapo:Height>
+        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">229.0</yapo:Price>
+        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AirPods Wireless Charge Case</yapo:ProductName>
+        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-03-20T00:00:00</yapo:RollOutDate>
+        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40.0</yapo:Weight>
+        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">44.3</yapo:Width>
+        <rdfs:comment xml:lang="en">EarPlugs with wireless charge case made by Apple</rdfs:comment>
+        <rdfs:label xml:lang="en">AirPods_wirelessCharge</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Apple -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Apple">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <yapo:hasCatalog rdf:resource="https://evilscript.altervista.org/yapo.owl#AppleCatalog"/>
+        <rdfs:comment xml:lang="en">Famous company that design and sell electronic devices</rdfs:comment>
+        <rdfs:label xml:lang="en">Apple</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#AppleAccessories -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#AppleAccessories">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+        <bag:hasItem rdf:resource="https://evilscript.altervista.org/yapo.owl#AirPods_wirelessCharge"/>
+        <list:hasFirstItem rdf:resource="https://evilscript.altervista.org/yapo.owl#Lightning_cable"/>
+        <list:hasLastItem rdf:resource="https://evilscript.altervista.org/yapo.owl#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
+        <rdfs:comment xml:lang="en">Section of the Apple Product List that covers Accessories</rdfs:comment>
+        <rdfs:label xml:lang="en">AppleAccessories</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#AppleCatalog -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#AppleCatalog">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#SellingCatalog"/>
+        <collectionentity:hasMember rdf:resource="https://evilscript.altervista.org/yapo.owl#AppleAccessories"/>
+        <collectionentity:hasMember rdf:resource="https://evilscript.altervista.org/yapo.owl#AppleMobile"/>
+        <collectionentity:hasMember rdf:resource="https://evilscript.altervista.org/yapo.owl#ApplePC"/>
+        <collectionentity:hasMember rdf:resource="https://evilscript.altervista.org/yapo.owl#BeatsEarPlugs"/>
+        <rdfs:comment xml:lang="en">Apple web site catalog</rdfs:comment>
+        <rdfs:label xml:lang="en">AppleCatalog</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#AppleMobile -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#AppleMobile">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+        <bag:hasItem rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
+        <bag:hasItem rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
+        <list:hasFirstItem rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhoneX_64"/>
+        <list:hasLastItem rdf:resource="https://evilscript.altervista.org/yapo.owl#IpadAir_2020"/>
+        <rdfs:comment xml:lang="en">Section of the Apple Product List that covers Mobile Phones</rdfs:comment>
+        <rdfs:label xml:lang="en">AppleMobile</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#ApplePC -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#ApplePC">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+        <list:hasFirstItem rdf:resource="https://evilscript.altervista.org/yapo.owl#iMac_27_RetinaDisplay_5k_256"/>
+        <list:hasLastItem rdf:resource="https://evilscript.altervista.org/yapo.owl#MacBookAir_M1"/>
+        <rdfs:comment xml:lang="en">Section of the Apple Product List that covers PCs</rdfs:comment>
+        <rdfs:label xml:lang="en">ApplePC</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#AppleWatchSeries6_40mm_GPS_Cellular_Nike -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#AppleWatchSeries6_40mm_GPS_Cellular_Nike">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartwatch"/>
+        <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#500Euro"/>
+        <yapo:compatibleWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
+        <yapo:compatibleWith rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
+        <yapo:compatibleWith rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhoneX_64"/>
+        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <yapo:inCollabWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Nike"/>
+        <yapo:needsConnectionWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
+        <yapo:needsConnectionWith rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
+        <yapo:needsConnectionWith rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhoneX_64"/>
+        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silver, Graphite (DLC), Gold (PVD)</yapo:Color>
+        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dual-core</yapo:CpuType>
+        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.4</yapo:Depth>
+        <yapo:EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A2293</yapo:EAN>
+        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40.0</yapo:Height>
+        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">32</yapo:MemorySize>
+        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">watchOS 7.0</yapo:OperativeSystem>
+        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">539.0</yapo:Price>
+        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple Watch 6 Nike 40mm GPS+Cellular</yapo:ProductName>
+        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</yapo:RamSize>
+        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-19T00:00:00</yapo:RollOutDate>
+        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.57</yapo:ScreenSize>
+        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">39.7</yapo:Weight>
+        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34.0</yapo:Width>
+        <yapo:isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</yapo:isInRange>
+        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</yapo:isTouchScreen>
+        <rdfs:comment xml:lang="en">Top 2020 smartwatch made by Apple</rdfs:comment>
+        <rdfs:label xml:lang="en">AppleWatchSeries6_40mm_GPS_Cellular</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Asus -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Asus">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#ZenBookFlip_S_UX371"/>
+        <yapo:hasCatalog rdf:resource="https://evilscript.altervista.org/yapo.owl#AsusCatalog"/>
+        <rdfs:comment xml:lang="en">AsusTek is a Taiwanese multinational computer and phone hardware and electronics company headquartered in Beitou District, Taipei, Taiwan.</rdfs:comment>
+        <rdfs:label xml:lang="en">Asus</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#AsusCatalog -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#AsusCatalog">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#SellingCatalog"/>
+        <collectionentity:hasMember rdf:resource="https://evilscript.altervista.org/yapo.owl#AsusPC"/>
+        <rdfs:comment xml:lang="en">Asus web site catalog</rdfs:comment>
+        <rdfs:label xml:lang="en">AsusCatalog</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#AsusPC -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#AsusPC">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+        <list:hasFirstItem rdf:resource="https://evilscript.altervista.org/yapo.owl#ZenBookFlip_S_UX371"/>
+        <list:hasLastItem rdf:resource="https://evilscript.altervista.org/yapo.owl#ZenBookFlip_S_UX371"/>
+        <rdfs:comment xml:lang="en">Section of the Asus Product List that covers PCs</rdfs:comment>
+        <rdfs:label xml:lang="en">AsusPC</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#BeatsAudio -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#BeatsAudio">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#Beats_cuffie"/>
+        <rdfs:comment xml:lang="en">Company that sells audio products</rdfs:comment>
+        <rdfs:label xml:lang="en">BeatsAudio</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#BeatsEarPlugs -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#BeatsEarPlugs">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+        <list:hasFirstItem rdf:resource="https://evilscript.altervista.org/yapo.owl#Beats_cuffie"/>
+        <list:hasLastItem rdf:resource="https://evilscript.altervista.org/yapo.owl#Beats_cuffie"/>
+        <rdfs:comment xml:lang="en">Section of the Beats Product List that covers Earplugs</rdfs:comment>
+        <rdfs:label xml:lang="en">BeatsEarPlugs</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Beats_cuffie -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Beats_cuffie">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#EarPlugs"/>
+        <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#200Euro"/>
+        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#BeatsAudio"/>
+        <rdfs:comment xml:lang="en">Over ear made by BeatsAudio</rdfs:comment>
+        <rdfs:label xml:lang="en">Beats_cuffie</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Euro -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Euro">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Currency"/>
+        <rdfs:comment xml:lang="en">European Currency</rdfs:comment>
+        <rdfs:label xml:lang="en">Euro</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Foxconn -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Foxconn">
+        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#AirPods_wirelessCharge"/>
+        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
+        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#IpadAir_2020"/>
+        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
+        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#MacBookAir_M1"/>
+        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#iMac_27_RetinaDisplay_5k_256"/>
+        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
+        <rdfs:comment xml:lang="en">ITengineering company that designs CPUs for Apple</rdfs:comment>
+        <rdfs:label xml:lang="en">Foxconn</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Giovanni_PowerUser -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Giovanni_PowerUser">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#User"/>
+        <yapo:buysProduct rdf:resource="https://evilscript.altervista.org/yapo.owl#MacBookAir_M1"/>
+        <yapo:buysProduct rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
+        <rdfs:label xml:lang="en">Giovanni</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Huáshuò -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Huáshuò">
+        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global"/>
+        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS20_5G_global"/>
+        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#ZenBookFlip_S_UX371"/>
+        <rdfs:comment xml:lang="en">Huáshuò is a company under the favor of Samsung that produces many products</rdfs:comment>
+        <rdfs:label xml:lang="en">Huáshuò</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#IpadAir_2020 -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#IpadAir_2020">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Tablet"/>
+        <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#600Euro"/>
+        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <yapo:CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</yapo:CameraMP>
+        <yapo:ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</yapo:ChargingPortType>
+        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Space Gray, Silver, Rose Gold, Green, Sky Blue</yapo:Color>
+        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple A14 Bionic (5 nm)</yapo:CpuType>
+        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</yapo:Depth>
+        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">247.6</yapo:Height>
+        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">64</yapo:MemorySize>
+        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iPadOS 14.1</yapo:OperativeSystem>
+        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">640.0</yapo:Price>
+        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple iPad Air (2020)</yapo:ProductName>
+        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</yapo:RamSize>
+        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-15T00:00:00</yapo:RollOutDate>
+        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.9</yapo:ScreenSize>
+        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">458.0</yapo:Weight>
+        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">178.5</yapo:Width>
+        <yapo:isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Medium</yapo:isInRange>
+        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</yapo:isTouchScreen>
+        <rdfs:comment xml:lang="en">Tablet made by Apple</rdfs:comment>
+        <rdfs:label xml:lang="en">iPadAir_2020</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Iphone11_64 -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Iphone11_64">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartphone"/>
+        <list:nextItem rdf:resource="https://evilscript.altervista.org/yapo.owl#iMac_27_RetinaDisplay_5k_256"/>
+        <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#600Euro"/>
+        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <yapo:predecessorOf rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
+        <yapo:successorOf rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhoneX_64"/>
+        <yapo:CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</yapo:CameraMP>
+        <yapo:ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</yapo:ChargingPortType>
+        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, Green, Yellow, Purple, Red, White</yapo:Color>
+        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple A13 Bionic</yapo:CpuType>
+        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.3</yapo:Depth>
+        <yapo:EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A2221</yapo:EAN>
+        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150.9</yapo:Height>
+        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</yapo:MemorySize>
+        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iOS 13</yapo:OperativeSystem>
+        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">719.0</yapo:Price>
+        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Iphone 11 64GB</yapo:ProductName>
+        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</yapo:RamSize>
+        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-09-20T00:00:00</yapo:RollOutDate>
+        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</yapo:ScreenSize>
+        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">194.0</yapo:Weight>
+        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">75.7</yapo:Width>
+        <yapo:isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Medium</yapo:isInRange>
+        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</yapo:isTouchScreen>
+        <rdfs:comment xml:lang="en">Top 2019 smartphone made by Apple</rdfs:comment>
+        <rdfs:label xml:lang="en">iPhone11_64</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Lightning_cable -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Lightning_cable">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Cable"/>
+        <list:nextItem rdf:resource="https://evilscript.altervista.org/yapo.owl#AirPods_wirelessCharge"/>
+        <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#10Euro"/>
+        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <yapo:inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#AirPods_wirelessCharge"/>
+        <yapo:inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
+        <yapo:inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
+        <yapo:inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhoneX_64"/>
+        <rdfs:comment xml:lang="en">The standard cable for iPhones</rdfs:comment>
+        <rdfs:label xml:lang="en">Lightning_cable</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#MacBookAir_M1 -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#MacBookAir_M1">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Laptop"/>
+        <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#1000Euro"/>
+        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <yapo:ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</yapo:ChargingPortType>
+        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gold, Silver, Space Gray</yapo:Color>
+        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple M1 chip</yapo:CpuType>
+        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">212.4</yapo:Depth>
+        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.1</yapo:Height>
+        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">256</yapo:MemorySize>
+        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">macOS Big Sur</yapo:OperativeSystem>
+        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1159.0</yapo:Price>
+        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MacBook Air (M1, 2020)</yapo:ProductName>
+        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</yapo:RamSize>
+        <yapo:RamType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DDR4</yapo:RamType>
+        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-11-17T00:00:00</yapo:RollOutDate>
+        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.3</yapo:ScreenSize>
+        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.29</yapo:Weight>
+        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">304.1</yapo:Width>
+        <yapo:isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Medium</yapo:isInRange>
+        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</yapo:isTouchScreen>
+        <rdfs:comment xml:lang="en">Laptop with M1 Chip made by Apple</rdfs:comment>
+        <rdfs:label xml:lang="en">MacBookAir_M1</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Michela_CasualUser -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Michela_CasualUser">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#User"/>
+        <yapo:buysProduct rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global"/>
+        <rdfs:label xml:lang="en">Michela</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Nike -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Nike">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <rdfs:comment xml:lang="en">A company that sells sports products</rdfs:comment>
+        <rdfs:label xml:lang="en">Nike</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Qualcomm -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Qualcomm">
+        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#AirPods_wirelessCharge"/>
+        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
+        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#IpadAir_2020"/>
+        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
+        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#MacBookAir_M1"/>
+        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#iMac_27_RetinaDisplay_5k_256"/>
+        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
+        <rdfs:comment xml:lang="en">Factory company that produces CPUs for Apple</rdfs:comment>
+        <rdfs:label xml:lang="en">Qualcomm</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#Samsung -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Samsung">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
+        <yapo:hasCatalog rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungCatalag"/>
+        <rdfs:comment xml:lang="en">Samsung is a South Korean multinational electronics company headquartered in the Yeongtong District of Suwon</rdfs:comment>
+        <rdfs:label xml:lang="en">Samsung</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#SamsungAccessories -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#SamsungAccessories">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+        <list:hasFirstItem rdf:resource="https://evilscript.altervista.org/yapo.owl#USBC_cable"/>
+        <list:hasLastItem rdf:resource="https://evilscript.altervista.org/yapo.owl#USBC_cable"/>
+        <rdfs:comment xml:lang="en">Section of the Samsung Product List that covers Accessories</rdfs:comment>
+        <rdfs:label xml:lang="en">SamsungAccessories</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#SamsungCatalag -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#SamsungCatalag">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#SellingCatalog"/>
+        <collectionentity:hasMember rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungAccessories"/>
+        <collectionentity:hasMember rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxy"/>
+        <rdfs:comment xml:lang="en">Samsung web site catalog</rdfs:comment>
+        <rdfs:label xml:lang="en">SamsungCatalog</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#SamsungGalaxy -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#SamsungGalaxy">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/list.owl#List"/>
+        <list:hasFirstItem rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global"/>
+        <list:hasLastItem rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS20_5G_global"/>
+        <rdfs:comment xml:lang="en">Section of the Samsung Product List that covers Phones</rdfs:comment>
+        <rdfs:label xml:lang="en">SamsungGalaxy</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartphone"/>
+        <list:nextItem rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS20_5G_global"/>
+        <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#500Euro"/>
+        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Samsung"/>
+        <yapo:CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.0</yapo:CameraMP>
+        <yapo:ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</yapo:ChargingPortType>
+        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prism White, Prism Black, Prism Green, Prism Blue, Canary Yellow, Flamingo Pink, Cardinal Red, Smoke Blue</yapo:Color>
+        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exynos 9820 (8 nm)</yapo:CpuType>
+        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.8</yapo:Depth>
+        <yapo:EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SM-G973F/DS</yapo:EAN>
+        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">149.9</yapo:Height>
+        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">128</yapo:MemorySize>
+        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Android9</yapo:OperativeSystem>
+        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">549.0</yapo:Price>
+        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Samsung Galaxy S10 128</yapo:ProductName>
+        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</yapo:RamSize>
+        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-03-09T00:00:00</yapo:RollOutDate>
+        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</yapo:ScreenSize>
+        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">157.0</yapo:Weight>
+        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">70.4</yapo:Width>
+        <yapo:isInRange>Medium</yapo:isInRange>
+        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</yapo:isTouchScreen>
+        <rdfs:comment xml:lang="en">Smarphone made by Samsung</rdfs:comment>
+        <rdfs:label xml:lang="en">SamsungGalaxyS10_global</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS20_5G_global -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS20_5G_global">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartphone"/>
+        <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#800Euro"/>
+        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Samsung"/>
+        <yapo:successorOf rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global"/>
+        <yapo:CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">64.0</yapo:CameraMP>
+        <yapo:ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</yapo:ChargingPortType>
+        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cosmic Grey, Cloud Blue, Cloud Pink, Cloud White, Aura Red</yapo:Color>
+        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exynos 990 (7 nm+)</yapo:CpuType>
+        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.9</yapo:Depth>
+        <yapo:EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SM-G981F</yapo:EAN>
+        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.7</yapo:Height>
+        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">128</yapo:MemorySize>
+        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Android10</yapo:OperativeSystem>
+        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1029.0</yapo:Price>
+        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Samsung Galaxy S20 5G 128</yapo:ProductName>
+        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</yapo:RamSize>
+        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-03-06T00:00:00</yapo:RollOutDate>
+        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.2</yapo:ScreenSize>
+        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">163.0</yapo:Weight>
+        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">69.1</yapo:Width>
+        <yapo:isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</yapo:isInRange>
+        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</yapo:isTouchScreen>
+        <rdfs:comment xml:lang="en">Smarphone made by Samsung</rdfs:comment>
+        <rdfs:label xml:lang="en">SamsungGalaxyS20_5G_global</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#ShortEngineer -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#ShortEngineer">
+        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global"/>
+        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS20_5G_global"/>
+        <rdfs:comment xml:lang="en">A company that does not exist</rdfs:comment>
+        <rdfs:label xml:lang="en">ShortEngineer</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#ShortFactory -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#ShortFactory">
+        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#Beats_cuffie"/>
+        <rdfs:comment xml:lang="en">A small product factory that only produces Beats!</rdfs:comment>
+        <rdfs:label xml:lang="en">ShortFactory</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#USBC_cable -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#USBC_cable">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Cable"/>
+        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Samsung"/>
+        <yapo:inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#IpadAir_2020"/>
+        <yapo:inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global"/>
+        <yapo:inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS20_5G_global"/>
+        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C Cable</yapo:ProductName>
+        <rdfs:comment xml:lang="en">The new world standard for USB communication</rdfs:comment>
+        <rdfs:label xml:lang="en">USBC_cable</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#ZenBookFlip_S_UX371 -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#ZenBookFlip_S_UX371">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#2in1"/>
+        <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#1800Euro"/>
+        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Asus"/>
+        <yapo:CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.2</yapo:CameraMP>
+        <yapo:ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</yapo:ChargingPortType>
+        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nero jada</yapo:Color>
+        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Intel Core i7-1165G7</yapo:CpuType>
+        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.19</yapo:Depth>
+        <yapo:EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UX371EA</yapo:EAN>
+        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21.1</yapo:Height>
+        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30.5</yapo:Height>
+        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1000</yapo:MemorySize>
+        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Windows 10 Home</yapo:OperativeSystem>
+        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1599.0</yapo:Price>
+        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ZenBook Flip S UX371</yapo:ProductName>
+        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">16</yapo:RamSize>
+        <yapo:RamType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LPDDR4X on-board</yapo:RamType>
+        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-08-21T00:00:00</yapo:RollOutDate>
+        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.3</yapo:ScreenSize>
+        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1200.0</yapo:Weight>
+        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</yapo:isTouchScreen>
+        <rdfs:comment xml:lang="en">2-in-1 made by Asus</rdfs:comment>
+        <rdfs:label xml:lang="en">ZenBookFlip_S_UX371</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#iMac_27_RetinaDisplay_5k_256 -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#iMac_27_RetinaDisplay_5k_256">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Computer"/>
+        <list:nextItem rdf:resource="https://evilscript.altervista.org/yapo.owl#MacBookAir_M1"/>
+        <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#1800Euro"/>
+        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silver</yapo:Color>
+        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Intel Core i5 6‑core 10gen 3.1GHz (Turbo Boost 4.5GHz)</yapo:CpuType>
+        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">203.0</yapo:Depth>
+        <yapo:EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MXWT2LL/A</yapo:EAN>
+        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">516.0</yapo:Height>
+        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">256</yapo:MemorySize>
+        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">macOS Big Sur</yapo:OperativeSystem>
+        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1349.0</yapo:Price>
+        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iMac 27 5K 256GB</yapo:ProductName>
+        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</yapo:RamSize>
+        <yapo:RamType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DDR4</yapo:RamType>
+        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-08-04T00:00:00</yapo:RollOutDate>
+        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">27.0</yapo:ScreenSize>
+        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8920.0</yapo:Weight>
+        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">650.0</yapo:Width>
+        <yapo:isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</yapo:isInRange>
+        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</yapo:isTouchScreen>
+        <rdfs:comment xml:lang="en">All-in-one computer made by Apple</rdfs:comment>
+        <rdfs:label xml:lang="en">iMac_27_RetinaDisplay_5k_256</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#iPhone12_64 -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#iPhone12_64">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartphone"/>
+        <list:nextItem rdf:resource="https://evilscript.altervista.org/yapo.owl#IpadAir_2020"/>
+        <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#800Euro"/>
+        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <yapo:CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</yapo:CameraMP>
+        <yapo:ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</yapo:ChargingPortType>
+        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, White, Red, Green, Blue</yapo:Color>
+        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A14 Bionic</yapo:CpuType>
+        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.4</yapo:Depth>
+        <yapo:EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A2172</yapo:EAN>
+        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">146.7</yapo:Height>
+        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</yapo:MemorySize>
+        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iOS 14</yapo:OperativeSystem>
+        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">939.0</yapo:Price>
+        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Iphone12 64 GB</yapo:ProductName>
+        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</yapo:RamSize>
+        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-10-23T00:00:00</yapo:RollOutDate>
+        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</yapo:ScreenSize>
+        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">162.0</yapo:Weight>
+        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">71.5</yapo:Width>
+        <yapo:isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</yapo:isInRange>
+        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</yapo:isTouchScreen>
+        <rdfs:comment xml:lang="en">Top 2020 smarphone made by Apple</rdfs:comment>
+        <rdfs:label xml:lang="en">iPhone12_64</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#iPhoneX_64 -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#iPhoneX_64">
+        <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartphone"/>
+        <list:nextItem rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
+        <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#500Euro"/>
+        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <yapo:ProductName>iPhone X 64GB</yapo:ProductName>
+        <rdfs:comment xml:lang="en">iPhone X, 64GB edition</rdfs:comment>
+        <rdfs:label xml:lang="en">iPhoneX_64</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#10Euro -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#10Euro">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
+        <price:hasCurrency rdf:resource="https://evilscript.altervista.org/yapo.owl#Euro"/>
+        <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.0</price:hasValue>
+        <rdfs:comment xml:lang="en">10 Euro</rdfs:comment>
+        <rdfs:label xml:lang="en">10Euro</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#1000Euro -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#1000Euro">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
+        <price:hasCurrency rdf:resource="https://evilscript.altervista.org/yapo.owl#Euro"/>
+        <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1000.0</price:hasValue>
+        <rdfs:comment xml:lang="en">1000 Euro</rdfs:comment>
+        <rdfs:label xml:lang="en">1000Euro</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#1800Euro -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#1800Euro">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
+        <price:hasCurrency rdf:resource="https://evilscript.altervista.org/yapo.owl#Euro"/>
+        <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1800.0</price:hasValue>
+        <rdfs:comment xml:lang="en">1800 Euro</rdfs:comment>
+        <rdfs:label xml:lang="en">1800Euro</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#200Euro -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#200Euro">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
+        <price:hasCurrency rdf:resource="https://evilscript.altervista.org/yapo.owl#Euro"/>
+        <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">200.0</price:hasValue>
+        <rdfs:comment xml:lang="en">200 Euro</rdfs:comment>
+        <rdfs:label xml:lang="en">200Euro</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#500Euro -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#500Euro">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
+        <price:hasCurrency rdf:resource="https://evilscript.altervista.org/yapo.owl#Euro"/>
+        <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">500.0</price:hasValue>
+        <rdfs:comment xml:lang="en">500 Euro</rdfs:comment>
+        <rdfs:label xml:lang="en">500Euro</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#600Euro -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#600Euro">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
+        <price:hasCurrency rdf:resource="https://evilscript.altervista.org/yapo.owl#Euro"/>
+        <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">600.0</price:hasValue>
+        <rdfs:comment xml:lang="en">600 Euro</rdfs:comment>
+        <rdfs:label xml:lang="en">600Euro</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://evilscript.altervista.org/yapo.owl#800Euro -->
+
+    <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#800Euro">
+        <rdf:type rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/price.owl#Price"/>
+        <price:hasCurrency rdf:resource="https://evilscript.altervista.org/yapo.owl#Euro"/>
+        <price:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">800.0</price:hasValue>
+        <rdfs:comment xml:lang="en">800 Euro</rdfs:comment>
+        <rdfs:label xml:lang="en">800Euro</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
