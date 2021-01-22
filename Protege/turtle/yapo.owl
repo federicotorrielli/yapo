@@ -369,7 +369,9 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
              rdf:type owl:SymmetricProperty ;
              rdfs:domain :Company ;
              rdfs:range :Company ;
-             owl:propertyChainAxiom ( :sells
+             owl:propertyChainAxiom ( :hasCatalog
+                                      <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember>
+                                      <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem>
                                       :inCollabWith
                                     ) ;
              rdfs:comment "Shows company collaborations to create a certain product"@en ;
@@ -411,7 +413,8 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                rdf:type owl:TransitiveProperty ;
                rdfs:domain :SellingCatalog ;
                rdfs:range :Company ;
-               owl:propertyChainAxiom ( :contains
+               owl:propertyChainAxiom ( <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember>
+                                        <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem>
                                         :hasBrand
                                       ) ;
                rdfs:comment "Company that sells products in SellingCatalog"@en ;
@@ -543,10 +546,14 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                 rdfs:subPropertyOf owl:topObjectProperty ;
                 rdfs:domain :Company ;
                 rdfs:range :Manufacturer ;
-                owl:propertyChainAxiom ( :sells
+                owl:propertyChainAxiom ( :hasCatalog
+                                         <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember>
+                                         <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem>
                                          :designedBy
                                        ) ,
-                                       ( :sells
+                                       ( :hasCatalog
+                                         <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember>
+                                         <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem>
                                          :producedBy
                                        ) ;
                 rdfs:comment "Keeps track of who is manifacturing this company for"@en ;
@@ -597,7 +604,9 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:domain :Company ;
             rdfs:range :Accessory ;
-            owl:propertyChainAxiom ( :sells
+            owl:propertyChainAxiom ( :hasCatalog
+                                     <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember>
+                                     <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem>
                                      :containsInBox
                                    ) ;
             rdfs:comment "Shows what items are put in a product's box"@en ;
@@ -1923,6 +1932,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                 <http://xmlns.com/foaf/0.1/Organization> ,
                 :Company ,
                 :Manufacturer ;
+       :brandContainedIn :AppleCatalog ;
        :collabsWith :Nike ;
        :hasCatalog :AppleCatalog ;
        :isBrandOf :AirPods_wirelessCharge ,
@@ -1935,7 +1945,9 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                   :iPhone12_64 ,
                   :iPhoneX_64 ;
        :manufacturesTo :BeatsAudio ,
-                       :Foxconn ;
+                       :Foxconn ,
+                       :Qualcomm ,
+                       :ShortFactory ;
        :putInBoxes :Lightning_cable ,
                    :USBC_cable ;
        :sells :AirPods_wirelessCharge ,
@@ -2097,10 +2109,13 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                :Engineering ,
                :ITEngineering ,
                :Manufacturer ;
+      :brandContainedIn :AsusCatalog ;
       :designs :ZenBookFlip_S_UX371 ;
       :hasCatalog :AsusCatalog ;
       :isBrandOf :ZenBookFlip_S_UX371 ;
-      :manufacturesTo :Asus ;
+      :isManifacturerOf :Asus ;
+      :manufacturesTo :Asus ,
+                      :Huáshuò ;
       :sells :ZenBookFlip_S_UX371 ;
       rdfs:comment "AsusTek is a Taiwanese multinational computer and phone hardware and electronics company headquartered in Beitou District, Taipei, Taiwan."@en ;
       rdfs:label "Asus"@en .
@@ -2141,8 +2156,10 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                      :Company ,
                      :Engineering ,
                      :Manufacturer ;
+            :brandContainedIn :AppleCatalog ;
             :designs :Beats_cuffie ;
             :isBrandOf :Beats_cuffie ;
+            :isManifacturerOf :Apple ;
             rdfs:comment "Company that sells audio products"@en ;
             rdfs:label "BeatsAudio"@en .
 
@@ -2209,6 +2226,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                   :MacBookAir_M1 ,
                   :iMac_27_RetinaDisplay_5k_256 ,
                   :iPhone12_64 ;
+         :isManifacturerOf :Apple ;
          rdfs:comment "ITengineering company that designs CPUs for Apple"@en ;
          rdfs:label "Foxconn"@en .
 
@@ -2229,6 +2247,8 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                   :Company ,
                   :Factory ,
                   :Manufacturer ;
+         :isManifacturerOf :Asus ,
+                           :Samsung ;
          :produces :SamsungGalaxyS10_global ,
                    :SamsungGalaxyS20_5G_global ,
                    :ZenBookFlip_S_UX371 ;
@@ -2424,6 +2444,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
 :Nike rdf:type owl:NamedIndividual ,
                <http://xmlns.com/foaf/0.1/Organization> ,
                :Company ;
+      :collabsWith :Apple ;
       rdfs:comment "A company that sells sports products"@en ;
       rdfs:label "Nike"@en .
 
@@ -2434,6 +2455,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                    :Company ,
                    :Factory ,
                    :Manufacturer ;
+          :isManifacturerOf :Apple ;
           :produces :AirPods_wirelessCharge ,
                     :AppleWatchSeries6_40mm_GPS_Cellular_Nike ,
                     :IpadAir_2020 ,
@@ -2455,7 +2477,8 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
          :isBrandOf :SamsungGalaxyS10_global ,
                     :SamsungGalaxyS20_5G_global ,
                     :USBC_cable ;
-         :manufacturesTo :ShortEngineer ;
+         :manufacturesTo :Huáshuò ,
+                         :ShortEngineer ;
          :putInBoxes :USBC_cable ;
          :sells :SamsungGalaxyS10_global ,
                 :SamsungGalaxyS20_5G_global ,
@@ -2630,6 +2653,7 @@ owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty ;
                        :Company ,
                        :Factory ,
                        :Manufacturer ;
+              :isManifacturerOf :Apple ;
               :produces :Beats_cuffie ;
               rdfs:comment "A small product factory that only produces Beats!"@en ;
               rdfs:label "ShortFactory"@en .
