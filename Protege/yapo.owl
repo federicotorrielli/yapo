@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://evilscript.altervista.org/productCatalog.owl#"
-     xml:base="https://evilscript.altervista.org/productCatalog.owl"
+<rdf:RDF xmlns="https://evilscript.altervista.org/yapo.owl#"
+     xml:base="https://evilscript.altervista.org/yapo.owl"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:bag="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -159,7 +159,9 @@
         <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
         <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#sells"/>
+            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#hasCatalog"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
             <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#inCollabWith"/>
         </owl:propertyChainAxiom>
         <rdfs:comment xml:lang="en">Shows company collaborations to create a certain product</rdfs:comment>
@@ -213,7 +215,8 @@
         <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#SellingCatalog"/>
         <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#contains"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
             <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#hasBrand"/>
         </owl:propertyChainAxiom>
         <rdfs:comment xml:lang="en">Company that sells products in SellingCatalog</rdfs:comment>
@@ -383,11 +386,15 @@
         <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
         <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Manufacturer"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#sells"/>
+            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#hasCatalog"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
             <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#designedBy"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#sells"/>
+            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#hasCatalog"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
             <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#producedBy"/>
         </owl:propertyChainAxiom>
         <rdfs:comment xml:lang="en">Keeps track of who is manifacturing this company for</rdfs:comment>
@@ -454,7 +461,9 @@
         <rdfs:domain rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
         <rdfs:range rdf:resource="https://evilscript.altervista.org/yapo.owl#Accessory"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#sells"/>
+            <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#hasCatalog"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#hasItem"/>
             <rdf:Description rdf:about="https://evilscript.altervista.org/yapo.owl#containsInBox"/>
         </owl:propertyChainAxiom>
         <rdfs:comment xml:lang="en">Shows what items are put in a product&apos;s box</rdfs:comment>
@@ -1506,18 +1515,18 @@
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#EarPlugs"/>
         <list:nextItem rdf:resource="https://evilscript.altervista.org/yapo.owl#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
         <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#200Euro"/>
-        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
-        <yapo:ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</yapo:ChargingPortType>
-        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">White</yapo:Color>
-        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chip H1</yapo:CpuType>
-        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21.3</yapo:Depth>
-        <yapo:EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A1938</yapo:EAN>
-        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">53.5</yapo:Height>
-        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">229.0</yapo:Price>
-        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AirPods Wireless Charge Case</yapo:ProductName>
-        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-03-20T00:00:00</yapo:RollOutDate>
-        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40.0</yapo:Weight>
-        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">44.3</yapo:Width>
+        <hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">White</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chip H1</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21.3</Depth>
+        <EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A1938</EAN>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">53.5</Height>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">229.0</Price>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AirPods Wireless Charge Case</ProductName>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-03-20T00:00:00</RollOutDate>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40.0</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">44.3</Width>
         <rdfs:comment xml:lang="en">EarPlugs with wireless charge case made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">AirPods_wirelessCharge</rdfs:label>
     </owl:NamedIndividual>
@@ -1528,7 +1537,7 @@
 
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Apple">
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
-        <yapo:hasCatalog rdf:resource="https://evilscript.altervista.org/yapo.owl#AppleCatalog"/>
+        <hasCatalog rdf:resource="https://evilscript.altervista.org/yapo.owl#AppleCatalog"/>
         <rdfs:comment xml:lang="en">Famous company that design and sell electronic devices</rdfs:comment>
         <rdfs:label xml:lang="en">Apple</rdfs:label>
     </owl:NamedIndividual>
@@ -1593,30 +1602,30 @@
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#AppleWatchSeries6_40mm_GPS_Cellular_Nike">
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartwatch"/>
         <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#500Euro"/>
-        <yapo:compatibleWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
-        <yapo:compatibleWith rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
-        <yapo:compatibleWith rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhoneX_64"/>
-        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
-        <yapo:inCollabWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Nike"/>
-        <yapo:needsConnectionWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
-        <yapo:needsConnectionWith rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
-        <yapo:needsConnectionWith rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhoneX_64"/>
-        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silver, Graphite (DLC), Gold (PVD)</yapo:Color>
-        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dual-core</yapo:CpuType>
-        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.4</yapo:Depth>
-        <yapo:EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A2293</yapo:EAN>
-        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40.0</yapo:Height>
-        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">32</yapo:MemorySize>
-        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">watchOS 7.0</yapo:OperativeSystem>
-        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">539.0</yapo:Price>
-        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple Watch 6 Nike 40mm GPS+Cellular</yapo:ProductName>
-        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</yapo:RamSize>
-        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-19T00:00:00</yapo:RollOutDate>
-        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.57</yapo:ScreenSize>
-        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">39.7</yapo:Weight>
-        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34.0</yapo:Width>
-        <yapo:isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</yapo:isInRange>
-        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</yapo:isTouchScreen>
+        <compatibleWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
+        <compatibleWith rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
+        <compatibleWith rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhoneX_64"/>
+        <hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <inCollabWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Nike"/>
+        <needsConnectionWith rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
+        <needsConnectionWith rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
+        <needsConnectionWith rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhoneX_64"/>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silver, Graphite (DLC), Gold (PVD)</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dual-core</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.4</Depth>
+        <EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A2293</EAN>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40.0</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">32</MemorySize>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">watchOS 7.0</OperativeSystem>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">539.0</Price>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple Watch 6 Nike 40mm GPS+Cellular</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</RamSize>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-19T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.57</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">39.7</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34.0</Width>
+        <isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</isInRange>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
         <rdfs:comment xml:lang="en">Top 2020 smartwatch made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">AppleWatchSeries6_40mm_GPS_Cellular</rdfs:label>
     </owl:NamedIndividual>
@@ -1627,8 +1636,8 @@
 
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Asus">
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
-        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#ZenBookFlip_S_UX371"/>
-        <yapo:hasCatalog rdf:resource="https://evilscript.altervista.org/yapo.owl#AsusCatalog"/>
+        <designs rdf:resource="https://evilscript.altervista.org/yapo.owl#ZenBookFlip_S_UX371"/>
+        <hasCatalog rdf:resource="https://evilscript.altervista.org/yapo.owl#AsusCatalog"/>
         <rdfs:comment xml:lang="en">AsusTek is a Taiwanese multinational computer and phone hardware and electronics company headquartered in Beitou District, Taipei, Taiwan.</rdfs:comment>
         <rdfs:label xml:lang="en">Asus</rdfs:label>
     </owl:NamedIndividual>
@@ -1662,7 +1671,7 @@
 
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#BeatsAudio">
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
-        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#Beats_cuffie"/>
+        <designs rdf:resource="https://evilscript.altervista.org/yapo.owl#Beats_cuffie"/>
         <rdfs:comment xml:lang="en">Company that sells audio products</rdfs:comment>
         <rdfs:label xml:lang="en">BeatsAudio</rdfs:label>
     </owl:NamedIndividual>
@@ -1686,7 +1695,7 @@
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Beats_cuffie">
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#EarPlugs"/>
         <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#200Euro"/>
-        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#BeatsAudio"/>
+        <hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#BeatsAudio"/>
         <rdfs:comment xml:lang="en">Over ear made by BeatsAudio</rdfs:comment>
         <rdfs:label xml:lang="en">Beats_cuffie</rdfs:label>
     </owl:NamedIndividual>
@@ -1706,13 +1715,13 @@
     <!-- https://evilscript.altervista.org/yapo.owl#Foxconn -->
 
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Foxconn">
-        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#AirPods_wirelessCharge"/>
-        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
-        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#IpadAir_2020"/>
-        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
-        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#MacBookAir_M1"/>
-        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#iMac_27_RetinaDisplay_5k_256"/>
-        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
+        <designs rdf:resource="https://evilscript.altervista.org/yapo.owl#AirPods_wirelessCharge"/>
+        <designs rdf:resource="https://evilscript.altervista.org/yapo.owl#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
+        <designs rdf:resource="https://evilscript.altervista.org/yapo.owl#IpadAir_2020"/>
+        <designs rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
+        <designs rdf:resource="https://evilscript.altervista.org/yapo.owl#MacBookAir_M1"/>
+        <designs rdf:resource="https://evilscript.altervista.org/yapo.owl#iMac_27_RetinaDisplay_5k_256"/>
+        <designs rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
         <rdfs:comment xml:lang="en">ITengineering company that designs CPUs for Apple</rdfs:comment>
         <rdfs:label xml:lang="en">Foxconn</rdfs:label>
     </owl:NamedIndividual>
@@ -1723,8 +1732,8 @@
 
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Giovanni_PowerUser">
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#User"/>
-        <yapo:buysProduct rdf:resource="https://evilscript.altervista.org/yapo.owl#MacBookAir_M1"/>
-        <yapo:buysProduct rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
+        <buysProduct rdf:resource="https://evilscript.altervista.org/yapo.owl#MacBookAir_M1"/>
+        <buysProduct rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
         <rdfs:label xml:lang="en">Giovanni</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1733,9 +1742,9 @@
     <!-- https://evilscript.altervista.org/yapo.owl#Huáshuò -->
 
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Huáshuò">
-        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global"/>
-        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS20_5G_global"/>
-        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#ZenBookFlip_S_UX371"/>
+        <produces rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global"/>
+        <produces rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS20_5G_global"/>
+        <produces rdf:resource="https://evilscript.altervista.org/yapo.owl#ZenBookFlip_S_UX371"/>
         <rdfs:comment xml:lang="en">Huáshuò is a company under the favor of Samsung that produces many products</rdfs:comment>
         <rdfs:label xml:lang="en">Huáshuò</rdfs:label>
     </owl:NamedIndividual>
@@ -1747,24 +1756,24 @@
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#IpadAir_2020">
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Tablet"/>
         <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#600Euro"/>
-        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
-        <yapo:CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</yapo:CameraMP>
-        <yapo:ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</yapo:ChargingPortType>
-        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Space Gray, Silver, Rose Gold, Green, Sky Blue</yapo:Color>
-        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple A14 Bionic (5 nm)</yapo:CpuType>
-        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</yapo:Depth>
-        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">247.6</yapo:Height>
-        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">64</yapo:MemorySize>
-        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iPadOS 14.1</yapo:OperativeSystem>
-        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">640.0</yapo:Price>
-        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple iPad Air (2020)</yapo:ProductName>
-        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</yapo:RamSize>
-        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-15T00:00:00</yapo:RollOutDate>
-        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.9</yapo:ScreenSize>
-        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">458.0</yapo:Weight>
-        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">178.5</yapo:Width>
-        <yapo:isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Medium</yapo:isInRange>
-        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</yapo:isTouchScreen>
+        <hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Space Gray, Silver, Rose Gold, Green, Sky Blue</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple A14 Bionic (5 nm)</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</Depth>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">247.6</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">64</MemorySize>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iPadOS 14.1</OperativeSystem>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">640.0</Price>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple iPad Air (2020)</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</RamSize>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-15T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.9</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">458.0</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">178.5</Width>
+        <isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Medium</isInRange>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
         <rdfs:comment xml:lang="en">Tablet made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">iPadAir_2020</rdfs:label>
     </owl:NamedIndividual>
@@ -1777,27 +1786,27 @@
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartphone"/>
         <list:nextItem rdf:resource="https://evilscript.altervista.org/yapo.owl#iMac_27_RetinaDisplay_5k_256"/>
         <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#600Euro"/>
-        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
-        <yapo:predecessorOf rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
-        <yapo:successorOf rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhoneX_64"/>
-        <yapo:CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</yapo:CameraMP>
-        <yapo:ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</yapo:ChargingPortType>
-        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, Green, Yellow, Purple, Red, White</yapo:Color>
-        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple A13 Bionic</yapo:CpuType>
-        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.3</yapo:Depth>
-        <yapo:EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A2221</yapo:EAN>
-        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150.9</yapo:Height>
-        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</yapo:MemorySize>
-        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iOS 13</yapo:OperativeSystem>
-        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">719.0</yapo:Price>
-        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Iphone 11 64GB</yapo:ProductName>
-        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</yapo:RamSize>
-        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-09-20T00:00:00</yapo:RollOutDate>
-        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</yapo:ScreenSize>
-        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">194.0</yapo:Weight>
-        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">75.7</yapo:Width>
-        <yapo:isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Medium</yapo:isInRange>
-        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</yapo:isTouchScreen>
+        <hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <predecessorOf rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
+        <successorOf rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhoneX_64"/>
+        <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, Green, Yellow, Purple, Red, White</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple A13 Bionic</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.3</Depth>
+        <EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A2221</EAN>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">150.9</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</MemorySize>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iOS 13</OperativeSystem>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">719.0</Price>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Iphone 11 64GB</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</RamSize>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-09-20T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">194.0</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">75.7</Width>
+        <isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Medium</isInRange>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
         <rdfs:comment xml:lang="en">Top 2019 smartphone made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">iPhone11_64</rdfs:label>
     </owl:NamedIndividual>
@@ -1810,11 +1819,11 @@
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Cable"/>
         <list:nextItem rdf:resource="https://evilscript.altervista.org/yapo.owl#AirPods_wirelessCharge"/>
         <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#10Euro"/>
-        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
-        <yapo:inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#AirPods_wirelessCharge"/>
-        <yapo:inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
-        <yapo:inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
-        <yapo:inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhoneX_64"/>
+        <hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#AirPods_wirelessCharge"/>
+        <inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
+        <inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
+        <inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhoneX_64"/>
         <rdfs:comment xml:lang="en">The standard cable for iPhones</rdfs:comment>
         <rdfs:label xml:lang="en">Lightning_cable</rdfs:label>
     </owl:NamedIndividual>
@@ -1826,24 +1835,24 @@
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#MacBookAir_M1">
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Laptop"/>
         <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#1000Euro"/>
-        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
-        <yapo:ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</yapo:ChargingPortType>
-        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gold, Silver, Space Gray</yapo:Color>
-        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple M1 chip</yapo:CpuType>
-        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">212.4</yapo:Depth>
-        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.1</yapo:Height>
-        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">256</yapo:MemorySize>
-        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">macOS Big Sur</yapo:OperativeSystem>
-        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1159.0</yapo:Price>
-        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MacBook Air (M1, 2020)</yapo:ProductName>
-        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</yapo:RamSize>
-        <yapo:RamType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DDR4</yapo:RamType>
-        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-11-17T00:00:00</yapo:RollOutDate>
-        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.3</yapo:ScreenSize>
-        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.29</yapo:Weight>
-        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">304.1</yapo:Width>
-        <yapo:isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Medium</yapo:isInRange>
-        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</yapo:isTouchScreen>
+        <hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gold, Silver, Space Gray</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apple M1 chip</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">212.4</Depth>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.1</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">256</MemorySize>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">macOS Big Sur</OperativeSystem>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1159.0</Price>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MacBook Air (M1, 2020)</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</RamSize>
+        <RamType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DDR4</RamType>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-11-17T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.3</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.29</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">304.1</Width>
+        <isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Medium</isInRange>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isTouchScreen>
         <rdfs:comment xml:lang="en">Laptop with M1 Chip made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">MacBookAir_M1</rdfs:label>
     </owl:NamedIndividual>
@@ -1854,7 +1863,7 @@
 
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Michela_CasualUser">
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#User"/>
-        <yapo:buysProduct rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global"/>
+        <buysProduct rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global"/>
         <rdfs:label xml:lang="en">Michela</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1873,13 +1882,13 @@
     <!-- https://evilscript.altervista.org/yapo.owl#Qualcomm -->
 
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Qualcomm">
-        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#AirPods_wirelessCharge"/>
-        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
-        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#IpadAir_2020"/>
-        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
-        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#MacBookAir_M1"/>
-        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#iMac_27_RetinaDisplay_5k_256"/>
-        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
+        <produces rdf:resource="https://evilscript.altervista.org/yapo.owl#AirPods_wirelessCharge"/>
+        <produces rdf:resource="https://evilscript.altervista.org/yapo.owl#AppleWatchSeries6_40mm_GPS_Cellular_Nike"/>
+        <produces rdf:resource="https://evilscript.altervista.org/yapo.owl#IpadAir_2020"/>
+        <produces rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
+        <produces rdf:resource="https://evilscript.altervista.org/yapo.owl#MacBookAir_M1"/>
+        <produces rdf:resource="https://evilscript.altervista.org/yapo.owl#iMac_27_RetinaDisplay_5k_256"/>
+        <produces rdf:resource="https://evilscript.altervista.org/yapo.owl#iPhone12_64"/>
         <rdfs:comment xml:lang="en">Factory company that produces CPUs for Apple</rdfs:comment>
         <rdfs:label xml:lang="en">Qualcomm</rdfs:label>
     </owl:NamedIndividual>
@@ -1890,7 +1899,7 @@
 
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#Samsung">
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Company"/>
-        <yapo:hasCatalog rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungCatalag"/>
+        <hasCatalog rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungCatalag"/>
         <rdfs:comment xml:lang="en">Samsung is a South Korean multinational electronics company headquartered in the Yeongtong District of Suwon</rdfs:comment>
         <rdfs:label xml:lang="en">Samsung</rdfs:label>
     </owl:NamedIndividual>
@@ -1939,25 +1948,25 @@
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartphone"/>
         <list:nextItem rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS20_5G_global"/>
         <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#500Euro"/>
-        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Samsung"/>
-        <yapo:CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.0</yapo:CameraMP>
-        <yapo:ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</yapo:ChargingPortType>
-        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prism White, Prism Black, Prism Green, Prism Blue, Canary Yellow, Flamingo Pink, Cardinal Red, Smoke Blue</yapo:Color>
-        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exynos 9820 (8 nm)</yapo:CpuType>
-        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.8</yapo:Depth>
-        <yapo:EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SM-G973F/DS</yapo:EAN>
-        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">149.9</yapo:Height>
-        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">128</yapo:MemorySize>
-        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Android9</yapo:OperativeSystem>
-        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">549.0</yapo:Price>
-        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Samsung Galaxy S10 128</yapo:ProductName>
-        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</yapo:RamSize>
-        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-03-09T00:00:00</yapo:RollOutDate>
-        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</yapo:ScreenSize>
-        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">157.0</yapo:Weight>
-        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">70.4</yapo:Width>
-        <yapo:isInRange>Medium</yapo:isInRange>
-        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</yapo:isTouchScreen>
+        <hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Samsung"/>
+        <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">16.0</CameraMP>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prism White, Prism Black, Prism Green, Prism Blue, Canary Yellow, Flamingo Pink, Cardinal Red, Smoke Blue</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exynos 9820 (8 nm)</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.8</Depth>
+        <EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SM-G973F/DS</EAN>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">149.9</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">128</MemorySize>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Android9</OperativeSystem>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">549.0</Price>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Samsung Galaxy S10 128</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</RamSize>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-03-09T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">157.0</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">70.4</Width>
+        <isInRange>Medium</isInRange>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
         <rdfs:comment xml:lang="en">Smarphone made by Samsung</rdfs:comment>
         <rdfs:label xml:lang="en">SamsungGalaxyS10_global</rdfs:label>
     </owl:NamedIndividual>
@@ -1969,26 +1978,26 @@
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS20_5G_global">
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartphone"/>
         <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#800Euro"/>
-        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Samsung"/>
-        <yapo:successorOf rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global"/>
-        <yapo:CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">64.0</yapo:CameraMP>
-        <yapo:ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</yapo:ChargingPortType>
-        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cosmic Grey, Cloud Blue, Cloud Pink, Cloud White, Aura Red</yapo:Color>
-        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exynos 990 (7 nm+)</yapo:CpuType>
-        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.9</yapo:Depth>
-        <yapo:EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SM-G981F</yapo:EAN>
-        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.7</yapo:Height>
-        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">128</yapo:MemorySize>
-        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Android10</yapo:OperativeSystem>
-        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1029.0</yapo:Price>
-        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Samsung Galaxy S20 5G 128</yapo:ProductName>
-        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</yapo:RamSize>
-        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-03-06T00:00:00</yapo:RollOutDate>
-        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.2</yapo:ScreenSize>
-        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">163.0</yapo:Weight>
-        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">69.1</yapo:Width>
-        <yapo:isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</yapo:isInRange>
-        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</yapo:isTouchScreen>
+        <hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Samsung"/>
+        <successorOf rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global"/>
+        <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">64.0</CameraMP>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cosmic Grey, Cloud Blue, Cloud Pink, Cloud White, Aura Red</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exynos 990 (7 nm+)</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.9</Depth>
+        <EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SM-G981F</EAN>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">15.7</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">128</MemorySize>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Android10</OperativeSystem>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1029.0</Price>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Samsung Galaxy S20 5G 128</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</RamSize>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-03-06T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.2</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">163.0</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">69.1</Width>
+        <isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</isInRange>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
         <rdfs:comment xml:lang="en">Smarphone made by Samsung</rdfs:comment>
         <rdfs:label xml:lang="en">SamsungGalaxyS20_5G_global</rdfs:label>
     </owl:NamedIndividual>
@@ -1998,8 +2007,8 @@
     <!-- https://evilscript.altervista.org/yapo.owl#ShortEngineer -->
 
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#ShortEngineer">
-        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global"/>
-        <yapo:designs rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS20_5G_global"/>
+        <designs rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global"/>
+        <designs rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS20_5G_global"/>
         <rdfs:comment xml:lang="en">A company that does not exist</rdfs:comment>
         <rdfs:label xml:lang="en">ShortEngineer</rdfs:label>
     </owl:NamedIndividual>
@@ -2009,7 +2018,7 @@
     <!-- https://evilscript.altervista.org/yapo.owl#ShortFactory -->
 
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#ShortFactory">
-        <yapo:produces rdf:resource="https://evilscript.altervista.org/yapo.owl#Beats_cuffie"/>
+        <produces rdf:resource="https://evilscript.altervista.org/yapo.owl#Beats_cuffie"/>
         <rdfs:comment xml:lang="en">A small product factory that only produces Beats!</rdfs:comment>
         <rdfs:label xml:lang="en">ShortFactory</rdfs:label>
     </owl:NamedIndividual>
@@ -2020,11 +2029,11 @@
 
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#USBC_cable">
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Cable"/>
-        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Samsung"/>
-        <yapo:inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#IpadAir_2020"/>
-        <yapo:inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global"/>
-        <yapo:inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS20_5G_global"/>
-        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C Cable</yapo:ProductName>
+        <hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Samsung"/>
+        <inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#IpadAir_2020"/>
+        <inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS10_global"/>
+        <inBoxOf rdf:resource="https://evilscript.altervista.org/yapo.owl#SamsungGalaxyS20_5G_global"/>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C Cable</ProductName>
         <rdfs:comment xml:lang="en">The new world standard for USB communication</rdfs:comment>
         <rdfs:label xml:lang="en">USBC_cable</rdfs:label>
     </owl:NamedIndividual>
@@ -2036,25 +2045,25 @@
     <owl:NamedIndividual rdf:about="https://evilscript.altervista.org/yapo.owl#ZenBookFlip_S_UX371">
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#2in1"/>
         <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#1800Euro"/>
-        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Asus"/>
-        <yapo:CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.2</yapo:CameraMP>
-        <yapo:ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</yapo:ChargingPortType>
-        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nero jada</yapo:Color>
-        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Intel Core i7-1165G7</yapo:CpuType>
-        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.19</yapo:Depth>
-        <yapo:EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UX371EA</yapo:EAN>
-        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21.1</yapo:Height>
-        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30.5</yapo:Height>
-        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1000</yapo:MemorySize>
-        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Windows 10 Home</yapo:OperativeSystem>
-        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1599.0</yapo:Price>
-        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ZenBook Flip S UX371</yapo:ProductName>
-        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">16</yapo:RamSize>
-        <yapo:RamType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LPDDR4X on-board</yapo:RamType>
-        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-08-21T00:00:00</yapo:RollOutDate>
-        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.3</yapo:ScreenSize>
-        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1200.0</yapo:Weight>
-        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</yapo:isTouchScreen>
+        <hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Asus"/>
+        <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.2</CameraMP>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USB-C</ChargingPortType>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nero jada</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Intel Core i7-1165G7</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.19</Depth>
+        <EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UX371EA</EAN>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">21.1</Height>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30.5</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1000</MemorySize>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Windows 10 Home</OperativeSystem>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1599.0</Price>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ZenBook Flip S UX371</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">16</RamSize>
+        <RamType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LPDDR4X on-board</RamType>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-08-21T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">13.3</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1200.0</Weight>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
         <rdfs:comment xml:lang="en">2-in-1 made by Asus</rdfs:comment>
         <rdfs:label xml:lang="en">ZenBookFlip_S_UX371</rdfs:label>
     </owl:NamedIndividual>
@@ -2067,24 +2076,24 @@
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Computer"/>
         <list:nextItem rdf:resource="https://evilscript.altervista.org/yapo.owl#MacBookAir_M1"/>
         <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#1800Euro"/>
-        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
-        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silver</yapo:Color>
-        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Intel Core i5 6‑core 10gen 3.1GHz (Turbo Boost 4.5GHz)</yapo:CpuType>
-        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">203.0</yapo:Depth>
-        <yapo:EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MXWT2LL/A</yapo:EAN>
-        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">516.0</yapo:Height>
-        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">256</yapo:MemorySize>
-        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">macOS Big Sur</yapo:OperativeSystem>
-        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1349.0</yapo:Price>
-        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iMac 27 5K 256GB</yapo:ProductName>
-        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</yapo:RamSize>
-        <yapo:RamType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DDR4</yapo:RamType>
-        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-08-04T00:00:00</yapo:RollOutDate>
-        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">27.0</yapo:ScreenSize>
-        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8920.0</yapo:Weight>
-        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">650.0</yapo:Width>
-        <yapo:isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</yapo:isInRange>
-        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</yapo:isTouchScreen>
+        <hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silver</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Intel Core i5 6‑core 10gen 3.1GHz (Turbo Boost 4.5GHz)</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">203.0</Depth>
+        <EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MXWT2LL/A</EAN>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">516.0</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">256</MemorySize>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">macOS Big Sur</OperativeSystem>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1349.0</Price>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iMac 27 5K 256GB</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</RamSize>
+        <RamType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DDR4</RamType>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-08-04T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">27.0</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8920.0</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">650.0</Width>
+        <isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</isInRange>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isTouchScreen>
         <rdfs:comment xml:lang="en">All-in-one computer made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">iMac_27_RetinaDisplay_5k_256</rdfs:label>
     </owl:NamedIndividual>
@@ -2097,25 +2106,25 @@
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartphone"/>
         <list:nextItem rdf:resource="https://evilscript.altervista.org/yapo.owl#IpadAir_2020"/>
         <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#800Euro"/>
-        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
-        <yapo:CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</yapo:CameraMP>
-        <yapo:ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</yapo:ChargingPortType>
-        <yapo:Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, White, Red, Green, Blue</yapo:Color>
-        <yapo:CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A14 Bionic</yapo:CpuType>
-        <yapo:Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.4</yapo:Depth>
-        <yapo:EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A2172</yapo:EAN>
-        <yapo:Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">146.7</yapo:Height>
-        <yapo:MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</yapo:MemorySize>
-        <yapo:OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iOS 14</yapo:OperativeSystem>
-        <yapo:Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">939.0</yapo:Price>
-        <yapo:ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Iphone12 64 GB</yapo:ProductName>
-        <yapo:RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</yapo:RamSize>
-        <yapo:RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-10-23T00:00:00</yapo:RollOutDate>
-        <yapo:ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</yapo:ScreenSize>
-        <yapo:Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">162.0</yapo:Weight>
-        <yapo:Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">71.5</yapo:Width>
-        <yapo:isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</yapo:isInRange>
-        <yapo:isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</yapo:isTouchScreen>
+        <hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <CameraMP rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</CameraMP>
+        <ChargingPortType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lightning</ChargingPortType>
+        <Color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Black, White, Red, Green, Blue</Color>
+        <CpuType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A14 Bionic</CpuType>
+        <Depth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.4</Depth>
+        <EAN rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A2172</EAN>
+        <Height rdf:datatype="http://www.w3.org/2001/XMLSchema#double">146.7</Height>
+        <MemorySize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</MemorySize>
+        <OperativeSystem rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iOS 14</OperativeSystem>
+        <Price rdf:datatype="http://www.w3.org/2001/XMLSchema#double">939.0</Price>
+        <ProductName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Iphone12 64 GB</ProductName>
+        <RamSize rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</RamSize>
+        <RollOutDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-10-23T00:00:00</RollOutDate>
+        <ScreenSize rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</ScreenSize>
+        <Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#double">162.0</Weight>
+        <Width rdf:datatype="http://www.w3.org/2001/XMLSchema#double">71.5</Width>
+        <isInRange rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High</isInRange>
+        <isTouchScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isTouchScreen>
         <rdfs:comment xml:lang="en">Top 2020 smarphone made by Apple</rdfs:comment>
         <rdfs:label xml:lang="en">iPhone12_64</rdfs:label>
     </owl:NamedIndividual>
@@ -2128,8 +2137,8 @@
         <rdf:type rdf:resource="https://evilscript.altervista.org/yapo.owl#Smartphone"/>
         <list:nextItem rdf:resource="https://evilscript.altervista.org/yapo.owl#Iphone11_64"/>
         <price:hasPrice rdf:resource="https://evilscript.altervista.org/yapo.owl#500Euro"/>
-        <yapo:hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
-        <yapo:ProductName>iPhone X 64GB</yapo:ProductName>
+        <hasBrand rdf:resource="https://evilscript.altervista.org/yapo.owl#Apple"/>
+        <ProductName>iPhone X 64GB</ProductName>
         <rdfs:comment xml:lang="en">iPhone X, 64GB edition</rdfs:comment>
         <rdfs:label xml:lang="en">iPhoneX_64</rdfs:label>
     </owl:NamedIndividual>
