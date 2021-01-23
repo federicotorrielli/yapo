@@ -656,9 +656,9 @@ seguente modo:
   rimane limitato alle query veloci e tipo "listing"
 - `sipcp query-from-text` effettua tutte le query prendendole da un file di testo chiamato "do.txt"
   il file deve essere nella directory in cui si sta attualmente per eseguire il programma sipcp
-- `sipcp query-product Compagnia` interroga il yapo alla ricerca di tutti i prodotti dalla compagnia
+- `sipcp query-product Compagnia` interroga yapo alla ricerca di tutti i prodotti dalla compagnia
   Compagnia. es: `sipcp query-product Apple` restituisce tutti i prodotti venduti dalla Apple
-- `sipcp query-subcompanies Compagnia` similare a quello prima, interroga il yapo restituendo tutte le
+- `sipcp query-subcompanies Compagnia` similare a quello prima, interroga yapo restituendo tutte le
   compagnie che lavorano per la compagnia Compagnia.
 - `sipcp myproducts User` effettua la ricerca di tutti i prodotti comprati da un utente nel catalogo, molto utile
   per il comando seguente
