@@ -266,7 +266,7 @@ dell'applicazione.
 
 ## Esportazione Turtle
 
-[L'esportazione Turtle si trova QUI](https://github.com/federicotorrielli/modsem/raw/master/Protege/turtle/yapo.owl)
+[L'esportazione Turtle si trova QUI](https://github.com/federicotorrielli/yapo/raw/master/Protege/turtle/yapo.owl)
 
 ---
 
