@@ -702,7 +702,7 @@ Come GraphDB possiamo effettuare query semantiche sulla KB e utilizzarle nelle p
 La piattaforma è stata installata manualmente su un server pubblico dotato di Ubuntu 20.10, fatto un setup di MySql,
 phpmyadmin e tutti gli strumenti necessari alla piattaforma per far lavorare il server senza intoppi.
 
-Il link è pubblicamente accessibile [QUI](http://51.210.104.53/omeka/s/product-catalog/)
+Il link è pubblicamente accessibile [QUI](http://51.210.104.53/omeka/s/yapo/)
 
 Dalla versione di base è stato modificato il tema pre-installato, giusto per dare un "tocco più e-commerce" alla
 piattaforma.
@@ -732,9 +732,9 @@ E poi, aggiunti degli items, come si può vedere nell'immagine:
 
 Sono state create delle pagine per contenere ognuna di queste liste:
 
-- [Brands page](http://51.210.104.53/omeka/s/product-catalog/page/brands)
-- [OutOfStock page](http://51.210.104.53/omeka/s/product-catalog/page/out-of-stock)
-- [InStock page](http://51.210.104.53/omeka/s/product-catalog/page/in-stock)
+- [Brands page](http://51.210.104.53/omeka/s/yapo/page/brands)
+- [OutOfStock page](http://51.210.104.53/omeka/s/yapo/page/out-of-stock)
+- [InStock page](http://51.210.104.53/omeka/s/yapo/page/in-stock)
 
 Come si può vedere, ogni pagina rimanda ad una lista di prodotti o brand che sono del dominio specificato.
 
