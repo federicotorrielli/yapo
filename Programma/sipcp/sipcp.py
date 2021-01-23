@@ -262,23 +262,26 @@ def show_results(results: dict, opt_column: str):
 
     # We initialize a cool progressbar that will be showed during slow online queries
     with typer.progressbar(results["results"]["bindings"], label="Progress") as progress:
-        for result in progress:
-            for res in colonna:
-                try:
-                    print(f"{result[res]['value']}", end=" || ")
-                except KeyError as kerr:
-                    typer.secho(f"La colonna {kerr.args[0]} non esiste!", fg=typer.colors.RED, err=True)
-            print("")
-            time.sleep(0.001)
+        if len(results["results"]["bindings"]) == 0:
+            typer.secho("Nessun dato disponibile, prova a modificare la query!", fg=typer.colors.RED)
+        else:
+            for result in progress:
+                for res in colonna:
+                    try:
+                        print(f"{result[res]['value']}", end=" || ")
+                    except KeyError as kerr:
+                        typer.secho(f"La colonna {kerr.args[0]} non esiste!", fg=typer.colors.RED, err=True)
+                print("")
+                time.sleep(0.001)
 
-    confirm = typer.confirm("Vuoi esportare i tuoi dati in un file?")
-    if confirm:
-        # If the user says so, we can output the results (even the columns that weren't shown)
-        file_name = input("Inserisci il nome del file: ")
-        with open(file_name, "w") as text_file:
-            pretty_output = yaml.dump(results, default_flow_style=False)
-            print(pretty_output, file=text_file)
-        typer.secho(f"File {file_name} correttamente creato!", fg=typer.colors.BRIGHT_GREEN)
+            confirm = typer.confirm("Vuoi esportare i tuoi dati in un file?")
+            if confirm:
+                # If the user says so, we can output the results (even the columns that weren't shown)
+                file_name = input("Inserisci il nome del file: ")
+                with open(file_name, "w") as text_file:
+                    pretty_output = yaml.dump(results, default_flow_style=False)
+                    print(pretty_output, file=text_file)
+                typer.secho(f"File {file_name} correttamente creato!", fg=typer.colors.BRIGHT_GREEN)
 
 
 def do_query(sqlery: str, opt_column: str = "", update=False, ask=False):
