@@ -241,7 +241,7 @@ tra dispositivi in modo da poter fare una scelta più accurata.
 
 ## Tassonomia delle classi
 
-![Tassonomia di progetto](https://i.postimg.cc/HWKvpPfY/tassonomia.png)
+![Tassonomia di progetto](https://i.postimg.cc/yd7kxbw8/Modsem-taxonomy.png)
 
 ## Template utilizzati per i dati (GraphDB)
 
